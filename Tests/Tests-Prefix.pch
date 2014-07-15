@@ -1,0 +1,20 @@
+//
+//  Tests.pch
+//  Created by Ty Cobb on 7/14/14.
+//
+
+#import <NavigationRouter/NavigationRouter-Prefix.pch>
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+#import <Specta/Specta.h>
+#import <Expecta/Expecta.h>
+
+#define EXP_SHORTHAND
+
+#endif

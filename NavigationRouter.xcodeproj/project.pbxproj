@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9629EE33E31046DFB5CA781C /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */; };
+		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
+		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
+		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
+		FBDDB500197475260051D149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB4FE197475260051D149 /* InfoPlist.strings */; };
+		FBDDB502197475260051D149 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB501197475260051D149 /* main.m */; };
+		FBDDB506197475260051D149 /* NAVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB505197475260051D149 /* NAVAppDelegate.m */; };
+		FBDDB508197475260051D149 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB507197475260051D149 /* Images.xcassets */; };
+		FBDDB50F197475260051D149 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB50E197475260051D149 /* XCTest.framework */; };
+		FBDDB510197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
+		FBDDB511197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
+		FBDDB519197475260051D149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB517197475260051D149 /* InfoPlist.strings */; };
+		FBDDB51B197475260051D149 /* NAVRouteBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */; };
+		FBDDB525197475510051D149 /* NAVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB524197475510051D149 /* NAVStoryboard.storyboard */; };
+		FBDDB551197477060051D149 /* NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB544197477060051D149 /* NAVRouter.m */; };
+		FBDDB5591974772E0051D149 /* NSURL+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */; };
+		FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB55E19747FA20051D149 /* NAVRoute.m */; };
+		FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB561197481080051D149 /* NAVRouteBuilder.m */; };
+		FBDDB565197488F20051D149 /* NAVRouteTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB564197488F20051D149 /* NAVRouteTransformer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBDDB512197475260051D149 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDDB4EA197475260051D149 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBDDB4F1197475260051D149;
+			remoteInfo = NavigationRouter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		109DE5C81974A710003AA60C /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		860187B03E6942E8B0898748 /* Pods-Test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.xcconfig"; path = "Pods/Pods-Test.xcconfig"; sourceTree = "<group>"; };
+		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FBDDB4F9197475260051D149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavigationRouter-Info.plist"; sourceTree = "<group>"; };
+		FBDDB4FF197475260051D149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDDB501197475260051D149 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBDDB503197475260051D149 /* NavigationRouter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavigationRouter-Prefix.pch"; sourceTree = "<group>"; };
+		FBDDB504197475260051D149 /* NAVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVAppDelegate.h; sourceTree = "<group>"; };
+		FBDDB505197475260051D149 /* NAVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVAppDelegate.m; sourceTree = "<group>"; };
+		FBDDB507197475260051D149 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FBDDB50D197475260051D149 /* Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Test.xctest; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDDB50E197475260051D149 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FBDDB516197475260051D149 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		FBDDB518197475260051D149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilderTests.m; sourceTree = "<group>"; };
+		FBDDB524197475510051D149 /* NAVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NAVStoryboard.storyboard; sourceTree = "<group>"; };
+		FBDDB543197477060051D149 /* NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter.h; sourceTree = "<group>"; };
+		FBDDB544197477060051D149 /* NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouter.m; sourceTree = "<group>"; };
+		FBDDB5571974772E0051D149 /* NSURL+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+NAVRouter.h"; sourceTree = "<group>"; };
+		FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NAVRouter.m"; sourceTree = "<group>"; };
+		FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterDelegate.h; sourceTree = "<group>"; };
+		FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterUpdater.h; sourceTree = "<group>"; };
+		FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterConstants.h; sourceTree = "<group>"; };
+		FBDDB55D19747FA20051D149 /* NAVRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRoute.h; sourceTree = "<group>"; };
+		FBDDB55E19747FA20051D149 /* NAVRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRoute.m; sourceTree = "<group>"; };
+		FBDDB560197481080051D149 /* NAVRouteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouteBuilder.h; sourceTree = "<group>"; };
+		FBDDB561197481080051D149 /* NAVRouteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilder.m; sourceTree = "<group>"; };
+		FBDDB563197488F20051D149 /* NAVRouteTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouteTransformer.h; sourceTree = "<group>"; };
+		FBDDB564197488F20051D149 /* NAVRouteTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteTransformer.m; sourceTree = "<group>"; };
+		FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBDDB4EF197475260051D149 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */,
+				FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */,
+				FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB50A197475260051D149 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB50F197475260051D149 /* XCTest.framework in Frameworks */,
+				FBDDB511197475260051D149 /* UIKit.framework in Frameworks */,
+				FBDDB510197475260051D149 /* Foundation.framework in Frameworks */,
+				9629EE33E31046DFB5CA781C /* libPods-Test.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FBDDB4E9197475260051D149 = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4FB197475260051D149 /* NavigationRouter */,
+				FBDDB514197475260051D149 /* Tests */,
+				FBDDB4F4197475260051D149 /* Frameworks */,
+				FBDDB4F3197475260051D149 /* Products */,
+				860187B03E6942E8B0898748 /* Pods-Test.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FBDDB4F3197475260051D149 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4F2197475260051D149 /* NavigationRouter.app */,
+				FBDDB50D197475260051D149 /* Test.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBDDB4F4197475260051D149 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4F5197475260051D149 /* Foundation.framework */,
+				FBDDB4F7197475260051D149 /* CoreGraphics.framework */,
+				FBDDB4F9197475260051D149 /* UIKit.framework */,
+				FBDDB50E197475260051D149 /* XCTest.framework */,
+				FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBDDB4FB197475260051D149 /* NavigationRouter */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB543197477060051D149 /* NAVRouter.h */,
+				FBDDB544197477060051D149 /* NAVRouter.m */,
+				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
+				FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */,
+				FBDDB55D19747FA20051D149 /* NAVRoute.h */,
+				FBDDB55E19747FA20051D149 /* NAVRoute.m */,
+				FBDDB560197481080051D149 /* NAVRouteBuilder.h */,
+				FBDDB561197481080051D149 /* NAVRouteBuilder.m */,
+				FBDDB563197488F20051D149 /* NAVRouteTransformer.h */,
+				FBDDB564197488F20051D149 /* NAVRouteTransformer.m */,
+				FBDDB5571974772E0051D149 /* NSURL+NAVRouter.h */,
+				FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */,
+				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
+				FBDDB5261974756F0051D149 /* Demo */,
+				FBDDB507197475260051D149 /* Images.xcassets */,
+				FBDDB4FC197475260051D149 /* Supporting Files */,
+			);
+			path = NavigationRouter;
+			sourceTree = "<group>";
+		};
+		FBDDB4FC197475260051D149 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */,
+				FBDDB4FE197475260051D149 /* InfoPlist.strings */,
+				FBDDB501197475260051D149 /* main.m */,
+				FBDDB503197475260051D149 /* NavigationRouter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBDDB514197475260051D149 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */,
+				FBDDB515197475260051D149 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		FBDDB515197475260051D149 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB516197475260051D149 /* Tests-Info.plist */,
+				FBDDB517197475260051D149 /* InfoPlist.strings */,
+				109DE5C81974A710003AA60C /* Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBDDB5261974756F0051D149 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB504197475260051D149 /* NAVAppDelegate.h */,
+				FBDDB505197475260051D149 /* NAVAppDelegate.m */,
+				FBDDB524197475510051D149 /* NAVStoryboard.storyboard */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBDDB4F1197475260051D149 /* NavigationRouter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "NavigationRouter" */;
+			buildPhases = (
+				FBDDB4EE197475260051D149 /* Sources */,
+				FBDDB4EF197475260051D149 /* Frameworks */,
+				FBDDB4F0197475260051D149 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NavigationRouter;
+			productName = NavigationRouter;
+			productReference = FBDDB4F2197475260051D149 /* NavigationRouter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FBDDB50C197475260051D149 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */,
+				FBDDB509197475260051D149 /* Sources */,
+				FBDDB50A197475260051D149 /* Frameworks */,
+				FBDDB50B197475260051D149 /* Resources */,
+				982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBDDB513197475260051D149 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = NavigationRouterTests;
+			productReference = FBDDB50D197475260051D149 /* Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBDDB4EA197475260051D149 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NAV;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Isobar;
+				TargetAttributes = {
+					FBDDB50C197475260051D149 = {
+						TestTargetID = FBDDB4F1197475260051D149;
+					};
+				};
+			};
+			buildConfigurationList = FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "NavigationRouter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FBDDB4E9197475260051D149;
+			productRefGroup = FBDDB4F3197475260051D149 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBDDB4F1197475260051D149 /* NavigationRouter */,
+				FBDDB50C197475260051D149 /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBDDB4F0197475260051D149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB500197475260051D149 /* InfoPlist.strings in Resources */,
+				FBDDB525197475510051D149 /* NAVStoryboard.storyboard in Resources */,
+				FBDDB508197475260051D149 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB50B197475260051D149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB519197475260051D149 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBDDB4EE197475260051D149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB506197475260051D149 /* NAVAppDelegate.m in Sources */,
+				FBDDB502197475260051D149 /* main.m in Sources */,
+				FBDDB551197477060051D149 /* NAVRouter.m in Sources */,
+				FBDDB5591974772E0051D149 /* NSURL+NAVRouter.m in Sources */,
+				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
+				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
+				FBDDB565197488F20051D149 /* NAVRouteTransformer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB509197475260051D149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB51B197475260051D149 /* NAVRouteBuilderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBDDB513197475260051D149 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBDDB4F1197475260051D149 /* NavigationRouter */;
+			targetProxy = FBDDB512197475260051D149 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FBDDB4FE197475260051D149 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDDB4FF197475260051D149 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBDDB517197475260051D149 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDDB518197475260051D149 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FBDDB51C197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FBDDB51D197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBDDB51F197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavigationRouter/NavigationRouter-Prefix.pch";
+				INFOPLIST_FILE = "NavigationRouter/NavigationRouter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBDDB520197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavigationRouter/NavigationRouter-Prefix.pch";
+				INFOPLIST_FILE = "NavigationRouter/NavigationRouter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FBDDB522197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860187B03E6942E8B0898748 /* Pods-Test.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Test/Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FBDDB523197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860187B03E6942E8B0898748 /* Pods-Test.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Test/Tests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "NavigationRouter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB51C197475260051D149 /* Debug */,
+				FBDDB51D197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "NavigationRouter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB51F197475260051D149 /* Debug */,
+				FBDDB520197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB522197475260051D149 /* Debug */,
+				FBDDB523197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBDDB4EA197475260051D149 /* Project object */;
+}
