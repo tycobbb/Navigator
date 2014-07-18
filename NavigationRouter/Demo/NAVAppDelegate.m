@@ -13,14 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NAVRouter *router = [NAVRouter new];
-    
-    [router updateRoutes:^(NAVRouteBuilder *route) {
-        route.to(@"home").as(NAVRouteTypeStack);
-        route.to(@"detail").as(NAVRouteTypeStack);
-        route.to(@"register").as(NAVRouteTypeModal);
-    }];
-    
     return YES;
 }
 

@@ -3,7 +3,6 @@
 //  Created by Ty Cobb on 7/14/14.
 //
 
-#import <NavigationRouter/NavigationRouter-Prefix.pch>
 #import <Availability.h>
 
 #ifndef __IPHONE_3_0
@@ -12,9 +11,9 @@
 
 #ifdef __OBJC__
 
+#define EXP_SHORTHAND
+
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
-
-#define EXP_SHORTHAND
 
 #endif
