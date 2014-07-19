@@ -1,5 +1,5 @@
 //
-//  NAVURLComponents.m
+//  NAVURL.m
 //  Created by Ty Cobb on 7/18/14.
 //
 
@@ -39,11 +39,13 @@
 
 - (NSArray *)parseComponentsFromPath:(NSString *)path
 {
-    if(!path.length)
+    // the path always begins with a '/', so this guards against that case as well as the nil
+    // and 0-length cases
+    if(path.length < 2)
         return @[ ];
     
     return path.split(@"/").map(^(NSString *component, NSInteger index) {
-        return [[NAVURLComponent alloc] initWithComponent:component index:index];
+        return [[NAVURLComponent alloc] initWithComponent:component index:index - 1];
     }).skip(1);
 }
 

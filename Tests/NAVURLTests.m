@@ -10,19 +10,11 @@ SpecBegin(NAVURLTest)
 describe(@"URL", ^{
     
     //
-    // Helpers
-    //
-    
-    NAVURL *(^NAVTestURL)(NSString *) = ^(NSString *path) {
-        return [NAVURL URLWithURL:[NSURL URLWithString:path] resolvingAgainstScheme:@"test"];
-    };
-    
-    //
     // Tests
     //
     
     it(@"should construct a host-only URL correctly", ^{
-        NAVURL *testURL = NAVTestURL(@"test://host1");
+        NAVURL *testURL = NAVTest.URL(@"test://host1");
         expect(testURL.nav_host.component).to.equal(@"host1");
         expect(testURL.nav_host.index).to.equal(0);
         expect(testURL.nav_components.count).to.equal(0);
@@ -30,18 +22,23 @@ describe(@"URL", ^{
     });
     
     it(@"should construct a URL with a path correctly", ^{
-        NAVURL *testURL = NAVTestURL(@"test://host1/comp1/comp2/");
+        NAVURL *testURL = NAVTest.URL(@"test://host1/comp1/comp2/");
         expect(testURL.nav_components.count).to.equal(2);
         expect(testURL[0].component).to.equal(@"comp1");
         expect(testURL[1].component).to.equal(@"comp2");
     });
     
     it(@"should construct a URL with a query string correctly", ^{
-        NAVURL *testURL = NAVTestURL(@"test://host/comp1/?param1=&param2=1");
+        NAVURL *testURL = NAVTest.URL(@"test://host/comp1/?param1=&param2=1");
         expect(testURL.nav_components.count).to.equal(1);
         expect(testURL.nav_parameters.count).to.equal(2);
         expect(testURL[@"param1"].options).to.equal(NAVParameterOptionsHidden);
         expect(testURL[@"param2"].options).to.equal(NAVParameterOptionsVisible);
+    });
+    
+    it(@"shouldn't generate a component after a trailing slash", ^{
+        expect(NAVTest.URL(@"test://host/").nav_components.count).to.equal(0);
+        expect(NAVTest.URL(@"test://host/comp1/").nav_components.count).to.equal(1);
     });
     
 });

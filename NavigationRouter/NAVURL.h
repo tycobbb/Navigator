@@ -1,5 +1,5 @@
 //
-//  NAVURLComponents.h
+//  NAVURL.h
 //  Created by Ty Cobb on 7/18/14.
 //
 
