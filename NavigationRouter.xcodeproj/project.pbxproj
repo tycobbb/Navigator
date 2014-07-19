@@ -11,12 +11,15 @@
 		109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */; };
 		109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D11974B8CA003AA60C /* NAVAttributes.m */; };
 		109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */; };
-		109DE5D81974C2EE003AA60C /* NAVURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D71974C2EE003AA60C /* NAVURLParser.m */; };
+		109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DA1979E689003AA60C /* NAVURLParser.m */; };
 		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
+		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
 		FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */; };
 		FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24851978697B00D63A7E /* NAVUpdate.m */; };
 		FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E248919786B6600D63A7E /* NAVAnimator.m */; };
 		FB7E24961978776E00D63A7E /* NAVURLParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24951978776E00D63A7E /* NAVURLParameter.m */; };
+		FB7E249B1979932E00D63A7E /* NAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E249A1979932E00D63A7E /* NAVURL.m */; };
+		FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E249D197995A000D63A7E /* NAVURLComponent.m */; };
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
 		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
@@ -31,7 +34,6 @@
 		FBDDB51B197475260051D149 /* NAVRouteBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */; };
 		FBDDB525197475510051D149 /* NAVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB524197475510051D149 /* NAVStoryboard.storyboard */; };
 		FBDDB551197477060051D149 /* NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB544197477060051D149 /* NAVRouter.m */; };
-		FBDDB5591974772E0051D149 /* NSURL+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */; };
 		FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB55E19747FA20051D149 /* NAVRoute.m */; };
 		FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB561197481080051D149 /* NAVRouteBuilder.m */; };
 /* End PBXBuildFile section */
@@ -54,8 +56,11 @@
 		109DE5D11974B8CA003AA60C /* NAVAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributes.m; sourceTree = "<group>"; };
 		109DE5D31974BACB003AA60C /* NSError+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+NAVRouter.h"; sourceTree = "<group>"; };
 		109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+NAVRouter.m"; sourceTree = "<group>"; };
-		109DE5D61974C2EE003AA60C /* NAVURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParser.h; sourceTree = "<group>"; };
-		109DE5D71974C2EE003AA60C /* NAVURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParser.m; sourceTree = "<group>"; };
+		109DE5D91979E689003AA60C /* NAVURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParser.h; sourceTree = "<group>"; };
+		109DE5DA1979E689003AA60C /* NAVURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParser.m; sourceTree = "<group>"; };
+		109DE5DC1979E6DF003AA60C /* NAVRouterParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterParser.h; sourceTree = "<group>"; };
+		25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2B706B74DA4549B2B09B0A21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		860187B03E6942E8B0898748 /* Pods-Test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.xcconfig"; path = "Pods/Pods-Test.xcconfig"; sourceTree = "<group>"; };
 		9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +73,11 @@
 		FB7E248919786B6600D63A7E /* NAVAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimator.m; sourceTree = "<group>"; };
 		FB7E24941978776E00D63A7E /* NAVURLParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParameter.h; sourceTree = "<group>"; };
 		FB7E24951978776E00D63A7E /* NAVURLParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParameter.m; sourceTree = "<group>"; };
+		FB7E24991979932E00D63A7E /* NAVURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURL.h; sourceTree = "<group>"; };
+		FB7E249A1979932E00D63A7E /* NAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURL.m; sourceTree = "<group>"; };
+		FB7E249C197995A000D63A7E /* NAVURLComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLComponent.h; sourceTree = "<group>"; };
+		FB7E249D197995A000D63A7E /* NAVURLComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLComponent.m; sourceTree = "<group>"; };
+		FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouter_Private.h; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,8 +97,6 @@
 		FBDDB524197475510051D149 /* NAVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NAVStoryboard.storyboard; sourceTree = "<group>"; };
 		FBDDB543197477060051D149 /* NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter.h; sourceTree = "<group>"; };
 		FBDDB544197477060051D149 /* NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouter.m; sourceTree = "<group>"; };
-		FBDDB5571974772E0051D149 /* NSURL+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+NAVRouter.h"; sourceTree = "<group>"; };
-		FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NAVRouter.m"; sourceTree = "<group>"; };
 		FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterDelegate.h; sourceTree = "<group>"; };
 		FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterUpdater.h; sourceTree = "<group>"; };
 		FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterConstants.h; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 				FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */,
 				FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */,
 				FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */,
+				755644A69AB449B9872FEC1F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +140,8 @@
 				FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */,
 				FB7E24841978697B00D63A7E /* NAVUpdate.h */,
 				FB7E24851978697B00D63A7E /* NAVUpdate.m */,
+				109DE5D91979E689003AA60C /* NAVURLParser.h */,
+				109DE5DA1979E689003AA60C /* NAVURLParser.m */,
 				109DE5D31974BACB003AA60C /* NSError+NAVRouter.h */,
 				109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */,
 			);
@@ -151,12 +162,12 @@
 		FB7E248D19786B8F00D63A7E /* URLs */ = {
 			isa = PBXGroup;
 			children = (
-				109DE5D61974C2EE003AA60C /* NAVURLParser.h */,
-				109DE5D71974C2EE003AA60C /* NAVURLParser.m */,
+				FB7E24991979932E00D63A7E /* NAVURL.h */,
+				FB7E249A1979932E00D63A7E /* NAVURL.m */,
+				FB7E249C197995A000D63A7E /* NAVURLComponent.h */,
+				FB7E249D197995A000D63A7E /* NAVURLComponent.m */,
 				FB7E24941978776E00D63A7E /* NAVURLParameter.h */,
 				FB7E24951978776E00D63A7E /* NAVURLParameter.m */,
-				FBDDB5571974772E0051D149 /* NSURL+NAVRouter.h */,
-				FBDDB5581974772E0051D149 /* NSURL+NAVRouter.m */,
 			);
 			name = URLs;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 				FBDDB4F3197475260051D149 /* Products */,
 				860187B03E6942E8B0898748 /* Pods-Test.xcconfig */,
 				AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */,
+				25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +203,7 @@
 				FBDDB50E197475260051D149 /* XCTest.framework */,
 				FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */,
 				9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */,
+				2B706B74DA4549B2B09B0A21 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -200,9 +213,11 @@
 			children = (
 				FBDDB543197477060051D149 /* NAVRouter.h */,
 				FBDDB544197477060051D149 /* NAVRouter.m */,
+				FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */,
 				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
-				FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */,
 				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
+				109DE5DC1979E6DF003AA60C /* NAVRouterParser.h */,
+				FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */,
 				109DE5D01974B8CA003AA60C /* NAVAttributes.h */,
 				109DE5D11974B8CA003AA60C /* NAVAttributes.m */,
 				FB7E248819786B6600D63A7E /* NAVAnimator.h */,
@@ -267,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "NavigationRouter" */;
 			buildPhases = (
+				5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */,
 				FBDDB4EE197475260051D149 /* Sources */,
 				FBDDB4EF197475260051D149 /* Frameworks */,
 				FBDDB4F0197475260051D149 /* Resources */,
+				6FC25331DAEA40C78833E02B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,6 +372,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +400,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FC25331DAEA40C78833E02B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */ = {
@@ -394,17 +441,18 @@
 			files = (
 				FBDDB506197475260051D149 /* NAVAppDelegate.m in Sources */,
 				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
+				109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */,
 				109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */,
+				FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */,
 				FBDDB502197475260051D149 /* main.m in Sources */,
 				FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */,
 				FBDDB551197477060051D149 /* NAVRouter.m in Sources */,
-				FBDDB5591974772E0051D149 /* NSURL+NAVRouter.m in Sources */,
-				109DE5D81974C2EE003AA60C /* NAVURLParser.m in Sources */,
 				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
 				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
 				FB7E24961978776E00D63A7E /* NAVURLParameter.m in Sources */,
 				FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */,
 				FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */,
+				FB7E249B1979932E00D63A7E /* NAVURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +570,7 @@
 		};
 		FBDDB51F197475260051D149 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -535,6 +584,7 @@
 		};
 		FBDDB520197475260051D149 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -3,16 +3,7 @@
 //  Created by Ty Cobb on 7/14/14.
 //
 
-#import "NAVRouter.h"
-#import "NAVTransaction.h"
-#import "NAVUpdate.h"
-#import "NSError+NAVRouter.h"
-
-#if NAVRouterLogLevel
-    #define NAVLog(_format, ...) NSLog(_format, __VA_LIST__)
-#else
-    #define NAVLog(_format, ...)
-#endif
+#import "NAVRouter_Private.h"
 
 @interface NAVRouter ()
 @property (copy  , nonatomic) NSString *scheme;
@@ -26,8 +17,13 @@
 - (instancetype)initWithScheme:(NSString *)scheme
 {
     NSParameterAssert(scheme);
+    
     if(self = [super init])
+    {
         _scheme = scheme;
+        _parser = [NAVURLParser new];
+    }
+    
     return self;
 }
 
@@ -67,6 +63,10 @@
 - (void)executeTransaction:(NAVTransaction *)transaction
 {
     self.currentTransaction = transaction;
+    
+    NSDictionary *components = [self.parser router:self componentsForTransitionFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    
+    NAVLog(@"%@", components);
 }
 
 //
@@ -78,11 +78,44 @@
     return self.currentTransaction != nil;
 }
 
+# pragma mark - Parsing
+
+- (void)components:(NSMutableDictionary *)components parseParametersFromURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL
+{
+//    NSDictionary *sourceParameters      = [sourceURL nav_parameters];
+//    NSDictionary *destinationParameters = [destinationURL nav_parameters];
+//    
+//    NSMutableArray *parametersToEnable  = [NSMutableArray new];
+//    NSMutableArray *parametersToDisable = [NSMutableArray new];
+//    
+//    NSSet *keySet = [self mergeKeysFromDictionary:sourceParameters andDictionary:destinationParameters];
+//    for(NSString *key in keySet)
+//    {
+//        NAVURLParameter *sourceParamater      = sourceParameters[key];
+//        NAVURLParameter *destinationParamater = destinationParameters[key];
+//        
+//        if(!sourceParamater.isVisible && destinationParamater.isVisible)
+//            [parametersToEnable addObject:destinationParamater];
+//        else if(sourceParamater.isVisible && !destinationParamater.isVisible)
+//            [parametersToDisable addObject:destinationParamater ?: sourceParamater];
+//    }
+//    
+//    components[NAVURLKeyParametersToEnable]  = parametersToEnable;
+//    components[NAVURLKeyParametersToDisable] = parametersToDisable;
+}
+
+- (NSSet *)mergeKeysFromDictionary:(NSDictionary *)dictionary andDictionary:(NSDictionary *)otherDictionary
+{
+    NSMutableSet *keySet = [[NSMutableSet alloc] initWithArray:dictionary.allKeys];
+    [keySet addObjectsFromArray:otherDictionary.allKeys];
+    return [keySet copy];
+}
+
 # pragma mark - Update Generation
 
 - (NSArray *)updatesForTransaction:(NAVTransaction *)transaction
 {
-    switch(transaction.URLType)
+    switch(transaction.destinationURL.type)
     {
         case NAVURLTypeInternal:
             return [self updatesForInternalTransaction:transaction];
@@ -95,9 +128,6 @@
 {
 //    NSString *externalScheme = transaction.destinationURL.scheme;
 //    NAVRoute *externalRoute  = [self routeForKey:externalScheme];
-
-    
-    
     
     return @[ ];
 }
@@ -136,3 +166,9 @@
 
 NSString * const NAVRouterDidUpdateURLNotification = @"NAVRouterDidUpdateURLNotification";
 NSString * const NAVRouterNotificationURLKey       = @"NAVRouterNotificationURLKey";
+
+NSString * const NAVURLKeyComponentToReplace  = @"NAVURLKeyComponentToReplace";
+NSString * const NAVURLKeyComponentsToPush    = @"NAVURLKeyComponentsToPush";
+NSString * const NAVURLKeyComponentsToPop     = @"NAVURLKeyComponentsToPop";
+NSString * const NAVURLKeyParametersToEnable  = @"NAVURLKeyParametersToEnable";
+NSString * const NAVURLKeyParametersToDisable = @"NAVURLKeyParametersToDisable";

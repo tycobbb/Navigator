@@ -1,13 +1,172 @@
 PODS:
   - Expecta (0.3.1)
   - Specta (0.2.1)
+  - YOLOKit (11):
+    - YOLOKit/all
+    - YOLOKit/any
+    - YOLOKit/array
+    - YOLOKit/base
+    - YOLOKit/chunk
+    - YOLOKit/concat
+    - YOLOKit/dict
+    - YOLOKit/each
+    - YOLOKit/extend
+    - YOLOKit/find
+    - YOLOKit/first
+    - YOLOKit/flatMap
+    - YOLOKit/flatten
+    - YOLOKit/get
+    - YOLOKit/groupBy
+    - YOLOKit/has
+    - YOLOKit/indexOf
+    - YOLOKit/inject
+    - YOLOKit/join
+    - YOLOKit/last
+    - YOLOKit/map
+    - YOLOKit/max
+    - YOLOKit/min
+    - YOLOKit/none
+    - YOLOKit/partition
+    - YOLOKit/pick
+    - YOLOKit/pluck
+    - YOLOKit/pmap
+    - YOLOKit/pop
+    - YOLOKit/push
+    - YOLOKit/reduce
+    - YOLOKit/reverse
+    - YOLOKit/rotate
+    - YOLOKit/sample
+    - YOLOKit/select
+    - YOLOKit/shift
+    - YOLOKit/shuffle
+    - YOLOKit/skip
+    - YOLOKit/slice
+    - YOLOKit/snip
+    - YOLOKit/sort
+    - YOLOKit/split
+    - YOLOKit/transpose
+    - YOLOKit/uniq
+    - YOLOKit/unshift
+    - YOLOKit/upTo
+    - YOLOKit/without
+  - YOLOKit/all (11):
+    - YOLOKit/base
+  - YOLOKit/any (11):
+    - YOLOKit/base
+  - YOLOKit/array (11):
+    - YOLOKit/base
+  - YOLOKit/base (11)
+  - YOLOKit/chunk (11):
+    - YOLOKit/base
+    - YOLOKit/slice
+  - YOLOKit/concat (11):
+    - YOLOKit/base
+  - YOLOKit/dict (11):
+    - YOLOKit/base
+    - YOLOKit/transpose
+  - YOLOKit/each (11):
+    - YOLOKit/base
+  - YOLOKit/extend (11):
+    - YOLOKit/base
+  - YOLOKit/find (11):
+    - YOLOKit/base
+  - YOLOKit/first (11):
+    - YOLOKit/base
+    - YOLOKit/slice
+  - YOLOKit/flatMap (11):
+    - YOLOKit/base
+  - YOLOKit/flatten (11):
+    - YOLOKit/base
+  - YOLOKit/get (11):
+    - YOLOKit/base
+  - YOLOKit/groupBy (11):
+    - YOLOKit/base
+  - YOLOKit/has (11):
+    - YOLOKit/base
+  - YOLOKit/indexOf (11):
+    - YOLOKit/base
+  - YOLOKit/inject (11):
+    - YOLOKit/base
+  - YOLOKit/join (11):
+    - YOLOKit/base
+    - YOLOKit/pluck
+  - YOLOKit/last (11):
+    - YOLOKit/base
+    - YOLOKit/slice
+  - YOLOKit/map (11):
+    - YOLOKit/base
+  - YOLOKit/max (11):
+    - YOLOKit/base
+  - YOLOKit/min (11):
+    - YOLOKit/base
+  - YOLOKit/none (11):
+    - YOLOKit/base
+  - YOLOKit/partition (11):
+    - YOLOKit/base
+  - YOLOKit/pick (11):
+    - YOLOKit/base
+  - YOLOKit/pluck (11):
+    - YOLOKit/base
+  - YOLOKit/pmap (11):
+    - YOLOKit/base
+  - YOLOKit/pop (11):
+    - YOLOKit/base
+  - YOLOKit/push (11):
+    - YOLOKit/base
+  - YOLOKit/reduce (11):
+    - YOLOKit/base
+    - YOLOKit/last
+  - YOLOKit/reverse (11):
+    - YOLOKit/base
+  - YOLOKit/rotate (11):
+    - YOLOKit/base
+    - YOLOKit/concat
+    - YOLOKit/skip
+    - YOLOKit/snip
+  - YOLOKit/sample (11):
+    - YOLOKit/base
+  - YOLOKit/select (11):
+    - YOLOKit/base
+  - YOLOKit/shift (11):
+    - YOLOKit/base
+  - YOLOKit/shuffle (11):
+    - YOLOKit/base
+  - YOLOKit/skip (11):
+    - YOLOKit/base
+    - YOLOKit/last
+  - YOLOKit/slice (11):
+    - YOLOKit/base
+  - YOLOKit/snip (11):
+    - YOLOKit/base
+    - YOLOKit/slice
+  - YOLOKit/sort (11):
+    - YOLOKit/all
+    - YOLOKit/base
+    - YOLOKit/transpose
+  - YOLOKit/split (11):
+    - YOLOKit/base
+  - YOLOKit/transpose (11):
+    - YOLOKit/base
+    - YOLOKit/each
+    - YOLOKit/max
+    - YOLOKit/select
+  - YOLOKit/uniq (11):
+    - YOLOKit/base
+  - YOLOKit/unshift (11):
+    - YOLOKit/base
+  - YOLOKit/upTo (11):
+    - YOLOKit/base
+  - YOLOKit/without (11):
+    - YOLOKit/base
 
 DEPENDENCIES:
   - Expecta (~> 0.3)
   - Specta (~> 0.2)
+  - YOLOKit (~> 11)
 
 SPEC CHECKSUMS:
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  YOLOKit: e83d381f83f33f2b66abf6fe0249fca57b05a541
 
 COCOAPODS: 0.33.1

@@ -4,18 +4,20 @@
 //
 
 #import "NAVRouterDelegate.h"
+#import "NAVRouterParser.h"
 #import "NAVRouterUpdater.h"
 #import "NAVRouterFactory.h"
 #import "NAVRouteBuilder.h"
 #import "NAVAttributes.h"
 
-#define NAVRouterLogLevel 0
+#define NAVRouterLogLevel 1
 
 @interface NAVRouter : NSObject
 
 @property (weak  , nonatomic) id<NAVRouterDelegate> delegate;
 @property (weak  , nonatomic) id<NAVRouterUpdater> updater;
-@property (weak  , nonatomic) id<NAVRouterFactory> factory;
+@property (strong, nonatomic) id<NAVRouterParser> parser;
+@property (strong, nonatomic) id<NAVRouterFactory> factory;
 
 @property (copy  , nonatomic, readonly) NSString *scheme;
 @property (copy  , nonatomic, readonly) NSURL *currentURL;

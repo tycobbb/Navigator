@@ -1,15 +1,10 @@
 //
 //  NAVURLParser.h
-//  Created by Ty Cobb on 7/14/14.
+//  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVURLParameter.h"
+#import "NAVRouterParser.h"
 
-@interface NAVURLParser : NSObject
-
-+ (instancetype)defaultParser;
-
-- (NSDictionary *)parametersFromQuery:(NSString *)query;
-- (NSString *)queryFromParameters:(NSDictionary *)parameters;
+@interface NAVURLParser : NSObject <NAVRouterParser>
 
 @end

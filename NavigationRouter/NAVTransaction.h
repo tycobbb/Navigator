@@ -4,18 +4,15 @@
 //
 
 #import "NAVAttributes.h"
-#import "NSURL+NAVRouter.h"
+#import "NAVURL.h"
 
 @interface NAVTransaction : NSObject
 
 @property (strong, nonatomic, readonly) NAVAttributes *attributes;
-@property (assign, nonatomic, readonly) NAVURLType URLType;
-
-@property (copy  , nonatomic, readonly) NSArray *parametersToEnable;
-@property (copy  , nonatomic, readonly) NSArray *parametersToDisable;
+@property (strong, nonatomic, readonly) NAVURL *sourceURL;
+@property (strong, nonatomic, readonly) NAVURL *destinationURL;
 
 @property (assign, nonatomic) BOOL isAnimated;
-@property (copy  , nonatomic) NSArray *updates;
 @property (copy  , nonatomic) void(^completion)(void);
 
 - (instancetype)initWithAttributes:(NAVAttributes *)attributes scheme:(NSString *)scheme;
