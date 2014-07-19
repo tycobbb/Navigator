@@ -76,9 +76,15 @@ describe(@"Parser", ^{
         expect(component2.component).to.equal(@"comp2");
     });
     
-    it(@"shouldn not parse pops if there are none", ^{
+    it(@"should not parse pops if there are none", ^{
         NSDictionary *result = NAVTestParse(@"test://host1/", @"test://host1/host2");
         expect([result[NAVURLKeyComponentsToPop] count]).to.equal(0);
+    });
+    
+    it(@"should parse a component switch correctly", ^{
+        NSDictionary *result = NAVTestParse(@"test://host1/comp1", @"test://host1/comp2/");
+        expect([result[NAVURLKeyComponentsToPop] count]).to.equal(1);
+        expect([result[NAVURLKeyComponentsToPush] count]).to.equal(1);
     });
     
 });
