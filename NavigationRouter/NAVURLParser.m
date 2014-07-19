@@ -68,7 +68,7 @@
     return destinationURL.nav_parameters.allKeys.map(^(NSString *key) {
         NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
         NAVURLParameter *destinationParamater = destinationURL.nav_parameters[key];
-        return !sourceParameter.isVisible && destinationParamater.isVisible;
+        return !sourceParameter.isVisible && destinationParamater.isVisible ? destinationParamater : nil;
     });
 }
 
@@ -78,7 +78,7 @@
     return keySet.map(^(NSString *key) {
         NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
         NAVURLParameter *destinationParameter = destinationURL.nav_parameters[key];
-        return sourceParameter.isVisible && !destinationParameter.isVisible;
+        return sourceParameter.isVisible && !destinationParameter.isVisible ? sourceParameter : nil;
     });
 }
 

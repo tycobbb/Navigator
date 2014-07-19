@@ -87,6 +87,22 @@ describe(@"Parser", ^{
         expect([result[NAVURLKeyComponentsToPush] count]).to.equal(1);
     });
     
+    it(@"should enable parameters correctly", ^{
+        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=1", @"test://host/comp?p1=2&p2=2");
+        expect([result[NAVURLKeyParametersToEnable] count]).to.equal(2);
+    });
+    
+    it(@"should disable parameters correctly", ^{
+        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=2&p2=2", @"test://host/comp?p1=1");
+        expect([result[NAVURLKeyParametersToDisable] count]).to.equal(2);
+    });
+    
+    it(@"should not change parameters unnecessarily", ^{
+        NSDictionary *result = NAVTestParse(@"test://host/comp?p1=1&p2=2", @"test://host/comp?p2=2");
+        expect([result[NAVURLKeyParametersToEnable] count]).to.equal(0);
+        expect([result[NAVURLKeyParametersToDisable] count]).to.equal(0);
+    });
+    
 });
 
 SpecEnd
