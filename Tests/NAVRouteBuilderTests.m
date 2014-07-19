@@ -5,7 +5,7 @@
 
 #import "NAVRouteBuilder.h"
 
-SpecBegin(RouteBuilderTests)
+SpecBegin(NAVRouteBuilderTest)
 
 describe(@"Route Builder", ^{
    

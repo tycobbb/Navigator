@@ -4,9 +4,9 @@
 //
 
 typedef NS_ENUM(NSInteger, NAVParameterOptions) {
-    NAVParameterOptionsHidden   = 1 << 0,
-    NAVParameterOptionsVisible  = 1 << 1,
-    NAVParameterOptionsAnimated = 1 << 2,
+    NAVParameterOptionsHidden     = 0,
+    NAVParameterOptionsVisible    = 1 << 0,
+    NAVParameterOptionsUnanimated = 1 << 1,
 };
 
 @interface NAVURLParameter : NSObject

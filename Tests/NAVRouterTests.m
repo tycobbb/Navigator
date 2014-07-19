@@ -5,7 +5,7 @@
 
 #import "NAVRouter.h"
 
-SpecBegin(NAVRouterTests)
+SpecBegin(NAVRouterTest)
 
 describe(@"Router", ^{
     

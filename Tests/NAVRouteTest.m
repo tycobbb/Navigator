@@ -5,7 +5,7 @@
 
 #import "NAVRoute.h"
 
-SpecBegin(RouteTests)
+SpecBegin(NAVRouteTest)
 
 describe(@"Route", ^{
     

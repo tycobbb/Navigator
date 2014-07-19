@@ -11,7 +11,7 @@ typedef NS_ENUM(SInt32, NAVURLType) {
     NAVURLTypeExternal
 };
 
-@interface NAVURL : NSURLComponents
+@interface NAVURL : NSURL
 
 @property (assign, nonatomic, readonly) NAVURLType type;
 @property (strong, nonatomic, readonly) NAVURLComponent *nav_host;
@@ -19,5 +19,12 @@ typedef NS_ENUM(SInt32, NAVURLType) {
 @property (strong, nonatomic, readonly) NSDictionary *nav_parameters;
 
 + (instancetype)URLWithURL:(NSURL *)url resolvingAgainstScheme:(NSString *)scheme;
+- (instancetype)initWithURL:(NSURL *)url resolvingAgainstscheme:(NSString *)scheme;
+
+- (NAVURLComponent *)nav_componentAtIndex:(NSInteger)index;
+- (NAVURLParameter *)nav_parameterForKey:(NSString *)key;
+
+- (NAVURLComponent *)objectAtIndexedSubscript:(NSInteger)index;
+- (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key;
 
 @end

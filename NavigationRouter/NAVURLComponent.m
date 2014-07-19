@@ -18,6 +18,15 @@
     return self;
 }
 
+# pragma mark - Description
+
+- (NSString *)description
+{
+    return [[super description] stringByAppendingFormat:@" %d: %@", self.index, self.component];
+}
+
+# pragma mark - Equality
+
 - (BOOL)isEqual:(id)object
 {
     if(![object isKindOfClass:[NAVURLComponent class]])
