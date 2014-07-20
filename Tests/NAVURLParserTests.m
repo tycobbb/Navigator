@@ -88,17 +88,17 @@ describe(@"Parser", ^{
     });
     
     it(@"should enable parameters correctly", ^{
-        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=1", @"test://host/comp?p1=2&p2=2");
+        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=0", @"test://host/comp?p1=1&p2=1");
         expect([result[NAVURLKeyParametersToEnable] count]).to.equal(2);
     });
     
     it(@"should disable parameters correctly", ^{
-        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=2&p2=2", @"test://host/comp?p1=1");
+        NSDictionary *result = NAVTestParse(@"test://host/comp/?p1=1&p2=1", @"test://host/comp?p1=0");
         expect([result[NAVURLKeyParametersToDisable] count]).to.equal(2);
     });
     
     it(@"should not change parameters unnecessarily", ^{
-        NSDictionary *result = NAVTestParse(@"test://host/comp?p1=1&p2=2", @"test://host/comp?p2=2");
+        NSDictionary *result = NAVTestParse(@"test://host/comp?p1=0&p2=1", @"test://host/comp?p2=1");
         expect([result[NAVURLKeyParametersToEnable] count]).to.equal(0);
         expect([result[NAVURLKeyParametersToDisable] count]).to.equal(0);
     });

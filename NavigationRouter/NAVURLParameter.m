@@ -23,4 +23,23 @@
     return self.options & NAVParameterOptionsVisible;
 }
 
+# pragma mark - Description
+
+- (NSString *)description
+{
+    return [[super description] stringByAppendingFormat:@" %@: %@", self.component, [self stringFromOptions:self.options]];
+}
+
+- (NSString *)stringFromOptions:(NAVParameterOptions)options
+{
+    NSMutableString *optionString = [NSMutableString new];
+    if(options & NAVParameterOptionsHidden)
+        [optionString appendString:@"h"];
+    if(options & NAVParameterOptionsVisible)
+        [optionString appendString:@"v"];
+    if(options & NAVParameterOptionsUnanimated)
+        [optionString appendString:@"u"];
+    return [optionString copy];
+}
+
 @end
