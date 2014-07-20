@@ -7,27 +7,19 @@
 
 @implementation NAVURLParser
 
-- (NSDictionary *)router:(NAVRouter *)router componentsForTransitionFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NAVURLTransitionComponents *)router:(NAVRouter *)router transitionComponentsFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
 {
     NAVURLComponent *divergentComponent = [self divergentComponentFromURL:sourceURL toURL:destinationURL];
     NSInteger sourceDelta      = [self deltaForComponents:sourceURL.nav_components fromDivergentComponent:divergentComponent];
     NSInteger destinationDelta = [self deltaForComponents:destinationURL.nav_components fromDivergentComponent:divergentComponent];
     
-    NAVURLComponent *hostToReplace = [divergentComponent isEqual:destinationURL.nav_host] ? destinationURL.nav_host : nil;
-    NSArray *componentsToPop  = hostToReplace ? @[ ] : sourceURL.nav_components.last(sourceDelta);
-    NSArray *componentsToPush = destinationURL.nav_components.last(destinationDelta);
-    
-    // we'll always have lists for parameters and push/pop components, even if they're empty
-    NSMutableDictionary *components = [@{
-        NAVURLKeyParametersToEnable  : [self paramatersToEnableFromURL:sourceURL toURL:destinationURL],
-        NAVURLKeyParametersToDisable : [self paramatersToDisableFromURL:sourceURL toURL:destinationURL],
-        NAVURLKeyComponentsToPop     : componentsToPop,
-        NAVURLKeyComponentsToPush    : componentsToPush,
-    } mutableCopy];
-    
-    // we might have a host, if it needs replacing
-    [components setValue:hostToReplace forKey:NAVURLKeyComponentToReplace];
-    
+    NAVURLTransitionComponents *components = [NAVURLTransitionComponents new];
+    components.componentToReplace  = [divergentComponent isEqual:destinationURL.nav_host] ? destinationURL.nav_host : nil;
+    components.componentsToPop     = components.componentToReplace ? @[ ] : sourceURL.nav_components.last(sourceDelta);
+    components.componentsToPush    = destinationURL.nav_components.last(destinationDelta);
+    components.parametersToEnable  = [self paramatersToEnableFromURL:sourceURL toURL:destinationURL];
+    components.parametersToDisable = [self paramatersToDisableFromURL:sourceURL toURL:destinationURL];
+
     return components;
 }
 

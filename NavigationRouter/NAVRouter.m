@@ -6,7 +6,6 @@
 #import "NAVRouter_Private.h"
 
 @interface NAVRouter ()
-@property (copy  , nonatomic) NSString *scheme;
 @property (copy  , nonatomic) NSURL *currentURL;
 @property (strong, nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
@@ -20,8 +19,8 @@
     
     if(self = [super init])
     {
-        _scheme = scheme;
-        _parser = [NAVURLParser new];
+        _currentURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
+        _parser     = [NAVURLParser new];
     }
     
     return self;
@@ -64,9 +63,11 @@
 {
     self.currentTransaction = transaction;
     
-    NSDictionary *components = [self.parser router:self componentsForTransitionFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    NAVURLTransitionComponents *components =
+        [self.parser router:self transitionComponentsFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    NSArray *updates = [self updatesFromTransitionComponents:components];
     
-    NAVLog(@"%@", components);
+    NAVLog(@"%@", updates);
 }
 
 //
@@ -78,64 +79,37 @@
     return self.currentTransaction != nil;
 }
 
-# pragma mark - Parsing
-
-- (void)components:(NSMutableDictionary *)components parseParametersFromURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL
-{
-//    NSDictionary *sourceParameters      = [sourceURL nav_parameters];
-//    NSDictionary *destinationParameters = [destinationURL nav_parameters];
-//    
-//    NSMutableArray *parametersToEnable  = [NSMutableArray new];
-//    NSMutableArray *parametersToDisable = [NSMutableArray new];
-//    
-//    NSSet *keySet = [self mergeKeysFromDictionary:sourceParameters andDictionary:destinationParameters];
-//    for(NSString *key in keySet)
-//    {
-//        NAVURLParameter *sourceParamater      = sourceParameters[key];
-//        NAVURLParameter *destinationParamater = destinationParameters[key];
-//        
-//        if(!sourceParamater.isVisible && destinationParamater.isVisible)
-//            [parametersToEnable addObject:destinationParamater];
-//        else if(sourceParamater.isVisible && !destinationParamater.isVisible)
-//            [parametersToDisable addObject:destinationParamater ?: sourceParamater];
-//    }
-//    
-//    components[NAVURLKeyParametersToEnable]  = parametersToEnable;
-//    components[NAVURLKeyParametersToDisable] = parametersToDisable;
-}
-
-- (NSSet *)mergeKeysFromDictionary:(NSDictionary *)dictionary andDictionary:(NSDictionary *)otherDictionary
-{
-    NSMutableSet *keySet = [[NSMutableSet alloc] initWithArray:dictionary.allKeys];
-    [keySet addObjectsFromArray:otherDictionary.allKeys];
-    return [keySet copy];
-}
-
 # pragma mark - Update Generation
 
-- (NSArray *)updatesForTransaction:(NAVTransaction *)transaction
+- (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components
 {
-    switch(transaction.destinationURL.type)
-    {
-        case NAVURLTypeInternal:
-            return [self updatesForInternalTransaction:transaction];
-        case NAVURLTypeExternal:
-            return [self updatesForExternalTransaction:transaction];
-    }
+    NSMutableArray *updates = [NSMutableArray new];
+    for(NAVURLParameter *parameter in components.parametersToDisable)
+        [updates addObject:[self updateForParameter:parameter]];
+    
+    if(components.componentToReplace)
+        [updates addObject:[self updateForComponent:components.componentToReplace]];
+    
+    for(NAVURLComponent *component in components.componentsToPop)
+        [updates addObject:[self updateForComponent:component]];
+    
+    for(NAVURLComponent *component in components.componentsToPush)
+        [updates addObject:[self updateForComponent:component]];
+    
+    for(NAVURLParameter *parameter in components.parametersToEnable)
+        [updates addObject:[self updateForParameter:parameter]];
+    
+    return updates;
 }
 
-- (NSArray *)updatesForExternalTransaction:(NAVTransaction *)transaction
+- (NAVUpdate *)updateForComponent:(NAVURLComponent *)component
 {
-//    NSString *externalScheme = transaction.destinationURL.scheme;
-//    NAVRoute *externalRoute  = [self routeForKey:externalScheme];
-    
-    return @[ ];
+    return [NAVUpdate new];
 }
 
-- (NSArray *)updatesForInternalTransaction:(NAVTransaction *)transaction
+- (NAVUpdate *)updateForParameter:(NAVURLParameter *)parameter
 {
-    
-    return nil;
+    return [NAVUpdate new];
 }
 
 # pragma mark - Error Checking
@@ -155,6 +129,11 @@
     return _attributesClass ?: [NAVAttributes class];
 }
 
+- (NSString *)scheme
+{
+    return self.currentURL.scheme;
+}
+
 - (NAVRoute *)routeForKey:(NSString *)key
 {
     return self.routes[key];
@@ -167,8 +146,8 @@
 NSString * const NAVRouterDidUpdateURLNotification = @"NAVRouterDidUpdateURLNotification";
 NSString * const NAVRouterNotificationURLKey       = @"NAVRouterNotificationURLKey";
 
-NSString * const NAVURLKeyComponentToReplace  = @"NAVURLKeyComponentToReplace";
-NSString * const NAVURLKeyComponentsToPush    = @"NAVURLKeyComponentsToPush";
-NSString * const NAVURLKeyComponentsToPop     = @"NAVURLKeyComponentsToPop";
-NSString * const NAVURLKeyParametersToEnable  = @"NAVURLKeyParametersToEnable";
-NSString * const NAVURLKeyParametersToDisable = @"NAVURLKeyParametersToDisable";
+NSString * const NAVComponentsToReplaceKey  = @"NAVComponentsToReplaceKey";
+NSString * const NAVComponentsToPushKey    = @"NAVComponentsToPushKey";
+NSString * const NAVComponentsToPopKey     = @"NAVComponentsToPopKey";
+NSString * const NAVParametersToEnableKey  = @"NAVParametersToEnableKey";
+NSString * const NAVParametersToDisableKey = @"NAVParametersToDisableKey";

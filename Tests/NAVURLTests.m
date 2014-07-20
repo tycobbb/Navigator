@@ -36,7 +36,7 @@ describe(@"URL", ^{
         expect(testURL[@"param2"].options).to.equal(NAVParameterOptionsVisible);
     });
     
-    it(@"shouldn't generate a component after a trailing slash", ^{
+    it(@"should not generate a component after a trailing slash", ^{
         expect(NAVTest.URL(@"test://host/").nav_components.count).to.equal(0);
         expect(NAVTest.URL(@"test://host/comp1/").nav_components.count).to.equal(1);
     });

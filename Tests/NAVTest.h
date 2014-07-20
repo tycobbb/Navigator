@@ -9,3 +9,7 @@
 + (NAVURL *(^)(NSString *))URL;
 + (NSString *)scheme;
 @end
+
+@interface NSURL (Test)
++ (instancetype)URLWithFormat:(NSString *)format, ...;
+@end

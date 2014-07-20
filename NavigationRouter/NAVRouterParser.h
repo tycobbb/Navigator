@@ -4,19 +4,20 @@
 //
 
 #import "NAVURL.h"
+#import "NAVURLTransitionComponents.h"
 
 @class NAVRouter;
 
 @protocol NAVRouterParser <NSObject>
-- (NSDictionary *)router:(NAVRouter *)router componentsForTransitionFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
+- (NAVURLTransitionComponents *)router:(NAVRouter *)router transitionComponentsFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
 @end
 
 //
 // URL Parsing Components
 //
 
-extern NSString * const NAVURLKeyComponentToReplace;
-extern NSString * const NAVURLKeyComponentsToPush;
-extern NSString * const NAVURLKeyComponentsToPop;
-extern NSString * const NAVURLKeyParametersToEnable;
-extern NSString * const NAVURLKeyParametersToDisable;
+extern NSString * const NAVComponentsToReplaceKey;
+extern NSString * const NAVComponentsToPushKey;
+extern NSString * const NAVComponentsToPopKey;
+extern NSString * const NAVParametersToEnableKey;
+extern NSString * const NAVParametersToDisableKey;

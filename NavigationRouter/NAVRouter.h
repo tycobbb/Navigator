@@ -26,9 +26,7 @@
 @property (strong, nonatomic) Class attributesClass;
 
 - (instancetype)initWithScheme:(NSString *)scheme;
-
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock;
-
 - (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
 
 @end
