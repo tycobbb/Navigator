@@ -28,7 +28,7 @@
     if(_type != NAVURLTypeInternal)
         return;
     
-    _nav_host = self.host ? [[NAVURLComponent alloc] initWithComponent:self.host index:0] : nil;
+    _nav_host = self.host ? [[NAVURLComponent alloc] initWithKey:self.host index:0] : nil;
     _nav_components = [self parseComponentsFromPath:self.path];
     _nav_parameters = [self parseParamatersFromQuery:self.query];
 }
@@ -45,7 +45,7 @@
         return @[ ];
     
     return path.split(@"/").map(^(NSString *component, NSInteger index) {
-        return [[NAVURLComponent alloc] initWithComponent:component index:index - 1];
+        return [[NAVURLComponent alloc] initWithKey:component index:index - 1];
     }).skip(1);
 }
 
@@ -57,7 +57,7 @@
     // TODO: this is unsafe if there is no the component is nil (ie. parameter is "=")
     return query.split(@"&").map(^(NSString *parameter) {
         NSMutableArray *pair = [parameter.split(@"=") mutableCopy];
-        pair[1] = [[NAVURLParameter alloc] initWithComponent:pair[0] options:pair[1]];
+        pair[1] = [[NAVURLParameter alloc] initWithKey:pair[0] options:pair[1]];
         return pair;
     }).dict;
 }

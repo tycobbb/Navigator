@@ -4,6 +4,7 @@
 //
 
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
+    NAVUpdateTypeUnknown,
     NAVUpdateTypePush,
     NAVUpdateTypePop,
     NAVUpdateTypeReplace,
@@ -12,18 +13,15 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 };
 
 #import "NAVRoute.h"
-#import "NAVRouterFactory.h"
 #import "NAVRouterUpdater.h"
 
 @interface NAVUpdate : NSObject
 
 @property (strong, nonatomic, readonly) NAVRoute *route;
 @property (assign, nonatomic, readonly) NAVUpdateType type;
-
-@property (assign, nonatomic) BOOL isAsynchronous;
+@property (assign, nonatomic) BOOL isAnimated;
 
 + (instancetype)updateWithType:(NAVUpdateType)type route:(NAVRoute *)route;
-- (void)configureWithFactory:(id<NAVRouterFactory>)factory;
-- (void)executeWithUpdater:(id<NAVRouterUpdater>)updater completion:(void(^)(BOOL finished))completion;
+- (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void(^)(BOOL finished))completion;
 
 @end

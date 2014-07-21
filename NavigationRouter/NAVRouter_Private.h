@@ -5,6 +5,7 @@
 
 #import "NAVRouter.h"
 #import "NAVUpdate.h"
+#import "NAVUpdateBuilder.h"
 #import "NAVTransaction.h"
 #import "NAVURLParser.h"
 #import "NAVRouterConstants.h"
@@ -17,7 +18,5 @@
 #endif
 
 @interface NAVRouter (Updates)
-- (NSArray   *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
-- (NAVUpdate *)updateWithParameter:(NAVURLParameter *)parameter;
-- (NAVUpdate *)updateWithType:(NAVUpdateType)type component:(NAVURLComponent *)component;
+- (NSArray *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
 @end
