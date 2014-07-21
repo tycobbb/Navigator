@@ -5,8 +5,7 @@
 
 typedef NS_ENUM(NSInteger, NAVRouteType) {
     NAVRouteTypeUnknown,
-    NAVRouteTypeRoot,
-    NAVRouteTypeDetail,
+    NAVRouteTypeStack,
     NAVRouteTypeAnimation,
     NAVRouteTypeModal,
     NAVRouteTypeExternal,

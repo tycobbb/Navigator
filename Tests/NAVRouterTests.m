@@ -18,8 +18,8 @@ describe(@"Router", ^{
     
     it(@"should create routes", ^{
         [router updateRoutes:^(NAVRouteBuilder *route) {
-            route.to(@"home").as(NAVRouteTypeRoot);
-            route.to(@"detail").as(NAVRouteTypeDetail);
+            route.to(@"home").as(NAVRouteTypeStack);
+            route.to(@"detail").as(NAVRouteTypeStack);
             route.to(@"animation").as(NAVRouteTypeAnimation);
             route.to(@"modal").as(NAVRouteTypeModal);
             route.to(@"http").as(NAVRouteTypeExternal);

@@ -17,7 +17,7 @@ describe(@"Route Builder", ^{
     
     it(@"should create a route", ^{
         expect(builder.routes.count).to.equal(0);
-        builder.to(@"component").as(NAVRouteTypeRoot);
+        builder.to(@"component").as(NAVRouteTypeStack);
         expect(builder.routes.count).to.equal(1);
     });
     

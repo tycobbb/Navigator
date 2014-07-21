@@ -3,7 +3,7 @@
 //  Created by Ty Cobb on 7/14/14.
 //
 
-@class NAVRouter;
+@class NAVRouter, NAVUpdate;
 
 @protocol NAVRouterDelegate <NSObject> @optional
 

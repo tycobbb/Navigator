@@ -15,7 +15,7 @@ describe(@"URL", ^{
     
     it(@"should construct a host-only URL correctly", ^{
         NAVURL *testURL = NAVTest.URL(@"test://host1");
-        expect(testURL.nav_host.component).to.equal(@"host1");
+        expect(testURL.nav_host.key).to.equal(@"host1");
         expect(testURL.nav_host.index).to.equal(0);
         expect(testURL.nav_components.count).to.equal(0);
         expect(testURL.nav_parameters.count).to.equal(0);
@@ -24,8 +24,8 @@ describe(@"URL", ^{
     it(@"should construct a URL with a path correctly", ^{
         NAVURL *testURL = NAVTest.URL(@"test://host1/comp1/comp2/");
         expect(testURL.nav_components.count).to.equal(2);
-        expect(testURL[0].component).to.equal(@"comp1");
-        expect(testURL[1].component).to.equal(@"comp2");
+        expect(testURL[0].key).to.equal(@"comp1");
+        expect(testURL[1].key).to.equal(@"comp2");
     });
     
     it(@"should construct a URL with a query string correctly", ^{

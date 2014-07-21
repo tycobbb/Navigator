@@ -62,12 +62,17 @@
 - (void)executeTransaction:(NAVTransaction *)transaction
 {
     self.currentTransaction = transaction;
+    transaction.updates = [self updatesFromURL:transaction.sourceURL toURL:transaction.destinationURL];
     
-    NAVURLTransitionComponents *components =
-        [self.parser router:self transitionComponentsFromURL:transaction.sourceURL toURL:transaction.destinationURL];
-    NSArray *updates = [self updatesFromTransitionComponents:components];
-    
-    NAVLog(@"%@", updates);
+    [self transaction:transaction performUpdateAtIndex:0 completion:^{
+        self.currentURL = transaction.destinationURL;
+        
+        void(^transactionCompletion)(void) = self.currentTransaction.completion;
+        self.currentTransaction = nil;
+        
+        if(transactionCompletion)
+            transactionCompletion();
+    }];
 }
 
 //
@@ -79,37 +84,40 @@
     return self.currentTransaction != nil;
 }
 
-# pragma mark - Update Generation
+# pragma mark - Update Exection
 
-- (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components
+- (void)transaction:(NAVTransaction *)transaction performUpdateAtIndex:(NSInteger)index completion:(void(^)(void))completion
 {
-    NSMutableArray *updates = [NSMutableArray new];
-    for(NAVURLParameter *parameter in components.parametersToDisable)
-        [updates addObject:[self updateForParameter:parameter]];
+    // if we're out of URLs, then we completed the stack. return the last update
+    if(index >= transaction.updates.count)
+    {
+        completion();
+        return;
+    }
     
-    if(components.componentToReplace)
-        [updates addObject:[self updateForComponent:components.componentToReplace]];
+    NAVUpdate *currentUpdate = transaction.updates[index];
     
-    for(NAVURLComponent *component in components.componentsToPop)
-        [updates addObject:[self updateForComponent:component]];
+    // then we want to run this update and immediately kick off the next one
+    if(currentUpdate.isAsynchronous)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self executeUpdate:currentUpdate withCompletion:nil];
+        });
+        [self transaction:transaction performUpdateAtIndex:index+1 completion:completion];
+    }
     
-    for(NAVURLComponent *component in components.componentsToPush)
-        [updates addObject:[self updateForComponent:component]];
-    
-    for(NAVURLParameter *parameter in components.parametersToEnable)
-        [updates addObject:[self updateForParameter:parameter]];
-    
-    return updates;
+    // otherwise, we want to perform this update and wait for it to complete
+    else
+    {
+        [self executeUpdate:currentUpdate withCompletion:^(BOOL finished) {
+            [self transaction:transaction performUpdateAtIndex:index+1 completion:completion];
+        }];
+    }
 }
 
-- (NAVUpdate *)updateForComponent:(NAVURLComponent *)component
+- (void)executeUpdate:(NAVUpdate *)update withCompletion:(void(^)(BOOL finished))completion
 {
-    return [NAVUpdate new];
-}
-
-- (NAVUpdate *)updateForParameter:(NAVURLParameter *)parameter
-{
-    return [NAVUpdate new];
+    [update executeWithUpdater:self.updater completion:completion];
 }
 
 # pragma mark - Error Checking
@@ -137,6 +145,74 @@
 - (NAVRoute *)routeForKey:(NSString *)key
 {
     return self.routes[key];
+}
+
+@end
+
+@implementation NAVRouter (Updates)
+
+- (NSArray *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+{
+    NAVURLTransitionComponents *components = [self.parser router:self transitionComponentsFromURL:sourceURL toURL:destinationURL];
+    NSArray *updates = [self baseUpdatesFromTransitionComponents:components];
+    
+    for(NAVUpdate *update in updates)
+        [update configureWithFactory:self.factory];
+    
+    return updates;
+}
+
+- (NSArray *)baseUpdatesFromTransitionComponents:(NAVURLTransitionComponents *)components
+{
+    NSMutableArray *updates = [NSMutableArray new];
+    for(NAVURLParameter *parameter in components.parametersToDisable)
+        [updates addObject:[self updateWithParameter:parameter]];
+    
+    if(components.componentToReplace)
+        [updates addObject:[self updateWithType:NAVUpdateTypeReplace component:components.componentToReplace]];
+    
+    if(components.componentsToPop.count)
+        [updates addObject:[self updateWithType:NAVUpdateTypePop component:components.componentsToPop.firstObject]];
+    
+    for(NAVURLComponent *component in components.componentsToPush)
+        [updates addObject:[self updateWithType:NAVUpdateTypePush component:component]];
+    
+    for(NAVURLParameter *parameter in components.parametersToEnable)
+        [updates addObject:[self updateWithParameter:parameter]];
+    
+    return updates;
+}
+
+- (NAVUpdate *)updateWithParameter:(NAVURLParameter *)parameter
+{
+    NAVRoute *route   = [self routeForKey:parameter.key];
+    NAVUpdate *update = [NAVUpdate updateWithType:[self updateTypeForRoute:route] route:route];
+    update.isAsynchronous = parameter.options & NAVParameterOptionsAsync;
+    return update;
+}
+
+- (NAVUpdate *)updateWithType:(NAVUpdateType)type component:(NAVURLComponent *)component
+{
+    NAVRoute *route   = [self routeForKey:component.key];
+    NAVUpdate *update = [NAVUpdate updateWithType:type route:route];
+    return update;
+}
+
+//
+// Helpers
+//
+
+- (NAVUpdateType)updateTypeForRoute:(NAVRoute *)route
+{
+    switch(route.type)
+    {
+        case NAVRouteTypeAnimation:
+            return NAVUpdateTypeAnimation;
+        case NAVRouteTypeModal:
+            return NAVUpdateTypeModal;
+        default:
+            NSAssert(false, @"can't fully determine update type from this route"); return 0;
+    }
 }
 
 @end

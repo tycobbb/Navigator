@@ -7,14 +7,10 @@
 
 @implementation NAVURLComponent
 
-- (instancetype)initWithComponent:(NSString *)component index:(NSInteger)index
+- (instancetype)initWithKey:(NSString *)key index:(NSInteger)index
 {
-    if(self = [super init])
-    {
-        _component = component;
-        _index     = index;
-    }
-    
+    if(self = [super initWithKey:key])
+        _index = index;
     return self;
 }
 
@@ -22,7 +18,7 @@
 
 - (NSString *)description
 {
-    return [[super description] stringByAppendingFormat:@" %d: %@", self.index, self.component];
+    return [[super description] stringByAppendingFormat:@" %d: %@", self.index, self.key];
 }
 
 # pragma mark - Equality
@@ -31,12 +27,12 @@
 {
     if(![object isKindOfClass:[NAVURLComponent class]])
         return NO;
-    return [self.component isEqualToString:[object component]];
+    return [self.key isEqualToString:[object key]];
 }
 
 - (NSUInteger)hash
 {
-    return [self.component hash];
+    return [self.key hash];
 }
 
 @end

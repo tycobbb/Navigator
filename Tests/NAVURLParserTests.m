@@ -29,7 +29,7 @@ describe(@"Parser", ^{
     
     it(@"should parse the first route", ^{
         NAVURLTransitionComponents *result = NAVTestParse(@"test://", @"test://host1/comp1");
-        expect(result.componentToReplace.component).to.equal(@"host1");
+        expect(result.componentToReplace.key).to.equal(@"host1");
         expect(result.componentsToPush.count).to.equal(1);
     });
     
@@ -44,7 +44,7 @@ describe(@"Parser", ^{
     
     it(@"should parse a host change", ^{
         NAVURLTransitionComponents *result = NAVTestParse(@"test://host1", @"test://host2");
-        expect(result.componentToReplace.component).to.equal(@"host2");
+        expect(result.componentToReplace.key).to.equal(@"host2");
     });
     
     it(@"shouldn not parse a host change if there is not one", ^{
@@ -58,8 +58,8 @@ describe(@"Parser", ^{
 
         NAVURLComponent *component1 = result.componentsToPush[0];
         NAVURLComponent *component2 = result.componentsToPush[1];
-        expect(component1.component).to.equal(@"comp1");
-        expect(component2.component).to.equal(@"comp2");
+        expect(component1.key).to.equal(@"comp1");
+        expect(component2.key).to.equal(@"comp2");
     });
     
     it(@"should not parse pushes if there are none", ^{
@@ -73,8 +73,8 @@ describe(@"Parser", ^{
         
         NAVURLComponent *component1 = result.componentsToPop[0];
         NAVURLComponent *component2 = result.componentsToPop[1];
-        expect(component1.component).to.equal(@"comp1");
-        expect(component2.component).to.equal(@"comp2");
+        expect(component1.key).to.equal(@"comp1");
+        expect(component2.key).to.equal(@"comp2");
     });
     
     it(@"should not parse pops if there are none", ^{

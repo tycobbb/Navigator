@@ -3,11 +3,9 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-@interface NAVURLComponent : NSObject
+#import "NAVURLElement.h"
 
-@property (copy  , nonatomic, readonly) NSString *component;
+@interface NAVURLComponent : NAVURLElement
 @property (assign, nonatomic, readonly) NSInteger index;
-
-- (instancetype)initWithComponent:(NSString *)component index:(NSInteger)index;
-
+- (instancetype)initWithKey:(NSString *)key index:(NSInteger)index;
 @end

@@ -7,14 +7,10 @@
 
 @implementation NAVURLParameter
 
-- (instancetype)initWithComponent:(NSString *)component options:(NSNumber *)optionsValue
+- (instancetype)initWithKey:(NSString *)key options:(NSNumber *)optionsValue
 {
-    if(self = [super init])
-    {
-        _component = component;
-        _options   = [optionsValue integerValue];
-    }
-    
+    if(self = [super initWithKey:key])
+        _options = [optionsValue integerValue];
     return self;
 }
 
@@ -27,7 +23,7 @@
 
 - (NSString *)description
 {
-    return [[super description] stringByAppendingFormat:@" %@: %@", self.component, [self stringFromOptions:self.options]];
+    return [[super description] stringByAppendingFormat:@" %@: %@", self.key, [self stringFromOptions:self.options]];
 }
 
 - (NSString *)stringFromOptions:(NAVParameterOptions)options

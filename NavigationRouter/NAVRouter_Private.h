@@ -15,3 +15,9 @@
 #else
     #define NAVLog(_format, ...)
 #endif
+
+@interface NAVRouter (Updates)
+- (NSArray   *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
+- (NAVUpdate *)updateWithParameter:(NAVURLParameter *)parameter;
+- (NAVUpdate *)updateWithType:(NAVUpdateType)type component:(NAVURLComponent *)component;
+@end

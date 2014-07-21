@@ -7,14 +7,16 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
     NAVParameterOptionsHidden     = 0,
     NAVParameterOptionsVisible    = 1 << 0,
     NAVParameterOptionsUnanimated = 1 << 1,
+    NAVParameterOptionsAsync      = 1 << 2,
 };
 
-@interface NAVURLParameter : NSObject
+#import "NAVURLElement.h"
 
-@property (copy  , nonatomic, readonly) NSString *component;
+@interface NAVURLParameter : NAVURLElement
+
 @property (assign, nonatomic, readonly) NAVParameterOptions options;
 @property (assign, nonatomic, readonly) BOOL isVisible;
 
-- (instancetype)initWithComponent:(NSString *)component options:(NSNumber *)optionsValue;
+- (instancetype)initWithKey:(NSString *)key options:(NSNumber *)optionsValue;
 
 @end
