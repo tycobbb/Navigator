@@ -8,14 +8,14 @@
 #import "NAVRouterUpdater.h"
 #import "NAVRouterFactory.h"
 #import "NAVRouteBuilder.h"
-#import "NAVAttributes.h"
+#import "NAVAttributesBuilder.h"
 
 #define NAVRouterLogLevel 1
 
 @interface NAVRouter : NSObject
 
 @property (weak  , nonatomic) id<NAVRouterDelegate> delegate;
-@property (weak  , nonatomic) id<NAVRouterUpdater> updater;
+@property (strong, nonatomic) id<NAVRouterUpdater> updater;
 @property (strong, nonatomic) id<NAVRouterParser> parser;
 @property (strong, nonatomic) id<NAVRouterFactory> factory;
 
@@ -28,5 +28,6 @@
 - (instancetype)initWithScheme:(NSString *)scheme;
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock;
 - (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
+- (NAVAttributesBuilder *)attributesBuilder;
 
 @end

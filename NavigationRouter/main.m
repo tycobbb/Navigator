@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "NAVAppDelegate.h"
+#import "NAVDemoAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([NAVAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([NAVDemoAppDelegate class]));
     }
 }

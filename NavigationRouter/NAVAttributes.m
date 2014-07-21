@@ -7,4 +7,9 @@
 
 @implementation NAVAttributes
 
+- (NSString *)description
+{
+    return [[super description] stringByAppendingFormat:@"\n\tsource: %@\n\tdestination: %@", self.sourceURL, self.destinationURL];
+}
+
 @end

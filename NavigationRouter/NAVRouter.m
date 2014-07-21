@@ -9,7 +9,7 @@
 @property (copy  , nonatomic) NSURL *currentURL;
 @property (strong, nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
-@property (strong, nonatomic) NAVUpdateBuilder *builder;
+@property (strong, nonatomic) NAVUpdateBuilder *updateBuilder;
 @end
 
 @implementation NAVRouter
@@ -22,8 +22,8 @@
     {
         _currentURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
         _parser     = [NAVURLParser new];
-        _builder    = [NAVUpdateBuilder new];
-        _builder.delegate = self;
+        _updateBuilder    = [NAVUpdateBuilder new];
+        _updateBuilder.delegate = self;
     }
     
     return self;
@@ -46,15 +46,18 @@
 
 - (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion
 {
+    NSAssert(self.factory, @"must have a factory to transition");
+    NSAssert(self.updater, @"must have an updater to transition");
+    
     NSError *error = nil;
     if(self.isTransitioning)
         error = [NSError nav_errorWithDescription:@"attempting to transition during an existing transition!"];
-    if(!attributes.sourceURL)
+    if(!attributes.destinationURL)
         error = [NSError nav_errorWithDescription:@"attempting to transition without an URL, that's illegal"];
     
     if(![self check:error])
         return;
-    
+        
     NAVTransaction *transaction = [[NAVTransaction alloc] initWithAttributes:attributes scheme:self.scheme];
     transaction.isAnimated = isAnimated;
     transaction.completion = completion;
@@ -131,9 +134,18 @@
 - (BOOL)check:(NSError *)error
 {
     if(!error)
-        return NO;
+        return YES;
     NAVLog(@"Nav.Router | Error(%d): %@", error.code, error.localizedDescription);
-    return YES;
+    return NO;
+}
+
+# pragma mark - Setters
+
+- (void)setDelegate:(id<NAVRouterDelegate>)delegate
+{
+    _delegate = delegate;
+    if([delegate isKindOfClass:[UINavigationController class]])
+        self.updater = [[NAVRouterNavigationControllerUpdater alloc] initWithNavigationController:(UINavigationController *)delegate];
 }
 
 # pragma mark - Accessors
@@ -141,6 +153,11 @@
 - (Class)attributesClass
 {
     return _attributesClass ?: [NAVAttributes class];
+}
+
+- (NAVAttributesBuilder *)attributesBuilder
+{
+    return [[NAVAttributesBuilder alloc] initWithSourceURL:self.currentURL];
 }
 
 - (NSString *)scheme
@@ -179,26 +196,26 @@
 
 - (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components
 {
-    return [self updatesFromTransitionComponents:components withBuilder:self.builder];
+    return [self updatesFromTransitionComponents:components withBuilder:self.updateBuilder];
 }
 
 - (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components withBuilder:(NAVUpdateBuilder *)update
 {
     NSMutableArray *updates = [NSMutableArray new];
     for(NAVURLParameter *parameter in components.parametersToDisable)
-        [updates addObject:update.with.parameter(parameter).build()];
+        [updates addObject:update.with.parameter(parameter).build];
     
     if(components.componentToReplace)
-        [updates addObject:update.with.component(components.componentToReplace).as(NAVUpdateTypeReplace).build()];
+        [updates addObject:update.with.component(components.componentToReplace).as(NAVUpdateTypeReplace).build];
     
     if(components.componentsToPop.count)
-        [updates addObject:update.with.component(components.componentsToPop.firstObject).as(NAVUpdateTypePop).build()];
+        [updates addObject:update.with.component(components.componentsToPop.firstObject).as(NAVUpdateTypePop).build];
     
     for(NAVURLComponent *component in components.componentsToPush)
-        [updates addObject:update.with.component(component).as(NAVUpdateTypePop).build()];
+        [updates addObject:update.with.component(component).as(NAVUpdateTypePush).build];
     
     for(NAVURLParameter *parameter in components.parametersToEnable)
-        [updates addObject:update.with.parameter(parameter).build()];
+        [updates addObject:update.with.parameter(parameter).build];
     
     return updates;
 }
@@ -210,7 +227,7 @@
 NSString * const NAVRouterDidUpdateURLNotification = @"NAVRouterDidUpdateURLNotification";
 NSString * const NAVRouterNotificationURLKey       = @"NAVRouterNotificationURLKey";
 
-NSString * const NAVComponentsToReplaceKey  = @"NAVComponentsToReplaceKey";
+NSString * const NAVComponentsToReplaceKey = @"NAVComponentsToReplaceKey";
 NSString * const NAVComponentsToPushKey    = @"NAVComponentsToPushKey";
 NSString * const NAVComponentsToPopKey     = @"NAVComponentsToPopKey";
 NSString * const NAVParametersToEnableKey  = @"NAVParametersToEnableKey";

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="b7c-57-o5O">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Demo Navigation Controller-->
+        <scene sceneID="ZZ2-F7-F0X">
+            <objects>
+                <navigationController storyboardIdentifier="NAVDemoNavigationController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7c-57-o5O" customClass="NAVDemoNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zJD-Ua-Una">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7h-oW-svO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="156"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ihr-Zv-M1a">
+            <objects>
+                <viewController storyboardIdentifier="NAVDemoViewControllerRed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hs7-ys-lnf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kOa-14-hb7"/>
+                        <viewControllerLayoutGuide type="bottom" id="fCf-uO-pEn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ljl-g6-Rsn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.78799998760223389" green="0.25576313272529982" blue="0.29263809212340564" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HlJ-FH-01Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="-176"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mnn-I5-gEh">
+            <objects>
+                <viewController storyboardIdentifier="NAVDemoViewControllerGreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dtH-hK-B3k" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eth-JP-Vuf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ori-71-8o2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8al-LQ-tMs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.044279949926194904" green="0.84367028061224492" blue="0.46441758507566311" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZJ-3E-bfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="-176"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Gfo-pS-AKw">
+            <objects>
+                <viewController storyboardIdentifier="NAVDemoViewControllerBlue" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bU6-NW-dfu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FdH-Z6-Fd5"/>
+                        <viewControllerLayoutGuide type="bottom" id="sGQ-mY-SFB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A1B-J5-XTF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.30164486297241544" green="0.47385467410476323" blue="0.78799998760223389" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVC-52-2XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="507"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="faj-8h-h6s">
+            <objects>
+                <viewController storyboardIdentifier="NAVDemoViewControllerPurple" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N4F-4c-Tag" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Tl-bZ-Srb"/>
+                        <viewControllerLayoutGuide type="bottom" id="0KU-mf-EXG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uWd-gD-ZEd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.64533244496988529" green="0.38627609974017346" blue="0.82400000100000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcA-Yf-lUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="507"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

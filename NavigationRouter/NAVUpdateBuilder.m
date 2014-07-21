@@ -49,25 +49,23 @@
     };
 }
 
-- (NAVUpdate *(^)(void))build
+- (NAVUpdate *)build
 {
-    return ^{
-        [self updateWithRoute:[self.delegate builder:self routeForKey:self.routeKey]];
+    [self updateWithRoute:[self.delegate builder:self routeForKey:self.routeKey]];
 
-        Class updateClass = [self updateClassForType:self.updateType];
-        NAVUpdate *update = [updateClass updateWithType:self.updateType route:self.updateRoute];
-        
-        update.isAnimated = self.updateIsAnimated;
-        
-        if([update isKindOfClass:[NAVUpdateAnimation class]])
-            [self buildAnimationSpecificProperties:(NAVUpdateAnimation *)update];
-        else if([update isKindOfClass:[NAVUpdateStack class]])
-            [self buildStackSpecificProperties:(NAVUpdateStack *)update];
-        
-        [self reset];
-        
-        return update;
-    };
+    Class updateClass = [self updateClassForType:self.updateType];
+    NAVUpdate *update = [updateClass updateWithType:self.updateType route:self.updateRoute];
+    
+    update.isAnimated = self.updateIsAnimated;
+    
+    if([update isKindOfClass:[NAVUpdateAnimation class]])
+        [self buildAnimationSpecificProperties:(NAVUpdateAnimation *)update];
+    else if([update isKindOfClass:[NAVUpdateStack class]])
+        [self buildStackSpecificProperties:(NAVUpdateStack *)update];
+    
+    [self reset];
+    
+    return update;
 }
 
 - (void)reset
@@ -84,17 +82,17 @@
 // Type-specific Construction
 //
 
+- (void)buildStackSpecificProperties:(NAVUpdateStack *)update
+{
+    update.viewController = [[self.delegate factoryForBuilder:self] viewControllerForRoute:self.updateRoute];
+    update.index          = [self updateIndex];
+}
+
 - (void)buildAnimationSpecificProperties:(NAVUpdateAnimation *)update
 {
     update.animator       = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute];
     update.isAsynchronous = self.updateParameter.options & NAVParameterOptionsAsync;
     update.isVisible      = self.updateParameter.isVisible;
-}
-
-- (void)buildStackSpecificProperties:(NAVUpdateStack *)update
-{
-    update.viewController = [[self.delegate factoryForBuilder:self] viewControllerForRoute:self.updateRoute];
-    update.index          = [self updateIndex];
 }
 
 //

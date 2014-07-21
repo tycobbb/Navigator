@@ -14,14 +14,14 @@
 
 @property (weak, nonatomic) id<NAVUpdateBuilderDelegate> delegate;
 
+- (NAVUpdate *)build;
+
 - (NAVUpdateBuilder *(^)(NAVUpdateType))as;
 - (NAVUpdateBuilder *(^)(NAVURLComponent *))component;
 - (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter;
 
 - (NAVUpdateBuilder *)with;
 - (NAVUpdateBuilder *)and;
-
-- (NAVUpdate *(^)(void))build;
 
 @end
 

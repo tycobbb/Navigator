@@ -8,6 +8,7 @@
 #import "NAVUpdateBuilder.h"
 #import "NAVTransaction.h"
 #import "NAVURLParser.h"
+#import "NAVRouterNavigationControllerUpdater.h"
 #import "NAVRouterConstants.h"
 #import "NSError+NAVRouter.h"
 
