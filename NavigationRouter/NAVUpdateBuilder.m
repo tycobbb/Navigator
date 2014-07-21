@@ -12,9 +12,9 @@
 @interface NAVUpdateBuilder ()
 @property (strong, nonatomic) NSString *routeKey;
 @property (assign, nonatomic) NAVUpdateType updateType;
-@property (strong, nonatomic) NAVRoute *updateRoute;
 @property (assign, nonatomic) NSInteger updateIndex;
-@property (assign, nonatomic) BOOL updateIsAsynchronous;
+@property (strong, nonatomic) NAVRoute *updateRoute;
+@property (strong, nonatomic) NAVURLParameter *updateParameter;
 @property (assign, nonatomic) BOOL updateIsAnimated;
 @end
 
@@ -33,9 +33,9 @@
 - (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter
 {
     return ^(NAVURLParameter *parameter) {
-        self.routeKey             = parameter.key;
-        self.updateIsAsynchronous = parameter.options & NAVParameterOptionsAsync;
-        self.updateIsAnimated     = !(parameter.options & NAVParameterOptionsUnanimated);
+        self.routeKey         = parameter.key;
+        self.updateParameter  = parameter;
+        self.updateIsAnimated = !(parameter.options & NAVParameterOptionsUnanimated);
         return self;
     };
 }
@@ -72,9 +72,10 @@
 
 - (void)reset
 {
+    self.updateIndex = 0;
     self.updateType = NAVUpdateTypeUnknown;
-    self.updateIsAnimated = NO;
-    self.updateIsAsynchronous = NO;
+    self.updateIsAnimated = YES;
+    self.updateParameter = nil;
     self.updateRoute = nil;
     self.routeKey = nil;
 }
@@ -85,8 +86,9 @@
 
 - (void)buildAnimationSpecificProperties:(NAVUpdateAnimation *)update
 {
-    update.isAsynchronous = [self updateIsAsynchronous];
     update.animator       = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute];
+    update.isAsynchronous = self.updateParameter.options & NAVParameterOptionsAsync;
+    update.isVisible      = self.updateParameter.isVisible;
 }
 
 - (void)buildStackSpecificProperties:(NAVUpdateStack *)update

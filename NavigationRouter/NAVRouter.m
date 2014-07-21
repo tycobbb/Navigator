@@ -70,9 +70,12 @@
     [self transaction:transaction performUpdateAtIndex:0 completion:^{
         self.currentURL = transaction.destinationURL;
         
+        // capture the transactions completion block, and then nil it out so mark the transaction
+        // as finished
         void(^transactionCompletion)(void) = self.currentTransaction.completion;
         self.currentTransaction = nil;
         
+        // call the completion if if it exists, and we're done
         if(transactionCompletion)
             transactionCompletion();
     }];
@@ -153,6 +156,19 @@
 @end
 
 @implementation NAVRouter (Updates)
+
+- (NSArray *)updatesForTransaction:(NAVTransaction *)transaction
+{
+    NSArray *updates = [self updatesFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    
+    // if the transaction specifies unanimated, we'll override any default behavior established
+    // during update creation
+    for(NAVUpdate *update in updates)
+        if(!transaction.isAnimated)
+            update.isAnimated = NO;
+    
+    return updates;
+}
 
 - (NSArray *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
 {

@@ -16,8 +16,8 @@
 {
     if(self = [super init])
     {
-        _type    = type;
-        _route   = route;
+        _type       = type;
+        _route      = route;
     }
     
     return self;

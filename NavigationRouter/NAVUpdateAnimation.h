@@ -9,4 +9,5 @@
 @interface NAVUpdateAnimation : NAVUpdate
 @property (strong, nonatomic) NAVAnimator *animator;
 @property (assign, nonatomic) BOOL isAsynchronous;
+@property (assign, nonatomic) BOOL isVisible;
 @end

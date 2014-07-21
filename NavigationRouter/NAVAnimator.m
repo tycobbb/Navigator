@@ -7,4 +7,9 @@
 
 @implementation NAVAnimator
 
+- (void)transitionToVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+{
+    [self.delegate animator:self transitionToVisible:isVisible animated:animated completion:completion];
+}
+
 @end
