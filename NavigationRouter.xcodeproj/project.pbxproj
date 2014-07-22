@@ -38,10 +38,8 @@
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
 		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
-		FBDDB500197475260051D149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB4FE197475260051D149 /* InfoPlist.strings */; };
 		FBDDB502197475260051D149 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB501197475260051D149 /* main.m */; };
 		FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */; };
-		FBDDB508197475260051D149 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB507197475260051D149 /* Images.xcassets */; };
 		FBDDB50F197475260051D149 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB50E197475260051D149 /* XCTest.framework */; };
 		FBDDB510197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB511197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
@@ -126,12 +124,10 @@
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FBDDB4F9197475260051D149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavigationRouter-Info.plist"; sourceTree = "<group>"; };
-		FBDDB4FF197475260051D149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBDDB501197475260051D149 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FBDDB503197475260051D149 /* NavigationRouter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavigationRouter-Prefix.pch"; sourceTree = "<group>"; };
 		FBDDB504197475260051D149 /* NAVDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVDemoAppDelegate.h; sourceTree = "<group>"; };
 		FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVDemoAppDelegate.m; sourceTree = "<group>"; };
-		FBDDB507197475260051D149 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FBDDB50D197475260051D149 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB50E197475260051D149 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FBDDB516197475260051D149 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -297,22 +293,10 @@
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,
 				109DE5E4197A16F8003AA60C /* Extensions */,
+				FBDDB503197475260051D149 /* NavigationRouter-Prefix.pch */,
 				FBDDB5261974756F0051D149 /* Demo */,
-				FBDDB507197475260051D149 /* Images.xcassets */,
-				FBDDB4FC197475260051D149 /* Supporting Files */,
 			);
 			path = NavigationRouter;
-			sourceTree = "<group>";
-		};
-		FBDDB4FC197475260051D149 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */,
-				FBDDB4FE197475260051D149 /* InfoPlist.strings */,
-				FBDDB501197475260051D149 /* main.m */,
-				FBDDB503197475260051D149 /* NavigationRouter-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FBDDB514197475260051D149 /* Tests */ = {
@@ -350,8 +334,11 @@
 				FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */,
 				FB7E24B7197D9A1D00D63A7E /* NAVRouterStoryboardFactory.h */,
 				FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */,
+				FBDDB501197475260051D149 /* main.m */,
+				FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */,
 			);
-			path = Demo;
+			name = Demo;
+			path = ../Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,9 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBDDB500197475260051D149 /* InfoPlist.strings in Resources */,
 				FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */,
-				FBDDB508197475260051D149 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,14 +556,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FBDDB4FE197475260051D149 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDDB4FF197475260051D149 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		FBDDB517197475260051D149 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -670,7 +647,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavigationRouter/NavigationRouter-Prefix.pch";
-				INFOPLIST_FILE = "NavigationRouter/NavigationRouter-Info.plist";
+				INFOPLIST_FILE = "Demo/NavigationRouter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -684,7 +661,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NavigationRouter/NavigationRouter-Prefix.pch";
-				INFOPLIST_FILE = "NavigationRouter/NavigationRouter-Info.plist";
+				INFOPLIST_FILE = "Demo/NavigationRouter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
