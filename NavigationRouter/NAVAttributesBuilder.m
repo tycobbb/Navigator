@@ -3,6 +3,7 @@
 //  Created by Ty Cobb on 7/21/14.
 //
 
+#import "NAVRouterImports.h"
 #import "NAVAttributesBuilder.h"
 #import "NSURL+NAVRouter.h"
 

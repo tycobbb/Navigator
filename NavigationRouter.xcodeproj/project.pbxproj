@@ -119,6 +119,8 @@
 		FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterStoryboardFactory.m; sourceTree = "<group>"; };
 		FB7E24BA197DAC6900D63A7E /* NAVAttributesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributesBuilder.h; sourceTree = "<group>"; };
 		FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilder.m; sourceTree = "<group>"; };
+		FB7E2553197EC35C00D63A7E /* NAVRouterImports.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterImports.h; sourceTree = "<group>"; };
+		FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationRouter.h; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -271,6 +273,7 @@
 		FBDDB4FB197475260051D149 /* NavigationRouter */ = {
 			isa = PBXGroup;
 			children = (
+				FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */,
 				FBDDB543197477060051D149 /* NAVRouter.h */,
 				FBDDB544197477060051D149 /* NAVRouter.m */,
 				FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */,
@@ -289,6 +292,7 @@
 				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
 				FB7E24B4197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.h */,
 				FB7E24B5197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m */,
+				FB7E2553197EC35C00D63A7E /* NAVRouterImports.h */,
 				FB7E248B19786B7600D63A7E /* Internal */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,

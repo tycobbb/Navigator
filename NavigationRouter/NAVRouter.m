@@ -242,9 +242,3 @@
 
 NSString * const NAVRouterDidUpdateURLNotification = @"NAVRouterDidUpdateURLNotification";
 NSString * const NAVRouterNotificationURLKey       = @"NAVRouterNotificationURLKey";
-
-NSString * const NAVComponentsToReplaceKey = @"NAVComponentsToReplaceKey";
-NSString * const NAVComponentsToPushKey    = @"NAVComponentsToPushKey";
-NSString * const NAVComponentsToPopKey     = @"NAVComponentsToPopKey";
-NSString * const NAVParametersToEnableKey  = @"NAVParametersToEnableKey";
-NSString * const NAVParametersToDisableKey = @"NAVParametersToDisableKey";

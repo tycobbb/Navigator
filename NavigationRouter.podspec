@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.version = '0.0.1'
   s.license = 'MIT'
 
-  s.source = { :git => 'https://github.com/derkis/NAVRouter', :branch => 'master' }
+  s.source = { :git => 'https://github.com/derkis/NAVRouter.git', :branch => 'master' }
   s.source_files = 'NavigationRouter/*.{h,m}'
   s.requires_arc = true
 
