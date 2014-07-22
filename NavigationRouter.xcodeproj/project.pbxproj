@@ -18,6 +18,8 @@
 		109DE5E7197A1717003AA60C /* YOLT.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* YOLT.m */; };
 		109DE5EA197C2AD9003AA60C /* NAVURLTransitionComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */; };
 		109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F2197C8AC0003AA60C /* NAVURLElement.m */; };
+		109DE5F6197E2B90003AA60C /* NSURL+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */; };
+		109DE5F9197E3232003AA60C /* NAVAnimatorModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */; };
 		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
 		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
 		FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */; };
@@ -82,6 +84,10 @@
 		109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTransitionComponents.m; sourceTree = "<group>"; };
 		109DE5F1197C8AC0003AA60C /* NAVURLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLElement.h; sourceTree = "<group>"; };
 		109DE5F2197C8AC0003AA60C /* NAVURLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElement.m; sourceTree = "<group>"; };
+		109DE5F4197E2B90003AA60C /* NSURL+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+NAVRouter.h"; sourceTree = "<group>"; };
+		109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NAVRouter.m"; sourceTree = "<group>"; };
+		109DE5F7197E3232003AA60C /* NAVAnimatorModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAnimatorModal.h; sourceTree = "<group>"; };
+		109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimatorModal.m; sourceTree = "<group>"; };
 		25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		2B706B74DA4549B2B09B0A21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		860187B03E6942E8B0898748 /* Pods-Test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.xcconfig"; path = "Pods/Pods-Test.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 				FB7E24A9197D6CE800D63A7E /* NAVUpdateStack.m */,
 				FB7E24AB197D6CF400D63A7E /* NAVUpdateAnimation.h */,
 				FB7E24AC197D6CF400D63A7E /* NAVUpdateAnimation.m */,
+				109DE5F7197E3232003AA60C /* NAVAnimatorModal.h */,
+				109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -222,6 +230,8 @@
 				FB7E24951978776E00D63A7E /* NAVURLParameter.m */,
 				109DE5E8197C2AD9003AA60C /* NAVURLTransitionComponents.h */,
 				109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */,
+				109DE5F4197E2B90003AA60C /* NSURL+NAVRouter.h */,
+				109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */,
 			);
 			name = URLs;
 			sourceTree = "<group>";
@@ -512,9 +522,11 @@
 				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
 				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
 				109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */,
+				109DE5F9197E3232003AA60C /* NAVAnimatorModal.m in Sources */,
 				FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */,
 				109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */,
 				109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */,
+				109DE5F6197E2B90003AA60C /* NSURL+NAVRouter.m in Sources */,
 				109DE5EA197C2AD9003AA60C /* NAVURLTransitionComponents.m in Sources */,
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
 				FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */,

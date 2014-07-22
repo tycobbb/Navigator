@@ -4,12 +4,14 @@
 //
 
 #import "NAVAttributesBuilder.h"
+#import "NSURL+NAVRouter.h"
 
 @interface NAVAttributesBuilder ()
 @property (strong, nonatomic) NSURL *attributesSourceURL;
 @property (strong, nonatomic) NSString *attributesPath;
-@property (assign, nonatomic) NSInteger popCount;
+@property (strong, nonatomic) NSMutableDictionary *attributesParameters;
 @property (strong, nonatomic) id attributesModel;
+@property (assign, nonatomic) NSInteger popCount;
 @end
 
 @implementation NAVAttributesBuilder
@@ -46,6 +48,8 @@
         [self components:components resolveRelativePath:self.attributesPath];
     else if(self.popCount)
         [self components:components popPathComponentsWithCount:self.popCount];
+    else if(self.attributesParameters)
+        [self components:components updateParameters:self.attributesParameters];
     return [components URL];
 }
 
@@ -70,6 +74,13 @@
     components.path = [@"/" stringByAppendingString:relativeComponents.snip(count).join(@"/")];
 }
 
+- (void)components:(NSURLComponents *)components updateParameters:(NSDictionary *)parameters
+{
+    NSDictionary *updatedParameters = [NSURL nav_parameterDictionaryFromQuery:components.query];
+    updatedParameters = updatedParameters.extend(parameters);
+    components.query  = [NSURL nav_queryFromParameterDictionary:updatedParameters];
+}
+
 - (NSArray *)componentsFromPath:(NSString *)path
 {
     return path.split(@"/").select(^(NSString *component) {
@@ -91,6 +102,14 @@
     return self;
 }
 
+- (NAVAttributesBuilder *)withParameter:(NSString *)parameter options:(NAVParameterOptions)options
+{
+    if(!self.attributesParameters)
+        self.attributesParameters = [NSMutableDictionary new];
+    self.attributesParameters[parameter] = @(options);
+    return self;
+}
+
 - (NAVAttributesBuilder *)withModel:(id)model
 {
     self.attributesModel = model;
@@ -108,6 +127,13 @@
 {
     return ^(NSInteger popCount) {
         return [self popBack:popCount];
+    };
+}
+
+- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter
+{
+    return ^(NSString *parameter, NAVParameterOptions options) {
+        return [self withParameter:parameter options:options];
     };
 }
 

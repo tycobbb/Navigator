@@ -68,7 +68,7 @@
 - (void)executeTransaction:(NAVTransaction *)transaction
 {
     self.currentTransaction = transaction;
-    transaction.updates = [self updatesFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    transaction.updates = [self updatesForTransaction:transaction];
     
     [self transaction:transaction performUpdateAtIndex:0 completion:^{
         self.currentURL = transaction.destinationURL;
@@ -144,8 +144,24 @@
 - (void)setDelegate:(id<NAVRouterDelegate>)delegate
 {
     _delegate = delegate;
-    if([delegate isKindOfClass:[UINavigationController class]])
-        self.updater = [[NAVRouterNavigationControllerUpdater alloc] initWithNavigationController:(UINavigationController *)delegate];
+    
+    if(self.updater)
+        return;
+    else if([delegate isKindOfClass:[UINavigationController class]])
+        self.updater = [self buildUpdaterFromNavigationController:(UINavigationController *)delegate];
+    else if([delegate respondsToSelector:@selector(navigationController)])
+        self.updater = [self buildUpdaterFromNavigationController:[delegate performSelector:@selector(navigationController)]];
+}
+
+//
+// Helpers
+//
+
+- (id<NAVRouterUpdater>)buildUpdaterFromNavigationController:(UINavigationController *)navigationController
+{
+    if([navigationController isKindOfClass:[UINavigationController class]])
+        return [[NAVRouterNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
+    return nil;
 }
 
 # pragma mark - Accessors

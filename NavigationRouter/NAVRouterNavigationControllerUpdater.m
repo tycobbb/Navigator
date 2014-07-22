@@ -6,7 +6,7 @@
 #import "NAVRouterNavigationControllerUpdater.h"
 #import "NAVUpdate.h"
 
-@interface NAVRouterNavigationControllerUpdater ()
+@interface NAVRouterNavigationControllerUpdater () <UINavigationControllerDelegate>
 @property (weak, nonatomic) UINavigationController *navigationController;
 @end
 
@@ -15,7 +15,11 @@
 - (instancetype)initWithNavigationController:(UINavigationController *)navigationController
 {
     if(self = [super init])
+    {
         _navigationController = navigationController;
+        _navigationController.delegate = self;
+    }
+    
     return self;
 }
 
@@ -30,34 +34,49 @@
 
 - (void)performPop:(NAVUpdate *)update toIndex:(NSInteger)index withCompletion:(void (^)(BOOL))completion
 {
-    [self performTransaction:^{
+    [self performUpdate:update withTransaction:^{
         UIViewController *viewController = self.navigationController.viewControllers[index];
         [self.navigationController popToViewController:viewController animated:update.isAnimated];
-    } withCompletion:completion];
+    } completion:completion];
 
 }
 
 - (void)performPush:(NAVUpdate *)update withViewController:(UIViewController *)viewController withCompletion:(void (^)(BOOL))completion
 {
-    [self performTransaction:^{
+    [self performUpdate:update withTransaction:^{
         [self.navigationController pushViewController:viewController animated:update.isAnimated];
-    } withCompletion:completion];
+    } completion:completion];
 }
 
 //
 // Helpers
 //
 
-- (void)performTransaction:(void(^)(void))transaction withCompletion:(void(^)(BOOL finished))completion
+- (void)performUpdate:(NAVUpdate *)update withTransaction:(void(^)(void))transaction completion:(void(^)(BOOL finished))completion
 {
-    [CATransaction begin];
-    [CATransaction setCompletionBlock:^{
+    void(^transactionCompletion)(void) = ^{
         if(completion)
             completion(YES);
+    };
+    
+    BOOL performCompletionAsynchronously = update.isAnimated;
+    
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        [self dispatchBlock:transactionCompletion asynchronously:performCompletionAsynchronously];
     }];
     
     transaction();
+    
     [CATransaction commit];
+}
+
+- (void)dispatchBlock:(void(^)(void))block asynchronously:(BOOL)asynchronously
+{
+    if(!asynchronously && block)
+        block();
+    else if(block)
+        dispatch_async(dispatch_get_main_queue(), block);
 }
 
 @end

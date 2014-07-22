@@ -4,6 +4,7 @@
 //
 
 #import "NAVURL.h"
+#import "NSURL+NAVRouter.h"
 
 @implementation NAVURL
 
@@ -51,15 +52,10 @@
 
 - (NSDictionary *)parseParamatersFromQuery:(NSString *)query
 {
-    if(!query.length)
-        return @{ };
-    
-    // TODO: this is unsafe if there is no the component is nil (ie. parameter is "=")
-    return query.split(@"&").map(^(NSString *parameter) {
-        NSMutableArray *pair = [parameter.split(@"=") mutableCopy];
-        pair[1] = [[NAVURLParameter alloc] initWithKey:pair[0] options:pair[1]];
-        return pair;
-    }).dict;
+    NSDictionary *parameters = [NSURL nav_parameterDictionaryFromQuery:query];
+    return parameters.nav_map(^(NSString *key, NSNumber *options) {
+        return [[NAVURLParameter alloc] initWithKey:key options:options];
+    });
 }
 
 # pragma mark - Accessors

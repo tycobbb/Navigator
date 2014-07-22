@@ -23,7 +23,7 @@
     [self.router updateRoutes:^(NAVRouteBuilder *route) {
         route.to(@"red").as(NAVRouteTypeStack);
         route.to(@"green").as(NAVRouteTypeStack);
-        route.to(@"blue").as(NAVRouteTypeModal);
+        route.to(@"blue").as(NAVRouteTypeStack);
         route.to(@"purple").as(NAVRouteTypeModal);
     }];
 }
@@ -32,12 +32,17 @@
 {
     [super viewDidLoad];
     
-    NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"/red/blue/"].build;
-    [self.router transitionWithAttributes:attributes animated:YES completion:^{
+    NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"/red/blue"].build;
+    [self.router transitionWithAttributes:attributes animated:NO completion:^{
+        
         NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"green"].build;
-        [self.router transitionWithAttributes:attributes animated:YES completion:^{
-            NAVAttributes *attributes = [self.router.attributesBuilder popBack:1].build;
-            [self.router transitionWithAttributes:attributes animated:YES completion:nil];
+        [self.router transitionWithAttributes:attributes animated:NO completion:^{
+            
+//            NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"purple"].build;
+//            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptionsVisible].build;
+//            [self.router transitionWithAttributes:attributes animated:NO completion:^{
+//                
+//            }];
         }];
     }];
 }

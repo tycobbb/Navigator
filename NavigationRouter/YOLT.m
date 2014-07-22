@@ -34,4 +34,20 @@
     };
 }
 
+- (NSDictionary *(^)(id (^)(id, id)))nav_map
+{
+    return ^(id(^block)(id, id)) {
+        NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:self.count];
+        
+        for(NSString *key in self)
+        {
+            id value = block(key, self[key]);
+            if(value)
+                result[key] = value;
+        }
+        
+        return [result copy];
+    };
+}
+
 @end
