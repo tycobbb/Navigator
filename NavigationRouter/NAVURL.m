@@ -3,7 +3,9 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVRouterImports.h"
+#import <YOLOKit/YOLO.h>
+#import "YOLT.h"
+
 #import "NAVURL.h"
 #import "NSURL+NAVRouter.h"
 

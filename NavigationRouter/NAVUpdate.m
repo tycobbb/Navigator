@@ -3,7 +3,6 @@
 //  Created by Ty Cobb on 7/17/14.
 //
 
-#import "NAVRouterImports.h"
 #import "NAVUpdate.h"
 
 @implementation NAVUpdate

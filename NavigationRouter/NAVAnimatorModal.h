@@ -6,5 +6,5 @@
 #import "NAVAnimator.h"
 
 @interface NAVAnimatorModal : NAVAnimator
-@property (strong, nonatomic, readonly) id kjh;
+
 @end

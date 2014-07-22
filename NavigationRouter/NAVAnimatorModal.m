@@ -3,7 +3,6 @@
 //  Created by Ty Cobb on 7/22/14.
 //
 
-#import "NAVRouterImports.h"
 #import "NAVAnimatorModal.h"
 
 @interface NAVAnimatorModal () <NAVAnimatorDelegate>

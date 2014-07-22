@@ -3,6 +3,9 @@
 //  Created by Ty Cobb on 7/17/14.
 //
 
+#import "NAVRoute.h"
+#import "NAVRouterUpdater.h"
+
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypeUnknown,
     NAVUpdateTypePush,
@@ -11,9 +14,6 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypeModal,
     NAVUpdateTypeAnimation,
 };
-
-#import "NAVRoute.h"
-#import "NAVRouterUpdater.h"
 
 @interface NAVUpdate : NSObject
 

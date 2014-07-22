@@ -135,7 +135,7 @@
 {
     if(!error)
         return YES;
-    NAVLog(@"Nav.Router | Error(%d): %@", error.code, error.localizedDescription);
+    NAVLog(@"Nav.Router | Error(%d): %@", (int)error.code, error.localizedDescription);
     return NO;
 }
 

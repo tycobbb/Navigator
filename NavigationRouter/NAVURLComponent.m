@@ -3,7 +3,6 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVRouterImports.h"
 #import "NAVURLComponent.h"
 
 @implementation NAVURLComponent
@@ -19,7 +18,7 @@
 
 - (NSString *)description
 {
-    return [[super description] stringByAppendingFormat:@" %d: %@", self.index, self.key];
+    return [[super description] stringByAppendingFormat:@" %d: %@", (int)self.index, self.key];
 }
 
 # pragma mark - Equality

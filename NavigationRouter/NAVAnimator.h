@@ -3,6 +3,8 @@
 //  Created by Ty Cobb on 7/17/14.
 //
 
+@import Foundation;
+
 @protocol NAVAnimatorDelegate;
 
 @interface NAVAnimator : NSObject

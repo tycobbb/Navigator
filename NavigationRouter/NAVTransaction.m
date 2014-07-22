@@ -3,7 +3,6 @@
 //  Created by Ty Cobb on 7/15/14.
 //
 
-#import "NAVRouterImports.h"
 #import "NAVTransaction.h"
 
 @implementation NAVTransaction

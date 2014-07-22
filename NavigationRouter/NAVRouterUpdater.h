@@ -3,6 +3,8 @@
 //  Created by Ty Cobb on 7/14/14.
 //
 
+@import UIKit;
+
 @class NAVRouter, NAVUpdate;
 
 @protocol NAVRouterUpdater <NSObject>
