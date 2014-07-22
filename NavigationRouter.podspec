@@ -9,5 +9,7 @@ Pod::Spec.new do |s|
   s.source_files = 'NavigationRouter/*.{h,m}'
   s.requires_arc = true
 
+  s.dependency 'YOLOKit', '~> 11'
+
 end
 
