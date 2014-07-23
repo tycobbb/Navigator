@@ -39,10 +39,10 @@
         [self.router transitionWithAttributes:attributes animated:NO completion:^{
             
 //            NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"purple"].build;
-//            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptionsVisible].build;
-//            [self.router transitionWithAttributes:attributes animated:NO completion:^{
-//                
-//            }];
+            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptionsVisible].build;
+            [self.router transitionWithAttributes:attributes animated:NO completion:^{
+                
+            }];
         }];
     }];
 }

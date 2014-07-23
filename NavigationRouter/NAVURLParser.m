@@ -3,7 +3,7 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import <YOLOKit/YOLO.h>
+#import "YOLOKit/YOLO.h"
 #import "NAVURLParser.h"
 
 @implementation NAVURLParser

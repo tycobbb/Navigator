@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/derkis/NAVRouter.git' }
   s.requires_arc = true
 
-  s.source_files  = 'NavigationRouter/*.{h,m}'
+  s.source_files   = 'NavigationRouter/*.{h,m}', 'NavigationRouter/YOLOKit/*.{h,m}'
+  s.preserve_paths = 'NavigationRouter/YOLOKit/YOLO.ph'
   s.public_header_files = 'NavigationRouter/*.h'
   
   s.frameworks = 'Foundation', 'UIKit' 
-  s.dependency 'YOLOKit', '~> 11'
 
 end
