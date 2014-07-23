@@ -11,7 +11,7 @@
 - (UIViewController *)viewControllerForRoute:(NAVRoute *)route
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NAVDemoStoryboard" bundle:[NSBundle mainBundle]];
-    NSString *identifier = [@"NAVDemoViewController" stringByAppendingString:[route.component capitalizedString]];
+    NSString *identifier = [@"NAVDemoViewController" stringByAppendingString:[route.path capitalizedString]];
     UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     return viewController;
 }

@@ -22,7 +22,7 @@
 - (NAVRoute *)toPath:(NSString *)path
 {
     NAVRoute *route = [NAVRoute new];
-    route.component = path;
+    route.path = path;
     
     self.routes[path] = route;
     

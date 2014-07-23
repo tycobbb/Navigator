@@ -24,7 +24,7 @@ describe(@"Route Builder", ^{
     it(@"should bind the component to the route", ^{
         NSString *component = builder.routes.allKeys.firstObject;
         NAVRoute *route     = builder.routes[component];
-        expect(route.component).to.equal(component);
+        expect(route.path).to.equal(component);
     });
     
     it(@"should remove a route", ^{

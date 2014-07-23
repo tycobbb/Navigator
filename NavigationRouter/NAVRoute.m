@@ -11,7 +11,7 @@
 {
     NAVRoute *copy = [NAVRoute new];
     copy.type      = self.type;
-    copy.component = self.component;
+    copy.path = self.path;
     return copy;
 }
 

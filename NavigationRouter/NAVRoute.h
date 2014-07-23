@@ -15,6 +15,6 @@ typedef NS_ENUM(NSInteger, NAVRouteType) {
 
 @interface NAVRoute : NSObject <NSCopying>
 @property (assign, nonatomic) NAVRouteType type;
-@property (copy  , nonatomic) NSString *component;
+@property (copy  , nonatomic) NSString *path;
 @property (strong, nonatomic) id destination;
 @end

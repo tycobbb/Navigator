@@ -13,7 +13,6 @@
 
 #define EXP_SHORTHAND
 
-#import "NavigationRouter-Prefix.pch"
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
 #import "NAVTest.h"
