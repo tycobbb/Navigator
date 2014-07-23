@@ -24,6 +24,7 @@
 @property (assign, nonatomic, readonly) BOOL isTransitioning;
 
 @property (strong, nonatomic) Class attributesClass;
+@property (strong, nonatomic) Class routeClass;
 
 - (instancetype)initWithScheme:(NSString *)scheme;
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock;

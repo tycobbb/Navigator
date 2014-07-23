@@ -4,6 +4,7 @@
 //
 
 #import "NAVRoute.h"
+#import "NAVAnimator.h"
 
 @interface NAVRouteBuilder : NSObject
 
@@ -11,11 +12,24 @@
 
 - (instancetype)initWithRoutes:(NSDictionary *)routes;
 
+- (NAVRoute *)toPath:(NSString *)path;
+- (void)removeMatchingPath:(NSString *)path;
+
 - (NAVRoute *(^)(NSString *component))to;
 - (void(^)(NSString *component))remove;
 
 @end
 
 @interface NAVRoute (Builder)
-- (NAVRoute *(^)(NAVRouteType type))as;
+
+- (NAVRoute *)asType:(NAVRouteType)type;
+- (NAVRoute *)withControllerClass:(Class)klass;
+- (NAVRoute *)withAnimator:(NAVAnimator *)animator;
+
+- (NAVRoute *(^)(NAVRouteType))as;
+- (NAVRoute *(^)(Class))controllerClass;
+- (NAVRoute *(^)(NAVAnimator *))animator;
+
+- (NAVRoute *)with;
+
 @end

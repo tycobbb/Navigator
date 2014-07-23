@@ -7,4 +7,12 @@
 
 @implementation NAVRoute
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    NAVRoute *copy = [NAVRoute new];
+    copy.type      = self.type;
+    copy.component = self.component;
+    return copy;
+}
+
 @end

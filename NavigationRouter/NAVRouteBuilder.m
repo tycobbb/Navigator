@@ -19,18 +19,26 @@
     return self;
 }
 
+- (NAVRoute *)toPath:(NSString *)path
+{
+    NAVRoute *route = [NAVRoute new];
+    route.component = path;
+    
+    self.routes[path] = route;
+    
+    // chain away!
+    return route;
+}
+
+- (void)removeMatchingPath:(NSString *)path
+{
+    [self.routes removeObjectForKey:path];
+}
+
 - (NAVRoute *(^)(NSString *))to
 {
-    // create a new route
-    NAVRoute *route = [NAVRoute new];
-    
-    return ^ NAVRoute * (NSString *component) {
-        // update the route with the component and register it in the routing map
-        route.component = component;
-        self.routes[component] = route;
-        
-        // chain away!
-        return route;
+    return ^(NSString *path) {
+        return [self toPath:path];
     };
 }
 
@@ -45,12 +53,48 @@
 
 @implementation NAVRoute (Builder)
 
+- (NAVRoute *)asType:(NAVRouteType)type
+{
+    self.type = type;
+    return self;
+}
+
+- (NAVRoute *)withControllerClass:(Class)klass
+{
+    self.destination = klass;
+    return self;
+}
+
+- (NAVRoute *)withAnimator:(NAVAnimator *)animator
+{
+    self.destination = animator;
+    return self;
+}
+
 - (NAVRoute *(^)(NAVRouteType))as
 {
-    return ^ NAVRoute * (NAVRouteType type) {
-        self.type = type;
-        return self;
+    return ^(NAVRouteType type) {
+        return [self asType:type];
     };
+}
+
+- (NAVRoute *(^)(Class))controllerClass
+{
+    return ^(Class klass) {
+        return [self withControllerClass:klass];
+    };
+}
+
+- (NAVRoute *(^)(NAVAnimator *))animator
+{
+    return ^(NAVAnimator *animator) {
+        return [self withAnimator:animator];
+    };
+}
+
+- (NAVRoute *)with
+{
+    return self;
 }
 
 @end
