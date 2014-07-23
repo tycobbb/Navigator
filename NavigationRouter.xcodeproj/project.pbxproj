@@ -87,6 +87,7 @@
 		FB7E25BC197EEB5100D63A7E /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = FB7E2587197EEB5100D63A7E /* README.markdown */; };
 		FB7E25BD197EEB5100D63A7E /* YOLO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2589197EEB5100D63A7E /* YOLO.m */; };
 		FB7E25BE197EEB5100D63A7E /* YOLO.ph in Resources */ = {isa = PBXBuildFile; fileRef = FB7E258A197EEB5100D63A7E /* YOLO.ph */; };
+		FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */; };
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
 		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
@@ -225,6 +226,8 @@
 		FB7E2588197EEB5100D63A7E /* YOLO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLO.h; sourceTree = "<group>"; };
 		FB7E2589197EEB5100D63A7E /* YOLO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLO.m; sourceTree = "<group>"; };
 		FB7E258A197EEB5100D63A7E /* YOLO.ph */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YOLO.ph; sourceTree = "<group>"; };
+		FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Pathing.h"; sourceTree = "<group>"; };
+		FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Pathing.m"; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -439,6 +442,8 @@
 				FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */,
 				FBDDB543197477060051D149 /* NAVRouter.h */,
 				FBDDB544197477060051D149 /* NAVRouter.m */,
+				FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */,
+				FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */,
 				FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */,
 				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
 				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
@@ -678,6 +683,7 @@
 				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
 				FB7E2599197EEB5100D63A7E /* NSArray+inject.m in Sources */,
 				FB7E25A8197EEB5100D63A7E /* NSArray+shuffle.m in Sources */,
+				FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */,
 				FB7E25A1197EEB5100D63A7E /* NSArray+pluck.m in Sources */,
 				FB7E258D197EEB5100D63A7E /* NSArray+any.m in Sources */,
 				109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */,

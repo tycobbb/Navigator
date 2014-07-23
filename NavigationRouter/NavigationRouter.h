@@ -20,3 +20,4 @@
 #import "NAVURLParameter.h"
 #import "NAVRouterNavigationControllerUpdater.h"
 #import "NAVRouterConstants.h"
+#import "NAVRouter+Pathing.h"
