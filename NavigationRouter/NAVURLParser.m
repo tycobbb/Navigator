@@ -71,7 +71,15 @@
     return keySet.map(^(NSString *key) {
         NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
         NAVURLParameter *destinationParameter = destinationURL.nav_parameters[key];
-        return sourceParameter.isVisible && !destinationParameter.isVisible ? sourceParameter : nil;
+        
+        if(!sourceParameter.isVisible || destinationParameter.isVisible)
+            return (NAVURLParameter *)nil;
+        
+        // we need to make sure we preserve the options on the destination parmaeter, but if there wasn't
+        // one we'll have to create a copy from the source object. and make sure that it's not set to visible.
+        NAVURLParameter *parameterToDisable = destinationParameter ?: [sourceParameter copy];
+        parameterToDisable.options &= ~NAVParameterOptionsVisible;
+        return parameterToDisable;
     });
 }
 

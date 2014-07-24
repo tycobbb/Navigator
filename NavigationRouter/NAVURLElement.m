@@ -14,4 +14,11 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    NAVURLElement *copy = [self.class new];
+    copy.key = self.key;
+    return copy;
+}
+
 @end

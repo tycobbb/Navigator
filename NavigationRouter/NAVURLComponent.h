@@ -6,6 +6,6 @@
 #import "NAVURLElement.h"
 
 @interface NAVURLComponent : NAVURLElement
-@property (assign, nonatomic, readonly) NSInteger index;
+@property (assign, nonatomic) NSInteger index;
 - (instancetype)initWithKey:(NSString *)key index:(NSInteger)index;
 @end

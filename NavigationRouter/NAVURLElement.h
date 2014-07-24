@@ -5,7 +5,7 @@
 
 @import Foundation;
 
-@interface NAVURLElement : NSObject
-@property (copy, nonatomic, readonly) NSString *key;
+@interface NAVURLElement : NSObject <NSCopying>
+@property (copy, nonatomic) NSString *key;
 - (instancetype)initWithKey:(NSString *)key;
 @end

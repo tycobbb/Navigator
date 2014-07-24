@@ -19,6 +19,15 @@
     return self.options & NAVParameterOptionsVisible;
 }
 
+# pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    NAVURLParameter *copy = [super copyWithZone:zone];
+    copy.options = self.options;
+    return self;
+}
+
 # pragma mark - Description
 
 - (NSString *)description

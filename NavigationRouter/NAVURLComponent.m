@@ -14,6 +14,15 @@
     return self;
 }
 
+# pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    NAVURLComponent *copy = [super copyWithZone:zone];
+    copy.index = self.index;
+    return copy;
+}
+
 # pragma mark - Description
 
 - (NSString *)description
