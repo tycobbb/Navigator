@@ -9,6 +9,7 @@
 @property (copy  , nonatomic) NSURL *currentURL;
 @property (strong, nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
+@property (strong, nonatomic) NAVTransaction *lastTransaction;
 @property (strong, nonatomic) NAVUpdateBuilder *updateBuilder;
 @end
 
@@ -76,6 +77,9 @@
         // capture the transactions completion block, and then nil it out so mark the transaction
         // as finished
         void(^transactionCompletion)(void) = self.currentTransaction.completion;
+        self.currentTransaction.completion = nil;
+        
+        self.lastTransaction    = self.currentTransaction;
         self.currentTransaction = nil;
         
         // call the completion if if it exists, and we're done
@@ -184,6 +188,11 @@
 - (NAVRoute *)routeForKey:(NSString *)key
 {
     return self.routes[key];
+}
+
+- (BOOL)parameterIsEnabled:(NSString *)parameter
+{
+    return self.lastTransaction.destinationURL[parameter].isVisible;
 }
 
 @end
