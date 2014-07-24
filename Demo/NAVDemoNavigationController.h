@@ -3,7 +3,7 @@
 //  Created by Ty Cobb on 7/21/14.
 //
 
-#import "NAVRouter.h"
+#import "NavigationRouter.h"
 
 @interface NAVDemoNavigationController : UINavigationController
 @property (strong, nonatomic) NAVRouter *router;
