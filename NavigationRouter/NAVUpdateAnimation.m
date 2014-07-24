@@ -10,8 +10,6 @@
 
 - (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void (^)(BOOL))completion
 {
-//    if(!self.animator && self.type == NAVUpdateTypeModal)
-//        self.animator = [NAVAnimatorModal new];
     [self.animator transitionToVisible:self.isVisible animated:self.isAnimated completion:completion];
 }
 

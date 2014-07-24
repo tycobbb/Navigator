@@ -35,58 +35,6 @@
 		FB7E24B6197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B5197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m */; };
 		FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */; };
 		FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */; };
-		FB7E258B197EEB5100D63A7E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FB7E2556197EEB5000D63A7E /* LICENSE */; };
-		FB7E258C197EEB5100D63A7E /* NSArray+all.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2557197EEB5000D63A7E /* NSArray+all.m */; };
-		FB7E258D197EEB5100D63A7E /* NSArray+any.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2558197EEB5000D63A7E /* NSArray+any.m */; };
-		FB7E258E197EEB5100D63A7E /* NSArray+chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2559197EEB5000D63A7E /* NSArray+chunk.m */; };
-		FB7E258F197EEB5100D63A7E /* NSArray+concat.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255A197EEB5000D63A7E /* NSArray+concat.m */; };
-		FB7E2590197EEB5100D63A7E /* NSArray+dict.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255B197EEB5000D63A7E /* NSArray+dict.m */; };
-		FB7E2591197EEB5100D63A7E /* NSArray+each.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255C197EEB5000D63A7E /* NSArray+each.m */; };
-		FB7E2592197EEB5100D63A7E /* NSArray+find.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255D197EEB5000D63A7E /* NSArray+find.m */; };
-		FB7E2593197EEB5100D63A7E /* NSArray+first.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255E197EEB5000D63A7E /* NSArray+first.m */; };
-		FB7E2594197EEB5100D63A7E /* NSArray+flatMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E255F197EEB5000D63A7E /* NSArray+flatMap.m */; };
-		FB7E2595197EEB5100D63A7E /* NSArray+flatten.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2560197EEB5000D63A7E /* NSArray+flatten.m */; };
-		FB7E2596197EEB5100D63A7E /* NSArray+groupBy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2561197EEB5000D63A7E /* NSArray+groupBy.m */; };
-		FB7E2597197EEB5100D63A7E /* NSArray+has.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2562197EEB5000D63A7E /* NSArray+has.m */; };
-		FB7E2598197EEB5100D63A7E /* NSArray+indexOf.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2563197EEB5000D63A7E /* NSArray+indexOf.m */; };
-		FB7E2599197EEB5100D63A7E /* NSArray+inject.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2564197EEB5000D63A7E /* NSArray+inject.m */; };
-		FB7E259A197EEB5100D63A7E /* NSArray+join.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2565197EEB5000D63A7E /* NSArray+join.m */; };
-		FB7E259B197EEB5100D63A7E /* NSArray+last.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2566197EEB5000D63A7E /* NSArray+last.m */; };
-		FB7E259C197EEB5100D63A7E /* NSArray+map.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2567197EEB5000D63A7E /* NSArray+map.m */; };
-		FB7E259D197EEB5100D63A7E /* NSArray+max.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2568197EEB5000D63A7E /* NSArray+max.m */; };
-		FB7E259E197EEB5100D63A7E /* NSArray+min.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2569197EEB5000D63A7E /* NSArray+min.m */; };
-		FB7E259F197EEB5100D63A7E /* NSArray+none.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256A197EEB5000D63A7E /* NSArray+none.m */; };
-		FB7E25A0197EEB5100D63A7E /* NSArray+partition.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256B197EEB5000D63A7E /* NSArray+partition.m */; };
-		FB7E25A1197EEB5100D63A7E /* NSArray+pluck.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256C197EEB5000D63A7E /* NSArray+pluck.m */; };
-		FB7E25A2197EEB5100D63A7E /* NSArray+pmap.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256D197EEB5000D63A7E /* NSArray+pmap.m */; };
-		FB7E25A3197EEB5100D63A7E /* NSArray+reduce.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256E197EEB5000D63A7E /* NSArray+reduce.m */; };
-		FB7E25A4197EEB5100D63A7E /* NSArray+reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E256F197EEB5000D63A7E /* NSArray+reverse.m */; };
-		FB7E25A5197EEB5100D63A7E /* NSArray+rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2570197EEB5000D63A7E /* NSArray+rotate.m */; };
-		FB7E25A6197EEB5100D63A7E /* NSArray+sample.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2571197EEB5000D63A7E /* NSArray+sample.m */; };
-		FB7E25A7197EEB5100D63A7E /* NSArray+select.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2572197EEB5000D63A7E /* NSArray+select.m */; };
-		FB7E25A8197EEB5100D63A7E /* NSArray+shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2573197EEB5000D63A7E /* NSArray+shuffle.m */; };
-		FB7E25A9197EEB5100D63A7E /* NSArray+skip.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2574197EEB5000D63A7E /* NSArray+skip.m */; };
-		FB7E25AA197EEB5100D63A7E /* NSArray+slice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2575197EEB5000D63A7E /* NSArray+slice.m */; };
-		FB7E25AB197EEB5100D63A7E /* NSArray+snip.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2576197EEB5000D63A7E /* NSArray+snip.m */; };
-		FB7E25AC197EEB5100D63A7E /* NSArray+sort.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2577197EEB5000D63A7E /* NSArray+sort.m */; };
-		FB7E25AD197EEB5100D63A7E /* NSArray+transpose.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2578197EEB5000D63A7E /* NSArray+transpose.m */; };
-		FB7E25AE197EEB5100D63A7E /* NSArray+uniq.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2579197EEB5000D63A7E /* NSArray+uniq.m */; };
-		FB7E25AF197EEB5100D63A7E /* NSArray+without.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257A197EEB5000D63A7E /* NSArray+without.m */; };
-		FB7E25B0197EEB5100D63A7E /* NSDictionary+array.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257B197EEB5000D63A7E /* NSDictionary+array.m */; };
-		FB7E25B1197EEB5100D63A7E /* NSDictionary+extend.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257C197EEB5000D63A7E /* NSDictionary+extend.m */; };
-		FB7E25B2197EEB5100D63A7E /* NSDictionary+get.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257D197EEB5100D63A7E /* NSDictionary+get.m */; };
-		FB7E25B3197EEB5100D63A7E /* NSDictionary+map.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257E197EEB5100D63A7E /* NSDictionary+map.m */; };
-		FB7E25B4197EEB5100D63A7E /* NSDictionary+pick.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E257F197EEB5100D63A7E /* NSDictionary+pick.m */; };
-		FB7E25B5197EEB5100D63A7E /* NSMutableArray+pop.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2580197EEB5100D63A7E /* NSMutableArray+pop.m */; };
-		FB7E25B6197EEB5100D63A7E /* NSMutableArray+push.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2581197EEB5100D63A7E /* NSMutableArray+push.m */; };
-		FB7E25B7197EEB5100D63A7E /* NSMutableArray+shift.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2582197EEB5100D63A7E /* NSMutableArray+shift.m */; };
-		FB7E25B8197EEB5100D63A7E /* NSMutableArray+unshift.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2583197EEB5100D63A7E /* NSMutableArray+unshift.m */; };
-		FB7E25B9197EEB5100D63A7E /* NSNumber+upTo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2584197EEB5100D63A7E /* NSNumber+upTo.m */; };
-		FB7E25BA197EEB5100D63A7E /* NSSet+each.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2585197EEB5100D63A7E /* NSSet+each.m */; };
-		FB7E25BB197EEB5100D63A7E /* NSString+split.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2586197EEB5100D63A7E /* NSString+split.m */; };
-		FB7E25BC197EEB5100D63A7E /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = FB7E2587197EEB5100D63A7E /* README.markdown */; };
-		FB7E25BD197EEB5100D63A7E /* YOLO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E2589197EEB5100D63A7E /* YOLO.m */; };
-		FB7E25BE197EEB5100D63A7E /* YOLO.ph in Resources */ = {isa = PBXBuildFile; fileRef = FB7E258A197EEB5100D63A7E /* YOLO.ph */; };
 		FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */; };
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
@@ -173,59 +121,6 @@
 		FB7E24BA197DAC6900D63A7E /* NAVAttributesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributesBuilder.h; sourceTree = "<group>"; };
 		FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilder.m; sourceTree = "<group>"; };
 		FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationRouter.h; sourceTree = "<group>"; };
-		FB7E2556197EEB5000D63A7E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		FB7E2557197EEB5000D63A7E /* NSArray+all.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+all.m"; sourceTree = "<group>"; };
-		FB7E2558197EEB5000D63A7E /* NSArray+any.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+any.m"; sourceTree = "<group>"; };
-		FB7E2559197EEB5000D63A7E /* NSArray+chunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+chunk.m"; sourceTree = "<group>"; };
-		FB7E255A197EEB5000D63A7E /* NSArray+concat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+concat.m"; sourceTree = "<group>"; };
-		FB7E255B197EEB5000D63A7E /* NSArray+dict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+dict.m"; sourceTree = "<group>"; };
-		FB7E255C197EEB5000D63A7E /* NSArray+each.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+each.m"; sourceTree = "<group>"; };
-		FB7E255D197EEB5000D63A7E /* NSArray+find.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+find.m"; sourceTree = "<group>"; };
-		FB7E255E197EEB5000D63A7E /* NSArray+first.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+first.m"; sourceTree = "<group>"; };
-		FB7E255F197EEB5000D63A7E /* NSArray+flatMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+flatMap.m"; sourceTree = "<group>"; };
-		FB7E2560197EEB5000D63A7E /* NSArray+flatten.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+flatten.m"; sourceTree = "<group>"; };
-		FB7E2561197EEB5000D63A7E /* NSArray+groupBy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+groupBy.m"; sourceTree = "<group>"; };
-		FB7E2562197EEB5000D63A7E /* NSArray+has.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+has.m"; sourceTree = "<group>"; };
-		FB7E2563197EEB5000D63A7E /* NSArray+indexOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+indexOf.m"; sourceTree = "<group>"; };
-		FB7E2564197EEB5000D63A7E /* NSArray+inject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+inject.m"; sourceTree = "<group>"; };
-		FB7E2565197EEB5000D63A7E /* NSArray+join.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+join.m"; sourceTree = "<group>"; };
-		FB7E2566197EEB5000D63A7E /* NSArray+last.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+last.m"; sourceTree = "<group>"; };
-		FB7E2567197EEB5000D63A7E /* NSArray+map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+map.m"; sourceTree = "<group>"; };
-		FB7E2568197EEB5000D63A7E /* NSArray+max.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+max.m"; sourceTree = "<group>"; };
-		FB7E2569197EEB5000D63A7E /* NSArray+min.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+min.m"; sourceTree = "<group>"; };
-		FB7E256A197EEB5000D63A7E /* NSArray+none.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+none.m"; sourceTree = "<group>"; };
-		FB7E256B197EEB5000D63A7E /* NSArray+partition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+partition.m"; sourceTree = "<group>"; };
-		FB7E256C197EEB5000D63A7E /* NSArray+pluck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+pluck.m"; sourceTree = "<group>"; };
-		FB7E256D197EEB5000D63A7E /* NSArray+pmap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+pmap.m"; sourceTree = "<group>"; };
-		FB7E256E197EEB5000D63A7E /* NSArray+reduce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+reduce.m"; sourceTree = "<group>"; };
-		FB7E256F197EEB5000D63A7E /* NSArray+reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+reverse.m"; sourceTree = "<group>"; };
-		FB7E2570197EEB5000D63A7E /* NSArray+rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+rotate.m"; sourceTree = "<group>"; };
-		FB7E2571197EEB5000D63A7E /* NSArray+sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+sample.m"; sourceTree = "<group>"; };
-		FB7E2572197EEB5000D63A7E /* NSArray+select.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+select.m"; sourceTree = "<group>"; };
-		FB7E2573197EEB5000D63A7E /* NSArray+shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+shuffle.m"; sourceTree = "<group>"; };
-		FB7E2574197EEB5000D63A7E /* NSArray+skip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+skip.m"; sourceTree = "<group>"; };
-		FB7E2575197EEB5000D63A7E /* NSArray+slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+slice.m"; sourceTree = "<group>"; };
-		FB7E2576197EEB5000D63A7E /* NSArray+snip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+snip.m"; sourceTree = "<group>"; };
-		FB7E2577197EEB5000D63A7E /* NSArray+sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+sort.m"; sourceTree = "<group>"; };
-		FB7E2578197EEB5000D63A7E /* NSArray+transpose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+transpose.m"; sourceTree = "<group>"; };
-		FB7E2579197EEB5000D63A7E /* NSArray+uniq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+uniq.m"; sourceTree = "<group>"; };
-		FB7E257A197EEB5000D63A7E /* NSArray+without.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+without.m"; sourceTree = "<group>"; };
-		FB7E257B197EEB5000D63A7E /* NSDictionary+array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+array.m"; sourceTree = "<group>"; };
-		FB7E257C197EEB5000D63A7E /* NSDictionary+extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+extend.m"; sourceTree = "<group>"; };
-		FB7E257D197EEB5100D63A7E /* NSDictionary+get.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+get.m"; sourceTree = "<group>"; };
-		FB7E257E197EEB5100D63A7E /* NSDictionary+map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+map.m"; sourceTree = "<group>"; };
-		FB7E257F197EEB5100D63A7E /* NSDictionary+pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+pick.m"; sourceTree = "<group>"; };
-		FB7E2580197EEB5100D63A7E /* NSMutableArray+pop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+pop.m"; sourceTree = "<group>"; };
-		FB7E2581197EEB5100D63A7E /* NSMutableArray+push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+push.m"; sourceTree = "<group>"; };
-		FB7E2582197EEB5100D63A7E /* NSMutableArray+shift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+shift.m"; sourceTree = "<group>"; };
-		FB7E2583197EEB5100D63A7E /* NSMutableArray+unshift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+unshift.m"; sourceTree = "<group>"; };
-		FB7E2584197EEB5100D63A7E /* NSNumber+upTo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+upTo.m"; sourceTree = "<group>"; };
-		FB7E2585197EEB5100D63A7E /* NSSet+each.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+each.m"; sourceTree = "<group>"; };
-		FB7E2586197EEB5100D63A7E /* NSString+split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+split.m"; sourceTree = "<group>"; };
-		FB7E2587197EEB5100D63A7E /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		FB7E2588197EEB5100D63A7E /* YOLO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLO.h; sourceTree = "<group>"; };
-		FB7E2589197EEB5100D63A7E /* YOLO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLO.m; sourceTree = "<group>"; };
-		FB7E258A197EEB5100D63A7E /* YOLO.ph */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YOLO.ph; sourceTree = "<group>"; };
 		FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Pathing.h"; sourceTree = "<group>"; };
 		FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Pathing.m"; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,66 +235,6 @@
 			name = URLs;
 			sourceTree = "<group>";
 		};
-		FB7E2555197EEB2E00D63A7E /* YOLOKit */ = {
-			isa = PBXGroup;
-			children = (
-				FB7E2556197EEB5000D63A7E /* LICENSE */,
-				FB7E2557197EEB5000D63A7E /* NSArray+all.m */,
-				FB7E2558197EEB5000D63A7E /* NSArray+any.m */,
-				FB7E2559197EEB5000D63A7E /* NSArray+chunk.m */,
-				FB7E255A197EEB5000D63A7E /* NSArray+concat.m */,
-				FB7E255B197EEB5000D63A7E /* NSArray+dict.m */,
-				FB7E255C197EEB5000D63A7E /* NSArray+each.m */,
-				FB7E255D197EEB5000D63A7E /* NSArray+find.m */,
-				FB7E255E197EEB5000D63A7E /* NSArray+first.m */,
-				FB7E255F197EEB5000D63A7E /* NSArray+flatMap.m */,
-				FB7E2560197EEB5000D63A7E /* NSArray+flatten.m */,
-				FB7E2561197EEB5000D63A7E /* NSArray+groupBy.m */,
-				FB7E2562197EEB5000D63A7E /* NSArray+has.m */,
-				FB7E2563197EEB5000D63A7E /* NSArray+indexOf.m */,
-				FB7E2564197EEB5000D63A7E /* NSArray+inject.m */,
-				FB7E2565197EEB5000D63A7E /* NSArray+join.m */,
-				FB7E2566197EEB5000D63A7E /* NSArray+last.m */,
-				FB7E2567197EEB5000D63A7E /* NSArray+map.m */,
-				FB7E2568197EEB5000D63A7E /* NSArray+max.m */,
-				FB7E2569197EEB5000D63A7E /* NSArray+min.m */,
-				FB7E256A197EEB5000D63A7E /* NSArray+none.m */,
-				FB7E256B197EEB5000D63A7E /* NSArray+partition.m */,
-				FB7E256C197EEB5000D63A7E /* NSArray+pluck.m */,
-				FB7E256D197EEB5000D63A7E /* NSArray+pmap.m */,
-				FB7E256E197EEB5000D63A7E /* NSArray+reduce.m */,
-				FB7E256F197EEB5000D63A7E /* NSArray+reverse.m */,
-				FB7E2570197EEB5000D63A7E /* NSArray+rotate.m */,
-				FB7E2571197EEB5000D63A7E /* NSArray+sample.m */,
-				FB7E2572197EEB5000D63A7E /* NSArray+select.m */,
-				FB7E2573197EEB5000D63A7E /* NSArray+shuffle.m */,
-				FB7E2574197EEB5000D63A7E /* NSArray+skip.m */,
-				FB7E2575197EEB5000D63A7E /* NSArray+slice.m */,
-				FB7E2576197EEB5000D63A7E /* NSArray+snip.m */,
-				FB7E2577197EEB5000D63A7E /* NSArray+sort.m */,
-				FB7E2578197EEB5000D63A7E /* NSArray+transpose.m */,
-				FB7E2579197EEB5000D63A7E /* NSArray+uniq.m */,
-				FB7E257A197EEB5000D63A7E /* NSArray+without.m */,
-				FB7E257B197EEB5000D63A7E /* NSDictionary+array.m */,
-				FB7E257C197EEB5000D63A7E /* NSDictionary+extend.m */,
-				FB7E257D197EEB5100D63A7E /* NSDictionary+get.m */,
-				FB7E257E197EEB5100D63A7E /* NSDictionary+map.m */,
-				FB7E257F197EEB5100D63A7E /* NSDictionary+pick.m */,
-				FB7E2580197EEB5100D63A7E /* NSMutableArray+pop.m */,
-				FB7E2581197EEB5100D63A7E /* NSMutableArray+push.m */,
-				FB7E2582197EEB5100D63A7E /* NSMutableArray+shift.m */,
-				FB7E2583197EEB5100D63A7E /* NSMutableArray+unshift.m */,
-				FB7E2584197EEB5100D63A7E /* NSNumber+upTo.m */,
-				FB7E2585197EEB5100D63A7E /* NSSet+each.m */,
-				FB7E2586197EEB5100D63A7E /* NSString+split.m */,
-				FB7E2587197EEB5100D63A7E /* README.markdown */,
-				FB7E2588197EEB5100D63A7E /* YOLO.h */,
-				FB7E2589197EEB5100D63A7E /* YOLO.m */,
-				FB7E258A197EEB5100D63A7E /* YOLO.ph */,
-			);
-			path = YOLOKit;
-			sourceTree = "<group>";
-		};
 		FBDDB4E9197475260051D149 = {
 			isa = PBXGroup;
 			children = (
@@ -463,7 +298,6 @@
 				FB7E248B19786B7600D63A7E /* Internal */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,
-				FB7E2555197EEB2E00D63A7E /* YOLOKit */,
 				109DE5E4197A16F8003AA60C /* Extensions */,
 				FBDDB5261974756F0051D149 /* Demo */,
 			);
@@ -592,10 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7E25BE197EEB5100D63A7E /* YOLO.ph in Resources */,
-				FB7E258B197EEB5100D63A7E /* LICENSE in Resources */,
 				FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */,
-				FB7E25BC197EEB5100D63A7E /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,79 +509,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */,
-				FB7E25B4197EEB5100D63A7E /* NSDictionary+pick.m in Sources */,
 				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
 				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
-				FB7E2599197EEB5100D63A7E /* NSArray+inject.m in Sources */,
-				FB7E25A8197EEB5100D63A7E /* NSArray+shuffle.m in Sources */,
 				FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */,
-				FB7E25A1197EEB5100D63A7E /* NSArray+pluck.m in Sources */,
-				FB7E258D197EEB5100D63A7E /* NSArray+any.m in Sources */,
 				109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */,
-				FB7E25B2197EEB5100D63A7E /* NSDictionary+get.m in Sources */,
-				FB7E25BA197EEB5100D63A7E /* NSSet+each.m in Sources */,
-				FB7E2591197EEB5100D63A7E /* NSArray+each.m in Sources */,
 				109DE5F9197E3232003AA60C /* NAVAnimatorModal.m in Sources */,
-				FB7E25B3197EEB5100D63A7E /* NSDictionary+map.m in Sources */,
-				FB7E25B6197EEB5100D63A7E /* NSMutableArray+push.m in Sources */,
-				FB7E2592197EEB5100D63A7E /* NSArray+find.m in Sources */,
-				FB7E25AC197EEB5100D63A7E /* NSArray+sort.m in Sources */,
-				FB7E258F197EEB5100D63A7E /* NSArray+concat.m in Sources */,
-				FB7E25BB197EEB5100D63A7E /* NSString+split.m in Sources */,
 				FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */,
-				FB7E25B8197EEB5100D63A7E /* NSMutableArray+unshift.m in Sources */,
-				FB7E25A4197EEB5100D63A7E /* NSArray+reverse.m in Sources */,
-				FB7E2590197EEB5100D63A7E /* NSArray+dict.m in Sources */,
-				FB7E25B5197EEB5100D63A7E /* NSMutableArray+pop.m in Sources */,
-				FB7E258C197EEB5100D63A7E /* NSArray+all.m in Sources */,
-				FB7E2594197EEB5100D63A7E /* NSArray+flatMap.m in Sources */,
-				FB7E259F197EEB5100D63A7E /* NSArray+none.m in Sources */,
-				FB7E25AA197EEB5100D63A7E /* NSArray+slice.m in Sources */,
-				FB7E258E197EEB5100D63A7E /* NSArray+chunk.m in Sources */,
 				109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */,
-				FB7E259B197EEB5100D63A7E /* NSArray+last.m in Sources */,
-				FB7E2598197EEB5100D63A7E /* NSArray+indexOf.m in Sources */,
 				109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */,
-				FB7E25AB197EEB5100D63A7E /* NSArray+snip.m in Sources */,
-				FB7E25B1197EEB5100D63A7E /* NSDictionary+extend.m in Sources */,
-				FB7E25B7197EEB5100D63A7E /* NSMutableArray+shift.m in Sources */,
-				FB7E25A6197EEB5100D63A7E /* NSArray+sample.m in Sources */,
 				109DE5F6197E2B90003AA60C /* NSURL+NAVRouter.m in Sources */,
 				109DE5EA197C2AD9003AA60C /* NAVURLTransitionComponents.m in Sources */,
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
 				FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */,
-				FB7E25B9197EEB5100D63A7E /* NSNumber+upTo.m in Sources */,
-				FB7E259A197EEB5100D63A7E /* NSArray+join.m in Sources */,
 				FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */,
-				FB7E25AF197EEB5100D63A7E /* NSArray+without.m in Sources */,
-				FB7E2597197EEB5100D63A7E /* NSArray+has.m in Sources */,
-				FB7E25B0197EEB5100D63A7E /* NSDictionary+array.m in Sources */,
-				FB7E25A7197EEB5100D63A7E /* NSArray+select.m in Sources */,
 				FB7E24B6197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m in Sources */,
-				FB7E25AD197EEB5100D63A7E /* NSArray+transpose.m in Sources */,
 				FBDDB502197475260051D149 /* main.m in Sources */,
 				FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */,
-				FB7E259C197EEB5100D63A7E /* NSArray+map.m in Sources */,
-				FB7E25AE197EEB5100D63A7E /* NSArray+uniq.m in Sources */,
-				FB7E25A3197EEB5100D63A7E /* NSArray+reduce.m in Sources */,
-				FB7E25BD197EEB5100D63A7E /* YOLO.m in Sources */,
 				FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */,
 				FB7E24B0197D6ED800D63A7E /* NAVUpdateBuilder.m in Sources */,
 				FBDDB551197477060051D149 /* NAVRouter.m in Sources */,
-				FB7E259D197EEB5100D63A7E /* NSArray+max.m in Sources */,
 				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
-				FB7E2593197EEB5100D63A7E /* NSArray+first.m in Sources */,
-				FB7E25A2197EEB5100D63A7E /* NSArray+pmap.m in Sources */,
 				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
 				FB7E24961978776E00D63A7E /* NAVURLParameter.m in Sources */,
 				FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */,
-				FB7E259E197EEB5100D63A7E /* NSArray+min.m in Sources */,
 				FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */,
-				FB7E25A0197EEB5100D63A7E /* NSArray+partition.m in Sources */,
-				FB7E2595197EEB5100D63A7E /* NSArray+flatten.m in Sources */,
-				FB7E25A9197EEB5100D63A7E /* NSArray+skip.m in Sources */,
-				FB7E2596197EEB5100D63A7E /* NSArray+groupBy.m in Sources */,
-				FB7E25A5197EEB5100D63A7E /* NSArray+rotate.m in Sources */,
 				FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */,
 				FB7E249B1979932E00D63A7E /* NAVURL.m in Sources */,
 			);
