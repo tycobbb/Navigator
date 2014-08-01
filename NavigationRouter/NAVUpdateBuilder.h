@@ -4,6 +4,8 @@
 //
 
 #import "NAVUpdate.h"
+#import "NAVUpdateAnimation.h"
+
 #import "NAVURLComponent.h"
 #import "NAVURLParameter.h"
 #import "NAVAttributes.h"
@@ -34,5 +36,6 @@
 
 @protocol NAVUpdateBuilderDelegate <NSObject>
 - (NAVRoute *)builder:(NAVUpdateBuilder *)builder routeForKey:(NSString *)key;
-- (id<NAVRouterFactory>)factoryForBuilder:(NAVUpdateBuilder *)builder;
+- (UIViewController *)builder:(NAVUpdateBuilder *)builder controllerForUpdate:(NAVUpdate *)update;
+- (NAVAnimator *)builder:(NAVUpdateBuilder *)builder animatorForUpdate:(NAVUpdateAnimation *)update;
 @end

@@ -89,6 +89,7 @@
     NAVUpdate *update = [updateClass updateWithType:self.updateType route:self.updateRoute];
     
     update.isAnimated = self.updateIsAnimated;
+    update.attributes = self.updateAttributes;
     
     if([update isKindOfClass:[NAVUpdateAnimation class]])
         [self buildAnimationSpecificProperties:(NAVUpdateAnimation *)update];
@@ -117,15 +118,15 @@
 
 - (void)buildStackSpecificProperties:(NAVUpdateStack *)update
 {
-    update.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.updateAttributes];
     update.index          = [self updateIndex];
+    update.viewController = [self.delegate builder:self controllerForUpdate:update];
 }
 
 - (void)buildAnimationSpecificProperties:(NAVUpdateAnimation *)update
 {
-    update.animator       = [self animatorForUpdate:update];
     update.isAsynchronous = self.updateParameter.options & NAVParameterOptionsAsync;
     update.isVisible      = self.updateParameter.isVisible;
+    update.animator       = [self.delegate builder:self animatorForUpdate:update];
 }
 
 //
@@ -137,17 +138,6 @@
     self.updateRoute = route;
     if(!self.updateType)
         self.updateType = [self updateTypeForRoute:route];
-}
-
-- (NAVAnimator *)animatorForUpdate:(NAVUpdateAnimation *)update
-{
-    NAVAnimator *animator = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute withAttributes:self.updateAttributes];
-    if(animator || update.type != NAVUpdateTypeModal)
-        return animator;
-    
-    NAVAnimatorModal *modalAnimator = [NAVAnimatorModal new];
-    modalAnimator.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.updateAttributes];
-    return modalAnimator;
 }
 
 - (NAVUpdateType)updateTypeForRoute:(NAVRoute *)route

@@ -4,6 +4,7 @@
 //
 
 #import "NAVRoute.h"
+#import "NAVAttributes.h"
 #import "NAVRouterUpdater.h"
 
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 
 @property (strong, nonatomic, readonly) NAVRoute *route;
 @property (assign, nonatomic, readonly) NAVUpdateType type;
+@property (strong, nonatomic) NAVAttributes *attributes;
 @property (assign, nonatomic) BOOL isAnimated;
 
 + (instancetype)updateWithType:(NAVUpdateType)type route:(NAVRoute *)route;

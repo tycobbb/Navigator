@@ -8,8 +8,12 @@
 @protocol NAVAnimatorDelegate;
 
 @interface NAVAnimator : NSObject
+
 @property (weak, nonatomic) id<NAVAnimatorDelegate> delegate;
+
 - (void)transitionToVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL finished))completion;
+- (void)onDismissal:(void(^)(void))handler;
+
 @end
 
 @protocol NAVAnimatorDelegate <NSObject>

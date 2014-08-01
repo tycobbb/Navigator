@@ -11,6 +11,7 @@
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
 @property (strong, nonatomic) NAVTransaction *lastTransaction;
 @property (strong, nonatomic) NAVUpdateBuilder *updateBuilder;
+@property (strong, nonatomic) NSMutableDictionary *outstandingAnimators;
 @end
 
 @implementation NAVRouter
@@ -25,6 +26,7 @@
         _parser     = [NAVURLParser new];
         _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
+        _outstandingAnimators = [NSMutableDictionary new];
     }
     
     return self;
@@ -128,9 +130,44 @@
     return [self routeForKey:key];
 }
 
-- (id<NAVRouterFactory>)factoryForBuilder:(NAVUpdateBuilder *)builder
+- (UIViewController *)builder:(NAVUpdateBuilder *)builder controllerForUpdate:(NAVUpdate *)update
 {
-    return self.factory;
+    return [self.factory controllerForRoute:update.route withAttributes:update.attributes];
+}
+
+- (NAVAnimator *)builder:(NAVUpdateBuilder *)builder animatorForUpdate:(NAVUpdateAnimation *)update
+{
+    NSString *animatorKey = update.route.path;
+    
+    // check to see if we have an animator for this route, which we should if this is a disable
+    NAVAnimator *animator = self.outstandingAnimators[animatorKey];
+    if(animator)
+        return animator;
+    
+    // otherwise create an animator from the factory and add that to our store of active animators
+    animator = [self createAnimatorForUpdate:update];
+    
+    self.outstandingAnimators[animatorKey] = animator;
+    [animator onDismissal:^{
+        [self.outstandingAnimators removeObjectForKey:animatorKey];
+    }];
+    
+    return animator;
+}
+
+//
+// Helpers
+//
+
+- (NAVAnimator *)createAnimatorForUpdate:(NAVUpdateAnimation *)update
+{
+    NAVAnimator *animator = [self.factory animatorForRoute:update.route withAttributes:update.attributes];
+    if(animator || update.type != NAVUpdateTypeModal)
+        return animator;
+    
+    NAVAnimatorModal *modalAnimator = [NAVAnimatorModal new];
+    modalAnimator.viewController = [self builder:self.updateBuilder controllerForUpdate:update];
+    return modalAnimator;
 }
 
 # pragma mark - Error Checking

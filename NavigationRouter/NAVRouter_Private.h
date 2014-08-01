@@ -6,6 +6,7 @@
 #import "NAVRouter.h"
 #import "NAVUpdate.h"
 #import "NAVUpdateBuilder.h"
+#import "NAVAnimatorModal.h"
 #import "NAVTransaction.h"
 #import "NAVURLParser.h"
 #import "NAVRouterNavigationControllerUpdater.h"
