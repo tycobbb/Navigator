@@ -136,7 +136,7 @@
  @brief Axial method about which all other routing operations orbit. 
  
  Calling this method triggers the router's update cycle, wherein it will diff the destination URL against its current location,
- and perform any necessary interface updates to resolve the trasnition.
+ and perform any necessary interface updates to resolve the transition.
  
  @param attributes Attributes which encapsulate the destination URL as well as any other user information
  @param isAnimated Flag indicating whether or not the transition is animated

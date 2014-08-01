@@ -28,8 +28,20 @@
     else
     {
         UIViewController *controller = [UIApplication sharedApplication].keyWindow.rootViewController;
+        controller = [self presentingViewControllerFromViewController:controller];
         [controller presentViewController:self.viewController animated:YES completion:modalCompletion];
     }
+}
+
+//
+// Helpers
+//
+
+- (UIViewController *)presentingViewControllerFromViewController:(UIViewController *)viewController
+{
+    if(!viewController.presentedViewController)
+        return viewController;
+    return [self presentingViewControllerFromViewController:viewController.presentedViewController];
 }
 
 @end
