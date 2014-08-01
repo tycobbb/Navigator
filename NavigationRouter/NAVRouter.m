@@ -196,7 +196,9 @@
 
 - (NSArray *)updatesForTransaction:(NAVTransaction *)transaction
 {
-    NSArray *updates = [self updatesFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    NAVURLTransitionComponents *components =
+        [self.parser router:self transitionComponentsFromURL:transaction.sourceURL toURL:transaction.destinationURL];
+    NSArray *updates = [self updatesForComponents:components attributes:transaction.attributes builder:self.updateBuilder];
     
     // if the transaction specifies unanimated, we'll override any default behavior established
     // during update creation
@@ -207,35 +209,27 @@
     return updates;
 }
 
-- (NSArray *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NSArray *)updatesForComponents:(NAVURLTransitionComponents *)components attributes:(NAVAttributes *)attributes builder:(NAVUpdateBuilder *)update
 {
-    NAVURLTransitionComponents *components = [self.parser router:self transitionComponentsFromURL:sourceURL toURL:destinationURL];
-    NSArray *updates = [self updatesFromTransitionComponents:components];
-    return updates;
-}
-
-- (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components
-{
-    return [self updatesFromTransitionComponents:components withBuilder:self.updateBuilder];
-}
-
-- (NSArray *)updatesFromTransitionComponents:(NAVURLTransitionComponents *)components withBuilder:(NAVUpdateBuilder *)update
-{
+    NAVURLComponent *component;
+    
     NSMutableArray *updates = [NSMutableArray new];
     for(NAVURLParameter *parameter in components.parametersToDisable)
-        [updates addObject:update.with.parameter(parameter).build];
+        [updates addObject:update.with.parameter(parameter).attributes(attributes).build];
     
-    if(components.componentToReplace)
-        [updates addObject:update.with.component(components.componentToReplace).as(NAVUpdateTypeReplace).build];
+    component = components.componentToReplace;
+    if(component)
+        [updates addObject:update.as(NAVUpdateTypeReplace).with.component(component).attributes(attributes).build];
     
+    component = components.componentsToPop.firstObject;
     if(components.componentsToPop.count)
-        [updates addObject:update.with.component(components.componentsToPop.firstObject).as(NAVUpdateTypePop).build];
+        [updates addObject:update.as(NAVUpdateTypePop).with.component(component).attributes(attributes).build];
     
     for(NAVURLComponent *component in components.componentsToPush)
-        [updates addObject:update.with.component(component).as(NAVUpdateTypePush).build];
+        [updates addObject:update.as(NAVUpdateTypePush).with.component(component).attributes(attributes).build];
     
     for(NAVURLParameter *parameter in components.parametersToEnable)
-        [updates addObject:update.with.parameter(parameter).build];
+        [updates addObject:update.with.parameter(parameter).attributes(attributes).build];
     
     return updates;
 }

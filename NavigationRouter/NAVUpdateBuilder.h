@@ -6,6 +6,7 @@
 #import "NAVUpdate.h"
 #import "NAVURLComponent.h"
 #import "NAVURLParameter.h"
+#import "NAVAttributes.h"
 #import "NAVRouterFactory.h"
 
 @protocol NAVUpdateBuilderDelegate;
@@ -16,7 +17,13 @@
 
 - (NAVUpdate *)build;
 
+- (NAVUpdateBuilder *)asType:(NAVUpdateType)type;
+- (NAVUpdateBuilder *)withAttributes:(NAVAttributes *)attributes;
+- (NAVUpdateBuilder *)withComponent:(NAVURLComponent *)component;
+- (NAVUpdateBuilder *)withParameter:(NAVURLParameter *)parameter;
+
 - (NAVUpdateBuilder *(^)(NAVUpdateType))as;
+- (NAVUpdateBuilder *(^)(NAVAttributes *))attributes;
 - (NAVUpdateBuilder *(^)(NAVURLComponent *))component;
 - (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter;
 

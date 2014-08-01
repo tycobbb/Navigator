@@ -15,40 +15,71 @@
 @property (assign, nonatomic) NAVUpdateType updateType;
 @property (assign, nonatomic) NSInteger updateIndex;
 @property (strong, nonatomic) NAVRoute *updateRoute;
+@property (strong, nonatomic) NAVAttributes *updateAttributes;
 @property (strong, nonatomic) NAVURLParameter *updateParameter;
 @property (assign, nonatomic) BOOL updateIsAnimated;
 @end
 
 @implementation NAVUpdateBuilder
 
-# pragma mark - Builder Options
+# pragma mark - Options
+
+- (NAVUpdateBuilder *)asType:(NAVUpdateType)type
+{
+    self.updateType = type;
+    return self;
+}
+
+- (NAVUpdateBuilder *)withParameter:(NAVURLParameter *)parameter
+{
+    self.routeKey         = parameter.key;
+    self.updateParameter  = parameter;
+    self.updateIsAnimated = !(parameter.options & NAVParameterOptionsUnanimated);
+    return self;
+}
+
+- (NAVUpdateBuilder *)withComponent:(NAVURLComponent *)component
+{
+    self.routeKey    = component.key;
+    self.updateIndex = component.index;
+    return self;
+}
+
+- (NAVUpdateBuilder *)withAttributes:(NAVAttributes *)attributes
+{
+    self.updateAttributes = attributes;
+    return self;
+}
 
 - (NAVUpdateBuilder *(^)(NAVUpdateType))as
 {
     return ^(NAVUpdateType type) {
-        self.updateType = type;
-        return self;
+        return [self asType:type];
     };
 }
 
 - (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter
 {
     return ^(NAVURLParameter *parameter) {
-        self.routeKey         = parameter.key;
-        self.updateParameter  = parameter;
-        self.updateIsAnimated = !(parameter.options & NAVParameterOptionsUnanimated);
-        return self;
+        return [self withParameter:parameter];
     };
 }
 
 - (NAVUpdateBuilder *(^)(NAVURLComponent *))component
 {
     return ^(NAVURLComponent *component) {
-        self.routeKey    = component.key;
-        self.updateIndex = component.index;
-        return self;
+        return [self withComponent:component];
     };
 }
+
+- (NAVUpdateBuilder *(^)(NAVAttributes *))attributes
+{
+    return ^(NAVAttributes *attributes) {
+        return [self withAttributes:attributes];
+    };
+}
+
+# pragma mark - Construction
 
 - (NAVUpdate *)build
 {
@@ -74,6 +105,7 @@
     self.updateIndex = 0;
     self.updateType = NAVUpdateTypeUnknown;
     self.updateIsAnimated = YES;
+    self.updateAttributes = nil;
     self.updateParameter = nil;
     self.updateRoute = nil;
     self.routeKey = nil;
@@ -85,7 +117,7 @@
 
 - (void)buildStackSpecificProperties:(NAVUpdateStack *)update
 {
-    update.viewController = [[self.delegate factoryForBuilder:self] viewControllerForRoute:self.updateRoute];
+    update.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.attributes];
     update.index          = [self updateIndex];
 }
 
@@ -109,12 +141,12 @@
 
 - (NAVAnimator *)animatorForUpdate:(NAVUpdateAnimation *)update
 {
-    NAVAnimator *animator = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute];
+    NAVAnimator *animator = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute withAttributes:self.attributes];
     if(animator || update.type != NAVUpdateTypeModal)
         return animator;
     
     NAVAnimatorModal *modalAnimator = [NAVAnimatorModal new];
-    modalAnimator.viewController = [[self.delegate factoryForBuilder:self] viewControllerForRoute:self.updateRoute];
+    modalAnimator.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.attributes];
     return modalAnimator;
 }
 

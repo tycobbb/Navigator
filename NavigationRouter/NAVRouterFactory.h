@@ -6,9 +6,11 @@
 @import UIKit;
 @import Foundation;
 
-@class NAVRouter, NAVRoute, NAVAnimator;
+#import "NAVRoute.h"
+#import "NAVAttributes.h"
+#import "NAVAnimator.h"
 
 @protocol NAVRouterFactory <NSObject>
-- (UIViewController *)viewControllerForRoute:(NAVRoute *)route;
-- (NAVAnimator *)animatorForRoute:(NAVRoute *)route;
+- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
+- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
 @end

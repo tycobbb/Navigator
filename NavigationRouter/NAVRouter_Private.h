@@ -20,5 +20,4 @@
 
 @interface NAVRouter (Updates)
 - (NSArray *)updatesForTransaction:(NAVTransaction *)transaction;
-- (NSArray *)updatesFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL;
 @end
