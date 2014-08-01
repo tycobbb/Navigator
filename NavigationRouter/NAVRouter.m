@@ -23,7 +23,7 @@
     {
         _currentURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
         _parser     = [NAVURLParser new];
-        _updateBuilder    = [NAVUpdateBuilder new];
+        _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
     }
     
@@ -169,11 +169,6 @@
 }
 
 # pragma mark - Accessors
-
-- (Class)attributesClass
-{
-    return _attributesClass ?: [NAVAttributes class];
-}
 
 - (NAVAttributesBuilder *)attributesBuilder
 {

@@ -5,6 +5,7 @@
 
 #import <YOLOKit/YOLO.h>
 #import "NAVURLParser.h"
+#import "YOLT.h"
 
 @implementation NAVURLParser
 
@@ -67,7 +68,10 @@
 
 - (NSArray *)paramatersToDisableFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
 {
+    // keys that are disabled may not be in the destination parameters, so we need to merge both the
+    // source and destination to ensure a complete set.
     NSArray *keySet = sourceURL.nav_parameters.allKeys.concat(destinationURL.nav_parameters.allKeys).uniq;
+    
     return keySet.map(^(NSString *key) {
         NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
         NAVURLParameter *destinationParameter = destinationURL.nav_parameters[key];
