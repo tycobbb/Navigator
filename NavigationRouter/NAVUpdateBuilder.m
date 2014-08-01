@@ -117,7 +117,7 @@
 
 - (void)buildStackSpecificProperties:(NAVUpdateStack *)update
 {
-    update.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.attributes];
+    update.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.updateAttributes];
     update.index          = [self updateIndex];
 }
 
@@ -141,12 +141,12 @@
 
 - (NAVAnimator *)animatorForUpdate:(NAVUpdateAnimation *)update
 {
-    NAVAnimator *animator = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute withAttributes:self.attributes];
+    NAVAnimator *animator = [[self.delegate factoryForBuilder:self] animatorForRoute:self.updateRoute withAttributes:self.updateAttributes];
     if(animator || update.type != NAVUpdateTypeModal)
         return animator;
     
     NAVAnimatorModal *modalAnimator = [NAVAnimatorModal new];
-    modalAnimator.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.attributes];
+    modalAnimator.viewController = [[self.delegate factoryForBuilder:self] controllerForRoute:self.updateRoute withAttributes:self.updateAttributes];
     return modalAnimator;
 }
 
