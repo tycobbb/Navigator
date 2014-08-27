@@ -9,6 +9,11 @@
 
 # pragma mark - Path Components
 
+- (void)transitionToPath:(NSString *)path
+{
+    [self transitionToPath:path withModel:nil];
+}
+
 - (void)transitionToPath:(NSString *)path withModel:(id)model
 {
     NAVAttributes *attributes = self.attributesBuilder.to(path).with.model(model).build;
@@ -32,10 +37,15 @@
 
 - (void)presentScreen:(NSString *)screen animated:(BOOL)animated
 {
+    [self presentScreen:screen animated:animated withModel:nil];
+}
+
+- (void)presentScreen:(NSString *)screen animated:(BOOL)animated withModel:(id)model
+{
     NAVParameterOptions options = NAVParameterOptionsVisible;
     if(!animated)
         options |= NAVParameterOptionsUnanimated;
-    [self updateParameter:screen withOptions:options];
+    [self updateParameter:screen withOptions:options model:model];
 }
 
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated
@@ -43,12 +53,12 @@
     NAVParameterOptions options = NAVParameterOptionsHidden;
     if(!animated)
         options |= NAVParameterOptionsUnanimated;
-    [self updateParameter:screen withOptions:options];
+    [self updateParameter:screen withOptions:options model:nil];
 }
 
-- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model
 {
-    NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).build;
+    NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];
 }
 
