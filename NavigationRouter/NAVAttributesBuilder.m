@@ -59,7 +59,7 @@
     NSArray *relativeComponents = [self componentsFromPath:path];
     
     // if there's no host, we'll treat the first component as such and use the rest as a relative path
-    if(!components.host)
+    if(!components.host.length)
     {
         components.host    = relativeComponents.firstObject;
         relativeComponents = relativeComponents.skip(1);

@@ -36,6 +36,7 @@
 		FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */; };
 		FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */; };
 		FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */; };
+		FBB3F3CE19B0C9A900D9E17E /* NAVAttributesBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */; };
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
 		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
@@ -123,6 +124,7 @@
 		FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationRouter.h; sourceTree = "<group>"; };
 		FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Pathing.h"; sourceTree = "<group>"; };
 		FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Pathing.m"; sourceTree = "<group>"; };
+		FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilderTests.m; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -314,6 +316,7 @@
 				FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */,
 				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
 				109DE5DD1979F73F003AA60C /* NAVURLParserTests.m */,
+				FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */,
 				FBDDB515197475260051D149 /* Supporting Files */,
 			);
 			path = Tests;
@@ -548,6 +551,7 @@
 				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
 				109DE5DE1979F73F003AA60C /* NAVURLParserTests.m in Sources */,
 				109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */,
+				FBB3F3CE19B0C9A900D9E17E /* NAVAttributesBuilderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
