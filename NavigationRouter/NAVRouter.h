@@ -14,6 +14,10 @@
 
 @interface NAVRouter : NSObject
 
+#
+# pragma mark - Modules
+#
+
 /**
  @brief Sends events concerning the router's update lifecycle. Optional
  
@@ -66,6 +70,10 @@
 
 @property (strong, nonatomic) id<NAVRouterFactory> factory;
 
+#
+# pragma mark - Properties
+#
+
 /**
  @brief The router's internal URL scheme.
  
@@ -101,6 +109,18 @@
 
 @property (assign, nonatomic, readonly) BOOL isTransitioning;
 
+#
+# pragma mark - Construction
+#
+
+/**
+ @brief Returns a shared instance specific to this router class.
+ 
+ Each router subclass maintains an independent instance.
+*/
+
++ (instancetype)router;
+
 /**
  @brief Designated initializer.
  
@@ -118,6 +138,17 @@
 - (instancetype)initWithScheme:(NSString *)scheme;
 
 /**
+ @brief Updates the router's initial routes.
+ 
+ Subclasses may override this method to add default routes to the router. The router
+ will internall call this method on construction within an @c updateRoutes: block.
+ 
+ @param route A route builder instance
+*/
+
+- (void)routes:(NAVRouteBuilder *)route;
+
+/**
  @brief Updates the router's internal routes.
  
  The parameterized block should use the builder to specify how the router's internal routes be updated. Existing
@@ -132,6 +163,10 @@
 
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock;
 
+#
+# pragma mark - Transitioning
+#
+
 /**
  @brief Axial method about which all other routing operations orbit. 
  
@@ -145,6 +180,21 @@
 
 - (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
 
+#
+# pragma mark - Accessors
+#
+
+/**
+ @brief Check whether the parameter for a given key is enabled.
+ 
+ Indicates that the corresponding screen/animation/modal is visible.
+ 
+ @param parameter The key for the parameter
+ @return Flag indicating whether or not the parameter is enabled.
+*/
+
+- (BOOL)parameterIsEnabled:(NSString *)parameter;
+
 /**
  @brief A builder for constructing new NAVAttributes.
  
@@ -157,14 +207,14 @@
 - (NAVAttributesBuilder *)attributesBuilder;
 
 /**
- @brief Check whether the parameter for a given key is enabled.
+ @brief The router's internal URL scheme.
  
- Indicates that the corresponding screen/animation/modal is visible.
+ Used by the router to disambiguate between interal and external URLs. Subclasses may override this method to
+ return a custom scheme, which will be passed to @c -initWithScheme: during construction.
  
- @param parameter The key for the parameter
- @return Flag indicating whether or not the parameter is enabled.
+ @return The router's URL scheme.
 */
 
-- (BOOL)parameterIsEnabled:(NSString *)parameter;
++ (NSString *)scheme;
 
 @end

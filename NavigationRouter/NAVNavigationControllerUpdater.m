@@ -3,14 +3,14 @@
 //  Created by Ty Cobb on 7/21/14.
 //
 
-#import "NAVRouterNavigationControllerUpdater.h"
+#import "NAVNavigationControllerUpdater.h"
 #import "NAVUpdate.h"
 
-@interface NAVRouterNavigationControllerUpdater () <UINavigationControllerDelegate>
+@interface NAVNavigationControllerUpdater () <UINavigationControllerDelegate>
 @property (weak, nonatomic) UINavigationController *navigationController;
 @end
 
-@implementation NAVRouterNavigationControllerUpdater
+@implementation NAVNavigationControllerUpdater
 
 - (instancetype)initWithNavigationController:(UINavigationController *)navigationController
 {

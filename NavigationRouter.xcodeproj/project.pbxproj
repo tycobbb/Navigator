@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2661A06DE9200BB7856 /* NAVViewController.m */; };
+		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
 		109DE5CA1974ADC7003AA60C /* NAVRouteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5C91974ADC7003AA60C /* NAVRouteTest.m */; };
 		109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */; };
 		109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D11974B8CA003AA60C /* NAVAttributes.m */; };
@@ -64,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1073A2651A06DE9200BB7856 /* NAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewController.h; sourceTree = "<group>"; };
+		1073A2661A06DE9200BB7856 /* NAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewController.m; sourceTree = "<group>"; };
+		1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewControllerFactory.h; sourceTree = "<group>"; };
+		1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewControllerFactory.m; sourceTree = "<group>"; };
 		109DE5C81974A710003AA60C /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		109DE5C91974ADC7003AA60C /* NAVRouteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteTest.m; sourceTree = "<group>"; };
 		109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterTests.m; sourceTree = "<group>"; };
@@ -177,6 +183,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1073A2641A06DE5500BB7856 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1073A2651A06DE9200BB7856 /* NAVViewController.h */,
+				1073A2661A06DE9200BB7856 /* NAVViewController.m */,
+				1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */,
+				1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		109DE5E4197A16F8003AA60C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +317,7 @@
 				FB7E248B19786B7600D63A7E /* Internal */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,
+				1073A2641A06DE5500BB7856 /* View */,
 				109DE5E4197A16F8003AA60C /* Extensions */,
 				FBDDB5261974756F0051D149 /* Demo */,
 			);
@@ -513,6 +531,8 @@
 			files = (
 				FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */,
 				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
+				1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */,
+				1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */,
 				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
 				FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */,
 				109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */,

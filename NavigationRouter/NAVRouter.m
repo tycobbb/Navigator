@@ -5,6 +5,8 @@
 
 #import "NAVRouter_Private.h"
 
+@import ObjectiveC;
+
 @interface NAVRouter () <NAVUpdateBuilderDelegate>
 @property (copy  , nonatomic) NSURL *currentURL;
 @property (strong, nonatomic) NSDictionary *routes;
@@ -16,12 +18,36 @@
 
 @implementation NAVRouter
 
+char *prototypeKey;
+
++ (void)initialize
+{
+    NAVRouterPrototype *prototype = [NAVRouterPrototype new];
+    objc_setAssociatedObject(self, prototypeKey, prototype, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++ (instancetype)router
+{
+    NAVRouterPrototype *prototype = objc_getAssociatedObject(self, prototypeKey);
+    if(prototype.instance)
+        return prototype.instance;
+    
+    // construct the new instance
+    prototype.instance = [[self alloc] initWithScheme:self.scheme];
+    
+    // populate the default routes
+    [prototype.instance updateRoutes:^(NAVRouteBuilder *route) {
+        [prototype.instance routes:route];
+    }];
+    
+    return prototype.instance;
+}
+
 - (instancetype)initWithScheme:(NSString *)scheme
 {
     NSParameterAssert(scheme);
     
-    if(self = [super init])
-    {
+    if(self = [super init]) {
         _currentURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
         _parser     = [NAVURLParser new];
         _updateBuilder = [NAVUpdateBuilder new];
@@ -33,6 +59,11 @@
 }
 
 # pragma mark - Route Mapping
+
+- (void)routes:(NAVRouteBuilder *)route
+{
+    
+}
 
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock
 {
@@ -49,14 +80,13 @@
 
 - (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion
 {
-    NSAssert(self.factory, @"must have a factory to transition");
     NSAssert(self.updater, @"must have an updater to transition");
     
     NSError *error = nil;
     if(self.isTransitioning)
         error = [NSError nav_errorWithDescription:@"attempting to transition during an existing transition!"];
     if(!attributes.destinationURL)
-        error = [NSError nav_errorWithDescription:@"attempting to transition without an URL, that's illegal"];
+        error = [NSError nav_errorWithDescription:@"attempting to transition without a URL, that's illegal"];
     
     if(![self check:error])
         return;
@@ -99,7 +129,7 @@
     return self.currentTransaction != nil;
 }
 
-# pragma mark - Update Exection
+# pragma mark - Update Execution
 
 - (void)transaction:(NAVTransaction *)transaction performUpdateAtIndex:(NSInteger)index completion:(void(^)(void))completion
 {
@@ -201,20 +231,22 @@
 - (id<NAVRouterUpdater>)buildUpdaterFromNavigationController:(UINavigationController *)navigationController
 {
     if([navigationController isKindOfClass:[UINavigationController class]])
-        return [[NAVRouterNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
+        return [[NAVNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
     return nil;
 }
 
 # pragma mark - Accessors
 
+- (id<NAVRouterFactory>)factory
+{
+    if(!_factory)
+        _factory = [NAVViewControllerFactory new];
+    return _factory;
+}
+
 - (NAVAttributesBuilder *)attributesBuilder
 {
     return [[NAVAttributesBuilder alloc] initWithSourceURL:self.currentURL];
-}
-
-- (NSString *)scheme
-{
-    return self.currentURL.scheme;
 }
 
 - (NAVRoute *)routeForKey:(NSString *)key
@@ -225,6 +257,16 @@
 - (BOOL)parameterIsEnabled:(NSString *)parameter
 {
     return self.lastTransaction.destinationURL[parameter].isVisible;
+}
+
+- (NSString *)scheme
+{
+    return self.currentURL.scheme;
+}
+
++ (NSString *)scheme
+{
+    return @"routes";
 }
 
 @end
@@ -272,6 +314,8 @@
 }
 
 @end
+
+@implementation NAVRouterPrototype @end
 
 # pragma mark - Strings
 

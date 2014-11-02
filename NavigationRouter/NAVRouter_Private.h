@@ -9,7 +9,8 @@
 #import "NAVAnimatorModal.h"
 #import "NAVTransaction.h"
 #import "NAVURLParser.h"
-#import "NAVRouterNavigationControllerUpdater.h"
+#import "NAVViewControllerFactory.h"
+#import "NAVNavigationControllerUpdater.h"
 #import "NAVRouterConstants.h"
 #import "NSError+NAVRouter.h"
 
@@ -21,4 +22,8 @@
 
 @interface NAVRouter (Updates)
 - (NSArray *)updatesForTransaction:(NAVTransaction *)transaction;
+@end
+
+@interface NAVRouterPrototype : NSObject
+@property (strong, nonatomic) NAVRouter *instance;
 @end

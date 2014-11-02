@@ -21,3 +21,7 @@
 #import "NAVRouterNavigationControllerUpdater.h"
 #import "NAVRouterConstants.h"
 #import "NAVRouter+Pathing.h"
+
+// view module
+#import "NAVViewController.h"
+#import "NAVViewControllerFactory.h"
