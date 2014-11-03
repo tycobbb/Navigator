@@ -87,6 +87,19 @@
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated;
 
 /**
+ @brief Convenience method for triggering a dismissal animation/modal
+ 
+ Builds up a new URL of by updating or removing the value for the parameterized screen's state, ie
+ "<base>?<screen>=<state>", and then transitions to that new URL.
+ 
+ @param screen     The path of the screen to dismiss
+ @param animated   Flag indicating whether or not the transition is animated.
+ @param completion Gets called after transition is done
+ */
+
+- (void)dismissScreen:(NSString *)screen animated:(BOOL)animated completion:(void(^)(void))completion;
+
+/**
  @brief Convenience method for updating an animated screens state.
  
  Builds up a new URL of by updating the value for the parameterized screen's state, ie
@@ -98,5 +111,20 @@
 */
 
 - (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model;
+
+
+/**
+ @brief Convenience method for updating an animated screens state.
+ 
+ Builds up a new URL of by updating the value for the parameterized screen's state, ie
+ "<base>?<screen>=<state>", and then transitions to that new URL.
+ 
+ @param screen     The path of the screen to dismiss
+ @param options    Options indicating how to resolve the animation
+ @param model      The model to provide to the view controller
+ @param completion Gets called after transition is done
+ */
+
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model completion:(void(^)(void))completion;
 
 @end

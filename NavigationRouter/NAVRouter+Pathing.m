@@ -50,16 +50,27 @@
 
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated
 {
+    [self dismissScreen:screen animated:animated];
+}
+
+- (void)dismissScreen:(NSString *)screen animated:(BOOL)animated completion:(void(^)(void))completion
+{
     NAVParameterOptions options = NAVParameterOptionsHidden;
     if(!animated)
         options |= NAVParameterOptionsUnanimated;
-    [self updateParameter:screen withOptions:options model:nil];
+    [self updateParameter:screen withOptions:options model:nil completion:completion];
 }
 
 - (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model
 {
-    NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
-    [self transitionWithAttributes:attributes animated:YES completion:nil];
+    [self updateParameter:parameter withOptions:options model:model completion:nil];
 }
+
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model completion:(void(^)(void))completion
+{
+    NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
+    [self transitionWithAttributes:attributes animated:YES completion:completion];
+}
+
 
 @end
