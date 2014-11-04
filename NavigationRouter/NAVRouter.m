@@ -194,6 +194,14 @@
         self.updater = [self buildUpdaterFromNavigationController:[delegate performSelector:@selector(navigationController)]];
 }
 
+- (void)setInternalURL:(NAVURL *)internalURL
+{
+    _internalURL = internalURL;
+    
+    if([self.delegate respondsToSelector:@selector(router:didUpdateURL:)])
+        [self.delegate router:self didUpdateURL:internalURL];
+}
+
 # pragma mark - NAVNAvigationControllerUpdater
 
 - (id<NAVRouterUpdater>)buildUpdaterFromNavigationController:(UINavigationController *)navigationController

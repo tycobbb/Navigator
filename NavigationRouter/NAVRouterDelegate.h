@@ -5,8 +5,8 @@
 
 @import Foundation;
 
-@class NAVRouter, NAVUpdate;
+@class NAVRouter;
 
 @protocol NAVRouterDelegate <NSObject> @optional
-
+- (void)router:(NAVRouter *)router didUpdateURL:(NSURL *)url;
 @end
