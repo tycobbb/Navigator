@@ -65,7 +65,11 @@
         relativeComponents = relativeComponents.skip(1);
     }
     
-    components.path = [(components.path ?: @"/") stringByAppendingPathComponent:relativeComponents.join(@"/")];
+    // ensure that the relative path has a leading "/" and append the new components
+    NSString *currentPath = components.path.length ? components.path : @"/";
+    NSString *updatedPath = [currentPath stringByAppendingPathComponent:relativeComponents.join(@"/")];
+    
+    components.path = updatedPath;
 }
 
 - (void)components:(NSURLComponents *)components popPathComponentsWithCount:(NSInteger)count
