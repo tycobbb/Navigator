@@ -50,7 +50,7 @@
 
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated
 {
-    [self dismissScreen:screen animated:animated];
+    [self dismissScreen:screen animated:animated completion:nil];
 }
 
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated completion:(void(^)(void))completion
@@ -71,6 +71,5 @@
     NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
     [self transitionWithAttributes:attributes animated:YES completion:completion];
 }
-
 
 @end
