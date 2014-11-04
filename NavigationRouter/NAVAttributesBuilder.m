@@ -75,7 +75,7 @@
 - (void)components:(NSURLComponents *)components popPathComponentsWithCount:(NSInteger)count
 {
     NSArray *relativeComponents = [self componentsFromPath:components.path];
-    NSAssert(count < relativeComponents.count, @"we don't have enough components to pop back that far");
+    NSAssert(count <= relativeComponents.count, @"we don't have enough components to pop back that far");
     components.path = [@"/" stringByAppendingString:relativeComponents.snip(count).join(@"/")];
 }
 
