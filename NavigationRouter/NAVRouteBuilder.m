@@ -78,7 +78,7 @@
     };
 }
 
-- (NAVRoute *(^)(Class))controllerClass
+- (NAVRoute *(^)(Class))controller
 {
     return ^(Class klass) {
         return [self withControllerClass:klass];

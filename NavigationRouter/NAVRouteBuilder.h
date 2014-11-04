@@ -27,7 +27,7 @@
 - (NAVRoute *)withAnimator:(NAVAnimator *)animator;
 
 - (NAVRoute *(^)(NAVRouteType))as;
-- (NAVRoute *(^)(Class))controllerClass;
+- (NAVRoute *(^)(Class))controller;
 - (NAVRoute *(^)(NAVAnimator *))animator;
 
 - (NAVRoute *)with;
