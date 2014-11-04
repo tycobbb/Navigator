@@ -18,6 +18,6 @@
 #import "NAVURLElement.h"
 #import "NAVURLComponent.h"
 #import "NAVURLParameter.h"
-#import "NAVRouterNavigationControllerUpdater.h"
+#import "NAVNavigationControllerUpdater.h"
 #import "NAVRouterConstants.h"
 #import "NAVRouter+Pathing.h"

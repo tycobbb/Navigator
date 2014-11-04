@@ -13,10 +13,10 @@
 
 + (instancetype)URLWithURL:(NSURL *)systemURL resolvingAgainstScheme:(NSString *)scheme
 {
-    return [[self alloc] initWithURL:systemURL resolvingAgainstscheme:scheme];
+    return [[self alloc] initWithURL:systemURL resolvingAgainstScheme:scheme];
 }
 
-- (instancetype)initWithURL:(NSURL *)url resolvingAgainstscheme:(NSString *)scheme
+- (instancetype)initWithURL:(NSURL *)url resolvingAgainstScheme:(NSString *)scheme
 {
     if(self = [super initWithString:url.absoluteString])
         [self parseAgainstScheme:scheme];
@@ -81,6 +81,15 @@
 - (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key
 {
     return [self nav_parameterForKey:key];
+}
+
+@end
+
+@implementation NSURL (NAVURL)
+
+- (NAVURL *)nav_url
+{
+    return [NAVURL URLWithURL:self resolvingAgainstScheme:self.scheme];
 }
 
 @end

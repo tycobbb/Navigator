@@ -5,8 +5,8 @@
 
 #import "NAVRouter_Private.h"
 
-@interface NAVRouter () <NAVUpdateBuilderDelegate>
-@property (copy  , nonatomic) NSURL *currentURL;
+@interface NAVRouter () <NAVUpdateBuilderDelegate, NAVNavgationControllerUpdaterDelegate>
+@property (copy  , nonatomic) NAVURL *internalURL;
 @property (strong, nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
 @property (strong, nonatomic) NAVTransaction *lastTransaction;
@@ -22,8 +22,8 @@
     
     if(self = [super init])
     {
-        _currentURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]];
-        _parser     = [NAVURLParser new];
+        _internalURL = [[NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]] nav_url];
+        _parser      = [NAVURLParser new];
         _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
         _outstandingAnimators = [NSMutableDictionary new];
@@ -74,7 +74,7 @@
     transaction.updates = [self updatesForTransaction:transaction];
     
     [self transaction:transaction performUpdateAtIndex:0 completion:^{
-        self.currentURL = transaction.destinationURL;
+        self.internalURL = transaction.destinationURL;
         
         // capture the transactions completion block, and then nil it out so mark the transaction
         // as finished
@@ -194,15 +194,38 @@
         self.updater = [self buildUpdaterFromNavigationController:[delegate performSelector:@selector(navigationController)]];
 }
 
-//
-// Helpers
-//
+# pragma mark - NAVNAvigationControllerUpdater
 
 - (id<NAVRouterUpdater>)buildUpdaterFromNavigationController:(UINavigationController *)navigationController
 {
     if([navigationController isKindOfClass:[UINavigationController class]])
-        return [[NAVRouterNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
+        return [[NAVNavigationControllerUpdater alloc] initWithDelegate:self navigationController:navigationController];
     return nil;
+}
+
+//
+// NAVNavigationControllerUpdaterDelegate
+//
+
+- (void)updater:(NAVNavigationControllerUpdater *)updater navigationControllerDidUpdateViewControllers:(UINavigationController *)navigationController
+{
+    // ugh, this is dirty
+    NSInteger componentCount  = (self.internalURL.nav_host ? 1 : 0) + self.internalURL.nav_components.count;
+    NSInteger controllerCount = navigationController.viewControllers.count;
+    
+    if(controllerCount < componentCount) { // then let's try and lop off part of our URL
+        // create a mutable version of our current url
+        NSURLComponents *components = [NSURLComponents componentsWithURL:self.internalURL resolvingAgainstBaseURL:YES];
+        // clear out the host if we have no components
+        if(controllerCount == 0)
+            components.host = nil;
+        
+        // update the path according to the leftover components
+        NSArray *keys   = [[self.internalURL.nav_components subarrayWithRange:(NSRange){ .length = controllerCount - 1}] valueForKey:@"key"];
+        components.path = [@"/" stringByAppendingString:[keys componentsJoinedByString:@"/"]];
+        
+        self.internalURL = [components URL].nav_url;
+    }
 }
 
 # pragma mark - Accessors
@@ -210,6 +233,11 @@
 - (NAVAttributesBuilder *)attributesBuilder
 {
     return [[NAVAttributesBuilder alloc] initWithSourceURL:self.currentURL];
+}
+
+- (NSURL *)currentURL
+{
+    return self.internalURL;
 }
 
 - (NSString *)scheme

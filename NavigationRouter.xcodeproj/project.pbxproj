@@ -32,7 +32,7 @@
 		FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24AC197D6CF400D63A7E /* NAVUpdateAnimation.m */; };
 		FB7E24B0197D6ED800D63A7E /* NAVUpdateBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24AF197D6ED800D63A7E /* NAVUpdateBuilder.m */; };
 		FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */; };
-		FB7E24B6197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B5197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m */; };
+		FB7E24B6197D96D800D63A7E /* NAVNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */; };
 		FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */; };
 		FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */; };
 		FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */; };
@@ -115,8 +115,8 @@
 		FB7E24AF197D6ED800D63A7E /* NAVUpdateBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateBuilder.m; sourceTree = "<group>"; };
 		FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoNavigationController.h; sourceTree = "<group>"; };
 		FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoNavigationController.m; sourceTree = "<group>"; };
-		FB7E24B4197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouterNavigationControllerUpdater.h; sourceTree = "<group>"; };
-		FB7E24B5197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterNavigationControllerUpdater.m; sourceTree = "<group>"; };
+		FB7E24B4197D96D800D63A7E /* NAVNavigationControllerUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVNavigationControllerUpdater.h; sourceTree = "<group>"; };
+		FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVNavigationControllerUpdater.m; sourceTree = "<group>"; };
 		FB7E24B7197D9A1D00D63A7E /* NAVRouterStoryboardFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouterStoryboardFactory.h; sourceTree = "<group>"; };
 		FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterStoryboardFactory.m; sourceTree = "<group>"; };
 		FB7E24BA197DAC6900D63A7E /* NAVAttributesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributesBuilder.h; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 				FB7E248819786B6600D63A7E /* NAVAnimator.h */,
 				FB7E248919786B6600D63A7E /* NAVAnimator.m */,
 				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
-				FB7E24B4197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.h */,
-				FB7E24B5197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m */,
+				FB7E24B4197D96D800D63A7E /* NAVNavigationControllerUpdater.h */,
+				FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */,
 				FB7E248B19786B7600D63A7E /* Internal */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,
@@ -525,7 +525,7 @@
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
 				FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */,
 				FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */,
-				FB7E24B6197D96D800D63A7E /* NAVRouterNavigationControllerUpdater.m in Sources */,
+				FB7E24B6197D96D800D63A7E /* NAVNavigationControllerUpdater.m in Sources */,
 				FBDDB502197475260051D149 /* main.m in Sources */,
 				FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */,
 				FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */,
