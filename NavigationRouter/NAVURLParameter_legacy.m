@@ -3,9 +3,9 @@
 //  Created by Ty Cobb on 7/17/14.
 //
 
-#import "NAVURLParameter.h"
+#import "NAVURLParameter_legacy.h"
 
-@implementation NAVURLParameter
+@implementation NAVURLParameter_legacy
 
 - (instancetype)initWithKey:(NSString *)key options:(NSNumber *)optionsValue
 {
@@ -16,14 +16,14 @@
 
 - (BOOL)isVisible
 {
-    return self.options & NAVParameterOptionsVisible;
+    return self.options & NAVParameterOptions_legacyVisible;
 }
 
 # pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    NAVURLParameter *copy = [super copyWithZone:zone];
+    NAVURLParameter_legacy *copy = [super copyWithZone:zone];
     copy.options = self.options;
     return self;
 }
@@ -35,14 +35,14 @@
     return [[super description] stringByAppendingFormat:@" %@: %@", self.key, [self stringFromOptions:self.options]];
 }
 
-- (NSString *)stringFromOptions:(NAVParameterOptions)options
+- (NSString *)stringFromOptions:(NAVParameterOptions_legacy)options
 {
     NSMutableString *optionString = [NSMutableString new];
-    if(options & NAVParameterOptionsHidden)
+    if(options & NAVParameterOptions_legacyHidden)
         [optionString appendString:@"h"];
-    if(options & NAVParameterOptionsVisible)
+    if(options & NAVParameterOptions_legacyVisible)
         [optionString appendString:@"v"];
-    if(options & NAVParameterOptionsUnanimated)
+    if(options & NAVParameterOptions_legacyUnanimated)
         [optionString appendString:@"u"];
     return [optionString copy];
 }

@@ -103,7 +103,7 @@
     return self;
 }
 
-- (NAVAttributesBuilder *)withParameter:(NSString *)parameter options:(NAVParameterOptions)options
+- (NAVAttributesBuilder *)withParameter:(NSString *)parameter options:(NAVParameterOptions_legacy)options
 {
     if(!self.attributesParameters)
         self.attributesParameters = [NSMutableDictionary new];
@@ -131,9 +131,9 @@
     };
 }
 
-- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter
+- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions_legacy))parameter
 {
-    return ^(NSString *parameter, NAVParameterOptions options) {
+    return ^(NSString *parameter, NAVParameterOptions_legacy options) {
         return [self withParameter:parameter options:options];
     };
 }

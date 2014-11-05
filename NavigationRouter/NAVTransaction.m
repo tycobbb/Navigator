@@ -12,8 +12,8 @@
     if(self = [super init])
     {
         _attributes     = attributes;
-        _sourceURL      = [NAVURL URLWithURL:attributes.sourceURL resolvingAgainstScheme:scheme];
-        _destinationURL = [NAVURL URLWithURL:attributes.destinationURL resolvingAgainstScheme:scheme];
+        _sourceURL      = [NAVURL_legacy URLWithURL:attributes.sourceURL resolvingAgainstScheme:scheme];
+        _destinationURL = [NAVURL_legacy URLWithURL:attributes.destinationURL resolvingAgainstScheme:scheme];
     }
     
     return self;

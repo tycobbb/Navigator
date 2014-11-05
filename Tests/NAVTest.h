@@ -3,10 +3,10 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVURL.h"
+#import "NAVURL_legacy.h"
 
 @interface NAVTest : NSObject
-+ (NAVURL *(^)(NSString *))URL;
++ (NAVURL_legacy *(^)(NSString *))URL;
 + (NSString *)scheme;
 @end
 

@@ -1,30 +1,52 @@
 //
 //  NAVURL.h
-//  Created by Ty Cobb on 7/18/14.
+//  NavigationRouter
 //
 
-#import "NAVURLComponent.h"
-#import "NAVURLParameter.h"
+@import Foundation;
 
-typedef NS_ENUM(SInt32, NAVURLType) {
-    NAVURLTypeInternal,
-    NAVURLTypeExternal
-};
+#import "NAVURLElement.h"
 
-@interface NAVURL : NSURL
+@interface NAVURL : NSObject
 
-@property (assign, nonatomic, readonly) NAVURLType type;
-@property (strong, nonatomic, readonly) NAVURLComponent *nav_host;
-@property (strong, nonatomic, readonly) NSArray *nav_components;
-@property (strong, nonatomic, readonly) NSDictionary *nav_parameters;
+/**
+ @brief Namespace for URLs
+ 
+ URLs must at a minimum contain a scheme to be considered valid. Any URL constructed 
+ without a scheme will through an exception.
+*/
 
-+ (instancetype)URLWithURL:(NSURL *)url resolvingAgainstScheme:(NSString *)scheme;
-- (instancetype)initWithURL:(NSURL *)url resolvingAgainstscheme:(NSString *)scheme;
+@property (copy, nonatomic, readonly) NSString *scheme;
 
-- (NAVURLComponent *)nav_componentAtIndex:(NSInteger)index;
-- (NAVURLParameter *)nav_parameterForKey:(NSString *)key;
+/**
+ @brief Array of URL path components
+ 
+ Components are objects of type NAVURLComponent representing views on the navigation 
+ stack, and they are listed in sorted order.
+*/
 
-- (NAVURLComponent *)objectAtIndexedSubscript:(NSInteger)index;
-- (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key;
+@property (copy, nonatomic, readonly) NSArray *components;
+
+/**
+ @brief Array of URL query parameters
+ 
+ Parameters are objects of type NAVURLParameter representing animatable, non-stack
+ views such as modals, popovers, etc.
+*/
+
+@property (copy, nonatomic, readonly) NSArray *parameters;
+
+/**
+ @brief Initializes a NAVURL by parsing a string path.
+ 
+ If the path does not conform to the NAVURL standard, the initializer will throw
+ an exception.
+
+ @param path The URL path to parse
+ 
+ @return A NAVURL instance representing this path
+*/
+
+- (instancetype)initWithPath:(NSString *)path;
 
 @end

@@ -5,40 +5,77 @@
 
 #import "NAVURL.h"
 
+// spec helpers
+NAVURL * url(NSString *path) {
+    return [[NAVURL alloc] initWithPath:path];
+}
+
 SpecBegin(NAVURLTest)
 
 describe(@"URL", ^{
     
     //
-    // Tests
+    // Construction
     //
     
-    it(@"should construct a host-only URL correctly", ^{
-        NAVURL *testURL = NAVTest.URL(@"test://host1");
-        expect(testURL.nav_host.key).to.equal(@"host1");
-        expect(testURL.nav_host.index).to.equal(0);
-        expect(testURL.nav_components.count).to.equal(0);
-        expect(testURL.nav_parameters.count).to.equal(0);
+    it(@"should have a scheme", ^{
+        // failures
+        expect(^{ url(@""); }).to.raise(@"rocket.no.scheme.error");
+        // successes
+        expect(url(@"rocket://").scheme).to.equal(@"rocket");
+        expect(url(@"rocket://test").scheme).to.equal(@"rocket");
     });
     
-    it(@"should construct a URL with a path correctly", ^{
-        NAVURL *testURL = NAVTest.URL(@"test://host1/comp1/comp2/");
-        expect(testURL.nav_components.count).to.equal(2);
-        expect(testURL[0].key).to.equal(@"comp1");
-        expect(testURL[1].key).to.equal(@"comp2");
+    it(@"should have components", ^{
+        expect(url(@"rocket://test").components.count).to.equal(1);
+        expect(url(@"rocket://test1/test2").components.count).to.equal(2);
     });
     
-    it(@"should construct a URL with a query string correctly", ^{
-        NAVURL *testURL = NAVTest.URL(@"test://host/comp1/?param1=&param2=1");
-        expect(testURL.nav_components.count).to.equal(1);
-        expect(testURL.nav_parameters.count).to.equal(2);
-        expect(testURL[@"param1"].options).to.equal(NAVParameterOptionsHidden);
-        expect(testURL[@"param2"].options).to.equal(NAVParameterOptionsVisible);
+    it(@"should have data assosciated to components", ^{
+        // failures
+        expect(^{ url(@"rocket://test1::1234::5678"); }).to.raise(@"rocket.too.many.data.strings");
+        // successes
+        expect([url(@"rocket://test::1234").components.firstObject data]).to.equal(@"1234");
     });
     
-    it(@"should not generate a component after a trailing slash", ^{
-        expect(NAVTest.URL(@"test://host/").nav_components.count).to.equal(0);
-        expect(NAVTest.URL(@"test://host/comp1/").nav_components.count).to.equal(1);
+    it(@"should have parameters and values", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    //
+    // Mutation
+    //
+    
+    it(@"should push new components", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    it(@"should pop components", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    it(@"should add values to components", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    it(@"should toggle parameters", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    it(@"should remove hidden parameters", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    //
+    // Serialization
+    //
+    
+    it(@"should serialize to a url", ^{
+        expect(NO).to.equal(YES);
+    });
+    
+    it(@"should serialize to a string", ^{
+        expect(NO).to.equal(YES);
     });
     
 });

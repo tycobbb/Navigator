@@ -12,10 +12,10 @@
     return @"test";
 }
 
-+ (NAVURL *(^)(NSString *))URL
++ (NAVURL_legacy *(^)(NSString *))URL
 {
     return ^(NSString *path) {
-        return [NAVURL URLWithURL:[NSURL URLWithString:path] resolvingAgainstScheme:self.scheme];
+        return [NAVURL_legacy URLWithURL:[NSURL URLWithString:path] resolvingAgainstScheme:self.scheme];
     };
 }
 

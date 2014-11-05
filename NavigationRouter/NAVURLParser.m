@@ -9,9 +9,9 @@
 
 @implementation NAVURLParser
 
-- (NAVURLTransitionComponents *)router:(NAVRouter *)router transitionComponentsFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NAVURLTransitionComponents *)router:(NAVRouter *)router transitionComponentsFromURL:(NAVURL_legacy *)sourceURL toURL:(NAVURL_legacy *)destinationURL
 {
-    NAVURLComponent *divergentComponent = [self divergentComponentFromURL:sourceURL toURL:destinationURL];
+    NAVURLComponent_legacy *divergentComponent = [self divergentComponentFromURL:sourceURL toURL:destinationURL];
     NSInteger sourceDelta      = [self deltaForComponents:sourceURL.nav_components fromDivergentComponent:divergentComponent];
     NSInteger destinationDelta = [self deltaForComponents:destinationURL.nav_components fromDivergentComponent:divergentComponent];
     
@@ -29,7 +29,7 @@
 // Helpers
 //
 
-- (NAVURLComponent *)divergentComponentFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NAVURLComponent_legacy *)divergentComponentFromURL:(NAVURL_legacy *)sourceURL toURL:(NAVURL_legacy *)destinationURL
 {
     // if the host if different, then we diverge immediately
     if(![sourceURL.nav_host isEqual:destinationURL.nav_host])
@@ -39,50 +39,50 @@
     // component set as the source, in case the divergence point occurs after the last element of
     // the smaller set (like, when the smaller set has 0 items).
     BOOL destinationHasMoreComponents = destinationURL.nav_components.count > sourceURL.nav_components.count;
-    NAVURL *comparing = destinationHasMoreComponents ? destinationURL : sourceURL;
-    NAVURL *compared  = destinationHasMoreComponents ? sourceURL      : destinationURL;
+    NAVURL_legacy *comparing = destinationHasMoreComponents ? destinationURL : sourceURL;
+    NAVURL_legacy *compared  = destinationHasMoreComponents ? sourceURL      : destinationURL;
     
     // so find the fisrt component between the two that doesnt match
-    return comparing.nav_components.find(^BOOL(NAVURLComponent *component) {
+    return comparing.nav_components.find(^BOOL(NAVURLComponent_legacy *component) {
         if(component.index >= compared.nav_components.count)
             return YES;
         return ![compared.nav_components[component.index] isEqual:component];
     });
 }
 
-- (NSInteger)deltaForComponents:(NSArray *)components fromDivergentComponent:(NAVURLComponent *)component
+- (NSInteger)deltaForComponents:(NSArray *)components fromDivergentComponent:(NAVURLComponent_legacy *)component
 {
     if(component)
         return components.count - component.index;
     return 0;
 }
 
-- (NSArray *)paramatersToEnableFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NSArray *)paramatersToEnableFromURL:(NAVURL_legacy *)sourceURL toURL:(NAVURL_legacy *)destinationURL
 {
     return destinationURL.nav_parameters.allKeys.map(^(NSString *key) {
-        NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
-        NAVURLParameter *destinationParamater = destinationURL.nav_parameters[key];
+        NAVURLParameter_legacy *sourceParameter = sourceURL.nav_parameters[key];
+        NAVURLParameter_legacy *destinationParamater = destinationURL.nav_parameters[key];
         return !sourceParameter.isVisible && destinationParamater.isVisible ? destinationParamater : nil;
     });
 }
 
-- (NSArray *)paramatersToDisableFromURL:(NAVURL *)sourceURL toURL:(NAVURL *)destinationURL
+- (NSArray *)paramatersToDisableFromURL:(NAVURL_legacy *)sourceURL toURL:(NAVURL_legacy *)destinationURL
 {
     // keys that are disabled may not be in the destination parameters, so we need to merge both the
     // source and destination to ensure a complete set.
     NSArray *keySet = sourceURL.nav_parameters.allKeys.concat(destinationURL.nav_parameters.allKeys).uniq;
     
     return keySet.map(^(NSString *key) {
-        NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];
-        NAVURLParameter *destinationParameter = destinationURL.nav_parameters[key];
+        NAVURLParameter_legacy *sourceParameter = sourceURL.nav_parameters[key];
+        NAVURLParameter_legacy *destinationParameter = destinationURL.nav_parameters[key];
         
         if(!sourceParameter.isVisible || destinationParameter.isVisible)
-            return (NAVURLParameter *)nil;
+            return (NAVURLParameter_legacy *)nil;
         
         // we need to make sure we preserve the options on the destination parmaeter, but if there wasn't
         // one we'll have to create a copy from the source object. and make sure that it's not set to visible.
-        NAVURLParameter *parameterToDisable = destinationParameter ?: [sourceParameter copy];
-        parameterToDisable.options &= ~NAVParameterOptionsVisible;
+        NAVURLParameter_legacy *parameterToDisable = destinationParameter ?: [sourceParameter copy];
+        parameterToDisable.options &= ~NAVParameterOptions_legacyVisible;
         return parameterToDisable;
     });
 }

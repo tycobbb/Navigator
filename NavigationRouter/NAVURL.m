@@ -1,86 +1,86 @@
 //
 //  NAVURL.m
-//  Created by Ty Cobb on 7/18/14.
+//  NavigationRouter
 //
 
-#import "YOLOKit/YOLO.h"
-#import "YOLT.h"
-
+#import <YOLOKit/YOLO.h>
 #import "NAVURL.h"
-#import "NSURL+NAVRouter.h"
 
 @implementation NAVURL
 
-+ (instancetype)URLWithURL:(NSURL *)systemURL resolvingAgainstScheme:(NSString *)scheme
+- (instancetype)initWithPath:(NSString *)path
 {
-    return [[self alloc] initWithURL:systemURL resolvingAgainstscheme:scheme];
-}
-
-- (instancetype)initWithURL:(NSURL *)url resolvingAgainstscheme:(NSString *)scheme
-{
-    if(self = [super initWithString:url.absoluteString])
-        [self parseAgainstScheme:scheme];
+    NSParameterAssert(path);
+    
+    NSArray *subdivisions = [self.class subdividePath:path];
+    
+    // initialize the URL from these components
+    if(self = [super init]) {
+        _scheme     = subdivisions[0];
+        _components = [self.class componentsFromPath:subdivisions[1]];
+        _parameters = [self.class parametersFromQuery:subdivisions[2]];
+    }
+    
     return self;
 }
 
 # pragma mark - Parsing
 
-- (void)parseAgainstScheme:(NSString *)scheme
++ (NSArray *)subdividePath:(NSString *)path
 {
-    _type = [self.scheme isEqualToString:scheme] ? NAVURLTypeInternal : NAVURLTypeExternal;
+    // split path on scheme delimiter
+    NSArray *majorSubdivisions = path.split(@"://");
     
-    if(_type != NAVURLTypeInternal)
-        return;
+    // validate that we have the correct number of components
+    if(majorSubdivisions.count != 2) {
+        [NSException raise:@"rocket.no.scheme.error" format:@"No scheme found for path: %@", path];
+    }
     
-    _nav_host = self.host ? [[NAVURLComponent alloc] initWithKey:self.host index:0] : nil;
-    _nav_components = [self parseComponentsFromPath:self.path];
-    _nav_parameters = [self parseParamatersFromQuery:self.query];
+    NSString *scheme       = majorSubdivisions[0];
+    NSString *relativePath = majorSubdivisions[1];
+    
+    // subdivide the path into components & parameters
+    NSArray *minorSubdivisions = relativePath.split(@"?");
+    
+    // validate that we don't have too many minor subdivisions
+    if(majorSubdivisions.count > 2) {
+        [NSException raise:@"rocket.too.many.queries" format:@"Only one query string is allowed for path: %@", path];
+    }
+
+    return @[
+        scheme,
+        minorSubdivisions[0], // components
+        minorSubdivisions.count > 1 ? minorSubdivisions[1] : @[] // parameters
+    ];
 }
 
-//
-// Helpers
-//
-
-- (NSArray *)parseComponentsFromPath:(NSString *)path
++ (NSArray *)componentsFromPath:(NSString *)path
 {
-    // the path always begins with a '/', so this guards against that case as well as the nil
-    // and 0-length cases
-    if(path.length < 2)
-        return @[ ];
-    
-    return path.split(@"/").map(^(NSString *component, NSInteger index) {
-        return [[NAVURLComponent alloc] initWithKey:component index:index - 1];
-    }).skip(1);
-}
-
-- (NSDictionary *)parseParamatersFromQuery:(NSString *)query
-{
-    NSDictionary *parameters = [NSURL nav_parameterDictionaryFromQuery:query];
-    return parameters.nav_map(^(NSString *key, NSNumber *options) {
-        return [[NAVURLParameter alloc] initWithKey:key options:options];
+    return path.split(@"/").map(^(NSString *subpath, NSInteger index) {
+        // seperate subpath based on data delimiter
+        NSArray *components = subpath.split(@"::");
+        // validate that we don't have too many data strings
+        if(components.count > 2) {
+            [NSException raise:@"rocket.too.many.data.strings" format:@"Only one data string is allowed for subpath: %@", subpath];
+        }
+        
+        NSString *dataString = components.count > 1 ? components[1] : nil;
+        
+        return [[NAVURLComponent alloc] initWithKey:components.firstObject data:dataString index:index];
     });
 }
 
-# pragma mark - Accessors
-
-- (NAVURLComponent *)nav_componentAtIndex:(NSInteger)index
++ (NSArray *)parametersFromQuery:(NSString *)query
 {
-    return self.nav_components[index];
-}
-
-- (NAVURLParameter *)nav_parameterForKey:(NSString *)key
-{
-    return self.nav_parameters[key];
-}
-
-- (NAVURLComponent *)objectAtIndexedSubscript:(NSInteger)index
-{
-    return [self nav_componentAtIndex:index];
-}
-
-- (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key
-{
-    return [self nav_parameterForKey:key];
+    // map elements seperated by parameter delimiter
+    return query.split(@"&").map(^(NSString *parameter) {
+        // seperate components based on key-value delimiter
+        NSArray *pair = parameter.split(@"=");
+        // validate that we have the right number of elements
+        if(pair.count != 2) {
+            [NSException raise:@"rocket.invalid.parameter" format:@"Parameter must have key and value: %@", parameter];
+        }
+    });
 }
 
 @end

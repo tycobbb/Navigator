@@ -56,8 +56,8 @@ describe(@"Parser", ^{
         NAVURLTransitionComponents *result = NAVTestParse(@"test://host1", @"test://host1/comp1/comp2/");
         expect(result.componentsToPush.count).to.equal(2);
 
-        NAVURLComponent *component1 = result.componentsToPush[0];
-        NAVURLComponent *component2 = result.componentsToPush[1];
+        NAVURLComponent_legacy *component1 = result.componentsToPush[0];
+        NAVURLComponent_legacy *component2 = result.componentsToPush[1];
         expect(component1.key).to.equal(@"comp1");
         expect(component2.key).to.equal(@"comp2");
     });
@@ -71,8 +71,8 @@ describe(@"Parser", ^{
         NAVURLTransitionComponents *result = NAVTestParse(@"test://host1/comp1/comp2/", @"test://host1/");
         expect(result.componentsToPop.count).to.equal(2);
         
-        NAVURLComponent *component1 = result.componentsToPop[0];
-        NAVURLComponent *component2 = result.componentsToPop[1];
+        NAVURLComponent_legacy *component1 = result.componentsToPop[0];
+        NAVURLComponent_legacy *component2 = result.componentsToPop[1];
         expect(component1.key).to.equal(@"comp1");
         expect(component2.key).to.equal(@"comp2");
     });

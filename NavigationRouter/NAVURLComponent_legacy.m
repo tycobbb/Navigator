@@ -1,11 +1,11 @@
 //
-//  NAVURLComponent.m
+//  NAVURLComponent_legacy.m
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVURLComponent.h"
+#import "NAVURLComponent_legacy.h"
 
-@implementation NAVURLComponent
+@implementation NAVURLComponent_legacy
 
 - (instancetype)initWithKey:(NSString *)key index:(NSInteger)index
 {
@@ -18,7 +18,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    NAVURLComponent *copy = [super copyWithZone:zone];
+    NAVURLComponent_legacy *copy = [super copyWithZone:zone];
     copy.index = self.index;
     return copy;
 }
@@ -34,7 +34,7 @@
 
 - (BOOL)isEqual:(id)object
 {
-    if(![object isKindOfClass:[NAVURLComponent class]])
+    if(![object isKindOfClass:[NAVURLComponent_legacy class]])
         return NO;
     return [self.key isEqualToString:[object key]];
 }

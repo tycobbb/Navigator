@@ -6,8 +6,8 @@
 #import "NAVUpdate.h"
 #import "NAVUpdateAnimation.h"
 
-#import "NAVURLComponent.h"
-#import "NAVURLParameter.h"
+#import "NAVURLComponent_legacy.h"
+#import "NAVURLParameter_legacy.h"
 #import "NAVAttributes.h"
 #import "NAVRouterFactory.h"
 
@@ -21,13 +21,13 @@
 
 - (NAVUpdateBuilder *)asType:(NAVUpdateType)type;
 - (NAVUpdateBuilder *)withAttributes:(NAVAttributes *)attributes;
-- (NAVUpdateBuilder *)withComponent:(NAVURLComponent *)component;
-- (NAVUpdateBuilder *)withParameter:(NAVURLParameter *)parameter;
+- (NAVUpdateBuilder *)withComponent:(NAVURLComponent_legacy *)component;
+- (NAVUpdateBuilder *)withParameter:(NAVURLParameter_legacy *)parameter;
 
 - (NAVUpdateBuilder *(^)(NAVUpdateType))as;
 - (NAVUpdateBuilder *(^)(NAVAttributes *))attributes;
-- (NAVUpdateBuilder *(^)(NAVURLComponent *))component;
-- (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter;
+- (NAVUpdateBuilder *(^)(NAVURLComponent_legacy *))component;
+- (NAVUpdateBuilder *(^)(NAVURLParameter_legacy *))parameter;
 
 - (NAVUpdateBuilder *)with;
 - (NAVUpdateBuilder *)and;

@@ -16,7 +16,7 @@
 @property (assign, nonatomic) NSInteger updateIndex;
 @property (strong, nonatomic) NAVRoute *updateRoute;
 @property (strong, nonatomic) NAVAttributes *updateAttributes;
-@property (strong, nonatomic) NAVURLParameter *updateParameter;
+@property (strong, nonatomic) NAVURLParameter_legacy *updateParameter;
 @property (assign, nonatomic) BOOL updateIsAnimated;
 @end
 
@@ -30,15 +30,15 @@
     return self;
 }
 
-- (NAVUpdateBuilder *)withParameter:(NAVURLParameter *)parameter
+- (NAVUpdateBuilder *)withParameter:(NAVURLParameter_legacy *)parameter
 {
     self.routeKey         = parameter.key;
     self.updateParameter  = parameter;
-    self.updateIsAnimated = !(parameter.options & NAVParameterOptionsUnanimated);
+    self.updateIsAnimated = !(parameter.options & NAVParameterOptions_legacyUnanimated);
     return self;
 }
 
-- (NAVUpdateBuilder *)withComponent:(NAVURLComponent *)component
+- (NAVUpdateBuilder *)withComponent:(NAVURLComponent_legacy *)component
 {
     self.routeKey    = component.key;
     self.updateIndex = component.index;
@@ -58,16 +58,16 @@
     };
 }
 
-- (NAVUpdateBuilder *(^)(NAVURLParameter *))parameter
+- (NAVUpdateBuilder *(^)(NAVURLParameter_legacy *))parameter
 {
-    return ^(NAVURLParameter *parameter) {
+    return ^(NAVURLParameter_legacy *parameter) {
         return [self withParameter:parameter];
     };
 }
 
-- (NAVUpdateBuilder *(^)(NAVURLComponent *))component
+- (NAVUpdateBuilder *(^)(NAVURLComponent_legacy *))component
 {
-    return ^(NAVURLComponent *component) {
+    return ^(NAVURLComponent_legacy *component) {
         return [self withComponent:component];
     };
 }
@@ -124,7 +124,7 @@
 
 - (void)buildAnimationSpecificProperties:(NAVUpdateAnimation *)update
 {
-    update.isAsynchronous = self.updateParameter.options & NAVParameterOptionsAsync;
+    update.isAsynchronous = self.updateParameter.options & NAVParameterOptions_legacyAsync;
     update.isVisible      = self.updateParameter.isVisible;
     update.animator       = [self.delegate builder:self animatorForUpdate:update];
 }

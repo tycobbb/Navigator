@@ -38,7 +38,7 @@
         NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"green"].build;
         [self.router transitionWithAttributes:attributes animated:NO completion:^{
             
-            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptionsVisible].build;
+            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptions_legacyVisible].build;
             [self.router transitionWithAttributes:attributes animated:YES completion:^{
                 [self.router dismissScreen:@"purple" animated:YES];
             }];

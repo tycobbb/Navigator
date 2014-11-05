@@ -224,9 +224,7 @@ char *prototypeKey;
         self.updater = [self buildUpdaterFromNavigationController:[delegate performSelector:@selector(navigationController)]];
 }
 
-//
-// Helpers
-//
+# pragma mark - NAVNAvigationControllerUpdater
 
 - (id<NAVRouterUpdater>)buildUpdaterFromNavigationController:(UINavigationController *)navigationController
 {
@@ -290,10 +288,10 @@ char *prototypeKey;
 
 - (NSArray *)updatesForComponents:(NAVURLTransitionComponents *)components attributes:(NAVAttributes *)attributes builder:(NAVUpdateBuilder *)update
 {
-    NAVURLComponent *component;
+    NAVURLComponent_legacy *component;
     
     NSMutableArray *updates = [NSMutableArray new];
-    for(NAVURLParameter *parameter in components.parametersToDisable)
+    for(NAVURLParameter_legacy *parameter in components.parametersToDisable)
         [updates addObject:update.with.parameter(parameter).attributes(attributes).build];
     
     component = components.componentToReplace;
@@ -304,10 +302,10 @@ char *prototypeKey;
     if(components.componentsToPop.count)
         [updates addObject:update.as(NAVUpdateTypePop).with.component(component).attributes(attributes).build];
     
-    for(NAVURLComponent *component in components.componentsToPush)
+    for(NAVURLComponent_legacy *component in components.componentsToPush)
         [updates addObject:update.as(NAVUpdateTypePush).with.component(component).attributes(attributes).build];
     
-    for(NAVURLParameter *parameter in components.parametersToEnable)
+    for(NAVURLParameter_legacy *parameter in components.parametersToEnable)
         [updates addObject:update.with.parameter(parameter).attributes(attributes).build];
     
     return updates;

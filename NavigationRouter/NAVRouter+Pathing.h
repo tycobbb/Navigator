@@ -97,6 +97,20 @@
  @param model   The model to provide to the view controller
 */
 
-- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model;
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions_legacy)options model:(id)model;
+
+/**
+ @brief Convenience method for updating an animated screens state.
+ 
+ Builds up a new URL of by updating the value for the parameterized screen's state, ie
+ "<base>?<screen>=<state>", and then transitions to that new URL.
+ 
+ @param screen     The path of the screen to dismiss
+ @param options    Options indicating how to resolve the animation
+ @param model      The model to provide to the view controller
+ @param completion Gets called after transition is done
+ */
+
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions_legacy)options model:(id)model completion:(void(^)(void))completion;
 
 @end

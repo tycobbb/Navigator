@@ -1,6 +1,9 @@
 //
 //  NAVURLElement.m
-//  Created by Ty Cobb on 7/20/14.
+//  NavigationRouter
+//
+//  Created by Ty Cobb on 11/4/14.
+//
 //
 
 #import "NAVURLElement.h"
@@ -9,16 +12,29 @@
 
 - (instancetype)initWithKey:(NSString *)key
 {
-    if(self = [super init])
+    if(self = [super init]) {
         _key = key;
+    }
+    
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone
+@end
+
+@implementation NAVURLComponent
+
+- (instancetype)initWithKey:(NSString *)key data:(NSString *)data index:(NSInteger)index
 {
-    NAVURLElement *copy = [self.class new];
-    copy.key = self.key;
-    return copy;
+    if(self = [super initWithKey:key]) {
+        _data  = data;
+        _index = index;
+    }
+    
+    return self;
 }
+
+@end
+
+@implementation NAVURLParameter
 
 @end

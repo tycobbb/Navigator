@@ -42,21 +42,31 @@
 
 - (void)presentScreen:(NSString *)screen animated:(BOOL)animated withModel:(id)model
 {
-    NAVParameterOptions options = NAVParameterOptionsVisible;
+    NAVParameterOptions_legacy options = NAVParameterOptions_legacyVisible;
     if(!animated)
-        options |= NAVParameterOptionsUnanimated;
+        options |= NAVParameterOptions_legacyUnanimated;
     [self updateParameter:screen withOptions:options model:model];
 }
 
 - (void)dismissScreen:(NSString *)screen animated:(BOOL)animated
 {
-    NAVParameterOptions options = NAVParameterOptionsHidden;
-    if(!animated)
-        options |= NAVParameterOptionsUnanimated;
-    [self updateParameter:screen withOptions:options model:nil];
+    [self dismissScreen:screen animated:animated completion:nil];
 }
 
-- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options model:(id)model
+- (void)dismissScreen:(NSString *)screen animated:(BOOL)animated completion:(void(^)(void))completion
+{
+    NAVParameterOptions_legacy options = NAVParameterOptions_legacyHidden;
+    if(!animated)
+        options |= NAVParameterOptions_legacyUnanimated;
+    [self updateParameter:screen withOptions:options model:nil completion:completion];
+}
+
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions_legacy)options model:(id)model
+{
+    [self updateParameter:parameter withOptions:options model:model completion:nil];
+}
+
+- (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions_legacy)options model:(id)model completion:(void(^)(void))completion
 {
     NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];

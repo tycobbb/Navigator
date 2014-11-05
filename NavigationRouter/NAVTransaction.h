@@ -4,13 +4,13 @@
 //
 
 #import "NAVAttributes.h"
-#import "NAVURL.h"
+#import "NAVURL_legacy.h"
 
 @interface NAVTransaction : NSObject
 
 @property (strong, nonatomic, readonly) NAVAttributes *attributes;
-@property (strong, nonatomic, readonly) NAVURL *sourceURL;
-@property (strong, nonatomic, readonly) NAVURL *destinationURL;
+@property (strong, nonatomic, readonly) NAVURL_legacy *sourceURL;
+@property (strong, nonatomic, readonly) NAVURL_legacy *destinationURL;
 
 @property (assign, nonatomic) BOOL isAnimated;
 @property (strong, nonatomic) NSArray *updates;
