@@ -40,7 +40,7 @@
 - (NSURL *)constructDestinationURL
 {
     // if the URL is absolute, we're going to short-circuit the construction process
-    BOOL isAbsolute = [self.attributesPath hasPrefix:[NSString stringWithFormat:@"%@://", self.attributesSourceURL.scheme]];
+    BOOL isAbsolute = !self.attributesSourceURL || [self.attributesPath hasPrefix:[NSString stringWithFormat:@"%@://", self.attributesSourceURL.scheme]];
     if(isAbsolute)
         return [NSURL URLWithString:self.attributesPath];
 
@@ -67,7 +67,7 @@
     
     // ensure that the relative path has a leading "/" and append the new components
     NSString *currentPath = components.path.length ? components.path : @"/";
-    NSString *updatedPath = [currentPath stringByAppendingPathComponent:relativeComponents.join(@"/")];
+    NSString *updatedPath = relativeComponents.count ? [currentPath stringByAppendingPathComponent:relativeComponents.join(@"/")] : nil;
     
     components.path = updatedPath;
 }

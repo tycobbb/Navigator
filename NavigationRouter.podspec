@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.dependency 'YOLOKit', '~> 11'
   
   yolo_preprocessor_defines = %w{
-    last skip snip split join extend select map find concat uniq array dict 
+    first last skip snip split join pluck extend select map find concat uniq array dict 
   }.reduce('') do |memo, subspec|
     memo + "YOLO_#{subspec.upcase}=1 "
   end.strip

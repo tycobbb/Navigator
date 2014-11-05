@@ -6,7 +6,7 @@
 #import "NAVRouter_Private.h"
 
 @interface NAVRouter () <NAVUpdateBuilderDelegate, NAVNavgationControllerUpdaterDelegate>
-@property (copy  , nonatomic) NAVURL *internalURL;
+@property (nonatomic, readonly) NAVURL *internalURL;
 @property (strong, nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransaction *currentTransaction;
 @property (strong, nonatomic) NAVTransaction *lastTransaction;
@@ -20,10 +20,17 @@
 {
     NSParameterAssert(scheme);
     
+    // create base state
+    NSString *basePath = [NSString stringWithFormat:@"%@://", scheme];
+    NAVAttributes *baseAttributes = self.attributesBuilder.to(basePath).build;
+    
     if(self = [super init])
     {
-        _internalURL = [[NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]] nav_url];
-        _parser      = [NAVURLParser new];
+        // transaction drives the current URL
+        _lastTransaction = [[NAVTransaction alloc] initWithAttributes:baseAttributes scheme:scheme];
+        
+        // modules
+        _parser = [NAVURLParser new];
         _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
         _outstandingAnimators = [NSMutableDictionary new];
@@ -74,8 +81,6 @@
     transaction.updates = [self updatesForTransaction:transaction];
     
     [self transaction:transaction performUpdateAtIndex:0 completion:^{
-        self.internalURL = transaction.destinationURL;
-        
         // capture the transactions completion block, and then nil it out so mark the transaction
         // as finished
         void(^transactionCompletion)(void) = self.currentTransaction.completion;
@@ -194,12 +199,14 @@
         self.updater = [self buildUpdaterFromNavigationController:[delegate performSelector:@selector(navigationController)]];
 }
 
-- (void)setInternalURL:(NAVURL *)internalURL
+- (void)setLastTransaction:(NAVTransaction *)lastTransaction
 {
-    _internalURL = internalURL;
+    _lastTransaction = lastTransaction;
     
-    if([self.delegate respondsToSelector:@selector(router:didUpdateURL:)])
-        [self.delegate router:self didUpdateURL:internalURL];
+    if([self.delegate respondsToSelector:@selector(router:didUpdateUrl:attributes:)]) {
+        NAVAttributes *attributes = lastTransaction.attributes;
+        [self.delegate router:self didUpdateUrl:attributes.destinationURL attributes:attributes];
+    }
 }
 
 # pragma mark - NAVNAvigationControllerUpdater
@@ -229,10 +236,12 @@
             components.host = nil;
         
         // update the path according to the leftover components
-        NSArray *keys   = [[self.internalURL.nav_components subarrayWithRange:(NSRange){ .length = controllerCount - 1}] valueForKey:@"key"];
-        components.path = [@"/" stringByAppendingString:[keys componentsJoinedByString:@"/"]];
+        NSArray *keys   = self.internalURL.nav_components.first(controllerCount - 1).pluck(@"key");
+        components.path = keys.count ? [@"/" stringByAppendingString:keys.join(@"/")] : nil;
         
-        self.internalURL = [components URL].nav_url;
+        // update the last transaction
+        NAVAttributes *attributes = self.attributesBuilder.to(components.URL.absoluteString).build;
+        self.lastTransaction = [[NAVTransaction alloc] initWithAttributes:attributes scheme:self.scheme];
     }
 }
 
@@ -241,6 +250,11 @@
 - (NAVAttributesBuilder *)attributesBuilder
 {
     return [[NAVAttributesBuilder alloc] initWithSourceURL:self.currentURL];
+}
+
+- (NAVURL *)internalURL
+{
+    return self.lastTransaction.destinationURL;
 }
 
 - (NSURL *)currentURL

@@ -1,755 +1,2328 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		109DE5CA1974ADC7003AA60C /* NAVRouteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5C91974ADC7003AA60C /* NAVRouteTest.m */; };
-		109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */; };
-		109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D11974B8CA003AA60C /* NAVAttributes.m */; };
-		109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */; };
-		109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DA1979E689003AA60C /* NAVURLParser.m */; };
-		109DE5DE1979F73F003AA60C /* NAVURLParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DD1979F73F003AA60C /* NAVURLParserTests.m */; };
-		109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DF1979FFDD003AA60C /* NAVURLTests.m */; };
-		109DE5E3197A1053003AA60C /* NAVTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E2197A1053003AA60C /* NAVTest.m */; };
-		109DE5E7197A1717003AA60C /* YOLT.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* YOLT.m */; };
-		109DE5EA197C2AD9003AA60C /* NAVURLTransitionComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */; };
-		109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F2197C8AC0003AA60C /* NAVURLElement.m */; };
-		109DE5F6197E2B90003AA60C /* NSURL+NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */; };
-		109DE5F9197E3232003AA60C /* NAVAnimatorModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */; };
-		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
-		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
-		FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */; };
-		FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24851978697B00D63A7E /* NAVUpdate.m */; };
-		FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E248919786B6600D63A7E /* NAVAnimator.m */; };
-		FB7E24961978776E00D63A7E /* NAVURLParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24951978776E00D63A7E /* NAVURLParameter.m */; };
-		FB7E249B1979932E00D63A7E /* NAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E249A1979932E00D63A7E /* NAVURL.m */; };
-		FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E249D197995A000D63A7E /* NAVURLComponent.m */; };
-		FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24A9197D6CE800D63A7E /* NAVUpdateStack.m */; };
-		FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24AC197D6CF400D63A7E /* NAVUpdateAnimation.m */; };
-		FB7E24B0197D6ED800D63A7E /* NAVUpdateBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24AF197D6ED800D63A7E /* NAVUpdateBuilder.m */; };
-		FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */; };
-		FB7E24B6197D96D800D63A7E /* NAVNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */; };
-		FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */; };
-		FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */; };
-		FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */; };
-		FBB3F3CE19B0C9A900D9E17E /* NAVAttributesBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */; };
-		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
-		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
-		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
-		FBDDB502197475260051D149 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB501197475260051D149 /* main.m */; };
-		FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */; };
-		FBDDB50F197475260051D149 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB50E197475260051D149 /* XCTest.framework */; };
-		FBDDB510197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
-		FBDDB511197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
-		FBDDB519197475260051D149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB517197475260051D149 /* InfoPlist.strings */; };
-		FBDDB51B197475260051D149 /* NAVRouteBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */; };
-		FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */; };
-		FBDDB551197477060051D149 /* NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB544197477060051D149 /* NAVRouter.m */; };
-		FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB55E19747FA20051D149 /* NAVRoute.m */; };
-		FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB561197481080051D149 /* NAVRouteBuilder.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FBDDB512197475260051D149 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FBDDB4EA197475260051D149 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FBDDB4F1197475260051D149;
-			remoteInfo = NavigationRouter;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		109DE5C81974A710003AA60C /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		109DE5C91974ADC7003AA60C /* NAVRouteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteTest.m; sourceTree = "<group>"; };
-		109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterTests.m; sourceTree = "<group>"; };
-		109DE5D01974B8CA003AA60C /* NAVAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes.h; sourceTree = "<group>"; };
-		109DE5D11974B8CA003AA60C /* NAVAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributes.m; sourceTree = "<group>"; };
-		109DE5D31974BACB003AA60C /* NSError+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+NAVRouter.h"; sourceTree = "<group>"; };
-		109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+NAVRouter.m"; sourceTree = "<group>"; };
-		109DE5D91979E689003AA60C /* NAVURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParser.h; sourceTree = "<group>"; };
-		109DE5DA1979E689003AA60C /* NAVURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParser.m; sourceTree = "<group>"; };
-		109DE5DC1979E6DF003AA60C /* NAVRouterParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterParser.h; sourceTree = "<group>"; };
-		109DE5DD1979F73F003AA60C /* NAVURLParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParserTests.m; sourceTree = "<group>"; };
-		109DE5DF1979FFDD003AA60C /* NAVURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTests.m; sourceTree = "<group>"; };
-		109DE5E1197A1053003AA60C /* NAVTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTest.h; sourceTree = "<group>"; };
-		109DE5E2197A1053003AA60C /* NAVTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTest.m; sourceTree = "<group>"; };
-		109DE5E5197A1717003AA60C /* YOLT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLT.h; sourceTree = "<group>"; };
-		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
-		109DE5E8197C2AD9003AA60C /* NAVURLTransitionComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLTransitionComponents.h; sourceTree = "<group>"; };
-		109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTransitionComponents.m; sourceTree = "<group>"; };
-		109DE5F1197C8AC0003AA60C /* NAVURLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLElement.h; sourceTree = "<group>"; };
-		109DE5F2197C8AC0003AA60C /* NAVURLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElement.m; sourceTree = "<group>"; };
-		109DE5F4197E2B90003AA60C /* NSURL+NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+NAVRouter.h"; sourceTree = "<group>"; };
-		109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NAVRouter.m"; sourceTree = "<group>"; };
-		109DE5F7197E3232003AA60C /* NAVAnimatorModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAnimatorModal.h; sourceTree = "<group>"; };
-		109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimatorModal.m; sourceTree = "<group>"; };
-		25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		2B706B74DA4549B2B09B0A21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		860187B03E6942E8B0898748 /* Pods-Test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.xcconfig"; path = "Pods/Pods-Test.xcconfig"; sourceTree = "<group>"; };
-		9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
-		FB7E247E1975D0BC00D63A7E /* NAVTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransaction.h; sourceTree = "<group>"; };
-		FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransaction.m; sourceTree = "<group>"; };
-		FB7E24841978697B00D63A7E /* NAVUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdate.h; sourceTree = "<group>"; };
-		FB7E24851978697B00D63A7E /* NAVUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdate.m; sourceTree = "<group>"; };
-		FB7E248719786A7500D63A7E /* NAVRouterFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterFactory.h; sourceTree = "<group>"; };
-		FB7E248819786B6600D63A7E /* NAVAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAnimator.h; sourceTree = "<group>"; };
-		FB7E248919786B6600D63A7E /* NAVAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimator.m; sourceTree = "<group>"; };
-		FB7E24941978776E00D63A7E /* NAVURLParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParameter.h; sourceTree = "<group>"; };
-		FB7E24951978776E00D63A7E /* NAVURLParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParameter.m; sourceTree = "<group>"; };
-		FB7E24991979932E00D63A7E /* NAVURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURL.h; sourceTree = "<group>"; };
-		FB7E249A1979932E00D63A7E /* NAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURL.m; sourceTree = "<group>"; };
-		FB7E249C197995A000D63A7E /* NAVURLComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLComponent.h; sourceTree = "<group>"; };
-		FB7E249D197995A000D63A7E /* NAVURLComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLComponent.m; sourceTree = "<group>"; };
-		FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouter_Private.h; sourceTree = "<group>"; };
-		FB7E24A8197D6CE800D63A7E /* NAVUpdateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateStack.h; sourceTree = "<group>"; };
-		FB7E24A9197D6CE800D63A7E /* NAVUpdateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateStack.m; sourceTree = "<group>"; };
-		FB7E24AB197D6CF400D63A7E /* NAVUpdateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateAnimation.h; sourceTree = "<group>"; };
-		FB7E24AC197D6CF400D63A7E /* NAVUpdateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateAnimation.m; sourceTree = "<group>"; };
-		FB7E24AE197D6ED800D63A7E /* NAVUpdateBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateBuilder.h; sourceTree = "<group>"; };
-		FB7E24AF197D6ED800D63A7E /* NAVUpdateBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateBuilder.m; sourceTree = "<group>"; };
-		FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoNavigationController.h; sourceTree = "<group>"; };
-		FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoNavigationController.m; sourceTree = "<group>"; };
-		FB7E24B4197D96D800D63A7E /* NAVNavigationControllerUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVNavigationControllerUpdater.h; sourceTree = "<group>"; };
-		FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVNavigationControllerUpdater.m; sourceTree = "<group>"; };
-		FB7E24B7197D9A1D00D63A7E /* NAVRouterStoryboardFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouterStoryboardFactory.h; sourceTree = "<group>"; };
-		FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouterStoryboardFactory.m; sourceTree = "<group>"; };
-		FB7E24BA197DAC6900D63A7E /* NAVAttributesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributesBuilder.h; sourceTree = "<group>"; };
-		FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilder.m; sourceTree = "<group>"; };
-		FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationRouter.h; sourceTree = "<group>"; };
-		FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Pathing.h"; sourceTree = "<group>"; };
-		FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Pathing.m"; sourceTree = "<group>"; };
-		FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilderTests.m; sourceTree = "<group>"; };
-		FBDDB4F2197475260051D149 /* NavigationRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FBDDB4F9197475260051D149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavigationRouter-Info.plist"; sourceTree = "<group>"; };
-		FBDDB501197475260051D149 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FBDDB504197475260051D149 /* NAVDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVDemoAppDelegate.h; sourceTree = "<group>"; };
-		FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVDemoAppDelegate.m; sourceTree = "<group>"; };
-		FBDDB50D197475260051D149 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBDDB50E197475260051D149 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FBDDB516197475260051D149 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		FBDDB518197475260051D149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilderTests.m; sourceTree = "<group>"; };
-		FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NAVDemoStoryboard.storyboard; sourceTree = "<group>"; };
-		FBDDB543197477060051D149 /* NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter.h; sourceTree = "<group>"; };
-		FBDDB544197477060051D149 /* NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouter.m; sourceTree = "<group>"; };
-		FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterDelegate.h; sourceTree = "<group>"; };
-		FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterUpdater.h; sourceTree = "<group>"; };
-		FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterConstants.h; sourceTree = "<group>"; };
-		FBDDB55D19747FA20051D149 /* NAVRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRoute.h; sourceTree = "<group>"; };
-		FBDDB55E19747FA20051D149 /* NAVRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRoute.m; sourceTree = "<group>"; };
-		FBDDB560197481080051D149 /* NAVRouteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouteBuilder.h; sourceTree = "<group>"; };
-		FBDDB561197481080051D149 /* NAVRouteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilder.m; sourceTree = "<group>"; };
-		FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		FBDDB4EF197475260051D149 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */,
-				FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */,
-				FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */,
-				755644A69AB449B9872FEC1F /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBDDB50A197475260051D149 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDDB50F197475260051D149 /* XCTest.framework in Frameworks */,
-				FBDDB511197475260051D149 /* UIKit.framework in Frameworks */,
-				FBDDB510197475260051D149 /* Foundation.framework in Frameworks */,
-				54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		109DE5E4197A16F8003AA60C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				109DE5E5197A1717003AA60C /* YOLT.h */,
-				109DE5E6197A1717003AA60C /* YOLT.m */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		FB7E248B19786B7600D63A7E /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				FB7E247E1975D0BC00D63A7E /* NAVTransaction.h */,
-				FB7E247F1975D0BC00D63A7E /* NAVTransaction.m */,
-				109DE5D91979E689003AA60C /* NAVURLParser.h */,
-				109DE5DA1979E689003AA60C /* NAVURLParser.m */,
-				FB7E24AE197D6ED800D63A7E /* NAVUpdateBuilder.h */,
-				FB7E24AF197D6ED800D63A7E /* NAVUpdateBuilder.m */,
-				FB7E24A8197D6CE800D63A7E /* NAVUpdateStack.h */,
-				FB7E24A9197D6CE800D63A7E /* NAVUpdateStack.m */,
-				FB7E24AB197D6CF400D63A7E /* NAVUpdateAnimation.h */,
-				FB7E24AC197D6CF400D63A7E /* NAVUpdateAnimation.m */,
-				109DE5F7197E3232003AA60C /* NAVAnimatorModal.h */,
-				109DE5F8197E3232003AA60C /* NAVAnimatorModal.m */,
-				109DE5D31974BACB003AA60C /* NSError+NAVRouter.h */,
-				109DE5D41974BACB003AA60C /* NSError+NAVRouter.m */,
-			);
-			name = Internal;
-			sourceTree = "<group>";
-		};
-		FB7E248C19786B8700D63A7E /* Routes */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB55D19747FA20051D149 /* NAVRoute.h */,
-				FBDDB55E19747FA20051D149 /* NAVRoute.m */,
-				FBDDB560197481080051D149 /* NAVRouteBuilder.h */,
-				FBDDB561197481080051D149 /* NAVRouteBuilder.m */,
-			);
-			name = Routes;
-			sourceTree = "<group>";
-		};
-		FB7E248D19786B8F00D63A7E /* URLs */ = {
-			isa = PBXGroup;
-			children = (
-				FB7E24991979932E00D63A7E /* NAVURL.h */,
-				FB7E249A1979932E00D63A7E /* NAVURL.m */,
-				109DE5F1197C8AC0003AA60C /* NAVURLElement.h */,
-				109DE5F2197C8AC0003AA60C /* NAVURLElement.m */,
-				FB7E249C197995A000D63A7E /* NAVURLComponent.h */,
-				FB7E249D197995A000D63A7E /* NAVURLComponent.m */,
-				FB7E24941978776E00D63A7E /* NAVURLParameter.h */,
-				FB7E24951978776E00D63A7E /* NAVURLParameter.m */,
-				109DE5E8197C2AD9003AA60C /* NAVURLTransitionComponents.h */,
-				109DE5E9197C2AD9003AA60C /* NAVURLTransitionComponents.m */,
-				109DE5F4197E2B90003AA60C /* NSURL+NAVRouter.h */,
-				109DE5F5197E2B90003AA60C /* NSURL+NAVRouter.m */,
-			);
-			name = URLs;
-			sourceTree = "<group>";
-		};
-		FBDDB4E9197475260051D149 = {
-			isa = PBXGroup;
-			children = (
-				FBDDB4FB197475260051D149 /* NavigationRouter */,
-				FBDDB514197475260051D149 /* Tests */,
-				FBDDB4F4197475260051D149 /* Frameworks */,
-				FBDDB4F3197475260051D149 /* Products */,
-				860187B03E6942E8B0898748 /* Pods-Test.xcconfig */,
-				AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */,
-				25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */,
-			);
-			sourceTree = "<group>";
-		};
-		FBDDB4F3197475260051D149 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB4F2197475260051D149 /* NavigationRouter.app */,
-				FBDDB50D197475260051D149 /* Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FBDDB4F4197475260051D149 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB4F5197475260051D149 /* Foundation.framework */,
-				FBDDB4F7197475260051D149 /* CoreGraphics.framework */,
-				FBDDB4F9197475260051D149 /* UIKit.framework */,
-				FBDDB50E197475260051D149 /* XCTest.framework */,
-				FCEE1AC5E15C4FB796E93671 /* libPods-Test.a */,
-				9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */,
-				2B706B74DA4549B2B09B0A21 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FBDDB4FB197475260051D149 /* NavigationRouter */ = {
-			isa = PBXGroup;
-			children = (
-				FB7E2554197EC3DA00D63A7E /* NavigationRouter.h */,
-				FBDDB543197477060051D149 /* NAVRouter.h */,
-				FBDDB544197477060051D149 /* NAVRouter.m */,
-				FB7E26C819803D5A00D63A7E /* NAVRouter+Pathing.h */,
-				FB7E26C919803D5A00D63A7E /* NAVRouter+Pathing.m */,
-				FB7E24A01979AEA900D63A7E /* NAVRouter_Private.h */,
-				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
-				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
-				109DE5DC1979E6DF003AA60C /* NAVRouterParser.h */,
-				FBDDB55B197479A30051D149 /* NAVRouterUpdater.h */,
-				109DE5D01974B8CA003AA60C /* NAVAttributes.h */,
-				109DE5D11974B8CA003AA60C /* NAVAttributes.m */,
-				FB7E24BA197DAC6900D63A7E /* NAVAttributesBuilder.h */,
-				FB7E24BB197DAC6900D63A7E /* NAVAttributesBuilder.m */,
-				FB7E24841978697B00D63A7E /* NAVUpdate.h */,
-				FB7E24851978697B00D63A7E /* NAVUpdate.m */,
-				FB7E248819786B6600D63A7E /* NAVAnimator.h */,
-				FB7E248919786B6600D63A7E /* NAVAnimator.m */,
-				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
-				FB7E24B4197D96D800D63A7E /* NAVNavigationControllerUpdater.h */,
-				FB7E24B5197D96D800D63A7E /* NAVNavigationControllerUpdater.m */,
-				FB7E248B19786B7600D63A7E /* Internal */,
-				FB7E248C19786B8700D63A7E /* Routes */,
-				FB7E248D19786B8F00D63A7E /* URLs */,
-				109DE5E4197A16F8003AA60C /* Extensions */,
-				FBDDB5261974756F0051D149 /* Demo */,
-			);
-			path = NavigationRouter;
-			sourceTree = "<group>";
-		};
-		FBDDB514197475260051D149 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				109DE5E1197A1053003AA60C /* NAVTest.h */,
-				109DE5E2197A1053003AA60C /* NAVTest.m */,
-				109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */,
-				109DE5C91974ADC7003AA60C /* NAVRouteTest.m */,
-				FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */,
-				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
-				109DE5DD1979F73F003AA60C /* NAVURLParserTests.m */,
-				FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */,
-				FBDDB515197475260051D149 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		FBDDB515197475260051D149 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB516197475260051D149 /* Tests-Info.plist */,
-				FBDDB517197475260051D149 /* InfoPlist.strings */,
-				109DE5C81974A710003AA60C /* Tests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FBDDB5261974756F0051D149 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */,
-				FBDDB504197475260051D149 /* NAVDemoAppDelegate.h */,
-				FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */,
-				FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */,
-				FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */,
-				FB7E24B7197D9A1D00D63A7E /* NAVRouterStoryboardFactory.h */,
-				FB7E24B8197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m */,
-				FBDDB501197475260051D149 /* main.m */,
-				FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */,
-			);
-			name = Demo;
-			path = ../Demo;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		FBDDB4F1197475260051D149 /* NavigationRouter */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "NavigationRouter" */;
-			buildPhases = (
-				5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */,
-				FBDDB4EE197475260051D149 /* Sources */,
-				FBDDB4EF197475260051D149 /* Frameworks */,
-				FBDDB4F0197475260051D149 /* Resources */,
-				6FC25331DAEA40C78833E02B /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NavigationRouter;
-			productName = NavigationRouter;
-			productReference = FBDDB4F2197475260051D149 /* NavigationRouter.app */;
-			productType = "com.apple.product-type.application";
-		};
-		FBDDB50C197475260051D149 /* Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */;
-			buildPhases = (
-				55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */,
-				FBDDB509197475260051D149 /* Sources */,
-				FBDDB50A197475260051D149 /* Frameworks */,
-				FBDDB50B197475260051D149 /* Resources */,
-				982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBDDB513197475260051D149 /* PBXTargetDependency */,
-			);
-			name = Tests;
-			productName = NavigationRouterTests;
-			productReference = FBDDB50D197475260051D149 /* Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		FBDDB4EA197475260051D149 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = NAV;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "";
-				TargetAttributes = {
-					FBDDB50C197475260051D149 = {
-						TestTargetID = FBDDB4F1197475260051D149;
-					};
-				};
-			};
-			buildConfigurationList = FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "NavigationRouter" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = FBDDB4E9197475260051D149;
-			productRefGroup = FBDDB4F3197475260051D149 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				FBDDB4F1197475260051D149 /* NavigationRouter */,
-				FBDDB50C197475260051D149 /* Tests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		FBDDB4F0197475260051D149 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBDDB50B197475260051D149 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDDB519197475260051D149 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6FC25331DAEA40C78833E02B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		FBDDB4EE197475260051D149 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */,
-				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
-				109DE5D21974B8CA003AA60C /* NAVAttributes.m in Sources */,
-				FB7E26CA19803D5A00D63A7E /* NAVRouter+Pathing.m in Sources */,
-				109DE5F3197C8AC0003AA60C /* NAVURLElement.m in Sources */,
-				109DE5F9197E3232003AA60C /* NAVAnimatorModal.m in Sources */,
-				FB7E24BC197DAC6900D63A7E /* NAVAttributesBuilder.m in Sources */,
-				109DE5DB1979E689003AA60C /* NAVURLParser.m in Sources */,
-				109DE5D51974BACB003AA60C /* NSError+NAVRouter.m in Sources */,
-				109DE5F6197E2B90003AA60C /* NSURL+NAVRouter.m in Sources */,
-				109DE5EA197C2AD9003AA60C /* NAVURLTransitionComponents.m in Sources */,
-				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
-				FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */,
-				FB7E249E197995A000D63A7E /* NAVURLComponent.m in Sources */,
-				FB7E24B6197D96D800D63A7E /* NAVNavigationControllerUpdater.m in Sources */,
-				FBDDB502197475260051D149 /* main.m in Sources */,
-				FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */,
-				FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */,
-				FB7E24B0197D6ED800D63A7E /* NAVUpdateBuilder.m in Sources */,
-				FBDDB551197477060051D149 /* NAVRouter.m in Sources */,
-				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
-				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
-				FB7E24961978776E00D63A7E /* NAVURLParameter.m in Sources */,
-				FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */,
-				FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */,
-				FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */,
-				FB7E249B1979932E00D63A7E /* NAVURL.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBDDB509197475260051D149 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBDDB51B197475260051D149 /* NAVRouteBuilderTests.m in Sources */,
-				109DE5CA1974ADC7003AA60C /* NAVRouteTest.m in Sources */,
-				109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */,
-				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
-				109DE5DE1979F73F003AA60C /* NAVURLParserTests.m in Sources */,
-				109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */,
-				FBB3F3CE19B0C9A900D9E17E /* NAVAttributesBuilderTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FBDDB513197475260051D149 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBDDB4F1197475260051D149 /* NavigationRouter */;
-			targetProxy = FBDDB512197475260051D149 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FBDDB517197475260051D149 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBDDB518197475260051D149 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		FBDDB51C197475260051D149 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FBDDB51D197475260051D149 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FBDDB51F197475260051D149 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "Demo/NavigationRouter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		FBDDB520197475260051D149 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25EA2A44DC78408AA14C9D79 /* Pods.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "Demo/NavigationRouter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		FBDDB522197475260051D149 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FBDDB523197475260051D149 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB5AB71A3B074CA78EA6F54C /* Pods-Tests.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "NavigationRouter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBDDB51C197475260051D149 /* Debug */,
-				FBDDB51D197475260051D149 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "NavigationRouter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBDDB51F197475260051D149 /* Debug */,
-				FBDDB520197475260051D149 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBDDB522197475260051D149 /* Debug */,
-				FBDDB523197475260051D149 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = FBDDB4EA197475260051D149 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>109DE5C81974A710003AA60C</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Tests-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5C91974ADC7003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouteTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5CA1974ADC7003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5C91974ADC7003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5CB1974B1A4003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouterTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5CC1974B1A4003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5CB1974B1A4003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5D01974B8CA003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVAttributes.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5D11974B8CA003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVAttributes.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5D21974B8CA003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5D11974B8CA003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5D31974BACB003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSError+NAVRouter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5D41974BACB003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NSError+NAVRouter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5D51974BACB003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5D41974BACB003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5D91979E689003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURLParser.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5DA1979E689003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLParser.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5DB1979E689003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5DA1979E689003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5DC1979E6DF003AA60C</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterParser.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5DD1979F73F003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLParserTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5DE1979F73F003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5DD1979F73F003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5DF1979FFDD003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E01979FFDD003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5DF1979FFDD003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5E1197A1053003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVTest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E2197A1053003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E3197A1053003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5E2197A1053003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5E4197A16F8003AA60C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>109DE5E5197A1717003AA60C</string>
+				<string>109DE5E6197A1717003AA60C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Extensions</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E5197A1717003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>YOLT.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E6197A1717003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>YOLT.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E7197A1717003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5E6197A1717003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5E8197C2AD9003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURLTransitionComponents.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5E9197C2AD9003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLTransitionComponents.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5EA197C2AD9003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5E9197C2AD9003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5F1197C8AC0003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURLElement.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F2197C8AC0003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLElement.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F3197C8AC0003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5F2197C8AC0003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5F4197E2B90003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSURL+NAVRouter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F5197E2B90003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NSURL+NAVRouter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F6197E2B90003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5F5197E2B90003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109DE5F7197E3232003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVAnimatorModal.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F8197E3232003AA60C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVAnimatorModal.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109DE5F9197E3232003AA60C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109DE5F8197E3232003AA60C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2B706B74DA4549B2B09B0A21</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3BA5380229CE77B69E24FD60</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8D410DE674AD34CD0A4FF2B0</string>
+				<string>4E0550AD241DCD72951EDAC2</string>
+				<string>F310BAE90679A14745AD83B7</string>
+				<string>CDE2EBC9B00AB31873B1EAAD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4E0550AD241DCD72951EDAC2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5307B8CA6E804ED5982E6BBD</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>54E3912251CB4E1388B41523</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9C6A02FB0BDB42EDBCF8AAD2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>55F822DC612C4BBDBC464654</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>6FC25331DAEA40C78833E02B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>755644A69AB449B9872FEC1F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2B706B74DA4549B2B09B0A21</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8D410DE674AD34CD0A4FF2B0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>982D929BC7854B6E9B8DDDB4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>9C6A02FB0BDB42EDBCF8AAD2</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Tests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>CDE2EBC9B00AB31873B1EAAD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Tests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F310BAE90679A14745AD83B7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Tests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E247E1975D0BC00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVTransaction.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E247F1975D0BC00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVTransaction.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24801975D0BC00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E247F1975D0BC00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24841978697B00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVUpdate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24851978697B00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVUpdate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24861978697B00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24851978697B00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E248719786A7500D63A7E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterFactory.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E248819786B6600D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVAnimator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E248919786B6600D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVAnimator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E248A19786B6600D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E248919786B6600D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E248B19786B7600D63A7E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FB7E247E1975D0BC00D63A7E</string>
+				<string>FB7E247F1975D0BC00D63A7E</string>
+				<string>109DE5D91979E689003AA60C</string>
+				<string>109DE5DA1979E689003AA60C</string>
+				<string>FB7E24AE197D6ED800D63A7E</string>
+				<string>FB7E24AF197D6ED800D63A7E</string>
+				<string>FB7E24A8197D6CE800D63A7E</string>
+				<string>FB7E24A9197D6CE800D63A7E</string>
+				<string>FB7E24AB197D6CF400D63A7E</string>
+				<string>FB7E24AC197D6CF400D63A7E</string>
+				<string>109DE5F7197E3232003AA60C</string>
+				<string>109DE5F8197E3232003AA60C</string>
+				<string>109DE5D31974BACB003AA60C</string>
+				<string>109DE5D41974BACB003AA60C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Internal</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E248C19786B8700D63A7E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB55D19747FA20051D149</string>
+				<string>FBDDB55E19747FA20051D149</string>
+				<string>FBDDB560197481080051D149</string>
+				<string>FBDDB561197481080051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Routes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E248D19786B8F00D63A7E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FB7E24991979932E00D63A7E</string>
+				<string>FB7E249A1979932E00D63A7E</string>
+				<string>109DE5F1197C8AC0003AA60C</string>
+				<string>109DE5F2197C8AC0003AA60C</string>
+				<string>FB7E249C197995A000D63A7E</string>
+				<string>FB7E249D197995A000D63A7E</string>
+				<string>FB7E24941978776E00D63A7E</string>
+				<string>FB7E24951978776E00D63A7E</string>
+				<string>109DE5E8197C2AD9003AA60C</string>
+				<string>109DE5E9197C2AD9003AA60C</string>
+				<string>109DE5F4197E2B90003AA60C</string>
+				<string>109DE5F5197E2B90003AA60C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>URLs</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24941978776E00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURLParameter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24951978776E00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLParameter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24961978776E00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24951978776E00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24991979932E00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURL.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E249A1979932E00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURL.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E249B1979932E00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E249A1979932E00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E249C197995A000D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVURLComponent.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E249D197995A000D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVURLComponent.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E249E197995A000D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E249D197995A000D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24A01979AEA900D63A7E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouter_Private.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24A8197D6CE800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVUpdateStack.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24A9197D6CE800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVUpdateStack.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24AA197D6CE800D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24A9197D6CE800D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24AB197D6CF400D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVUpdateAnimation.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24AC197D6CF400D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVUpdateAnimation.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24AD197D6CF400D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24AC197D6CF400D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24AE197D6ED800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVUpdateBuilder.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24AF197D6ED800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVUpdateBuilder.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B0197D6ED800D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24AF197D6ED800D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24B1197D92CE00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVDemoNavigationController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B2197D92CE00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVDemoNavigationController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B3197D92CE00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24B2197D92CE00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24B4197D96D800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVNavigationControllerUpdater.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B5197D96D800D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVNavigationControllerUpdater.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B6197D96D800D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24B5197D96D800D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24B7197D9A1D00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterStoryboardFactory.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B8197D9A1D00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouterStoryboardFactory.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24B9197D9A1D00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24B8197D9A1D00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E24BA197DAC6900D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVAttributesBuilder.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24BB197DAC6900D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVAttributesBuilder.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E24BC197DAC6900D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E24BB197DAC6900D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FB7E2554197EC3DA00D63A7E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NavigationRouter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E26C819803D5A00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouter+Pathing.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E26C919803D5A00D63A7E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouter+Pathing.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB7E26CA19803D5A00D63A7E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB7E26C919803D5A00D63A7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBB3F3CD19B0C9A900D9E17E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVAttributesBuilderTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBB3F3CE19B0C9A900D9E17E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBB3F3CD19B0C9A900D9E17E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB4E9197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB4FB197475260051D149</string>
+				<string>FBDDB514197475260051D149</string>
+				<string>FBDDB4F4197475260051D149</string>
+				<string>FBDDB4F3197475260051D149</string>
+				<string>3BA5380229CE77B69E24FD60</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB4EA197475260051D149</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>NAV</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string></string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>FBDDB50C197475260051D149</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>FBDDB4F1197475260051D149</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>FBDDB4ED197475260051D149</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>FBDDB4E9197475260051D149</string>
+			<key>productRefGroup</key>
+			<string>FBDDB4F3197475260051D149</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>FBDDB4F1197475260051D149</string>
+				<string>FBDDB50C197475260051D149</string>
+			</array>
+		</dict>
+		<key>FBDDB4ED197475260051D149</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>FBDDB51C197475260051D149</string>
+				<string>FBDDB51D197475260051D149</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>FBDDB4EE197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FB7E24B3197D92CE00D63A7E</string>
+				<string>FBDDB506197475260051D149</string>
+				<string>109DE5D21974B8CA003AA60C</string>
+				<string>FB7E26CA19803D5A00D63A7E</string>
+				<string>109DE5F3197C8AC0003AA60C</string>
+				<string>109DE5F9197E3232003AA60C</string>
+				<string>FB7E24BC197DAC6900D63A7E</string>
+				<string>109DE5DB1979E689003AA60C</string>
+				<string>109DE5D51974BACB003AA60C</string>
+				<string>109DE5F6197E2B90003AA60C</string>
+				<string>109DE5EA197C2AD9003AA60C</string>
+				<string>109DE5E7197A1717003AA60C</string>
+				<string>FB7E24AA197D6CE800D63A7E</string>
+				<string>FB7E249E197995A000D63A7E</string>
+				<string>FB7E24B6197D96D800D63A7E</string>
+				<string>FBDDB502197475260051D149</string>
+				<string>FB7E24AD197D6CF400D63A7E</string>
+				<string>FB7E248A19786B6600D63A7E</string>
+				<string>FB7E24B0197D6ED800D63A7E</string>
+				<string>FBDDB551197477060051D149</string>
+				<string>FBDDB55F19747FA20051D149</string>
+				<string>FBDDB562197481080051D149</string>
+				<string>FB7E24961978776E00D63A7E</string>
+				<string>FB7E24B9197D9A1D00D63A7E</string>
+				<string>FB7E24861978697B00D63A7E</string>
+				<string>FB7E24801975D0BC00D63A7E</string>
+				<string>FB7E249B1979932E00D63A7E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB4EF197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FBDDB4F8197475260051D149</string>
+				<string>FBDDB4FA197475260051D149</string>
+				<string>FBDDB4F6197475260051D149</string>
+				<string>755644A69AB449B9872FEC1F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB4F0197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FBDDB525197475510051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB4F1197475260051D149</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>FBDDB51E197475260051D149</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5307B8CA6E804ED5982E6BBD</string>
+				<string>FBDDB4EE197475260051D149</string>
+				<string>FBDDB4EF197475260051D149</string>
+				<string>FBDDB4F0197475260051D149</string>
+				<string>6FC25331DAEA40C78833E02B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>NavigationRouter</string>
+			<key>productName</key>
+			<string>NavigationRouter</string>
+			<key>productReference</key>
+			<string>FBDDB4F2197475260051D149</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>FBDDB4F2197475260051D149</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>NavigationRouter.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FBDDB4F3197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB4F2197475260051D149</string>
+				<string>FBDDB50D197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB4F4197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB4F5197475260051D149</string>
+				<string>FBDDB4F7197475260051D149</string>
+				<string>FBDDB4F9197475260051D149</string>
+				<string>FBDDB50E197475260051D149</string>
+				<string>FCEE1AC5E15C4FB796E93671</string>
+				<string>9C6A02FB0BDB42EDBCF8AAD2</string>
+				<string>2B706B74DA4549B2B09B0A21</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB4F5197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>FBDDB4F6197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB4F5197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB4F7197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>FBDDB4F8197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB4F7197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB4F9197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>FBDDB4FA197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB4F9197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB4FB197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FB7E2554197EC3DA00D63A7E</string>
+				<string>FBDDB543197477060051D149</string>
+				<string>FBDDB544197477060051D149</string>
+				<string>FB7E26C819803D5A00D63A7E</string>
+				<string>FB7E26C919803D5A00D63A7E</string>
+				<string>FB7E24A01979AEA900D63A7E</string>
+				<string>FBDDB55A1974777D0051D149</string>
+				<string>FB7E248719786A7500D63A7E</string>
+				<string>109DE5DC1979E6DF003AA60C</string>
+				<string>FBDDB55B197479A30051D149</string>
+				<string>109DE5D01974B8CA003AA60C</string>
+				<string>109DE5D11974B8CA003AA60C</string>
+				<string>FB7E24BA197DAC6900D63A7E</string>
+				<string>FB7E24BB197DAC6900D63A7E</string>
+				<string>FB7E24841978697B00D63A7E</string>
+				<string>FB7E24851978697B00D63A7E</string>
+				<string>FB7E248819786B6600D63A7E</string>
+				<string>FB7E248919786B6600D63A7E</string>
+				<string>FBDDB55C19747BA90051D149</string>
+				<string>FB7E24B4197D96D800D63A7E</string>
+				<string>FB7E24B5197D96D800D63A7E</string>
+				<string>FB7E248B19786B7600D63A7E</string>
+				<string>FB7E248C19786B8700D63A7E</string>
+				<string>FB7E248D19786B8F00D63A7E</string>
+				<string>109DE5E4197A16F8003AA60C</string>
+				<string>FBDDB5261974756F0051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NavigationRouter</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB4FD197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>NavigationRouter-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB501197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB502197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB501197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB504197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVDemoAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB505197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVDemoAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB506197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB505197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB509197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FBDDB51B197475260051D149</string>
+				<string>109DE5CA1974ADC7003AA60C</string>
+				<string>109DE5E01979FFDD003AA60C</string>
+				<string>109DE5E3197A1053003AA60C</string>
+				<string>109DE5DE1979F73F003AA60C</string>
+				<string>109DE5CC1974B1A4003AA60C</string>
+				<string>FBB3F3CE19B0C9A900D9E17E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB50A197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FBDDB50F197475260051D149</string>
+				<string>FBDDB511197475260051D149</string>
+				<string>FBDDB510197475260051D149</string>
+				<string>54E3912251CB4E1388B41523</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB50B197475260051D149</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FBDDB519197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>FBDDB50C197475260051D149</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>FBDDB521197475260051D149</string>
+			<key>buildPhases</key>
+			<array>
+				<string>55F822DC612C4BBDBC464654</string>
+				<string>FBDDB509197475260051D149</string>
+				<string>FBDDB50A197475260051D149</string>
+				<string>FBDDB50B197475260051D149</string>
+				<string>982D929BC7854B6E9B8DDDB4</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>FBDDB513197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Tests</string>
+			<key>productName</key>
+			<string>NavigationRouterTests</string>
+			<key>productReference</key>
+			<string>FBDDB50D197475260051D149</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>FBDDB50D197475260051D149</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Tests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FBDDB50E197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>FBDDB50F197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB50E197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB510197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB4F5197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB511197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB4F9197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB512197475260051D149</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>FBDDB4EA197475260051D149</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>FBDDB4F1197475260051D149</string>
+			<key>remoteInfo</key>
+			<string>NavigationRouter</string>
+		</dict>
+		<key>FBDDB513197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>FBDDB4F1197475260051D149</string>
+			<key>targetProxy</key>
+			<string>FBDDB512197475260051D149</string>
+		</dict>
+		<key>FBDDB514197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>109DE5E1197A1053003AA60C</string>
+				<string>109DE5E2197A1053003AA60C</string>
+				<string>109DE5CB1974B1A4003AA60C</string>
+				<string>109DE5C91974ADC7003AA60C</string>
+				<string>FBDDB51A197475260051D149</string>
+				<string>109DE5DF1979FFDD003AA60C</string>
+				<string>109DE5DD1979F73F003AA60C</string>
+				<string>FBB3F3CD19B0C9A900D9E17E</string>
+				<string>FBDDB515197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Tests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB515197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB516197475260051D149</string>
+				<string>FBDDB517197475260051D149</string>
+				<string>109DE5C81974A710003AA60C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB516197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Tests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB517197475260051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB518197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB518197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB519197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB517197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB51A197475260051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouteBuilderTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB51B197475260051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB51A197475260051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB51C197475260051D149</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>FBDDB51D197475260051D149</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>FBDDB51E197475260051D149</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>FBDDB51F197475260051D149</string>
+				<string>FBDDB520197475260051D149</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>FBDDB51F197475260051D149</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8D410DE674AD34CD0A4FF2B0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string></string>
+				<key>INFOPLIST_FILE</key>
+				<string>Demo/NavigationRouter-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>FBDDB520197475260051D149</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4E0550AD241DCD72951EDAC2</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string></string>
+				<key>INFOPLIST_FILE</key>
+				<string>Demo/NavigationRouter-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>FBDDB521197475260051D149</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>FBDDB522197475260051D149</string>
+				<string>FBDDB523197475260051D149</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>FBDDB522197475260051D149</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F310BAE90679A14745AD83B7</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tests/Tests-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Tests/Tests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>FBDDB523197475260051D149</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>CDE2EBC9B00AB31873B1EAAD</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tests/Tests-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Tests/Tests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>FBDDB524197475510051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>NAVDemoStoryboard.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB525197475510051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB524197475510051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB5261974756F0051D149</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FBDDB524197475510051D149</string>
+				<string>FBDDB504197475260051D149</string>
+				<string>FBDDB505197475260051D149</string>
+				<string>FB7E24B1197D92CE00D63A7E</string>
+				<string>FB7E24B2197D92CE00D63A7E</string>
+				<string>FB7E24B7197D9A1D00D63A7E</string>
+				<string>FB7E24B8197D9A1D00D63A7E</string>
+				<string>FBDDB501197475260051D149</string>
+				<string>FBDDB4FD197475260051D149</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Demo</string>
+			<key>path</key>
+			<string>../Demo</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB543197477060051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB544197477060051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB551197477060051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB544197477060051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB55A1974777D0051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB55B197479A30051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterUpdater.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB55C19747BA90051D149</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouterConstants.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB55D19747FA20051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRoute.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB55E19747FA20051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRoute.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB55F19747FA20051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB55E19747FA20051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FBDDB560197481080051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NAVRouteBuilder.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB561197481080051D149</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NAVRouteBuilder.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBDDB562197481080051D149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FBDDB561197481080051D149</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FCEE1AC5E15C4FB796E93671</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Test.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>FBDDB4EA197475260051D149</string>
+</dict>
+</plist>

@@ -13,6 +13,8 @@
 
 + (instancetype)URLWithURL:(NSURL *)systemURL resolvingAgainstScheme:(NSString *)scheme
 {
+    if(!systemURL)
+        return nil;
     return [[self alloc] initWithURL:systemURL resolvingAgainstScheme:scheme];
 }
 
