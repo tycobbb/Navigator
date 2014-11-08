@@ -15,6 +15,7 @@
 
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
+#import <YOLOKit/YOLO.h>
 #import "NAVTest.h"
 
 #endif

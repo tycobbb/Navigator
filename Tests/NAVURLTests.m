@@ -3,13 +3,6 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVURL.h"
-
-// spec helpers
-NAVURL * url(NSString *path) {
-    return [[NAVURL alloc] initWithPath:path];
-}
-
 SpecBegin(NAVURLTest)
 
 describe(@"URL", ^{
@@ -17,29 +10,64 @@ describe(@"URL", ^{
     //
     // Construction
     //
-    
+
     it(@"should have a scheme", ^{
-        // failures
-        expect(^{ url(@""); }).to.raise(@"rocket.no.scheme.error");
-        // successes
-        expect(url(@"rocket://").scheme).to.equal(@"rocket");
-        expect(url(@"rocket://test").scheme).to.equal(@"rocket");
+        expect(URL(@"rocket://").scheme).to.equal(NAVTest.scheme);
+        expect(URL(@"rocket://test").scheme).to.equal(@"rocket");
+    });
+    
+    it(@"shouldn't create URLs without schemes", ^{
+        expect(^{ URL(@""); }).to.raise(@"rocket.no.scheme.error");
+    });
+    
+    it(@"shouldn't allow components with excess data strings", ^{
+        expect(^{ URL(@"rocket://test1::1234::5678"); }).to.raise(@"rocket.too.many.data.strings");
     });
     
     it(@"should have components", ^{
-        expect(url(@"rocket://test").components.count).to.equal(1);
-        expect(url(@"rocket://test1/test2").components.count).to.equal(2);
+        expect(URL(@"rocket://test").components.count).to.equal(1);
+        expect(URL(@"rocket://test1/test2").components.count).to.equal(2);
     });
     
-    it(@"should have data assosciated to components", ^{
-        // failures
-        expect(^{ url(@"rocket://test1::1234::5678"); }).to.raise(@"rocket.too.many.data.strings");
-        // successes
-        expect([url(@"rocket://test::1234").components.firstObject data]).to.equal(@"1234");
+    it(@"should assosciate data to components", ^{
+        NAVURL *url = URL(@"rocket://test::1234");
+        NAVURLComponent *component = url.components.firstObject;
+        
+        expect(component.data).toNot.beNil();
+        expect(component.data).to.equal(@"1234");
     });
     
-    it(@"should have parameters and values", ^{
-        expect(NO).to.equal(YES);
+    it(@"should allow visible key-value parameters", ^{
+        NSArray *urls = URLs(@[
+            @"rocket://test?param=1",
+            @"rocket://?param=1",
+        ]);
+        
+        for(NAVURL *url in urls) {
+            NAVURLParameter *parameter = url.parameters.firstObject;
+            expect(parameter).toNot.beNil();
+            expect(parameter.options).to.equal(NAVParameterOptionsVisible);
+        }
+    });
+    
+    it(@"should render parameter values as strings", ^{
+        NSDictionary *urls = @{
+            URL(@"rocket://test?param=")  : NSNull.null,
+            URL(@"rocket://test?param=1") : @"v",
+            URL(@"rocket://test?param=3") : @"vu",
+            URL(@"rocket://test?param=5") : @"va",
+        };
+        
+        for(NAVURL *url in urls) {
+            NAVURLParameter *parameter = url.parameters.firstObject;
+            
+            NSString *value = urls[url];
+            if(value == (id)NSNull.null) {
+                value = nil;
+            }
+            
+            expect(parameter.value).to.equal(value);
+        }
     });
     
     //
@@ -47,23 +75,23 @@ describe(@"URL", ^{
     //
     
     it(@"should push new components", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     it(@"should pop components", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     it(@"should add values to components", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     it(@"should toggle parameters", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     it(@"should remove hidden parameters", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     //
@@ -71,11 +99,11 @@ describe(@"URL", ^{
     //
     
     it(@"should serialize to a url", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
     it(@"should serialize to a string", ^{
-        expect(NO).to.equal(YES);
+        expect(NO).to.beTruthy();
     });
     
 });

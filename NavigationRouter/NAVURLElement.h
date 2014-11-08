@@ -69,8 +69,49 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
 
 @end
 
+
 @interface NAVURLParameter : NAVURLElement
+
+/**
+ @brief Indicates whether or not the view corresponding to the parameter is visible
+ 
+ The view will be updated during transition to match the value of this state, and if it's
+ invisible will be removed from the URL.
+*/
+
 @property (assign, nonatomic, readonly) BOOL isVisible;
+
+/**
+ @brief Options indicating how to present the view assosciated with this parameter
+ 
+ @c NAVParameterOptionsNone: no options
+ @c NAVParameterOptionsUnanimated: the transition won't animate
+ @c NAVParameterOptionsAsync: this animation will completely indepently of the transition that created this change.
+*/
+
 @property (assign, nonatomic, readonly) NAVParameterOptions options;
+
+/**
+ @brief String representaiton of the parameter's state
+ 
+ Visibility and options are mapped into a single-letter-strings and concatenated. For 
+ example, visible would be "v" while visible and async would be "va".
+*/
+
 @property (copy  , nonatomic, readonly) NSString *value;
+
+/**
+ @brief Initializes a new NAVURLParameter
+ 
+ Parameters are key-value pairs in the URL representing an animatable view. They value is a
+ a set of options that control the mechanism of presentation.
+
+ @param key     The key for the parameter
+ @param options The options to control the parameter visibility
+ 
+ @return A new NAVURLParameter
+*/
+
+- (instancetype)initWithKey:(NSString *)key options:(NAVParameterOptions)options;
+
 @end

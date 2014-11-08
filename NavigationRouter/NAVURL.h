@@ -7,7 +7,7 @@
 
 #import "NAVURLElement.h"
 
-@interface NAVURL : NSObject
+@interface NAVURL : NSObject <NSCopying>
 
 /**
  @brief Namespace for URLs
@@ -35,6 +35,19 @@
 */
 
 @property (copy, nonatomic, readonly) NSArray *parameters;
+
+/**
+ @brief Creates a NAVURL by parsing a string path.
+ 
+ If the path is nil, this method returns nil. Otherwise, it will return a new NAVURL
+ provided the path is valid.
+ 
+ @param path The URL path to parse
+ 
+ @return A NAVURL instance representing the path, or nil.
+*/
+
++ (instancetype)URLWithPath:(NSString *)path;
 
 /**
  @brief Initializes a NAVURL by parsing a string path.

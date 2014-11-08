@@ -8,6 +8,13 @@
 
 @implementation NAVURL
 
++ (instancetype)URLWithPath:(NSString *)path
+{
+    if(!path)
+        return nil;
+    return [[self alloc] initWithPath:path];
+}
+
 - (instancetype)initWithPath:(NSString *)path
 {
     NSParameterAssert(path);
@@ -19,6 +26,19 @@
         _scheme     = subdivisions[0];
         _components = [self.class componentsFromPath:subdivisions[1]];
         _parameters = [self.class parametersFromQuery:subdivisions[2]];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithUrl:(NAVURL *)url
+{
+    NSParameterAssert(url);
+    
+    if(self = [super init]) {
+        _scheme     = url.scheme;
+        _components = url.components;
+        _parameters = url.parameters;
     }
     
     return self;
@@ -50,12 +70,16 @@
     return @[
         scheme,
         minorSubdivisions[0], // components
-        minorSubdivisions.count > 1 ? minorSubdivisions[1] : @[] // parameters
+        minorSubdivisions.count > 1 ? minorSubdivisions[1] : @"" // parameters
     ];
 }
 
 + (NSArray *)componentsFromPath:(NSString *)path
 {
+    if(!path.length) {
+        return @[];
+    }
+    
     return path.split(@"/").map(^(NSString *subpath, NSInteger index) {
         // seperate subpath based on data delimiter
         NSArray *components = subpath.split(@"::");
@@ -72,6 +96,10 @@
 
 + (NSArray *)parametersFromQuery:(NSString *)query
 {
+    if(!query.length) {
+        return @[];
+    }
+    
     // map elements seperated by parameter delimiter
     return query.split(@"&").map(^(NSString *parameter) {
         // seperate components based on key-value delimiter
@@ -80,7 +108,16 @@
         if(pair.count != 2) {
             [NSException raise:@"rocket.invalid.parameter" format:@"Parameter must have key and value: %@", parameter];
         }
+        
+        return [[NAVURLParameter alloc] initWithKey:pair[0] options:[pair[1] integerValue]];
     });
+}
+
+# pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[NAVURL alloc] initWithUrl:self];    
 }
 
 @end

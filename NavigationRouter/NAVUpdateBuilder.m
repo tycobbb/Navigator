@@ -165,7 +165,7 @@
         case NAVUpdateTypeModal:
             return [NAVUpdateAnimation class];
         default:
-            NSAssert(false, @"cannot determine update class from this type: %d", type); return nil;
+            NSAssert(false, @"cannot determine update class from this type: %d", (int)type); return nil;
     }
 }
 

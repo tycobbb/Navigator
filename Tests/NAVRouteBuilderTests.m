@@ -9,31 +9,31 @@ SpecBegin(NAVRouteBuilderTest)
 
 describe(@"Route Builder", ^{
    
-    NAVRouteBuilder *builder = [NAVRouteBuilder new];
-
-    it(@"should have a route map", ^{
-        expect(builder.routes).notTo.beNil();
-    });
-    
-    it(@"should create a route", ^{
-        expect(builder.routes.count).to.equal(0);
-        builder.to(@"component").as(NAVRouteTypeStack);
-        expect(builder.routes.count).to.equal(1);
-    });
-    
-    it(@"should bind the component to the route", ^{
-        NSString *component = builder.routes.allKeys.firstObject;
-        NAVRoute *route     = builder.routes[component];
-        expect(route.path).to.equal(component);
-    });
-    
-    it(@"should remove a route", ^{
-        NSString *key = builder.routes.allKeys.firstObject;
-        builder.remove(key);
-        
-        expect(key).toNot.beNil();
-        expect(builder.routes[key]).to.beNil();
-    });
+//    NAVRouteBuilder *builder = [NAVRouteBuilder new];
+//
+//    it(@"should have a route map", ^{
+//        expect(builder.routes).notTo.beNil();
+//    });
+//    
+//    it(@"should create a route", ^{
+//        expect(builder.routes.count).to.equal(0);
+//        builder.to(@"component").as(NAVRouteTypeStack);
+//        expect(builder.routes.count).to.equal(1);
+//    });
+//    
+//    it(@"should bind the component to the route", ^{
+//        NSString *component = builder.routes.allKeys.firstObject;
+//        NAVRoute *route     = builder.routes[component];
+//        expect(route.path).to.equal(component);
+//    });
+//    
+//    it(@"should remove a route", ^{
+//        NSString *key = builder.routes.allKeys.firstObject;
+//        builder.remove(key);
+//        
+//        expect(key).toNot.beNil();
+//        expect(builder.routes[key]).to.beNil();
+//    });
 
 });
 

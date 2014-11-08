@@ -3,13 +3,11 @@
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "NAVURL_legacy.h"
+#import "NAVURL.h"
 
 @interface NAVTest : NSObject
-+ (NAVURL_legacy *(^)(NSString *))URL;
 + (NSString *)scheme;
 @end
 
-@interface NSURL (Test)
-+ (instancetype)URLWithFormat:(NSString *)format, ...;
-@end
+extern NAVURL * URL(NSString *path);
+extern NSArray * URLs(NSArray *paths);

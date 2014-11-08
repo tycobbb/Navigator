@@ -37,4 +37,56 @@
 
 @implementation NAVURLParameter
 
+- (instancetype)initWithKey:(NSString *)key options:(NAVParameterOptions)options
+{
+    if(self = [super initWithKey:key]) {
+        _options = options;
+    }
+    
+    return self;
+}
+
+- (BOOL)isVisible
+{
+    return (self.options & NAVParameterOptionsVisible) == NAVParameterOptionsVisible;
+}
+
+- (NSString *)value
+{
+    // if we're not visible just show nothing
+    if(!self.isVisible) {
+        return nil;
+    }
+    
+    // start with the visible string
+    NSMutableString *value = [NSMutableString new];
+    
+    // for each option in the option set, get the string value
+    for(NAVParameterOptions option=1 ; option ; option <<= 1) {
+        NSString *optionValue = nav_parameterOptionToString(option);
+        // if we have no option value, then let's set option to .Hidden to poison the loop
+        if(!optionValue) {
+            option = NAVParameterOptionsHidden;
+        }
+        // accumulate the value
+        [value appendString:optionValue];
+    }
+    
+    return [value copy];
+}
+
+NSString * nav_parameterOptionToString(NAVParameterOptions option)
+{
+    switch(option) {
+        case NAVParameterOptionsVisible:
+            return @"v";
+        case NAVParameterOptionsAsync:
+            return @"a";
+        case NAVParameterOptionsUnanimated:
+            return @"u";
+        default:
+            return nil;
+    }
+}
+
 @end
