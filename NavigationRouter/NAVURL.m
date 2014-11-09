@@ -5,6 +5,10 @@
 
 #import <YOLOKit/YOLO.h>
 #import "NAVURL.h"
+#import "YOLT.h"
+
+NSString * const NAVExceptionMalformedUrl = @"rocket.malformed.url";
+NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation";
 
 @interface NAVURL ()
 @property (copy, nonatomic) NSString *scheme;
@@ -59,7 +63,7 @@
     
     // validate that we have the correct number of components
     if(majorSubdivisions.count != 2) {
-        [NSException raise:@"rocket.no.scheme.error" format:@"No scheme found for path: %@", path];
+        [NSException raise:NAVExceptionMalformedUrl format:@"No scheme found for path: %@", path];
     }
     
     NSString *scheme       = majorSubdivisions[0];
@@ -70,7 +74,7 @@
     
     // validate that we don't have too many minor subdivisions
     if(majorSubdivisions.count > 2) {
-        [NSException raise:@"rocket.too.many.queries" format:@"Only one query string is allowed for path: %@", path];
+        [NSException raise:NAVExceptionMalformedUrl format:@"Only one query string is allowed for path: %@", path];
     }
 
     return @[
@@ -112,7 +116,7 @@
     NSArray *components = string.split(@"::");
     // validate that we don't have too many data strings
     if(components.count > 2) {
-        [NSException raise:@"rocket.too.many.data.strings" format:@"Only one data string is allowed for subpath: %@", string];
+        [NSException raise:NAVExceptionMalformedUrl format:@"Only one data string is allowed for subpath: %@", string];
     }
     
     NSString *dataString = components.count > 1 ? components[1] : nil;
@@ -127,7 +131,7 @@
     
     // validate that we have the right number of elements
     if(pair.count != 2) {
-        [NSException raise:@"rocket.invalid.parameter" format:@"Parameter must have key and value: %@", string];
+        [NSException raise:NAVExceptionMalformedUrl format:@"Parameter must have key and value: %@", string];
     }
     
     return [[NAVURLParameter alloc] initWithKey:pair[0] options:[pair[1] integerValue]];
@@ -146,11 +150,27 @@
 
 - (NAVURL *)push:(NSString *)subpath
 {
+    if(!subpath) {
+        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@; cannot push a nil subpath", self];
+    }
+    
     NAVURL *copy = [self copy];
     
-    // create component from subpath if possible
+    // create component from subpath (if possible)
     NAVURLComponent *component = [self.class componentFromString:subpath index:copy.components.count];
-    copy.components = [copy.components arrayByAddingObject:component];
+    copy.components = copy.components.nav_append(component);
+    
+    return copy;
+}
+
+- (NAVURL *)pop:(NSUInteger)count
+{
+    if(count > self.components.count) {
+        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@ doesn't have %d components to pop", self, (int)count];
+    }
+    
+    NAVURL *copy = [self copy];
+    copy.components = copy.components.snip(count);
     
     return copy;
 }

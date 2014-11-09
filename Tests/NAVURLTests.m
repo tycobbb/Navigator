@@ -17,11 +17,11 @@ describe(@"URL", ^{
     });
     
     it(@"shouldn't create URLs without schemes", ^{
-        expect(^{ URL(@""); }).to.raise(@"rocket.no.scheme.error");
+        expect(^{ URL(@""); }).to.raise(NAVExceptionMalformedUrl);
     });
     
     it(@"shouldn't allow components with excess data strings", ^{
-        expect(^{ URL(@"rocket://test1::1234::5678"); }).to.raise(@"rocket.too.many.data.strings");
+        expect(^{ URL(@"rocket://test1::1234::5678"); }).to.raise(NAVExceptionMalformedUrl);
     });
     
     it(@"should have components", ^{
@@ -60,12 +60,7 @@ describe(@"URL", ^{
         
         for(NAVURL *url in urls) {
             NAVURLParameter *parameter = url.parameters.firstObject;
-            
-            NSString *value = urls[url];
-            if(value == (id)NSNull.null) {
-                value = nil;
-            }
-            
+            NSString *value = urls[url] == (id)NSNull.null ? nil : urls[url];
             expect(parameter.value).to.equal(value);
         }
     });
@@ -74,7 +69,7 @@ describe(@"URL", ^{
     // Mutation
     //
     
-    it(@"should push new components", ^{
+    it(@"should push components", ^{
         NAVURL *url = [URL(@"rocket://test?param=1") push:@"test2"];
         NAVURLComponent *component = url.components.lastObject;
         
@@ -82,8 +77,23 @@ describe(@"URL", ^{
         expect(component.key).to.equal(@"test2");
     });
     
+    it(@"should throw an exception trying to push a nil component", ^{
+        expect(^{ [URL(@"rocket://test?param=1") push:nil]; }).to.raise(NAVExceptionIllegalUrlMutation);
+    });
+    
     it(@"should pop components", ^{
+        NAVURL *url = URL(@"rocket://test1/test2/test3?param=1");
+        
+        url = [url pop:1];
+        expect(url.components.count).to.equal(2);
+        url = [url pop:2];
+        expect(url.components.count).to.equal(0);
+        
         expect(NO).to.beTruthy();
+    });
+    
+    it(@"should throw an exception if there aren't enough components to pop", ^{
+        expect(^{ [URL(@"rocket://") pop:1]; }).to.raise(NAVExceptionIllegalUrlMutation);
     });
     
     it(@"should add values to components", ^{

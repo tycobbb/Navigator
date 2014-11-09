@@ -4,6 +4,7 @@
 //
 
 #import "NAVURL.h"
+#import "NAVRouterConstants.h"
 
 @interface NAVTest : NSObject
 + (NSString *)scheme;

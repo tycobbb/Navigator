@@ -74,9 +74,22 @@
  
  @param component The component to append to the path
 
- @return
+ @return A new NAVURL with the component appended
 */
 
 - (NAVURL *)push:(NSString *)subpath;
+
+/**
+ @brief Creates a new URL by popping the last component from the path
+ 
+ The rest of the URL (parameters) are preserved as-is. If there are not enough
+ components to pop, then this method throws an exception.
+ 
+ @param count The number of components to pop
+ 
+ @return A new NAVURL with the last count components removed
+*/
+
+- (NAVURL *)pop:(NSUInteger)count;
 
 @end

@@ -560,7 +560,6 @@
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
 				FB7E24AA197D6CE800D63A7E /* NAVUpdateStack.m in Sources */,
 				FB7E249E197995A000D63A7E /* NAVURLComponent_legacy.m in Sources */,
-				FB7E24B6197D96D800D63A7E /* NAVNavigationControllerUpdater.m in Sources */,
 				FBDDB502197475260051D149 /* main.m in Sources */,
 				FB7E24AD197D6CF400D63A7E /* NAVUpdateAnimation.m in Sources */,
 				FB7E248A19786B6600D63A7E /* NAVAnimator.m in Sources */,

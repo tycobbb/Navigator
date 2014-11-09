@@ -5,6 +5,17 @@
 
 #import "YOLT.h"
 
+@implementation NSArray (YOLT)
+
+- (NSArray *(^)(id))nav_append
+{
+    return ^(id object) {
+        return object ? [self arrayByAddingObject:object] : [self copy];
+    };
+}
+
+@end
+
 @implementation NSDictionary (YOLT)
 
 - (NSDictionary *(^)(id, ...))nav_without {

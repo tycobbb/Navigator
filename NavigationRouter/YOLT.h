@@ -5,6 +5,10 @@
 
 @import Foundation;
 
+@interface NSArray (YOLT)
+- (NSArray *(^)(id))nav_append;
+@end
+
 @interface NSDictionary (YOLT)
 - (NSDictionary *(^)(id, ...))nav_without;
 - (NSDictionary *(^)(void(^)(id, id)))nav_each;
