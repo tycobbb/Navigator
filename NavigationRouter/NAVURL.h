@@ -28,13 +28,13 @@
 @property (copy, nonatomic, readonly) NSArray *components;
 
 /**
- @brief Array of URL query parameters
+ @brief Dictionary of URL query parameters
  
  Parameters are objects of type NAVURLParameter representing animatable, non-stack
- views such as modals, popovers, etc.
+ views such as modals, popovers, etc. The dictionary is keyed by the parameter name.
 */
 
-@property (copy, nonatomic, readonly) NSArray *parameters;
+@property (copy, nonatomic, readonly) NSDictionary *parameters;
 
 /**
  @brief Creates a NAVURL by parsing a string path.
@@ -64,13 +64,49 @@
 
 @end
 
+@interface NAVURL (Accessors)
+
+/**
+ @brief Returns the last NAVURLComponent on this URL
+ 
+ If this URL has no components, then the method returns nil.
+
+ @return The last component, or nil.
+*/
+
+- (NAVURLComponent *)lastComponent;
+
+/**
+ @brief Returns the NAVURLComponent for the specified index.
+ 
+ If no component exists at the specified index, this method returns nil.
+ 
+ @param index The index of the component
+ @return The NAVURLComponent at the index, or nil
+*/
+
+- (NAVURLComponent *)objectAtIndexedSubscript:(NSInteger)index;
+
+/**
+ @brief Returns the NAVURLParameter for the specified key.
+
+ If no parameter exists for the specified key, this method returns nil.
+ 
+ @param key The key for hte parameter
+ @return The NAVURLParameter corresponding to this key, or nil
+*/
+
+- (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key;
+
+@end
+
 @interface NAVURL (Operators)
 
 /**
  @brief Creates a new URL by appending the component to the existing path.
  
- The rest of the URL (parameters) are preserved as-is. If the component is nil,
- this method will throw an error will throw an error.
+ The rest of the URL (parameters) are unchanged. If the component is nil, this method 
+ throws an exception.
  
  @param component The component to append to the path
 
@@ -82,8 +118,8 @@
 /**
  @brief Creates a new URL by popping the last component from the path
  
- The rest of the URL (parameters) are preserved as-is. If there are not enough
- components to pop, then this method throws an exception.
+ The rest of the URL (parameters) are unchanged. If there are not enough components 
+ to pop, then this method throws an exception.
  
  @param count The number of components to pop
  
@@ -91,5 +127,20 @@
 */
 
 - (NAVURL *)pop:(NSUInteger)count;
+
+/**
+ @brief Create a new URL by updating the parameter with the given value.
+ 
+ The rest of the URL (components, other parameters) are unchanged. A parameter will be
+ created if it doesn't already exist.If the parameter is nil, this method throws 
+ an exception.
+ 
+ @param parameter The key of the parameter to update
+ @param options   The updated options for the parameter
+ 
+ @return A new NAVURL with the parameter updated
+*/
+
+- (NAVURL *)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options;
 
 @end

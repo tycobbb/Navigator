@@ -31,7 +31,7 @@ describe(@"URL", ^{
     
     it(@"should assosciate data to components", ^{
         NAVURL *url = URL(@"rocket://test::1234");
-        NAVURLComponent *component = url.components.firstObject;
+        NAVURLComponent *component = url.components[0];
         
         expect(component.data).toNot.beNil();
         expect(component.data).to.equal(@"1234");
@@ -44,7 +44,7 @@ describe(@"URL", ^{
         ]);
         
         for(NAVURL *url in urls) {
-            NAVURLParameter *parameter = url.parameters.firstObject;
+            NAVURLParameter *parameter = url.parameters[@"param"];
             expect(parameter).toNot.beNil();
             expect(parameter.options).to.equal(NAVParameterOptionsVisible);
         }
@@ -59,7 +59,7 @@ describe(@"URL", ^{
         };
         
         for(NAVURL *url in urls) {
-            NAVURLParameter *parameter = url.parameters.firstObject;
+            NAVURLParameter *parameter = url.parameters[@"param"];
             NSString *value = urls[url] == (id)NSNull.null ? nil : urls[url];
             expect(parameter.value).to.equal(value);
         }
@@ -71,10 +71,8 @@ describe(@"URL", ^{
     
     it(@"should push components", ^{
         NAVURL *url = [URL(@"rocket://test?param=1") push:@"test2"];
-        NAVURLComponent *component = url.components.lastObject;
-        
         expect(url.components.count).to.equal(2);
-        expect(component.key).to.equal(@"test2");
+        expect(url.lastComponent.key).to.equal(@"test2");
     });
     
     it(@"should throw an exception trying to push a nil component", ^{
@@ -96,12 +94,21 @@ describe(@"URL", ^{
         expect(^{ [URL(@"rocket://") pop:1]; }).to.raise(NAVExceptionIllegalUrlMutation);
     });
     
-    it(@"should add values to components", ^{
-        expect(NO).to.beTruthy();
-    });
-    
-    it(@"should toggle parameters", ^{
-        expect(NO).to.beTruthy();
+    it(@"should update parameters", ^{
+        NSDictionary *updates = @{
+            @"param"  : @(NAVParameterOptionsVisible | NAVParameterOptionsAsync),
+            @"param1" : @(NAVParameterOptionsVisible)
+        };
+        
+        NAVURL *url = URL(@"rocket://test1?param=1");
+        for(NSString *name in updates) {
+            NAVParameterOptions options = [updates[name] integerValue];
+            url = [url updateParameter:name withOptions:options];
+            
+            NAVURLParameter *parameter = url[name];
+            expect(parameter.key).to.equal(name);
+            expect(parameter.options).to.equal(options);
+        }
     });
     
     it(@"should remove hidden parameters", ^{

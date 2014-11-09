@@ -13,7 +13,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 @interface NAVURL ()
 @property (copy, nonatomic) NSString *scheme;
 @property (copy, nonatomic) NSArray *components;
-@property (copy, nonatomic) NSArray *parameters;
+@property (copy, nonatomic) NSDictionary *parameters;
 @end
 
 @implementation NAVURL
@@ -96,16 +96,16 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     });
 }
 
-+ (NSArray *)parametersFromQuery:(NSString *)query
++ (NSDictionary *)parametersFromQuery:(NSString *)query
 {
     if(!query.length) {
-        return @[];
+        return @{};
     }
     
     // map parameter strings into NAVURLParameters
-    return query.split(@"&").map(^(NSString *parameter) {
-        return [self parameterFromString:parameter];
-    });
+    return query.split(@"&").flatMap(^(NSString *parameter) {
+        return @[ parameter, [self parameterFromString:parameter] ];
+    }).dict;
 }
 
 # pragma mark - Component Generation
@@ -146,6 +146,25 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 @end
 
+@implementation NAVURL (Subscripting)
+
+- (NAVURLComponent *)lastComponent
+{
+    return self.components.count ? self.components[self.components.count-1] : nil;
+}
+
+- (NAVURLComponent *)objectAtIndexedSubscript:(NSInteger)index
+{
+    return index < self.components.count ? self.components[index] : nil;
+}
+
+- (NAVURLParameter *)objectForKeyedSubscript:(NSString *)key
+{
+    return self.parameters[key];
+}
+
+@end
+
 @implementation NAVURL (Operators)
 
 - (NAVURL *)push:(NSString *)subpath
@@ -173,6 +192,11 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     copy.components = copy.components.snip(count);
     
     return copy;
+}
+
+- (NAVURL *)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options
+{
+    return nil;
 }
 
 @end
