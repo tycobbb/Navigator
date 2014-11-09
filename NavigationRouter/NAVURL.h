@@ -63,3 +63,20 @@
 - (instancetype)initWithPath:(NSString *)path;
 
 @end
+
+@interface NAVURL (Operators)
+
+/**
+ @brief Creates a new URL by appending the component to the existing path.
+ 
+ The rest of the URL (parameters) are preserved as-is. If the component is nil,
+ this method will throw an error will throw an error.
+ 
+ @param component The component to append to the path
+
+ @return
+*/
+
+- (NAVURL *)push:(NSString *)subpath;
+
+@end

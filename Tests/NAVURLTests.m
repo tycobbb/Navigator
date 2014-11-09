@@ -75,7 +75,11 @@ describe(@"URL", ^{
     //
     
     it(@"should push new components", ^{
-        expect(NO).to.beTruthy();
+        NAVURL *url = [URL(@"rocket://test?param=1") push:@"test2"];
+        NAVURLComponent *component = url.components.lastObject;
+        
+        expect(url.components.count).to.equal(2);
+        expect(component.key).to.equal(@"test2");
     });
     
     it(@"should pop components", ^{

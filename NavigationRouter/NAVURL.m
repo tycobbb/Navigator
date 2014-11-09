@@ -6,6 +6,12 @@
 #import <YOLOKit/YOLO.h>
 #import "NAVURL.h"
 
+@interface NAVURL ()
+@property (copy, nonatomic) NSString *scheme;
+@property (copy, nonatomic) NSArray *components;
+@property (copy, nonatomic) NSArray *parameters;
+@end
+
 @implementation NAVURL
 
 + (instancetype)URLWithPath:(NSString *)path
@@ -80,17 +86,9 @@
         return @[];
     }
     
+    // map subpaths into NAVURLComponents
     return path.split(@"/").map(^(NSString *subpath, NSInteger index) {
-        // seperate subpath based on data delimiter
-        NSArray *components = subpath.split(@"::");
-        // validate that we don't have too many data strings
-        if(components.count > 2) {
-            [NSException raise:@"rocket.too.many.data.strings" format:@"Only one data string is allowed for subpath: %@", subpath];
-        }
-        
-        NSString *dataString = components.count > 1 ? components[1] : nil;
-        
-        return [[NAVURLComponent alloc] initWithKey:components.firstObject data:dataString index:index];
+        return [self componentFromString:subpath index:index];
     });
 }
 
@@ -100,17 +98,39 @@
         return @[];
     }
     
-    // map elements seperated by parameter delimiter
+    // map parameter strings into NAVURLParameters
     return query.split(@"&").map(^(NSString *parameter) {
-        // seperate components based on key-value delimiter
-        NSArray *pair = parameter.split(@"=");
-        // validate that we have the right number of elements
-        if(pair.count != 2) {
-            [NSException raise:@"rocket.invalid.parameter" format:@"Parameter must have key and value: %@", parameter];
-        }
-        
-        return [[NAVURLParameter alloc] initWithKey:pair[0] options:[pair[1] integerValue]];
+        return [self parameterFromString:parameter];
     });
+}
+
+# pragma mark - Component Generation
+
++ (NAVURLComponent *)componentFromString:(NSString *)string index:(NSInteger)index
+{
+    // seperate subpath based on data delimiter
+    NSArray *components = string.split(@"::");
+    // validate that we don't have too many data strings
+    if(components.count > 2) {
+        [NSException raise:@"rocket.too.many.data.strings" format:@"Only one data string is allowed for subpath: %@", string];
+    }
+    
+    NSString *dataString = components.count > 1 ? components[1] : nil;
+
+    return [[NAVURLComponent alloc] initWithKey:components.firstObject data:dataString index:index];
+}
+
++ (NAVURLParameter *)parameterFromString:(NSString *)string
+{
+    // seperate components based on key-value delimiter
+    NSArray *pair = string.split(@"=");
+    
+    // validate that we have the right number of elements
+    if(pair.count != 2) {
+        [NSException raise:@"rocket.invalid.parameter" format:@"Parameter must have key and value: %@", string];
+    }
+    
+    return [[NAVURLParameter alloc] initWithKey:pair[0] options:[pair[1] integerValue]];
 }
 
 # pragma mark - NSCopying
@@ -118,6 +138,21 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     return [[NAVURL alloc] initWithUrl:self];    
+}
+
+@end
+
+@implementation NAVURL (Operators)
+
+- (NAVURL *)push:(NSString *)subpath
+{
+    NAVURL *copy = [self copy];
+    
+    // create component from subpath if possible
+    NAVURLComponent *component = [self.class componentFromString:subpath index:copy.components.count];
+    copy.components = [copy.components arrayByAddingObject:component];
+    
+    return copy;
 }
 
 @end
