@@ -18,6 +18,15 @@
 
 @implementation NSDictionary (YOLT)
 
+- (NSDictionary *(^)(id, id))nav_set
+{
+    return ^(id key, id value) {
+        NSMutableDictionary *result = [self copy];
+        result[key] = value;
+        return [result copy];
+    };
+}
+
 - (NSDictionary *(^)(id, ...))nav_without {
     return ^(id arg0, ...) {
         va_list args;

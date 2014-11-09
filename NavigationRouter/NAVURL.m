@@ -173,13 +173,13 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
         [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@; cannot push a nil subpath", self];
     }
     
-    NAVURL *copy = [self copy];
+    NAVURL *result = [self copy];
     
     // create component from subpath (if possible)
-    NAVURLComponent *component = [self.class componentFromString:subpath index:copy.components.count];
-    copy.components = copy.components.nav_append(component);
+    NAVURLComponent *component = [self.class componentFromString:subpath index:result.components.count];
+    result.components = result.components.nav_append(component);
     
-    return copy;
+    return result;
 }
 
 - (NAVURL *)pop:(NSUInteger)count
@@ -188,15 +188,25 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
         [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@ doesn't have %d components to pop", self, (int)count];
     }
     
-    NAVURL *copy = [self copy];
-    copy.components = copy.components.snip(count);
+    NAVURL *result = [self copy];
+    result.components = result.components.snip(count);
     
-    return copy;
+    return result;
 }
 
-- (NAVURL *)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options
+- (NAVURL *)updateParameter:(NSString *)key withOptions:(NAVParameterOptions)options
 {
-    return nil;
+    if(!key) {
+        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@ can't update a parameter with a nil name", self];
+    }
+    
+    NAVURL *result = [self copy];
+
+    // set a new NAVURLParameter from the key and options
+    NAVURLParameter *parameter = [[NAVURLParameter alloc] initWithKey:key options:options];
+    result.parameters = result.parameters.nav_set(key, parameter);
+    
+    return result;
 }
 
 @end

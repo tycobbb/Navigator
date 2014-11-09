@@ -10,6 +10,7 @@
 @end
 
 @interface NSDictionary (YOLT)
+- (NSDictionary *(^)(id, id))nav_set;
 - (NSDictionary *(^)(id, ...))nav_without;
 - (NSDictionary *(^)(void(^)(id, id)))nav_each;
 - (NSDictionary *(^)(id(^)(id, id)))nav_map;

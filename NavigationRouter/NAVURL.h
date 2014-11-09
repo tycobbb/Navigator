@@ -132,15 +132,14 @@
  @brief Create a new URL by updating the parameter with the given value.
  
  The rest of the URL (components, other parameters) are unchanged. A parameter will be
- created if it doesn't already exist.If the parameter is nil, this method throws 
- an exception.
+ created if it doesn't already exist. If the key is nil, this method throws an exception.
  
- @param parameter The key of the parameter to update
- @param options   The updated options for the parameter
+ @param key     The key of the parameter to update
+ @param options The updated options for the parameter
  
  @return A new NAVURL with the parameter updated
 */
 
-- (NAVURL *)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions)options;
+- (NAVURL *)updateParameter:(NSString *)key withOptions:(NAVParameterOptions)options;
 
 @end
