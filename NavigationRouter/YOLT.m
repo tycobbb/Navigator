@@ -21,7 +21,7 @@
 - (NSDictionary *(^)(id, id))nav_set
 {
     return ^(id key, id value) {
-        NSMutableDictionary *result = [self copy];
+        NSMutableDictionary *result = [self mutableCopy];
         result[key] = value;
         return [result copy];
     };

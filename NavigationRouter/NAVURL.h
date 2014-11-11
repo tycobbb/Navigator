@@ -143,3 +143,25 @@
 - (NAVURL *)updateParameter:(NSString *)key withOptions:(NAVParameterOptions)options;
 
 @end
+
+@interface NAVURL (Serialization)
+
+/**
+ @brief Serializes the URL into a string representation
+ 
+ This operation generates a new string from the URL and sanitizes it of any
+ hidden parameters.
+*/
+
+@property (nonatomic, readonly) NSString *string;
+
+/**
+ @brief Serializes the URL into an NSURL representation
+ 
+ This operation generates a new NSURL from the URL and sanitizes it of any
+ hidden parameters.
+*/
+
+@property (nonatomic, readonly) NSURL *url;
+
+@end

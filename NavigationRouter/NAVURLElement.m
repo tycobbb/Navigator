@@ -33,6 +33,25 @@
     return self;
 }
 
+# pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[self.class alloc] initWithKey:self.key data:self.data index:self.index];
+}
+
+- (BOOL)isEqual:(NAVURLComponent *)object
+{
+    return [object isKindOfClass:[NAVURLComponent class]]
+        && [object.key isEqualToString:self.key]
+        && [object.data isEqualToString:self.data];
+}
+
+- (NSUInteger)hash
+{
+    return [self.key hash] + [self.data hash];
+}
+
 @end
 
 @implementation NAVURLParameter
@@ -45,6 +64,27 @@
     
     return self;
 }
+
+# pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[self.class alloc] initWithKey:self.key options:self.options];
+}
+
+- (BOOL)isEqual:(NAVURLParameter *)object
+{
+    return [object isKindOfClass:[NAVURLParameter class]]
+        && [object.key isEqualToString:self.key]
+        && object.options == self.options;
+}
+
+- (NSUInteger)hash
+{
+    return [self.key hash] + self.options;
+}
+
+# pragma mark - Accessors
 
 - (BOOL)isVisible
 {
@@ -59,20 +99,26 @@
     }
     
     // start with the visible string
-    NSMutableString *value = [NSMutableString new];
+    NSMutableString *result = [NSMutableString new];
     
     // for each option in the option set, get the string value
-    for(NAVParameterOptions option=1 ; option ; option <<= 1) {
-        NSString *optionValue = nav_parameterOptionToString(option);
-        // if we have no option value, then let's set option to .Hidden to poison the loop
-        if(!optionValue) {
-            option = NAVParameterOptionsHidden;
+    for(NAVParameterOptions option=1 ; option ; option<<=1) {
+        // check to see this is part of our options
+        if(!(option & self.options)) {
+            continue;
         }
+       
+        // if this option has no mapped substring, then we're done
+        NSString *substring = nav_parameterOptionToString(option);
+        if(!substring) {
+            break;
+        }
+        
         // accumulate the value
-        [value appendString:optionValue];
+        [result appendString:substring];
     }
     
-    return [value copy];
+    return [result copy];
 }
 
 NSString * nav_parameterOptionToString(NAVParameterOptions option)

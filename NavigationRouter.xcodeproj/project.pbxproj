@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */; };
 		1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2661A06DE9200BB7856 /* NAVViewController.m */; };
 		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
 		1073A2781A086C9600BB7856 /* NAVNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2771A086C9600BB7856 /* NAVNavigationControllerUpdater.m */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElementTests.m; sourceTree = "<group>"; };
 		1073A2651A06DE9200BB7856 /* NAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewController.h; sourceTree = "<group>"; };
 		1073A2661A06DE9200BB7856 /* NAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewController.m; sourceTree = "<group>"; };
 		1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewControllerFactory.h; sourceTree = "<group>"; };
@@ -343,10 +345,11 @@
 			children = (
 				109DE5E1197A1053003AA60C /* NAVTest.h */,
 				109DE5E2197A1053003AA60C /* NAVTest.m */,
+				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
+				1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */,
 				109DE5CB1974B1A4003AA60C /* NAVRouterTests.m */,
 				109DE5C91974ADC7003AA60C /* NAVRouteTest.m */,
 				FBDDB51A197475260051D149 /* NAVRouteBuilderTests.m */,
-				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
 				109DE5DD1979F73F003AA60C /* NAVURLParserTests.m */,
 				FBB3F3CD19B0C9A900D9E17E /* NAVAttributesBuilderTests.m */,
 				FBDDB515197475260051D149 /* Supporting Files */,
@@ -585,6 +588,7 @@
 				109DE5CA1974ADC7003AA60C /* NAVRouteTest.m in Sources */,
 				109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */,
 				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
+				1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */,
 				109DE5DE1979F73F003AA60C /* NAVURLParserTests.m in Sources */,
 				109DE5CC1974B1A4003AA60C /* NAVRouterTests.m in Sources */,
 				FBB3F3CE19B0C9A900D9E17E /* NAVAttributesBuilderTests.m in Sources */,

@@ -13,7 +13,7 @@ describe(@"URL", ^{
 
     it(@"should have a scheme", ^{
         expect(URL(@"rocket://").scheme).to.equal(NAVTest.scheme);
-        expect(URL(@"rocket://test").scheme).to.equal(@"rocket");
+        expect(URL(@"rocket://test").scheme).to.equal(NAVTest.scheme);
     });
     
     it(@"shouldn't create URLs without schemes", ^{
@@ -49,22 +49,7 @@ describe(@"URL", ^{
             expect(parameter.options).to.equal(NAVParameterOptionsVisible);
         }
     });
-    
-    it(@"should render parameter values as strings", ^{
-        NSDictionary *urls = @{
-            URL(@"rocket://test?param=")  : NSNull.null,
-            URL(@"rocket://test?param=1") : @"v",
-            URL(@"rocket://test?param=3") : @"vu",
-            URL(@"rocket://test?param=5") : @"va",
-        };
         
-        for(NAVURL *url in urls) {
-            NAVURLParameter *parameter = url.parameters[@"param"];
-            NSString *value = urls[url] == (id)NSNull.null ? nil : urls[url];
-            expect(parameter.value).to.equal(value);
-        }
-    });
-    
     //
     // Mutation
     //
@@ -86,8 +71,6 @@ describe(@"URL", ^{
         expect(url.components.count).to.equal(2);
         url = [url pop:2];
         expect(url.components.count).to.equal(0);
-        
-        expect(NO).to.beTruthy();
     });
     
     it(@"should throw an exception if there aren't enough components to pop", ^{
@@ -111,20 +94,21 @@ describe(@"URL", ^{
         }
     });
     
-    it(@"should remove hidden parameters", ^{
-        expect(NO).to.beTruthy();
-    });
-    
     //
     // Serialization
     //
     
+    it(@"should serialize to a string", ^{
+        expect(URL(@"rocket://test::1234?param=1").string).to.equal(@"rocket://test::1234?param=v");
+    });
+  
     it(@"should serialize to a url", ^{
-        expect(NO).to.beTruthy();
+        expect(URL(@"rocket://test?param=1").url.absoluteString).to.equal(@"rocket://test?param=v");
     });
     
-    it(@"should serialize to a string", ^{
-        expect(NO).to.beTruthy();
+    it(@"shouldn't render hidden parameters", ^{
+        NAVURL *url = [NAVURL URLWithPath:@"rocket://test?param1=0&param1=2"];
+        expect(url.url.query.length).to.equal(0);
     });
     
 });

@@ -103,8 +103,9 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     }
     
     // map parameter strings into NAVURLParameters
-    return query.split(@"&").flatMap(^(NSString *parameter) {
-        return @[ parameter, [self parameterFromString:parameter] ];
+    return query.split(@"&").map(^(NSString *string) {
+        NAVURLParameter *parameter = [self parameterFromString:string];
+        return @[ parameter.key, parameter ];
     }).dict;
 }
 
@@ -142,6 +143,16 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 - (id)copyWithZone:(NSZone *)zone
 {
     return [[NAVURL alloc] initWithUrl:self];    
+}
+
+- (BOOL)isEqual:(id)object
+{
+    return [self.string isEqual:self.string];
+}
+
+- (NSUInteger)hash
+{
+    return [self.string hash];
 }
 
 @end
@@ -207,6 +218,39 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     result.parameters = result.parameters.nav_set(key, parameter);
     
     return result;
+}
+
+@end
+
+@implementation NAVURL (Serialization)
+
+- (NSString *)string
+{
+    NSMutableString *string = [NSMutableString stringWithFormat:@"%@://", self.scheme];
+    
+    // append components joined by by "/"
+    NSString *path = self.components.map(^(NAVURLComponent *component) {
+        return component.data ? [component.key stringByAppendingFormat:@"::%@", component.data] : component.key;
+    }).join(@"/");
+    
+    [string appendString:path];
+    
+    // join visible parameters by "&"
+    NSString *query = self.parameters.map(^(NSString *key, NAVURLParameter *parameter) {
+        return parameter.isVisible ? [NSString stringWithFormat:@"%@=%@", parameter.key, parameter.value] : nil;
+    }).join(@"&");
+   
+    // append query if it there's anything to append
+    if(query.length) {
+        [string appendFormat:@"?%@", query];
+    }
+    
+    return [string copy];
+}
+
+- (NSURL *)url
+{
+    return [[NSURL alloc] initWithString:self.string];
 }
 
 @end

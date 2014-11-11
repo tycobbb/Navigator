@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
 @end
 
 
-@interface NAVURLComponent : NAVURLElement
+@interface NAVURLComponent : NAVURLElement <NSCopying>
 
 /// Index of this component in the components list
 @property (assign, nonatomic, readonly) NSInteger index;
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
 @end
 
 
-@interface NAVURLParameter : NAVURLElement
+@interface NAVURLParameter : NAVURLElement <NSCopying>
 
 /**
  @brief Indicates whether or not the view corresponding to the parameter is visible

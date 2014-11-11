@@ -9,7 +9,7 @@
 
 + (NSString *)scheme
 {
-    return @"test";
+    return @"rocket";
 }
 
 @end
