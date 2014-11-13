@@ -8,7 +8,7 @@
 #import "NAVRouterUpdater.h"
 #import "NAVRouterFactory.h"
 #import "NAVRouteBuilder.h"
-#import "NAVAttributesBuilder.h"
+#import "NAVAttributesBuilder_legacy.h"
 
 #define NAVRouterLogLevel 1
 
@@ -178,7 +178,7 @@
  @param completion Block to be called when the transition completes
 */
 
-- (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
+- (void)transitionWithAttributes:(NAVAttributes_legacy *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
 
 #
 # pragma mark - Accessors
@@ -204,7 +204,7 @@
  @return A NAVAttributesBuilder instance
 */
 
-- (NAVAttributesBuilder *)attributesBuilder;
+- (NAVAttributesBuilder_legacy *)attributesBuilder;
 
 /**
  @brief The router's internal URL scheme.

@@ -5,7 +5,7 @@
 //  Created by Ty Cobb on 11/2/14.
 //
 
-#import "NAVAttributes.h"
+#import "NAVAttributes_legacy.h"
 
 @import UIKit;
 
@@ -40,7 +40,7 @@
  @param attribtues The attributes sent along by the transition initiator.
 */
 
-- (void)updateWithAttributes:(NAVAttributes *)attributes;
+- (void)updateWithAttributes:(NAVAttributes_legacy *)attributes;
 
 /**
  @brief Specifies the storyboard identifier for this view controller.

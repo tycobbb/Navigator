@@ -13,7 +13,7 @@
     return [storyboard instantiateViewControllerWithIdentifier:self.storyboardIdentifier];
 }
 
-- (void)updateWithAttributes:(NAVAttributes *)attributes
+- (void)updateWithAttributes:(NAVAttributes_legacy *)attributes
 {
     
 }

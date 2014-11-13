@@ -4,10 +4,10 @@
 //
 
 #import "YOLOKit/YOLO.h"
-#import "NAVAttributesBuilder.h"
+#import "NAVAttributesBuilder_legacy.h"
 #import "NSURL+NAVRouter.h"
 
-@interface NAVAttributesBuilder ()
+@interface NAVAttributesBuilder_legacy ()
 @property (strong, nonatomic) NSURL *attributesSourceURL;
 @property (strong, nonatomic) NSString *attributesPath;
 @property (strong, nonatomic) NSMutableDictionary *attributesParameters;
@@ -15,7 +15,7 @@
 @property (assign, nonatomic) NSInteger popCount;
 @end
 
-@implementation NAVAttributesBuilder
+@implementation NAVAttributesBuilder_legacy
 
 - (instancetype)initWithSourceURL:(NSURL *)sourceURL
 {
@@ -24,9 +24,9 @@
     return self;
 }
 
-- (NAVAttributes *)build
+- (NAVAttributes_legacy *)build
 {
-    NAVAttributes *attributes = [NAVAttributes new];
+    NAVAttributes_legacy *attributes = [NAVAttributes_legacy new];
     attributes.model          = [self attributesModel];
     attributes.sourceURL      = [self attributesSourceURL];
     attributes.destinationURL = [self constructDestinationURL];
@@ -91,19 +91,19 @@
 
 # pragma mark - Property Methods
 
-- (NAVAttributesBuilder *)toPath:(NSString *)path
+- (NAVAttributesBuilder_legacy *)toPath:(NSString *)path
 {
     self.attributesPath = path;
     return self;
 }
 
-- (NAVAttributesBuilder *)popBack:(NSInteger)popCount
+- (NAVAttributesBuilder_legacy *)popBack:(NSInteger)popCount
 {
     self.popCount = popCount;
     return self;
 }
 
-- (NAVAttributesBuilder *)withParameter:(NSString *)parameter options:(NAVParameterOptions_legacy)options
+- (NAVAttributesBuilder_legacy *)withParameter:(NSString *)parameter options:(NAVParameterOptions_legacy)options
 {
     if(!self.attributesParameters)
         self.attributesParameters = [NSMutableDictionary new];
@@ -111,41 +111,41 @@
     return self;
 }
 
-- (NAVAttributesBuilder *)withModel:(id)model
+- (NAVAttributesBuilder_legacy *)withModel:(id)model
 {
     self.attributesModel = model;
     return self;
 }
 
-- (NAVAttributesBuilder *(^)(NSString *))to
+- (NAVAttributesBuilder_legacy *(^)(NSString *))to
 {
     return ^(NSString *path) {
         return [self toPath:path];
     };
 }
 
-- (NAVAttributesBuilder *(^)(NSInteger))pop
+- (NAVAttributesBuilder_legacy *(^)(NSInteger))pop
 {
     return ^(NSInteger popCount) {
         return [self popBack:popCount];
     };
 }
 
-- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions_legacy))parameter
+- (NAVAttributesBuilder_legacy *(^)(NSString *, NAVParameterOptions_legacy))parameter
 {
     return ^(NSString *parameter, NAVParameterOptions_legacy options) {
         return [self withParameter:parameter options:options];
     };
 }
 
-- (NAVAttributesBuilder *(^)(id))model
+- (NAVAttributesBuilder_legacy *(^)(id))model
 {
     return ^(id model) {
         return [self withModel:model];
     };
 }
 
-- (NAVAttributesBuilder *)with
+- (NAVAttributesBuilder_legacy *)with
 {
     return self;
 }

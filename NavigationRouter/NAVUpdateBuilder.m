@@ -15,7 +15,7 @@
 @property (assign, nonatomic) NAVUpdateType updateType;
 @property (assign, nonatomic) NSInteger updateIndex;
 @property (strong, nonatomic) NAVRoute *updateRoute;
-@property (strong, nonatomic) NAVAttributes *updateAttributes;
+@property (strong, nonatomic) NAVAttributes_legacy *updateAttributes;
 @property (strong, nonatomic) NAVURLParameter_legacy *updateParameter;
 @property (assign, nonatomic) BOOL updateIsAnimated;
 @end
@@ -45,7 +45,7 @@
     return self;
 }
 
-- (NAVUpdateBuilder *)withAttributes:(NAVAttributes *)attributes
+- (NAVUpdateBuilder *)withAttributes:(NAVAttributes_legacy *)attributes
 {
     self.updateAttributes = attributes;
     return self;
@@ -72,9 +72,9 @@
     };
 }
 
-- (NAVUpdateBuilder *(^)(NAVAttributes *))attributes
+- (NAVUpdateBuilder *(^)(NAVAttributes_legacy *))attributes
 {
-    return ^(NAVAttributes *attributes) {
+    return ^(NAVAttributes_legacy *attributes) {
         return [self withAttributes:attributes];
     };
 }

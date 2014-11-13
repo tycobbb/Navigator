@@ -16,20 +16,20 @@
 
 - (void)transitionToPath:(NSString *)path withModel:(id)model
 {
-    NAVAttributes *attributes = self.attributesBuilder.to(path).with.model(model).build;
+    NAVAttributes_legacy *attributes = self.attributesBuilder.to(path).with.model(model).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];
 }
 
 - (void)transitionToRoot:(NSString *)path
 {
     NSString *absolutePath = [NSString stringWithFormat:@"%@://%@", self.scheme, path];
-    NAVAttributes *attributes = self.attributesBuilder.to(absolutePath).build;
+    NAVAttributes_legacy *attributes = self.attributesBuilder.to(absolutePath).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];
 }
 
 - (void)transitionBack
 {
-    NAVAttributes *attributes = self.attributesBuilder.pop(1).build;
+    NAVAttributes_legacy *attributes = self.attributesBuilder.pop(1).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];
 }
 
@@ -68,7 +68,7 @@
 
 - (void)updateParameter:(NSString *)parameter withOptions:(NAVParameterOptions_legacy)options model:(id)model completion:(void(^)(void))completion
 {
-    NAVAttributes *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
+    NAVAttributes_legacy *attributes = self.attributesBuilder.parameter(parameter, options).model(model).build;
     [self transitionWithAttributes:attributes animated:YES completion:nil];
 }
 

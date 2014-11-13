@@ -8,7 +8,7 @@
 
 #import "NAVURLComponent_legacy.h"
 #import "NAVURLParameter_legacy.h"
-#import "NAVAttributes.h"
+#import "NAVAttributes_legacy.h"
 #import "NAVRouterFactory.h"
 
 @protocol NAVUpdateBuilderDelegate;
@@ -20,12 +20,12 @@
 - (NAVUpdate *)build;
 
 - (NAVUpdateBuilder *)asType:(NAVUpdateType)type;
-- (NAVUpdateBuilder *)withAttributes:(NAVAttributes *)attributes;
+- (NAVUpdateBuilder *)withAttributes:(NAVAttributes_legacy *)attributes;
 - (NAVUpdateBuilder *)withComponent:(NAVURLComponent_legacy *)component;
 - (NAVUpdateBuilder *)withParameter:(NAVURLParameter_legacy *)parameter;
 
 - (NAVUpdateBuilder *(^)(NAVUpdateType))as;
-- (NAVUpdateBuilder *(^)(NAVAttributes *))attributes;
+- (NAVUpdateBuilder *(^)(NAVAttributes_legacy *))attributes;
 - (NAVUpdateBuilder *(^)(NAVURLComponent_legacy *))component;
 - (NAVUpdateBuilder *(^)(NAVURLParameter_legacy *))parameter;
 

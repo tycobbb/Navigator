@@ -7,7 +7,7 @@
 
 @implementation NAVTransaction
 
-- (instancetype)initWithAttributes:(NAVAttributes *)attributes scheme:(NSString *)scheme
+- (instancetype)initWithAttributes:(NAVAttributes_legacy *)attributes scheme:(NSString *)scheme
 {
     if(self = [super init])
     {

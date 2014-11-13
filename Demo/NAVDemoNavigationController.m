@@ -32,13 +32,13 @@
 {
     [super viewDidLoad];
     
-    NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"/red/blue"].build;
+    NAVAttributes_legacy *attributes = [self.router.attributesBuilder toPath:@"/red/blue"].build;
     [self.router transitionWithAttributes:attributes animated:NO completion:^{
         
-        NAVAttributes *attributes = [self.router.attributesBuilder toPath:@"green"].build;
+        NAVAttributes_legacy *attributes = [self.router.attributesBuilder toPath:@"green"].build;
         [self.router transitionWithAttributes:attributes animated:NO completion:^{
             
-            NAVAttributes *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptions_legacyVisible].build;
+            NAVAttributes_legacy *attributes = [self.router.attributesBuilder withParameter:@"purple" options:NAVParameterOptions_legacyVisible].build;
             [self.router transitionWithAttributes:attributes animated:YES completion:^{
                 [self.router dismissScreen:@"purple" animated:YES];
             }];

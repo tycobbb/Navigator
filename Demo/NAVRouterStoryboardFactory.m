@@ -8,7 +8,7 @@
 
 @implementation NAVRouterStoryboardFactory
 
-- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
+- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NAVDemoStoryboard" bundle:[NSBundle mainBundle]];
     NSString *identifier = [@"NAVDemoViewController" stringByAppendingString:[route.path capitalizedString]];
@@ -16,7 +16,7 @@
     return viewController;
 }
 
-- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
+- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
 {
     return nil;
 }

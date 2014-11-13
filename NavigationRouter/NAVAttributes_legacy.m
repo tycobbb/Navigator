@@ -3,9 +3,9 @@
 //  Created by Ty Cobb on 7/14/14.
 //
 
-#import "NAVAttributes.h"
+#import "NAVAttributes_legacy.h"
 
-@implementation NAVAttributes
+@implementation NAVAttributes_legacy
 
 - (NSString *)description
 {

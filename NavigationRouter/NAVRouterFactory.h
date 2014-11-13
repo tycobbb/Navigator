@@ -7,10 +7,10 @@
 @import Foundation;
 
 #import "NAVRoute.h"
-#import "NAVAttributes.h"
+#import "NAVAttributes_legacy.h"
 #import "NAVAnimator.h"
 
 @protocol NAVRouterFactory <NSObject>
-- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
-- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
+- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes;
+- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes;
 @end

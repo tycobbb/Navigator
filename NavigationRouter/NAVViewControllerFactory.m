@@ -9,7 +9,7 @@
 
 @implementation NAVViewControllerFactory
 
-- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
+- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
 {
     // destination should be a controller class in this case
     Class<NAVViewController> klass = route.destination;
@@ -21,7 +21,7 @@
     return controller;
 }
 
-- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
+- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
 {
     return nil;
 }

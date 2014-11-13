@@ -5,7 +5,7 @@
 
 @import Foundation;
 
-@interface NAVAttributes : NSObject
+@interface NAVAttributes_legacy : NSObject
 @property (copy  , nonatomic) NSURL *sourceURL;
 @property (copy  , nonatomic) NSURL *destinationURL;
 @property (strong, nonatomic) id model;

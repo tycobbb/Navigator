@@ -78,7 +78,7 @@ char *prototypeKey;
 
 # pragma mark - Transitions
 
-- (void)transitionWithAttributes:(NAVAttributes *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion
+- (void)transitionWithAttributes:(NAVAttributes_legacy *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion
 {
     NSAssert(self.updater, @"must have an updater to transition");
     
@@ -242,9 +242,9 @@ char *prototypeKey;
     return _factory;
 }
 
-- (NAVAttributesBuilder *)attributesBuilder
+- (NAVAttributesBuilder_legacy *)attributesBuilder
 {
-    return [[NAVAttributesBuilder alloc] initWithSourceURL:self.currentURL];
+    return [[NAVAttributesBuilder_legacy alloc] initWithSourceURL:self.currentURL];
 }
 
 - (NAVRoute *)routeForKey:(NSString *)key
@@ -286,7 +286,7 @@ char *prototypeKey;
     return updates;
 }
 
-- (NSArray *)updatesForComponents:(NAVURLTransitionComponents *)components attributes:(NAVAttributes *)attributes builder:(NAVUpdateBuilder *)update
+- (NSArray *)updatesForComponents:(NAVURLTransitionComponents *)components attributes:(NAVAttributes_legacy *)attributes builder:(NAVUpdateBuilder *)update
 {
     NAVURLComponent_legacy *component;
     
