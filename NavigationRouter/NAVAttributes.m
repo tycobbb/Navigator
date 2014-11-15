@@ -8,3 +8,12 @@
 @implementation NAVAttributes
 
 @end
+
+@implementation NAVAttributes (Builder)
+
++ (NAVAttributesBuilder *)builder
+{
+    return [NAVAttributesBuilder new];
+}
+
+@end

@@ -6,8 +6,11 @@
 #import "NAVURL.h"
 #import "NAVRouterConstants.h"
 
+#define fail() expect(NO).to.equal(YES)
+
 @interface NAVTest : NSObject
 + (NSString *)scheme;
++ (NAVURL *)url;
 @end
 
 extern NAVURL * URL(NSString *path);

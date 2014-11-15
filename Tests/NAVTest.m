@@ -12,6 +12,11 @@
     return @"rocket";
 }
 
++ (NAVURL *)url
+{
+    return URL([NSString stringWithFormat:@"%@://test", self.scheme]);
+}
+
 @end
 
 NAVURL * URL(NSString *path) {

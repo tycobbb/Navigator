@@ -4,10 +4,9 @@
 //
 
 #import "NAVURL.h"
+#import "NAVAttributesBuilder.h"
 
 @import Foundation;
-
-@class NAVAttributesBuilder;
 
 @interface NAVAttributes : NSObject
 
@@ -53,6 +52,6 @@
  @return A NAVAttributes builder instance
 */
 
-+ (NAVAttributesBuilder *)build;
++ (NAVAttributesBuilder *)builder;
 
 @end

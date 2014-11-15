@@ -4,29 +4,38 @@
 //
 
 #import "NAVAttributesBuilder.h"
+#import "NAVAttributes.h"
 
 @implementation NAVAttributesBuilder
 
-- (NAVAttributes *)attributesFromUrl:(NAVURL *)url
+- (NAVAttributes *(^)(NAVURL *))build
 {
-    return nil;
+    return ^(NAVURL *source) {
+        return (NAVAttributes *)nil;
+    };
 }
 
 # pragma mark - Chaining
 
 - (NAVAttributesBuilder *(^)(NAVAttributesUrlTransformer))transform
 {
-    return nil;
+    return ^(NAVAttributesUrlTransformer transformer) {
+        return self;
+    };
 }
 
 - (NAVAttributesBuilder *(^)(id))object
 {
-    return nil;
+    return ^(id object) {
+        return self;
+    };
 }
 
 - (NAVAttributesBuilder *(^)(id))handler
 {
-    return nil;
+    return ^(id handler) {
+        return self;
+    };
 }
 
 @end

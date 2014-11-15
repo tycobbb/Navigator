@@ -20,13 +20,12 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  The transformations will be applied in order to the source URL to generate the
  destination URL, and any data objects will be stored on the resultant attributes.
  
- @param url The attributes' source URL
+ @param block:source The attributes' source URL
  
- @return A new NAVAttributes instance
+ @return A block that can be called to build a new attributes instance
 */
-- (NAVAttributes *)attributesFromUrl:(NAVURL *)url;
 
-# pragma mark - Chaining
+- (NAVAttributes *(^)(NAVURL *source))build;
 
 /**
  @brief Registers a transformer to apply to the source URL
@@ -34,8 +33,9 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  When the attributes are built with the base URL, the transforms are applied in 
  registration-order, and the resultant URL is set as the attribute's destination URL.
  
- @return A block that may be called @c attributes.transform(<transformer>) to add a
- transformer for future application and that returns the builder for chaining.
+ @param block:url The url to transform
+ 
+ @return A block that can be calleed to add a new URL transformer for future application
 */
 
 - (NAVAttributesBuilder *(^)(NAVAttributesUrlTransformer))transform;
@@ -46,8 +46,9 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  The user object (as well as the attributes) can be captured as the router runs its
  transitions and delivered to the approriate destination.
  
- @return A block that may be called @c attributes.object(<object>) to add an object to
- the built attributes and that returns the builder for chaining.
+ @param block:object The user object to assosciate
+ 
+ @return A block that can be called to add an object to the future attributes
 */
 
 - (NAVAttributesBuilder *(^)(id))object;
@@ -58,8 +59,9 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  The handler as well as the attributes) can be captured as the router runs its transitions 
  and delivered to the approriate destination.
  
- @return A block that may be called @c attributes.object(<object>) to add an object to
- the built attributes and that returns the builder for chaining.
+ @param block:handler A callback handler to assosciate
+ 
+ @return A block that can be called to add a handler to the future attributes
 */
 
 - (NAVAttributesBuilder *(^)(id))handler;
