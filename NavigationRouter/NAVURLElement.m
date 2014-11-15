@@ -98,7 +98,6 @@
         return nil;
     }
     
-    // start with the visible string
     NSMutableString *result = [NSMutableString new];
     
     // for each option in the option set, get the string value
