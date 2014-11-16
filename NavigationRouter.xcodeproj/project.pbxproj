@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1007935E1A19076E00414C9D /* NAVTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1007935D1A19076E00414C9D /* NAVTransition.m */; };
 		1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */; };
 		1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2661A06DE9200BB7856 /* NAVViewController.m */; };
 		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1007935C1A19076E00414C9D /* NAVTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransition.h; sourceTree = "<group>"; };
+		1007935D1A19076E00414C9D /* NAVTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransition.m; sourceTree = "<group>"; };
 		1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElementTests.m; sourceTree = "<group>"; };
 		1073A2651A06DE9200BB7856 /* NAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewController.h; sourceTree = "<group>"; };
 		1073A2661A06DE9200BB7856 /* NAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewController.m; sourceTree = "<group>"; };
@@ -210,6 +213,9 @@
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
 				10978FD81A14405900A5C981 /* NAVAttributesBuilder.h */,
 				10978FD91A14405900A5C981 /* NAVAttributesBuilder.m */,
+				1007935C1A19076E00414C9D /* NAVTransition.h */,
+				1007935D1A19076E00414C9D /* NAVTransition.m */,
+				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
 			);
 			name = Redux;
 			sourceTree = "<group>";
@@ -341,7 +347,6 @@
 				FB7E248919786B6600D63A7E /* NAVAnimator.m */,
 				1073A2761A086C9600BB7856 /* NAVNavigationControllerUpdater.h */,
 				1073A2771A086C9600BB7856 /* NAVNavigationControllerUpdater.m */,
-				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
 				FB7E248B19786B7600D63A7E /* Internal */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				FB7E248D19786B8F00D63A7E /* URLs */,
@@ -585,6 +590,7 @@
 				FB7E24B9197D9A1D00D63A7E /* NAVRouterStoryboardFactory.m in Sources */,
 				10978FDA1A14405900A5C981 /* NAVAttributesBuilder.m in Sources */,
 				FB7E24861978697B00D63A7E /* NAVUpdate.m in Sources */,
+				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
 				108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */,
 				FB7E24801975D0BC00D63A7E /* NAVTransaction.m in Sources */,
 				FB7E249B1979932E00D63A7E /* NAVURL_legacy.m in Sources */,
