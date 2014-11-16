@@ -30,11 +30,6 @@
     return route;
 }
 
-- (void)removeMatchingPath:(NSString *)path
-{
-    [self.routes removeObjectForKey:path];
-}
-
 - (NAVRoute *(^)(NSString *))to
 {
     return ^(NSString *path) {
@@ -53,29 +48,27 @@
 
 @implementation NAVRoute (Builder)
 
-- (NAVRoute *)asType:(NAVRouteType)type
-{
-    self.type = type;
-    return self;
-}
-
-- (NAVRoute *)withControllerClass:(Class)klass
-{
-    self.destination = klass;
-    return self;
-}
-
 - (NAVRoute *(^)(NAVRouteType))as
 {
     return ^(NAVRouteType type) {
-        return [self asType:type];
+        self.type = type;
+        return self;
     };
 }
 
 - (NAVRoute *(^)(Class))controller
 {
     return ^(Class klass) {
-        return [self withControllerClass:klass];
+        self.destination = klass;
+        return self;
+    };
+}
+
+- (NAVRoute *(^)(NAVAnimation *))animation
+{
+    return ^(NAVAnimation *animation) {
+        self.destination = animation;
+        return self;
     };
 }
 

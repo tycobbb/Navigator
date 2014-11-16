@@ -10,8 +10,11 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     NAVRoute *copy = [NAVRoute new];
-    copy.type      = self.type;
+   
+    copy.type = self.type;
     copy.path = self.path;
+    copy.destination = self.destination;
+    
     return copy;
 }
 
