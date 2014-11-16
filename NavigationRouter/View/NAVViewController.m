@@ -13,7 +13,7 @@
     return [storyboard instantiateViewControllerWithIdentifier:self.storyboardIdentifier];
 }
 
-- (void)updateWithAttributes:(NAVAttributes_legacy *)attributes
+- (void)updateWithAttributes:(NAVAttributes *)attributes
 {
     
 }
@@ -25,11 +25,10 @@
 
 + (NSString *)storyboardName
 {
-    [[NSException exceptionWithName:@"router.no.storyboard.name"
-                             reason:@"NAVViewController subclasses must specify a storyboard name"
-                           userInfo:nil] raise];
-    
+    [NSException raise:NAVExceptionViewConfiguration format:@"NAVViewController must specify a storyboard name"];
     return nil;
 }
 
 @end
+
+NSString * const NAVExceptionViewConfiguration = @"router.view.configuration.exception";

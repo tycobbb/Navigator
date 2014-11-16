@@ -65,12 +65,6 @@
     return self;
 }
 
-- (NAVRoute *)withAnimator:(NAVAnimator *)animator
-{
-    self.destination = animator;
-    return self;
-}
-
 - (NAVRoute *(^)(NAVRouteType))as
 {
     return ^(NAVRouteType type) {
@@ -82,13 +76,6 @@
 {
     return ^(Class klass) {
         return [self withControllerClass:klass];
-    };
-}
-
-- (NAVRoute *(^)(NAVAnimator *))animator
-{
-    return ^(NAVAnimator *animator) {
-        return [self withAnimator:animator];
     };
 }
 

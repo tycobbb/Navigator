@@ -2,12 +2,10 @@
 //  NAVViewController.h
 //  NavigationRouter
 //
-//  Created by Ty Cobb on 11/2/14.
-//
-
-#import "NAVAttributes_legacy.h"
 
 @import UIKit;
+
+#import "NAVAttributes.h"
 
 @protocol NAVViewController <NSObject>
 
@@ -40,7 +38,7 @@
  @param attribtues The attributes sent along by the transition initiator.
 */
 
-- (void)updateWithAttributes:(NAVAttributes_legacy *)attributes;
+- (void)updateWithAttributes:(NAVAttributes *)attributes;
 
 /**
  @brief Specifies the storyboard identifier for this view controller.
@@ -65,3 +63,5 @@
 + (NSString *)storyboardName;
 
 @end
+
+extern NSString * const NAVExceptionViewConfiguration;
