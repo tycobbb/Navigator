@@ -25,7 +25,7 @@
     // generate the results
     NAVURLParsingResults *results = [NAVURLParsingResults new];
     
-    results.componentsToReplace = shouldReplaceRoot ? @[ destination[0] ] : nil;
+    results.componentToReplace  = shouldReplaceRoot ? destination[0] : nil;
     results.componentsToPop     = shouldReplaceRoot ? nil : source.components.last(sourceDelta);
     results.componentsToPush    = destination.components.last(destinationDelta);
     results.parametersToEnable  = parametersToEnable;
@@ -92,3 +92,5 @@
 }
 
 @end
+
+@implementation NAVURLParsingResults @end

@@ -6,6 +6,7 @@
 #import <YOLOKit/YOLO.h>
 #import "NAVTransition.h"
 #import "NAVURLParser.h"
+#import "YOLT.h"
 
 @interface NAVTransition ()
 @property (strong, nonatomic) NAVAttributesBuilder *attributesBuilder;
@@ -47,13 +48,13 @@
         return nil;
     });
     
-    updates = updates.concat(results.componentsToReplace.map(^(NAVURLComponent *component) {
-        return nil;
-    }));
+    if(results.componentToReplace) {
+        updates = updates.nav_append(nil);
+    }
     
-    updates = updates.concat(results.componentsToPop.count ? @[
-                              
-    ] : nil);
+    if(results.componentsToPop.count) {
+        updates = updates.nav_append(nil);
+    }
     
     // add a replace/push for every component between the diverge point and the end of the new components
     updates = updates.concat(results.componentsToPush.map(^(NAVURLComponent *component) {

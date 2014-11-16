@@ -14,7 +14,7 @@
 @end
 
 @interface NAVURLParsingResults : NSObject
-@property (copy, nonatomic) NSArray *componentsToReplace;
+@property (copy, nonatomic) NAVURLComponent *componentToReplace;
 @property (copy, nonatomic) NSArray *componentsToPush;
 @property (copy, nonatomic) NSArray *componentsToPop;
 @property (copy, nonatomic) NSArray *parametersToEnable;
