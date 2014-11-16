@@ -13,6 +13,8 @@
 		101EC12E1A19376D00C16B4E /* NAVRouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC12D1A19376D00C16B4E /* NAVRouteTests.m */; };
 		101EC1301A19391900C16B4E /* NAVRouteBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */; };
 		101EC1321A193CF700C16B4E /* NAVTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1311A193CF700C16B4E /* NAVTransitionTests.m */; };
+		101EC1381A195BC700C16B4E /* NAVURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1371A195BC700C16B4E /* NAVURLParser.m */; };
+		101EC13C1A19647000C16B4E /* NAVUpdateBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC13B1A19647000C16B4E /* NAVUpdateBuilder.m */; };
 		1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */; };
 		1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2661A06DE9200BB7856 /* NAVViewController.m */; };
 		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
@@ -61,6 +63,10 @@
 		101EC12D1A19376D00C16B4E /* NAVRouteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteTests.m; sourceTree = "<group>"; };
 		101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilderTests.m; sourceTree = "<group>"; };
 		101EC1311A193CF700C16B4E /* NAVTransitionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionTests.m; sourceTree = "<group>"; };
+		101EC1361A195BC700C16B4E /* NAVURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLParser.h; sourceTree = "<group>"; };
+		101EC1371A195BC700C16B4E /* NAVURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLParser.m; sourceTree = "<group>"; };
+		101EC13A1A19647000C16B4E /* NAVUpdateBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateBuilder.h; sourceTree = "<group>"; };
+		101EC13B1A19647000C16B4E /* NAVUpdateBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateBuilder.m; sourceTree = "<group>"; };
 		1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElementTests.m; sourceTree = "<group>"; };
 		1073A2651A06DE9200BB7856 /* NAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewController.h; sourceTree = "<group>"; };
 		1073A2661A06DE9200BB7856 /* NAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewController.m; sourceTree = "<group>"; };
@@ -143,8 +149,21 @@
 				108C43D11A09D1BE00E8A55E /* NAVURL.m */,
 				108C43D31A09D4B600E8A55E /* NAVURLElement.h */,
 				108C43D41A09D4B600E8A55E /* NAVURLElement.m */,
+				101EC1361A195BC700C16B4E /* NAVURLParser.h */,
+				101EC1371A195BC700C16B4E /* NAVURLParser.m */,
 			);
 			path = URL;
+			sourceTree = "<group>";
+		};
+		101EC1391A19645600C16B4E /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				101EC1271A1912DF00C16B4E /* NAVUpdate.h */,
+				101EC1281A1912DF00C16B4E /* NAVUpdate.m */,
+				101EC13A1A19647000C16B4E /* NAVUpdateBuilder.h */,
+				101EC13B1A19647000C16B4E /* NAVUpdateBuilder.m */,
+			);
+			path = Updates;
 			sourceTree = "<group>";
 		};
 		1073A2641A06DE5500BB7856 /* View */ = {
@@ -185,6 +204,8 @@
 				FBDDB55E19747FA20051D149 /* NAVRoute.m */,
 				FBDDB560197481080051D149 /* NAVRouteBuilder.h */,
 				FBDDB561197481080051D149 /* NAVRouteBuilder.m */,
+				101EC12A1A19157700C16B4E /* NAVAnimation.h */,
+				101EC12B1A19157700C16B4E /* NAVAnimation.m */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -226,10 +247,6 @@
 			children = (
 				1007935C1A19076E00414C9D /* NAVTransition.h */,
 				1007935D1A19076E00414C9D /* NAVTransition.m */,
-				101EC1271A1912DF00C16B4E /* NAVUpdate.h */,
-				101EC1281A1912DF00C16B4E /* NAVUpdate.m */,
-				101EC12A1A19157700C16B4E /* NAVAnimation.h */,
-				101EC12B1A19157700C16B4E /* NAVAnimation.m */,
 				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
 				10978FD81A14405900A5C981 /* NAVAttributesBuilder.h */,
@@ -239,6 +256,7 @@
 				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
 				1010FFF61A190FC900C1C554 /* URL */,
 				FB7E248C19786B8700D63A7E /* Routes */,
+				101EC1391A19645600C16B4E /* Updates */,
 				1073A2641A06DE5500BB7856 /* View */,
 				109DE5E4197A16F8003AA60C /* Extensions */,
 				FBDDB5261974756F0051D149 /* Demo */,
@@ -461,9 +479,11 @@
 				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
 				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
 				101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */,
+				101EC13C1A19647000C16B4E /* NAVUpdateBuilder.m in Sources */,
 				10978FDA1A14405900A5C981 /* NAVAttributesBuilder.m in Sources */,
 				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
 				101EC12C1A19157700C16B4E /* NAVAnimation.m in Sources */,
+				101EC1381A195BC700C16B4E /* NAVURLParser.m in Sources */,
 				108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,7 +3,9 @@
 //  NavigationRouter
 //
 
+#import <YOLOKit/YOLO.h>
 #import "NAVTransition.h"
+#import "NAVURLParser.h"
 
 @interface NAVTransition ()
 @property (strong, nonatomic) NAVAttributesBuilder *attributesBuilder;
@@ -38,7 +40,32 @@
 
 - (NSArray *)updatesFromAttributes:(NAVAttributes *)attributes
 {
-    return nil;
+    NAVURLParsingResults *results = [NAVURLParser parseFromUrl:attributes.source toUrl:attributes.destination];
+    
+    // first we need create updates for any disabled parameters
+    NSArray *updates = results.parametersToDisable.map(^(NAVURLParameter *parameter) {
+        return nil;
+    });
+    
+    updates = updates.concat(results.componentsToReplace.map(^(NAVURLComponent *component) {
+        return nil;
+    }));
+    
+    updates = updates.concat(results.componentsToPop.count ? @[
+                              
+    ] : nil);
+    
+    // add a replace/push for every component between the diverge point and the end of the new components
+    updates = updates.concat(results.componentsToPush.map(^(NAVURLComponent *component) {
+        return nil;
+    }));
+    
+    // add updates for any parameters being enabled
+    updates = updates.concat(results.parametersToEnable.map(^(NAVURLParameter *parameter) {
+        return nil;
+    }));
+
+    return updates;
 }
 
 @end
