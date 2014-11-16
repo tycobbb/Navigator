@@ -19,17 +19,17 @@
 @property (nonatomic, readonly) NSArray *updates;
 
 /**
- @brief Desginated initializer. Creates a new transition with the given attributes.
+ @brief Desginated initializer. Creates a new transition with the given attributes builder
  
  The attributes at this point should be incomplete--namely, missing a source URL. The
  necessary information to complete the attributes should be passed in @c startWithUrl:.
  
- @param attributes The attributes for the transition to run
+ @param attributes The attributes builder for the transition to run
  
  @return A new NAVTransition instance for the specified attributes
 */
 
-- (instancetype)initWithAttributes:(NAVAttributes *)attributes;
+- (instancetype)initWithAttributesBuilder:(NAVAttributesBuilder *)attributesBuilder;
 
 /**
  @brief Starts the transition, performing its updates
