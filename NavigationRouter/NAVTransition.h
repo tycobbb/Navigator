@@ -6,6 +6,7 @@
 @import Foundation;
 
 #import "NAVAttributes.h"
+#import "NAVUpdate.h"
 
 @interface NAVTransition : NSObject
 
