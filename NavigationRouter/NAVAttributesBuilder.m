@@ -85,3 +85,34 @@
 }
 
 @end
+
+@implementation NAVAttributesBuilder (Convenience)
+
+- (NAVAttributesBuilder *(^)(NSString *))push
+{
+    return ^(NSString *path) {
+        return self.transform(^(NAVURL *url) {
+            return [url push:path];
+        });
+    };
+}
+
+- (NAVAttributesBuilder *(^)(NSInteger))pop
+{
+    return ^(NSInteger count) {
+        return self.transform(^(NAVURL *url) {
+            return [url pop:count];
+        });
+    };
+}
+
+- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter
+{
+    return ^(NSString *key, NAVParameterOptions options) {
+        return self.transform(^(NAVURL *url) {
+            return [url updateParameter:key withOptions:options];
+        });
+    };
+}
+
+@end

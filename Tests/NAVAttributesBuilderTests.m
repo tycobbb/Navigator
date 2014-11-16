@@ -58,6 +58,35 @@ describe(@"the attributes builder", ^{
         expect(attributes.data).to.equal(data);
     });
     
+    it(@"should push components", ^{
+        NSString *component = @"yeah";
+        
+        NAVAttributes *attributes = NAVAttributes.builder
+            .push(component)
+            .build(NAVTest.url);
+        
+        expect(attributes.destination.lastComponent.key).to.equal(component);
+    });
+    
+    it(@"should pop components", ^{
+        NAVAttributes *attributes = NAVAttributes.builder
+            .pop(1)
+            .build(NAVTest.url);
+        
+        expect(attributes.destination.components.count).to.equal(0);
+    });
+    
+    it(@"should update parameters", ^{
+        NSString *parameter = @"whoa";
+        NAVParameterOptions options = NAVParameterOptionsVisible;
+        
+        NAVAttributes *attributes = NAVAttributes.builder
+            .parameter(@"whoa", NAVParameterOptionsVisible)
+            .build(NAVTest.url);
+        
+        expect(attributes.destination[parameter].options).to.equal(options);
+    });
+    
 });
 
 SpecEnd

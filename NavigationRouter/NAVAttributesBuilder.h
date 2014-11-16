@@ -67,3 +67,31 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
 - (NAVAttributesBuilder *(^)(id))handler;
 
 @end
+
+@interface NAVAttributesBuilder (Convenience)
+
+/**
+ @brief Registers a transformer that pushes a subpath onto the source URL
+ 
+ See @c transform for complete documenation on transforms.
+*/
+
+- (NAVAttributesBuilder *(^)(NSString *))push;
+
+/**
+ @brief Registers a transformer that pops a subpath off the source URL
+ 
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVAttributesBuilder *(^)(NSInteger))pop;
+
+/**
+ @brief Registers a transformer that updates the key-value parameter on the source URL
+ 
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter;
+
+@end
