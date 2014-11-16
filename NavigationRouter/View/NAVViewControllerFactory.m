@@ -5,11 +5,10 @@
 
 #import "NAVViewControllerFactory.h"
 #import "NAVViewController.h"
-#import "NAVAnimatorModal.h"
 
 @implementation NAVViewControllerFactory
 
-- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
+- (UIViewController *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
 {
     // destination should be a controller class in this case
     Class<NAVViewController> klass = route.destination;
@@ -19,11 +18,6 @@
     [controller updateWithAttributes:attributes];
     
     return controller;
-}
-
-- (NAVAnimator *)animatorForRoute:(NAVRoute *)route withAttributes:(NAVAttributes_legacy *)attributes
-{
-    return nil;
 }
 
 @end

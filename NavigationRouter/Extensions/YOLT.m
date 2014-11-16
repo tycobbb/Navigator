@@ -27,7 +27,8 @@
     };
 }
 
-- (NSDictionary *(^)(id, ...))nav_without {
+- (NSDictionary *(^)(id, ...))nav_without
+{
     return ^(id arg0, ...) {
         va_list args;
         va_start(args, arg0);

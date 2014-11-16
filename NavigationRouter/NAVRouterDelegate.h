@@ -5,8 +5,6 @@
 
 @import Foundation;
 
-@class NAVRouter, NAVUpdate;
-
 @protocol NAVRouterDelegate <NSObject> @optional
 
 @end
