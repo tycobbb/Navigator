@@ -31,25 +31,27 @@
     return self;
 }
 
-- (void)startWithUrl:(NAVURL *)url
+- (void)startFromUrl:(NAVURL *)url withUpdateBuilder:(NAVUpdateBuilder *)updateBuilder
 {
     NAVAttributes *attributes = self.attributesBuilder.build(url);
-    self.updates = [self updatesFromAttributes:attributes];
+    self.updates = [self updatesFromAttributes:attributes updateBuilder:updateBuilder];
 }
 
 # pragma mark - Updates
 
-- (NSArray *)updatesFromAttributes:(NAVAttributes *)attributes
+- (NSArray *)updatesFromAttributes:(NAVAttributes *)attributes updateBuilder:(NAVUpdateBuilder *)update
 {
     NAVURLParsingResults *results = [NAVURLParser parseFromUrl:attributes.source toUrl:attributes.destination];
     
     // first we need create updates for any disabled parameters
     NSArray *updates = results.parametersToDisable.map(^(NAVURLParameter *parameter) {
-        return nil;
+    
     });
     
     if(results.componentToReplace) {
-        updates = updates.nav_append(nil);
+        updates = updates.nav_append(
+            update.component(results.componentToReplace).attributes(attributes).build
+        );
     }
     
     if(results.componentsToPop.count) {

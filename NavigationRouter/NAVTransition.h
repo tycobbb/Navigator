@@ -67,10 +67,11 @@
  The transition populates its attributes appropriately and then generates and runs a sequence of
  interface updates.
  
- @param url The URL to transition from, which will be used to determine the list of updates
+ @param url           The URL to transition from, which will be used to determine the list of updates
+ @param updateBuilder The update builder to generate updates with during parsing
 */
 
-- (void)startWithUrl:(NAVURL *)url;
+- (void)startFromUrl:(NAVURL *)url withUpdateBuilder:(NAVUpdateBuilder *)updateBuilder;
 
 @end
 

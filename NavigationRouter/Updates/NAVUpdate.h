@@ -6,6 +6,7 @@
 @import Foundation;
 
 #import "NAVRoute.h"
+#import "NAVAttributes.h"
 
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypePush,
@@ -36,5 +37,14 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 */
 
 @property (strong, nonatomic) NAVRoute *route;
+
+/**
+ @brief The attributes assosciated with this update
+ 
+ The attributes will be delivered to the route's destination object during the update's
+ execution.
+*/
+
+@property (strong, nonatomic) NAVAttributes *attributes;
 
 @end

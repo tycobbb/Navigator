@@ -52,7 +52,7 @@
     NAVTransition *transition = self.transitionQueue.pop;
     self.currentTransition = nil;
     
-    [transition startWithUrl:self.currentUrl];
+    [transition startFromUrl:self.currentUrl withUpdateBuilder:self.updateBuilder];
 }
 
 # pragma mark - NAVTransitionDelegate
