@@ -8,6 +8,7 @@
 #import "NAVRouterDelegate.h"
 #import "NAVRouterUpdater.h"
 #import "NAVRouterFactory.h"
+#import "NAVRouteBuilder.h"
 
 @interface NAVRouter : NSObject
 
@@ -18,7 +19,7 @@
  to modify router behavior before it executes.
  
  @return The current delegate instance
- */
+*/
 
 @property (weak  , nonatomic) id<NAVRouterDelegate> delegate;
 
@@ -55,5 +56,11 @@
 */
 
 + (instancetype)router;
+
+/**
+ *  <#Description#>
+*/
+
+- (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock
 
 @end

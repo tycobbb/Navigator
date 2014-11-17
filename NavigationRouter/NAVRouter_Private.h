@@ -8,7 +8,7 @@
 #import "NAVRouter_Subclass.h"
 
 @interface NAVRouter ()
-
+@property (copy, nonatomic) NSDictionary *routes;
 @end
 
 @interface NAVRouterPrototype : NSObject

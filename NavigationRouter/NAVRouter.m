@@ -10,10 +10,26 @@
 - (instancetype)init
 {
     if(self = [super init]) {
-    
+        // update the router with it's initial routes
+        [self updateRoutes:^(NAVRouteBuilder *route) {
+            [self routes:route];
+        }];
     }
     
     return self;
+}
+
+# pragma mark - Routing
+
+- (void)updateRoutes:(void (^)(NAVRouteBuilder *))routingBlock
+{
+    NSParameterAssert(routingBlock);
+   
+    // create a route builder from the router's current route map and update it
+    NAVRouteBuilder *routeBuilder = [[NAVRouteBuilder alloc] initWithRoutes:self.routes];
+    routingBlock(routeBuilder);
+    
+    self.routes = routeBuilder.routes;
 }
 
 # pragma mark - Shared Instance
