@@ -9,6 +9,12 @@
 - (NSArray *(^)(id))nav_append;
 @end
 
+@interface NSMutableArray (YOLT)
+- (NSMutableArray *(^)(id))pushFront;
+- (NSMutableArray *(^)(id))push;
+- (id)pop;
+@end
+
 @interface NSDictionary (YOLT)
 - (NSDictionary *(^)(id, id))nav_set;
 - (NSDictionary *(^)(id, ...))nav_without;

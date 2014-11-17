@@ -50,6 +50,27 @@
 @property (strong, nonatomic) id<NAVRouterFactory> factory;
 
 /**
+ @brief Indiicates whether a transiiton is currently running
+ 
+ If true, attempted transitions will fail by default. This behavior may be overridden by
+ passing the set @c shouldQueue to true on the NAVAttributes passed to
+ @c -transitionWithAttributes:animated:completion:.
+*/
+
+@property (nonatomic, readonly) BOOL isTransitioning;
+
+/**
+ @brief The URL representing the router's current state.
+ 
+ This URL should correspond to the view state of the slice of application managed by this router (provided proper API
+ consumption). The subsequent update will be compared against this URL to determine which updates to run.
+ 
+ @return The URL representing the router's current state.
+*/
+
+@property (nonatomic, readonly) NAVURL *currentUrl;
+
+/**
  @brief Per-class shared instance.
  
  @return A router instance.
@@ -58,11 +79,25 @@
 + (instancetype)router;
 
 /**
+ @brief Axial method about which all other routing operations orbit.
+ 
+ Calling this method triggers the router's update cycle, wherein it will diff the 
+ destination URL against its current location, and perform any necessary interface 
+ updates to resolve the transition.
+ 
+ @param attributes Attributes builder to generate a future attributes instance form
+ @param isAnimated Flag indicating whether or not the transition is animated
+ @param completion Block to be called when the transition completes
+ */
+
+- (void)transitionWithAttributes:(NAVAttributesBuilder *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
+
+/**
  @brief Updates the router's internal routes
  
- Routes may be added at runtime using this method, in addition to the default routes subclasses 
- define in @c -routes:. If a new routes matches the subpath of an exisitng route, the existing 
- route will be overwritten.
+ Routes may be added at runtime using this method, in addition to the default routes 
+ subclasses define in @c -routes:. If a new routes matches the subpath of an exisitng 
+ route, the existing route will be overwritten.
  
  @param routingBlock A block that executes the route updates
 */

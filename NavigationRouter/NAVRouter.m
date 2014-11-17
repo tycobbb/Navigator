@@ -10,6 +10,9 @@
 - (instancetype)init
 {
     if(self = [super init]) {
+        // allocate transition queue
+        _transitionQueue = [NSMutableArray new];
+        
         // create an update builder that we can use to construct updates for transitions
         _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
@@ -23,6 +26,45 @@
     return self;
 }
 
+# pragma mark - Transitions
+
+- (void)transitionWithAttributes:(NAVAttributesBuilder *)attributes animated:(BOOL)isAnimated completion:(void (^)(void))completion
+{
+    // create the transition to enqueue
+    NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:attributes];
+    transition.isAnimated = isAnimated;
+    transition.completion = completion;
+    transition.delegate   = self;
+    
+    // enqueue the transition, and then immediately dequeue it if possible
+    self.transitionQueue.pushFront(transition);
+    
+    [self dequeueTransition];
+}
+
+- (void)dequeueTransition
+{
+    // can't dequeue if we're in the middle of an existing transition
+    if(self.isTransitioning || !self.transitionQueue.count) {
+        return;
+    }
+    
+    NAVTransition *transition = self.transitionQueue.pop;
+    self.currentTransition = nil;
+    
+    [transition startWithUrl:self.currentUrl];
+}
+
+# pragma mark - NAVTransitionDelegate
+
+- (void)transitionDidComplete:(NAVTransition *)transition
+{
+    self.lastTransition = transition;
+    self.currentTransition = nil;
+
+    [self dequeueTransition];
+}
+
 # pragma mark - Routing
 
 - (void)updateRoutes:(void (^)(NAVRouteBuilder *))routingBlock
@@ -34,6 +76,18 @@
     routingBlock(routeBuilder);
     
     self.routes = routeBuilder.routes;
+}
+
+# pragma mark - Accessors
+
+- (NAVURL *)currentUrl
+{
+    return nil;
+}
+
+- (BOOL)isTransitioning
+{
+    return self.currentTransition != nil;
 }
 
 # pragma mark - Shared Instance

@@ -16,6 +16,35 @@
 
 @end
 
+@implementation NSMutableArray (YOLT)
+
+- (NSMutableArray *(^)(id))push
+{
+    return ^(id object) {
+        if(object)
+            [self addObject:object];
+        return self;
+    };
+}
+
+- (NSMutableArray *(^)(id))pushFront
+{
+    return ^(id object) {
+        if(object)
+            [self insertObject:object atIndex:0];
+        return self;
+    };
+}
+
+- (id)pop
+{
+    id object = self.lastObject;
+    [self removeLastObject];
+    return object;
+}
+
+@end
+
 @implementation NSDictionary (YOLT)
 
 - (NSDictionary *(^)(id, id))nav_set
