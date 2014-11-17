@@ -6,9 +6,11 @@
 @import ObjectiveC;
 
 #import "NAVRouter_Subclass.h"
+#import "NAVTransition.h"
 
-@interface NAVRouter ()
-@property (copy, nonatomic) NSDictionary *routes;
+@interface NAVRouter () <NAVUpdateBuilderDelegate>
+@property (copy  , nonatomic) NSDictionary *routes;
+@property (strong, nonatomic) NAVUpdateBuilder *updateBuilder;
 @end
 
 @interface NAVRouterPrototype : NSObject

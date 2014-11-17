@@ -10,6 +10,10 @@
 - (instancetype)init
 {
     if(self = [super init]) {
+        // create an update builder that we can use to construct updates for transitions
+        _updateBuilder = [NAVUpdateBuilder new];
+        _updateBuilder.delegate = self;
+        
         // update the router with it's initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
