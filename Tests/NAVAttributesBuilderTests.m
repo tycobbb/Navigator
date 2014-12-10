@@ -30,7 +30,7 @@ describe(@"the attributes builder", ^{
        
         NAVAttributes *attributes = NAVAttributes.builder
             .object(object)
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.userObject).to.equal(object);
     });
@@ -42,7 +42,7 @@ describe(@"the attributes builder", ^{
         
         NAVAttributes *attributes = NAVAttributes.builder
             .handler(handler)
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.handler).to.equal(handler);
     });
@@ -53,7 +53,7 @@ describe(@"the attributes builder", ^{
         
         NAVAttributes *attributes = NAVAttributes.builder
             .transform(^(NAVURL *url) { return [url push:component]; })
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.data).to.equal(data);
     });
@@ -63,7 +63,7 @@ describe(@"the attributes builder", ^{
         
         NAVAttributes *attributes = NAVAttributes.builder
             .push(component)
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.destination.lastComponent.key).to.equal(component);
     });
@@ -71,7 +71,7 @@ describe(@"the attributes builder", ^{
     it(@"should pop components", ^{
         NAVAttributes *attributes = NAVAttributes.builder
             .pop(1)
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.destination.components.count).to.equal(0);
     });
@@ -82,7 +82,7 @@ describe(@"the attributes builder", ^{
         
         NAVAttributes *attributes = NAVAttributes.builder
             .parameter(@"whoa", NAVParameterOptionsVisible)
-            .build(NAVTest.url);
+            .build(URL(nil));
         
         expect(attributes.destination[parameter].options).to.equal(options);
     });

@@ -10,7 +10,7 @@
 
 @interface NAVTest : NSObject
 + (NSString *)scheme;
-+ (NAVURL *)url;
++ (NAVURL *)url:(NSString *)path;
 @end
 
 extern NAVURL * URL(NSString *path);

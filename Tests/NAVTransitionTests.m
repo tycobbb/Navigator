@@ -12,7 +12,7 @@ describe(@"the transition", ^{
     it(@"should require an attributes builder", ^{
         expect(^{
             NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:nil];
-            [transition startWithUrl:nil];
+            [transition startFromUrl:nil withUpdateBuilder:nil];
         }).to.raise(NSInternalInconsistencyException);
     });
     

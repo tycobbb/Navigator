@@ -9,22 +9,22 @@
 
 + (NSString *)scheme
 {
-    return @"rocket";
+    return @"navigator";
 }
 
-+ (NAVURL *)url
++ (NAVURL *)url:(NSString *)path
 {
-    return URL([NSString stringWithFormat:@"%@://test", self.scheme]);
+    return [[NAVURL alloc] initWithPath:[NSString stringWithFormat:@"%@://%@", self.scheme, path ?: @""]];
 }
 
 @end
 
 NAVURL * URL(NSString *path) {
-    return [[NAVURL alloc] initWithPath:path];
+    return [NAVTest url:path];
 }
 
 NSArray * URLs(NSArray *paths) {
     return paths.map(^(NSString *path) {
-        return [[NAVURL alloc] initWithPath:path];
+        return [NAVTest url:path];
     });
 }
