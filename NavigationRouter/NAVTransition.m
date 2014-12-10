@@ -45,27 +45,44 @@
     
     // first we need create updates for any disabled parameters
     NSArray *updates = results.parametersToDisable.map(^(NAVURLParameter *parameter) {
-    
+        return update
+            .parameter(parameter)
+            .type(NAVUpdateTypeAnimation)
+            .attributes(nil).build;
     });
     
+    // then create an update for the replace, if it exists
     if(results.componentToReplace) {
-        updates = updates.nav_append(
-            update.component(results.componentToReplace).attributes(attributes).build
+        updates = updates.nav_append(update
+            .component(results.componentToReplace)
+            .type(NAVUpdateTypeReplace)
+            .attributes(attributes).build
         );
     }
     
+    // if there are components to pop, create a pop to the first component in the list
     if(results.componentsToPop.count) {
-        updates = updates.nav_append(nil);
+        updates = updates.nav_append(update
+            .component(results.componentsToPop.firstObject)
+            .type(NAVUpdateTypePop)
+            .attributes(attributes).build
+        );
     }
     
-    // add a replace/push for every component between the diverge point and the end of the new components
+    // then add a replace/push for every component between the diverge point and the end of the new components
     updates = updates.concat(results.componentsToPush.map(^(NAVURLComponent *component) {
-        return nil;
+        return update
+            .component(component)
+            .type(NAVUpdateTypePush)
+            .attributes(nil).build;
     }));
     
     // add updates for any parameters being enabled
     updates = updates.concat(results.parametersToEnable.map(^(NAVURLParameter *parameter) {
-        return nil;
+        return update
+            .parameter(parameter)
+            .type(NAVUpdateTypeAnimation)
+            .attributes(nil).build;
     }));
 
     return updates;

@@ -47,6 +47,7 @@
  The attributes will be assosciated with the update and passed to the destination object
  upon creation.
 */
+
 - (NAVUpdateBuilder *(^)(NAVAttributes *))attributes;
 
 /**
