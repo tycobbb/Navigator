@@ -5,10 +5,10 @@
 
 @import Foundation;
 
-#import "NAVRoute.h"
 #import "NAVAttributes.h"
 
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
+    NAVUpdateTypeUnknown,
     NAVUpdateTypePush,
     NAVUpdateTypePop,
     NAVUpdateTypeReplace,
@@ -30,16 +30,17 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 @property (assign, nonatomic) NAVUpdateType type;
 
 /**
- @brief The route corresponding to this update
- 
- The route captures both the key of the URL component/parameter which this update corresponds
- to and the desintation update used to resolve the transition
+ @brief The URL element assosciated to this update
+
+ The URL element is used to determine the route assosciated with this update when
+ it needs to be performed.
 */
 
-@property (strong, nonatomic) NAVRoute *route;
+@property (strong, nonatomic) NAVURLElement *element;
+
 
 /**
- @brief The attributes assosciated with this update
+ @brief The attributes assosciated to this update
  
  The attributes will be delivered to the route's destination object during the update's
  execution.

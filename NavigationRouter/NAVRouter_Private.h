@@ -9,7 +9,7 @@
 #import "NAVTransition.h"
 #import "YOLT.h"
 
-@interface NAVRouter () <NAVUpdateBuilderDelegate, NAVTransitionDelegate>
+@interface NAVRouter () <NAVTransitionDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransition *currentTransition;
 @property (strong, nonatomic) NAVTransition *lastTransition;

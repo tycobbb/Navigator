@@ -9,7 +9,7 @@
 
 + (instancetype)instance
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:self.storyboardName bundle:[NSBundle mainBundle]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
     return [storyboard instantiateViewControllerWithIdentifier:self.storyboardIdentifier];
 }
 

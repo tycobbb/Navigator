@@ -15,7 +15,6 @@
         
         // create an update builder that we can use to construct updates for transitions
         _updateBuilder = [NAVUpdateBuilder new];
-        _updateBuilder.delegate = self;
         
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {

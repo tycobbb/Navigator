@@ -7,21 +7,9 @@
 @import UIKit;
 
 #import "NAVUpdate.h"
-#import "NAVRoute.h"
 #import "NAVURL.h"
 
-@protocol NAVUpdateBuilderDelegate;
-
 @interface NAVUpdateBuilder : NSObject
-
-/**
- @brief Provides destination objects to the update builder
- 
- The builder will ask its delegate for instances of the update destination objects,
- controller classes or animators, during update construction.
-*/
-
-@property (weak, nonatomic) id<NAVUpdateBuilderDelegate> delegate;
 
 /**
  @brief The component to construct the update from
@@ -67,9 +55,5 @@
 */
 
 - (NAVUpdate *)build;
-
-@end
-
-@protocol NAVUpdateBuilderDelegate <NSObject>
 
 @end
