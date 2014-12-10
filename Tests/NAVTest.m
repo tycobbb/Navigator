@@ -14,7 +14,12 @@
 
 + (NAVURL *)url:(NSString *)path
 {
-    return [[NAVURL alloc] initWithPath:[NSString stringWithFormat:@"%@://%@", self.scheme, path ?: @""]];
+    return [[NAVURL alloc] initWithPath:[self resolvePath:path]];
+}
+
++ (NSString *)resolvePath:(NSString *)path
+{
+    return [NSString stringWithFormat:@"%@://%@", self.scheme, path ?: @""];
 }
 
 @end
@@ -28,3 +33,7 @@ NSArray * URLs(NSArray *paths) {
         return [NAVTest url:path];
     });
 }
+
+NSString * URLString(NSString *path) {
+    return [NAVTest resolvePath:path];
+};

@@ -8,18 +8,23 @@
 SpecBegin(NAVTransitionTests)
 
 describe(@"the transition", ^{
+  
+    NAVUpdateBuilder *updateBuilder = [NAVUpdateBuilder new];
+    
+    NAVTransition *(^transitionTo)(NAVAttributesBuilder *) = ^(NAVAttributesBuilder *builder) {
+        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:builder];
+        [transition startFromUrl:URL(nil) withUpdateBuilder:updateBuilder];
+        return transition;
+    };
    
     it(@"should require an attributes builder", ^{
-        expect(^{
-            NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:nil];
-            [transition startFromUrl:nil withUpdateBuilder:nil];
-        }).to.raise(NSInternalInconsistencyException);
+        expect(^{ transitionTo(nil); }).to.raise(NSInternalInconsistencyException);
     });
     
     it(@"should support push updates", ^{
-        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:NAVAttributes.builder
+        NAVTransition *transition = transitionTo(NAVAttributes.builder
             .push(@"test2")
-        ];
+        );
         
         NAVUpdate *update = transition.updates.firstObject;
         expect(update).toNot.beNil();
@@ -27,9 +32,9 @@ describe(@"the transition", ^{
     });
     
     it(@"should support pop updates", ^{
-        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:NAVAttributes.builder
+        NAVTransition *transition = transitionTo(NAVAttributes.builder
             .pop(1)
-        ];
+        );
         
         NAVUpdate *update = transition.updates.firstObject;
         expect(update).toNot.beNil();
@@ -37,11 +42,11 @@ describe(@"the transition", ^{
     });
     
     it(@"should support replace updates", ^{
-        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:NAVAttributes.builder
+        NAVTransition *transition = transitionTo(NAVAttributes.builder
             .transform(^(NAVURL *url) {
                 return URL([NSString stringWithFormat:@"%@://replace", NAVTest.scheme]);
             })
-        ];
+        );
         
         NAVUpdate *update = transition.updates.firstObject;
         expect(update).toNot.beNil();
@@ -49,9 +54,9 @@ describe(@"the transition", ^{
     });
     
     it(@"should support animation updates", ^{
-        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:NAVAttributes.builder
+        NAVTransition *transition = transitionTo(NAVAttributes.builder
             .parameter(@"param", NAVParameterOptionsVisible)
-        ];
+        );
         
         NAVUpdate *update = transition.updates.firstObject;
         expect(update).toNot.beNil();
@@ -61,11 +66,11 @@ describe(@"the transition", ^{
     it(@"should sequence updates", ^{
         NSArray *types = @[ @(NAVUpdateTypePush), @(NAVUpdateTypePush), @(NAVUpdateTypeAnimation) ];
         
-        NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:NAVAttributes.builder
+        NAVTransition *transition = transitionTo(NAVAttributes.builder
             .parameter(@"param", NAVParameterOptionsVisible)
             .push(@"push1")
             .push(@"push2")
-        ];
+        );
        
         expect(transition.updates.count).to.equal(types.count);
         types.each(^(NSNumber *type, NSInteger index) {

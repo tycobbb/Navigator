@@ -20,9 +20,16 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 + (instancetype)URLWithPath:(NSString *)path
 {
-    if(!path)
+    if(!path) {
         return nil;
+    }
+    
     return [[self alloc] initWithPath:path];
+}
+
+- (instancetype)init
+{
+    return [self initWithPath:nil];
 }
 
 - (instancetype)initWithPath:(NSString *)path
@@ -113,6 +120,12 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 + (NAVURLComponent *)componentFromString:(NSString *)string index:(NSInteger)index
 {
+    // if there's no string here, we're not going to treat this as a component. probably
+    // a trailing slash
+    if(!string.length) {
+        return nil;
+    }
+    
     // seperate subpath based on data delimiter
     NSArray *components = string.split(@"::");
     // validate that we don't have too many data strings
@@ -153,6 +166,13 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 - (NSUInteger)hash
 {
     return [self.string hash];
+}
+
+# pragma mark - Debugging
+
+- (NSString *)debugDescription
+{
+    return [[super debugDescription] stringByAppendingFormat:@"path: %@", self.string];
 }
 
 @end

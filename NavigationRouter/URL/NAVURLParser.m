@@ -10,6 +10,9 @@
 
 + (NAVURLParsingResults *)parseFromUrl:(NAVURL *)source toUrl:(NAVURL *)destination
 {
+    NSParameterAssert(source);
+    NSParameterAssert(destination);
+    
     // find the deltas beween the diff'd component index and the number of components in each url
     NSInteger componentIndex   = [self divergingIndexFromUrl:source toUrl:destination];
     NSInteger sourceDelta      = [self components:source.components deltaFromIndex:componentIndex];
@@ -26,8 +29,8 @@
     NAVURLParsingResults *results = [NAVURLParsingResults new];
     
     results.componentToReplace  = shouldReplaceRoot ? destination[0] : nil;
-    results.componentsToPop     = shouldReplaceRoot ? nil : source.components.last(sourceDelta);
-    results.componentsToPush    = destination.components.last(destinationDelta);
+    results.componentsToPop     = shouldReplaceRoot ? @[] : source.components.last(sourceDelta);
+    results.componentsToPush    = destination.components.last(shouldReplaceRoot ? destinationDelta - 1 : destinationDelta);
     results.parametersToEnable  = parametersToEnable;
     results.parametersToDisable = parametersToDisable;
     
@@ -46,11 +49,12 @@
         
         // if we find a component that's different, then return it immediately
         if(![source isEqual:destination]) {
-            return destination.index;
+            return source.index;
         }
     }
     
-    return destinationUrl.components.count;
+    // if we didn't find any divergent components, then it's whatever comes after our source ends
+    return sourceUrl.components.count;
 }
 
 + (NSInteger)components:(NSArray *)components deltaFromIndex:(NSInteger)index

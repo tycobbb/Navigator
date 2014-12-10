@@ -50,6 +50,7 @@
     // create the attributes
     NAVAttributes *attributes = [NAVAttributes new];
     
+    attributes.source      = source;
     attributes.destination = destination;
     attributes.data        = destination.lastComponent.data;
     attributes.handler     = self.handlerB;

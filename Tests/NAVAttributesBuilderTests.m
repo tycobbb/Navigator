@@ -12,16 +12,26 @@ SpecBegin(NAVAttributesBuilderTests)
 
 describe(@"the attributes builder", ^{
     
+    it(@"should have a source", ^{
+        NAVURL *source = URL(nil);
+        
+        NAVAttributes *attributes = NAVAttributes.builder
+            .build(source);
+        
+        expect(attributes.source).to.equal(source);
+        expect(attributes.destination).toNot.beNil();
+    });
+    
     it(@"should apply transforms", ^{
-        NAVURL *source = URL(@"rocket://tests");
-        NAVURL *destination = URL(@"rocket://tests/are/cool?right=1");
+        NAVURL *source = URL(@"tests");
+        NAVURL *destination = URL(@"tests/are/cool?right=1");
         
         NAVAttributes *attributes = NAVAttributes.builder
             .transform(^(NAVURL *url) { return [url push:@"are"]; })
             .transform(^(NAVURL *url) { return [url push:@"cool"]; })
             .transform(^(NAVURL *url) { return [url updateParameter:@"right" withOptions:NAVParameterOptionsVisible]; })
             .build(source);
-        
+       
         expect(attributes.destination.string).to.equal(destination.string);
     });
     
@@ -71,7 +81,7 @@ describe(@"the attributes builder", ^{
     it(@"should pop components", ^{
         NAVAttributes *attributes = NAVAttributes.builder
             .pop(1)
-            .build(URL(nil));
+            .build(URL(@"test"));
         
         expect(attributes.destination.components.count).to.equal(0);
     });

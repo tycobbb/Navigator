@@ -17,7 +17,7 @@
         _updateBuilder = [NAVUpdateBuilder new];
         _updateBuilder.delegate = self;
         
-        // update the router with it's initial routes
+        // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
         }];
@@ -49,6 +49,7 @@
         return;
     }
     
+    // otherwise, dequeue the next transition and start if from our current url
     NAVTransition *transition = self.transitionQueue.pop;
     self.currentTransition = nil;
     

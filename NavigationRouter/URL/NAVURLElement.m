@@ -44,7 +44,7 @@
 {
     return [object isKindOfClass:[NAVURLComponent class]]
         && [object.key isEqualToString:self.key]
-        && [object.data isEqualToString:self.data];
+        && [object.data ?: @"" isEqualToString:self.data ?: @""];
 }
 
 - (NSUInteger)hash

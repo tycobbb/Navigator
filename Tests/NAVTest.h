@@ -11,7 +11,9 @@
 @interface NAVTest : NSObject
 + (NSString *)scheme;
 + (NAVURL *)url:(NSString *)path;
++ (NSString *)resolvePath:(NSString *)path;
 @end
 
 extern NAVURL * URL(NSString *path);
 extern NSArray * URLs(NSArray *paths);
+extern NSString * URLString(NSString *path);
