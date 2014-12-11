@@ -4,42 +4,57 @@
 //
 
 #import <YOLOKit/YOLO.h>
-#import "NAVURLParser.h"
+#import "NAVUpdateParser.h"
+#import "NAVUpdate.h"
 
-@implementation NAVURLParser
+@implementation NAVUpdateParser
 
-+ (NAVURLParsingResults *)parseFromUrl:(NAVURL *)source toUrl:(NAVURL *)destination
++ (NSArray *)updatesFromAttributes:(NAVAttributes *)attributes
 {
-    NSParameterAssert(source);
-    NSParameterAssert(destination);
+    NSParameterAssert(attributes.source);
+    NSParameterAssert(attributes.destination);
+   
+    // pull out the URLs for convenience of access
+    NAVURL *source = attributes.source;
+    NAVURL *destination = attributes.destination;
     
     // find the deltas beween the diff'd component index and the number of components in each url
     NSInteger componentIndex   = [self divergingIndexFromUrl:source toUrl:destination];
     NSInteger sourceDelta      = [self components:source.components deltaFromIndex:componentIndex];
     NSInteger destinationDelta = [self components:destination.components deltaFromIndex:componentIndex];
-    
-    // find the parameters that are changing
-    NSArray *parametersToDisable = [self parametersToDisableFromUrl:source toUrl:destination];
-    NSArray *parametersToEnable  = [self parametersToEnableFromUrl:source toUrl:destination];
-    
-    // check if we're replacing a component
+
+    // check if we're replacing the root component
     BOOL shouldReplaceRoot = componentIndex == 0;
     
-    // generate the results
-    NAVURLParsingResults *results = [NAVURLParsingResults new];
-    
-    results.componentToReplace  = shouldReplaceRoot ? destination[0] : nil;
-    results.componentsToPop     = shouldReplaceRoot ? @[] : source.components.last(sourceDelta);
-    results.componentsToPush    = destination.components.last(shouldReplaceRoot ? destinationDelta - 1 : destinationDelta);
-    results.parametersToEnable  = parametersToEnable;
-    results.parametersToDisable = parametersToDisable;
-    
-    return results;
+    // pull out the correct components/parameters for the update stesp
+    NSArray *componentsToReplace = shouldReplaceRoot ? destination.components.first(1) : nil;
+    NSArray *componentsToPop     = shouldReplaceRoot ? nil : source.components.last(sourceDelta).first(1);
+    NSArray *componentsToPush    = destination.components.last(shouldReplaceRoot ? destinationDelta - 1 : destinationDelta);
+    NSArray *parametersToDisable = [self parametersToDisableFromUrl:source toUrl:destination];
+    NSArray *parametersToEnable  = [self parametersToEnableFromUrl:source toUrl:destination];
+   
+    // map the components/parameters into updates. updates are sequenced:
+    return @[
+        [self updatesWithType:NAVUpdateTypeAnimation elements:parametersToDisable attributes:attributes],
+        [self updatesWithType:NAVUpdateTypeReplace elements:componentsToReplace attributes:attributes],
+        [self updatesWithType:NAVUpdateTypePop elements:componentsToPop attributes:attributes],
+        [self updatesWithType:NAVUpdateTypePush elements:componentsToPush attributes:attributes],
+        [self updatesWithType:NAVUpdateTypeAnimation elements:parametersToEnable attributes:attributes]
+    ].flatten;
 }
 
 //
 // Helpers
 //
+
++ (NSArray *)updatesWithType:(NAVUpdateType)type elements:(NSArray *)elements attributes:(NAVAttributes *)attributes
+{
+    return (elements ?: @[]).map(^(NAVURLElement *element) {
+        return [[NAVUpdate alloc] initWithType:type element:element attributes:attributes];
+    });
+}
+
+# pragma mark - URL Parsing
 
 + (NSInteger)divergingIndexFromUrl:(NAVURL *)sourceUrl toUrl:(NAVURL *)destinationUrl
 {
@@ -96,5 +111,3 @@
 }
 
 @end
-
-@implementation NAVURLParsingResults @end

@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NAVTransition *currentTransition;
 @property (strong, nonatomic) NAVTransition *lastTransition;
 @property (strong, nonatomic) NSMutableArray *transitionQueue;
-@property (strong, nonatomic) NAVUpdateBuilder *updateBuilder;
 @end
 
 @interface NAVRouterPrototype : NSObject

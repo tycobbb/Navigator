@@ -5,8 +5,7 @@
 
 @import Foundation;
 
-#import "NAVAttributes.h"
-#import "NAVUpdateBuilder.h"
+#import "NAVUpdate.h"
 
 @protocol NAVTransitionDelegate;
 
@@ -67,11 +66,10 @@
  The transition populates its attributes appropriately and then generates and runs a sequence of
  interface updates.
  
- @param url           The URL to transition from, which will be used to determine the list of updates
- @param updateBuilder The update builder to generate updates with during parsing
+ @param url The URL to transition from, which will be used to determine the list of updates
 */
 
-- (void)startFromUrl:(NAVURL *)url withUpdateBuilder:(NAVUpdateBuilder *)updateBuilder;
+- (void)startFromUrl:(NAVURL *)url;
 
 @end
 

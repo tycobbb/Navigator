@@ -13,9 +13,6 @@
         // allocate transition queue
         _transitionQueue = [NSMutableArray new];
         
-        // create an update builder that we can use to construct updates for transitions
-        _updateBuilder = [NAVUpdateBuilder new];
-        
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
@@ -52,7 +49,7 @@
     NAVTransition *transition = self.transitionQueue.pop;
     self.currentTransition = nil;
     
-    [transition startFromUrl:self.currentUrl withUpdateBuilder:self.updateBuilder];
+    [transition startFromUrl:self.currentUrl];
 }
 
 # pragma mark - NAVTransitionDelegate

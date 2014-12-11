@@ -18,6 +18,21 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 @interface NAVUpdate : NSObject
 
 /**
+ @brief Initializes a new update of the specified type
+
+ All parameters are required. Failure to pass a valid value for one of the parameters
+ results in an exception.
+ 
+ @param type       The type of update
+ @param element    The URL element assosciated with this update
+ @param attributes The attribtues corresponding to this update
+ 
+ @return A new update instance
+*/
+
+- (instancetype)initWithType:(NAVUpdateType)type element:(NAVURLElement *)element attributes:(NAVAttributes *)attributes;
+
+/**
  @brief The type of this update
  
  If the update type is .Push, .Pop, or .Replace, then this update is a change to the

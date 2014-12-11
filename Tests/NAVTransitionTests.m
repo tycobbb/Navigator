@@ -9,11 +9,9 @@ SpecBegin(NAVTransitionTests)
 
 describe(@"the transition", ^{
   
-    NAVUpdateBuilder *updateBuilder = [NAVUpdateBuilder new];
-    
     NAVTransition *(^transitionTo)(NAVAttributesBuilder *) = ^(NAVAttributesBuilder *builder) {
         NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:builder];
-        [transition startFromUrl:URL(nil) withUpdateBuilder:updateBuilder];
+        [transition startFromUrl:URL(nil)];
         return transition;
     };
    
