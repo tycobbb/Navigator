@@ -9,18 +9,18 @@ SpecBegin(NAVTransitionTests)
 
 describe(@"the transition", ^{
   
-    NAVTransition *(^transitionTo)(NAVAttributesBuilder *) = ^(NAVAttributesBuilder *builder) {
+    NAVTransition *(^mockTransition)(NSString *, NAVAttributesBuilder *) = ^(NSString *path, NAVAttributesBuilder *builder) {
         NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:builder];
-        [transition startFromUrl:URL(nil)];
+        [transition startFromUrl:URL(path ?: @"root")];
         return transition;
     };
    
     it(@"should require an attributes builder", ^{
-        expect(^{ transitionTo(nil); }).to.raise(NSInternalInconsistencyException);
+        expect(^{ mockTransition(nil, nil); }).to.raise(NSInternalInconsistencyException);
     });
     
     it(@"should support push updates", ^{
-        NAVTransition *transition = transitionTo(NAVAttributes.builder
+        NAVTransition *transition = mockTransition(nil, NAVAttributes.builder
             .push(@"test2")
         );
         
@@ -30,7 +30,7 @@ describe(@"the transition", ^{
     });
     
     it(@"should support pop updates", ^{
-        NAVTransition *transition = transitionTo(NAVAttributes.builder
+        NAVTransition *transition = mockTransition(@"comp1/comp2", NAVAttributes.builder
             .pop(1)
         );
         
@@ -40,7 +40,7 @@ describe(@"the transition", ^{
     });
     
     it(@"should support replace updates", ^{
-        NAVTransition *transition = transitionTo(NAVAttributes.builder
+        NAVTransition *transition = mockTransition(nil, NAVAttributes.builder
             .transform(^(NAVURL *url) {
                 return URL([NSString stringWithFormat:@"%@://replace", NAVTest.scheme]);
             })
@@ -52,7 +52,7 @@ describe(@"the transition", ^{
     });
     
     it(@"should support animation updates", ^{
-        NAVTransition *transition = transitionTo(NAVAttributes.builder
+        NAVTransition *transition = mockTransition(nil, NAVAttributes.builder
             .parameter(@"param", NAVParameterOptionsVisible)
         );
         
@@ -64,7 +64,7 @@ describe(@"the transition", ^{
     it(@"should sequence updates", ^{
         NSArray *types = @[ @(NAVUpdateTypePush), @(NAVUpdateTypePush), @(NAVUpdateTypeAnimation) ];
         
-        NAVTransition *transition = transitionTo(NAVAttributes.builder
+        NAVTransition *transition = mockTransition(nil, NAVAttributes.builder
             .parameter(@"param", NAVParameterOptionsVisible)
             .push(@"push1")
             .push(@"push2")

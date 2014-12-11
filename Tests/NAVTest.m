@@ -19,7 +19,7 @@
 
 + (NSString *)resolvePath:(NSString *)path
 {
-    return [NSString stringWithFormat:@"%@://%@", self.scheme, path ?: @""];
+    return [path hasPrefix:self.scheme] ? path : [NSString stringWithFormat:@"%@://%@", self.scheme, path ?: @""];
 }
 
 @end
