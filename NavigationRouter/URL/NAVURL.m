@@ -5,6 +5,7 @@
 
 #import <YOLOKit/YOLO.h>
 #import "NAVURL.h"
+#import "NAVRouterUtilities.h"
 #import "YOLT.h"
 
 NSString * const NAVExceptionMalformedUrl = @"rocket.malformed.url";
@@ -69,9 +70,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     NSArray *majorSubdivisions = path.split(@"://");
     
     // validate that we have the correct number of components
-    if(majorSubdivisions.count != 2) {
-        [NSException raise:NAVExceptionMalformedUrl format:@"No scheme found for path: %@", path];
-    }
+    NAVAssert(majorSubdivisions.count == 2, NAVExceptionMalformedUrl, @"No scheme found for path: %@", path);
     
     NSString *scheme       = majorSubdivisions[0];
     NSString *relativePath = majorSubdivisions[1];
@@ -80,9 +79,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     NSArray *minorSubdivisions = relativePath.split(@"?");
     
     // validate that we don't have too many minor subdivisions
-    if(majorSubdivisions.count > 2) {
-        [NSException raise:NAVExceptionMalformedUrl format:@"Only one query string is allowed for path: %@", path];
-    }
+    NAVAssert(minorSubdivisions.count <= 2, NAVExceptionMalformedUrl, @"Only one query string is allowed for path: %@", path);
 
     return @[
         scheme,
@@ -128,11 +125,9 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     
     // seperate subpath based on data delimiter
     NSArray *components = string.split(@"::");
-    // validate that we don't have too many data strings
-    if(components.count > 2) {
-        [NSException raise:NAVExceptionMalformedUrl format:@"Only one data string is allowed for subpath: %@", string];
-    }
     
+    // validate that we don't have too many data strings
+    NAVAssert(components.count <= 2, NAVExceptionMalformedUrl, @"Only one data string is allowed for subpath: %@", string);
     NSString *dataString = components.count > 1 ? components[1] : nil;
 
     return [[NAVURLComponent alloc] initWithKey:components.firstObject data:dataString index:index];
@@ -144,9 +139,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
     NSArray *pair = string.split(@"=");
     
     // validate that we have the right number of elements
-    if(pair.count != 2) {
-        [NSException raise:NAVExceptionMalformedUrl format:@"Parameter must have key and value: %@", string];
-    }
+    NAVAssert(pair.count == 2, NAVExceptionMalformedUrl, @"Parameter must have key and value: %@", string);
     
     return [[NAVURLParameter alloc] initWithKey:pair[0] options:[pair[1] integerValue]];
 }
@@ -200,10 +193,8 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 - (NAVURL *)push:(NSString *)subpath
 {
-    if(!subpath) {
-        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@; cannot push a nil subpath", self];
-    }
-    
+    NAVAssert(subpath, NAVExceptionIllegalUrlMutation, @"%@; cannot push a nil subpath", self);
+
     NAVURL *result = [self copy];
     
     // create component from subpath (if possible)
@@ -215,9 +206,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 - (NAVURL *)pop:(NSUInteger)count
 {
-    if(count > self.components.count) {
-        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@ doesn't have %d components to pop", self, (int)count];
-    }
+    NAVAssert(count <= self.components.count, NAVExceptionIllegalUrlMutation, @"%@ doesn't have %d components to pop", self, (int)count);
     
     NAVURL *result = [self copy];
     result.components = result.components.snip(count);
@@ -227,9 +216,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 - (NAVURL *)updateParameter:(NSString *)key withOptions:(NAVParameterOptions)options
 {
-    if(!key) {
-        [NSException raise:NAVExceptionIllegalUrlMutation format:@"%@ can't update a parameter with a nil name", self];
-    }
+    NAVAssert(key, NAVExceptionIllegalUrlMutation, @"%@ can't update a parameter with a nil name", self);
     
     NAVURL *result = [self copy];
 

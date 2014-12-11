@@ -6,6 +6,7 @@
 @import Foundation;
 
 #import "NAVUpdate.h"
+#import "NAVRoute.h"
 
 @protocol NAVTransitionDelegate;
 
@@ -74,6 +75,20 @@
 @end
 
 @protocol NAVTransitionDelegate <NSObject>
+
+/**
+ @brief Hook for the delegate to access routes
+ 
+ The transition asks for the routes in order to execute its updates properly. If no route
+ is found, the transition throw's an exception.
+ 
+ @param transition The transition asking for the route
+ @param element    The element used to access the route
+ 
+ @return A route correpsonding to this element, or nil
+*/
+
+- (NAVRoute *)transition:(NAVTransition *)transition routeForUrlElement:(NAVURLElement *)element;
 
 /**
  @brief Notifies the delegate that the transition finished

@@ -54,6 +54,11 @@
 
 # pragma mark - NAVTransitionDelegate
 
+- (NAVRoute *)transition:(NAVTransition *)transition routeForUrlElement:(NAVURLElement *)element
+{
+    return self.routes[element.key];
+}
+
 - (void)transitionDidComplete:(NAVTransition *)transition
 {
     self.lastTransition = transition;
@@ -126,3 +131,20 @@ char *prototypeKey;
 @end
 
 @implementation NAVRouterPrototype @end
+
+# pragma mark - Utilities
+
+void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
+{
+    if(condition) {
+        return;
+    }
+    
+    va_list args;
+    va_start(args, format);
+    
+    NSString *reason = [[NSString alloc] initWithFormat:format arguments:args];
+    [[NSException exceptionWithName:name reason:reason userInfo:nil] raise];
+    
+    va_end(args);
+}
