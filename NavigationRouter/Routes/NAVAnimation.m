@@ -12,6 +12,13 @@
     
 }
 
+# pragma mark - NAVRouteDestinatoin
+
+- (void)updateWithAttributes:(id)attributes
+{
+    
+}
+
 # pragma mark - Listeners
 
 - (void)onPresentation:(void (^)(void))block

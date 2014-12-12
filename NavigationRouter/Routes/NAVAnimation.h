@@ -5,18 +5,9 @@
 
 @import Foundation;
 
-@protocol NAVAnimator;
+#import "NAVRouteDestination.h"
 
 @interface NAVAnimation : NSObject
-
-/**
- @brief The object that implements the animation
- 
- The animator performs the view updates necessary to run the animation. The NAVAnimation 
- instance, on the other hand, manages the interaction between the animator and the router.
-*/
-
-@property (weak  , nonatomic) id<NAVAnimator> animator;
 
 /**
  @brief Flag indicating whether the animator is visible
@@ -60,21 +51,5 @@
 */
 
 - (void)onDismissal:(void(^)(void))block;
-
-@end
-
-@protocol NAVAnimator <NSObject>
-
-/**
- @brief Animates the view to resolve the transition
-
- The animation will call this method when the router internally triggers the animation as a result of
- an external url change. If the animation occurs in any other way, this method will not be called.
- 
- @param animation The animation that triggere the update
- @param isVisible Flag indicating if the animation to animate to the visible state
-*/
-
-- (void)animation:(NAVAnimation *)animation transitionToVisible:(BOOL)isVisible;
 
 @end

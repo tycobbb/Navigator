@@ -5,6 +5,8 @@
 
 @import Foundation;
 
+#import "NAVRouteDestination.h"
+
 typedef NS_ENUM(NSInteger, NAVRouteType) {
     NAVRouteTypeUnknown,
     NAVRouteTypeStack,

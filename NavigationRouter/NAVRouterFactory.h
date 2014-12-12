@@ -8,7 +8,9 @@
 
 #import "NAVRoute.h"
 #import "NAVAttributes.h"
+#import "NAVAnimation.h"
 
 @protocol NAVRouterFactory <NSObject>
-
+- (UIViewController<NAVRouteDestination> *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
+- (NAVAnimation *)animationForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
 @end

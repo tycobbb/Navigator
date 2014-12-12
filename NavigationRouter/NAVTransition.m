@@ -5,6 +5,8 @@
 
 #import "NAVTransition.h"
 #import "NAVUpdateParser.h"
+#import "NAVRouterUtilities.h"
+#import "NAVRouterConstants.h"
 
 @interface NAVTransition ()
 @property (strong, nonatomic) NAVAttributesBuilder *attributesBuilder;
@@ -51,15 +53,14 @@
     
     // get the route for this update
     NAVRoute *route = [self.delegate transition:self routeForUrlElement:update.element];
-    if(!route) {
-        
-    }
-    
+    NAVAssert(route, NAVExceptionNoRouteFound, @"No route found for %@", update.element);
 }
 
-- (void)didCompleteAtIndex:(NSInteger)index
+- (void)didCompleteAtIndex:(NSInteger)ndex
 {
     
 }
 
 @end
+
+NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";

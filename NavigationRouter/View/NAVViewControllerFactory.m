@@ -15,9 +15,13 @@
     
     // create thew view controller, and update it with the attributes
     NAVViewController *controller = [klass instance];
-    [controller updateWithAttributes:attributes];
     
     return controller;
+}
+
+- (NAVAnimation *)animationForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
+{
+    return route.destination;
 }
 
 @end

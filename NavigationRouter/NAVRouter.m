@@ -31,6 +31,7 @@
     transition.isAnimated = isAnimated;
     transition.completion = completion;
     transition.delegate   = self;
+    transition.factory    = self.factory;
     
     // enqueue the transition, and then immediately dequeue it if possible
     self.transitionQueue.pushFront(transition);

@@ -3,10 +3,9 @@
 //  NavigationRouter
 //
 
-@import Foundation;
-
 #import "NAVUpdate.h"
 #import "NAVRoute.h"
+#import "NAVRouterFactory.h"
 
 @protocol NAVTransitionDelegate;
 
@@ -20,6 +19,15 @@
 */
 
 @property (weak, nonatomic) id<NAVTransitionDelegate> delegate;
+
+/**
+ @brief A factory to to build the views, animators necessary to resolve updates
+
+ The transition leverages the factory during update execution to properly resolve the
+ update just-in-time.
+*/
+
+@property (weak, nonatomic) id<NAVRouterFactory> factory;
 
 /**
  @brief The view updates to run for this transition

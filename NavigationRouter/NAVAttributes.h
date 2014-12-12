@@ -3,10 +3,10 @@
 //  NavigationRouter
 //
 
+@import Foundation;
+
 #import "NAVURL.h"
 #import "NAVAttributesBuilder.h"
-
-@import Foundation;
 
 @interface NAVAttributes : NSObject
 

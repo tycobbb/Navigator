@@ -4,6 +4,7 @@
 //
 
 #import "NAVViewController.h"
+#import "NAVRouterUtilities.h"
 
 @implementation NAVViewController
 
@@ -25,7 +26,7 @@
 
 + (NSString *)storyboardName
 {
-    [NSException raise:NAVExceptionViewConfiguration format:@"NAVViewController must specify a storyboard name"];
+    NAVAssert(false, NAVExceptionViewConfiguration, @"NAVViewController must specify a storyboard name");
     return nil;
 }
 

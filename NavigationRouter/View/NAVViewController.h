@@ -5,9 +5,9 @@
 
 @import UIKit;
 
-#import "NAVAttributes.h"
+#import "NAVRouteDestination.h"
 
-@protocol NAVViewController <NSObject>
+@protocol NAVViewController <NAVRouteDestination>
 
 /**
  @brief Factory method to construct view controller instances
@@ -26,19 +26,6 @@
 @end
 
 @interface NAVViewController : UIViewController <NAVViewController>
-
-/**
- @brief Updates the view controller with the executing transition's attributes
- 
- Attributes contain the transitioninging URLs as well as any user object the initiator 
- of the transition may want to pass to the view controller.
- 
- Subclasses should override this method to capture information passed to them by other views.
- 
- @param attribtues The attributes sent along by the transition initiator.
-*/
-
-- (void)updateWithAttributes:(NAVAttributes *)attributes;
 
 /**
  @brief Specifies the storyboard identifier for this view controller.
