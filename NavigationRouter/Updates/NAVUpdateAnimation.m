@@ -17,7 +17,7 @@
     NAVAnimation *animation = [factory animationForRoute:route withAttributes:self.attributes];
     
     if(!animation) {
-    
+        
     }
     
     self.animation = animation;

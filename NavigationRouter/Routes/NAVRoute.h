@@ -20,3 +20,5 @@ typedef NS_ENUM(NSInteger, NAVRouteType) {
 @property (copy  , nonatomic) NSString *path;
 @property (strong, nonatomic) id destination;
 @end
+
+extern BOOL NAVRouteTypeIsAnimator(NAVRouteType);

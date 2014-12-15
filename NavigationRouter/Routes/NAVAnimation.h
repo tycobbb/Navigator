@@ -6,10 +6,11 @@
 @import Foundation;
 
 #import "NAVRouteDestination.h"
+#import "NAVRouterFactory.h"
 
 @protocol NAVAnimationDelegate;
 
-@interface NAVAnimation : NSObject
+@interface NAVAnimation : NSObject <NAVRouteDestination>
 
 /// Notifier for animation lifecycle events
 @property (weak, nonatomic) id<NAVAnimationDelegate> delegate;

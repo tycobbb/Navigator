@@ -91,6 +91,39 @@
     routingBlock(routeBuilder);
     
     self.routes = routeBuilder.routes;
+    
+    // hook into any newly added animators
+    for(NAVRoute *route in routeBuilder.addedRoutes) {
+        // make sure we have an animator; this might modify the route destination
+        NAVAnimation *animation = [self ensureAnimationForRoute:route];
+        // we want to get animator callbacks so that we can keep ourselves in sync
+        animation.delegate = self;
+    }
+}
+
+//
+// Helpers
+//
+
+- (NAVAnimation *)ensureAnimationForRoute:(NAVRoute *)route
+{
+    // we don't have one if the route doesn't use an animator
+    if(!NAVRouteTypeIsAnimator(route.type)) {
+        return nil;
+    }
+    // create the animator internally for any route type that require it
+    else if(route.type == NAVRouteTypeModal) {
+        route.destination = [[NAVAnimationModal alloc] initWithRoute:route];
+    }
+    
+    return route.destination;
+}
+
+# pragma mark - NAVAnimatorDelegate
+
+- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
+{
+    
 }
 
 # pragma mark - Accessors
@@ -165,3 +198,4 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
 # pragma mark - Constants
 
 NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";
+NSString * const NAVExceptionInvalidRoute = @"router.invalid.route";

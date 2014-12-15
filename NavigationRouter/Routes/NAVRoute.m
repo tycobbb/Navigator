@@ -19,3 +19,7 @@
 }
 
 @end
+
+BOOL NAVRouteTypeIsAnimator(NAVRouteType type) {
+    return type >= NAVRouteTypeAnimation;
+}
