@@ -4,6 +4,7 @@
 //
 
 #import "NAVAnimation.h"
+#import "NAVRoute.h"
 
 @interface NAVAnimationModal : NAVAnimation
 

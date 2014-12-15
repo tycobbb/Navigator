@@ -4,6 +4,7 @@
 //
 
 #import "NAVAnimation.h"
+#import "NAVRouterFactory.h"
 #import "NAVRouterUtilities.h"
 
 @implementation NAVAnimation
@@ -43,15 +44,27 @@
     
     _isVisible = isVisible;
     
-    [self updatedIsVisible:isVisible animated:animated completion:^(BOOL finished) {
-        [self.delegate animation:self didUpdateIsVisible:isVisible];
+    [self updateIsVisible:isVisible animated:animated completion:^(BOOL finished) {
+        [self didFinishAnimationToVisible:isVisible];
         nav_call(completion)(finished);
     }];
 }
 
-- (void)updatedIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+# pragma mark - Lifecycle
+
+- (void)prepareForAnimationWithFactory:(id<NAVRouterFactory>)factory
 {
 
+}
+
+- (void)updateIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+{
+    
+}
+
+- (void)didFinishAnimationToVisible:(BOOL)isVisible
+{
+    [self.delegate animation:self didUpdateIsVisible:isVisible];
 }
 
 @end

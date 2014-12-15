@@ -11,6 +11,6 @@
 #import "NAVAnimation.h"
 
 @protocol NAVRouterFactory <NSObject>
-- (UIViewController<NAVRouteDestination> *)controllerForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
-- (NAVAnimation *)animationForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes;
+- (UIViewController<NAVRouteDestination> *)controllerForRoute:(NAVRoute *)route;
+- (NAVAnimation *)animationForRoute:(NAVRoute *)route;
 @end

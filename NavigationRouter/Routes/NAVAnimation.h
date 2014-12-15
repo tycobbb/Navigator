@@ -6,9 +6,8 @@
 @import Foundation;
 
 #import "NAVRouteDestination.h"
-#import "NAVRouterFactory.h"
 
-@protocol NAVAnimationDelegate;
+@protocol NAVAnimationDelegate, NAVRouterFactory;
 
 @interface NAVAnimation : NSObject <NAVRouteDestination>
 
@@ -38,6 +37,21 @@
 
 - (void)setIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL))completion;
 
+@end
+
+@interface NAVAnimation (Lifecycle)
+
+/**
+ @brief Called before the update is attempted
+ 
+ This hook gives the animation the ability to prepare its internal state before animating. Note, this
+ method is only called for updates run internally by the router.
+
+ @param factory The factory to create view controllers/animators if necessary.
+*/
+
+- (void)prepareForAnimationWithFactory:(id<NAVRouterFactory>)factory;
+
 /**
  @brief Performs the view updates to resolve the animation
  
@@ -49,7 +63,18 @@
  @param completion Callback when the animation completes
 */
 
-- (void)updatedIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL))completion;
+- (void)updateIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL))completion;
+
+/**
+ @brief Called after the animation finishes
+ 
+ This hook gets called regardless of whether the animation was triggered via a router update or
+ externally.
+ 
+ @param isVisible The new animation state
+*/
+
+- (void)didFinishAnimationToVisible:(BOOL)isVisible;
 
 @end
 

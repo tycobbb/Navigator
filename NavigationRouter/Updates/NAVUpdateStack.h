@@ -16,6 +16,6 @@
  relied upon until the update is being performed.
 */
 
-@property (strong, nonatomic) UIViewController *controller;
+@property (strong, nonatomic) UIViewController<NAVRouteDestination> *controller;
 
 @end

@@ -10,7 +10,8 @@
 
 - (void)prepareWithRoute:(NAVRoute *)route factory:(id<NAVRouterFactory>)factory
 {
-    self.controller = [factory controllerForRoute:route withAttributes:self.attributes];
+    [self setController:[factory controllerForRoute:route]];
+    [self.controller updateWithAttributes:self.attributes];
 }
 
 - (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void (^)(BOOL))completion
