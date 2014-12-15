@@ -91,6 +91,11 @@
     return (self.options & NAVParameterOptionsVisible) == NAVParameterOptionsVisible;
 }
 
+- (BOOL)isAnimated
+{
+    return (self.options & NAVParameterOptionsUnanimated) == 0;
+}
+
 - (NSString *)value
 {
     // if we're not visible just show nothing

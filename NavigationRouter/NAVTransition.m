@@ -8,7 +8,7 @@
 #import "NAVRouterUtilities.h"
 #import "NAVRouterConstants.h"
 
-@interface NAVTransition ()
+@interface NAVTransition () <NAVUpdateDelegate>
 @property (strong, nonatomic) NAVAttributesBuilder *attributesBuilder;
 @property (strong, nonatomic) NSArray *updates;
 @end
@@ -35,8 +35,15 @@
 {
     // generate the attributes with our start URL
     NAVAttributes *attributes = self.attributesBuilder.build(url);
+   
     // and parse it into a sequence of updates
     self.updates = [NAVUpdateParser updatesFromAttributes:attributes];
+   
+    // we'll respond to update lifecycle events
+    for(NAVUpdate *update in self.updates) {
+        update.delegate = self;
+    }
+    
     // kick off the update execution
     [self executeUpdateAtIndex:0];
 }
@@ -51,16 +58,25 @@
     
     NAVUpdate *update = self.updates[index];
     
-    // get the route for this update
-    NAVRoute *route = [self.delegate transition:self routeForUrlElement:update.element];
-    NAVAssert(route, NAVExceptionNoRouteFound, @"No route found for %@", update.element);
+    // populate the update with its destination, etc.
+    [self.delegate transition:self prepareUpdate:update];
+    
+    // run the update, and then kick off the next update when it's finished
+    [self.delegate transition:self performUpdate:update completion:^(BOOL finished) {
+        [self executeUpdateAtIndex:index + 1];
+    }];
 }
 
-- (void)didCompleteAtIndex:(NSInteger)ndex
+- (void)didCompleteAtIndex:(NSInteger)index
 {
-    
+    [self.delegate transitionDidComplete:self];
+}
+
+# pragma mark - NAVUpdateDelegate
+
+- (BOOL)shouldAnimateUpdate:(NAVUpdate *)update
+{
+    return self.isAnimated;
 }
 
 @end
-
-NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";

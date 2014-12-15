@@ -79,7 +79,16 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
  invisible will be removed from the URL.
 */
 
-@property (assign, nonatomic, readonly) BOOL isVisible;
+@property (nonatomic, readonly) BOOL isVisible;
+
+/**
+ @brief Indicates whether or not the parameter change should be animated
+ 
+ Pass-through to the paramter options. If isAnimated is NO, the change will not be animated
+ even if the overall transition is animated.
+*/
+
+@property (nonatomic, readonly) BOOL isAnimated;
 
 /**
  @brief Options indicating how to present the view assosciated with this parameter

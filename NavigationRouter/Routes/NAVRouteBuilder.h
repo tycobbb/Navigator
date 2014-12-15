@@ -9,6 +9,8 @@
 @interface NAVRouteBuilder : NSObject
 
 @property (nonatomic, readonly) NSMutableDictionary *routes;
+@property (nonatomic, readonly) NSMutableArray *addedRoutes;
+@property (nonatomic, readonly) NSMutableArray *removedRoutes;
 
 - (instancetype)initWithRoutes:(NSDictionary *)routes;
 

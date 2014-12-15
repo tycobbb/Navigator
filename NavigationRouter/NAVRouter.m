@@ -31,7 +31,6 @@
     transition.isAnimated = isAnimated;
     transition.completion = completion;
     transition.delegate   = self;
-    transition.factory    = self.factory;
     
     // enqueue the transition, and then immediately dequeue it if possible
     self.transitionQueue.pushFront(transition);
@@ -55,9 +54,22 @@
 
 # pragma mark - NAVTransitionDelegate
 
-- (NAVRoute *)transition:(NAVTransition *)transition routeForUrlElement:(NAVURLElement *)element
+- (void)transition:(NAVTransition *)transition prepareUpdate:(NAVUpdate *)update
 {
-    return self.routes[element.key];
+    // find the corresponding route
+    NAVRoute *route = self.routes[update.element.key];
+   
+    // we can't proceeed without a route
+    NAVAssert(route, NAVExceptionNoRouteFound, @"No route found for element: %@", update.element.key);
+    
+    // allow the update to do its own internal preperation
+    [update prepareWithRoute:route factory:self.factory];
+}
+
+- (void)transition:(NAVTransition *)transition performUpdate:(NAVUpdate *)update completion:(void (^)(BOOL))completion
+{
+    // allow the update to run itself with our updater
+    [update performWithUpdater:self.updater completion:completion];
 }
 
 - (void)transitionDidComplete:(NAVTransition *)transition
@@ -149,3 +161,7 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
     
     va_end(args);
 }
+
+# pragma mark - Constants
+
+NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";

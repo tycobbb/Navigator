@@ -21,7 +21,7 @@
 
 - (NAVAnimation *)animationForRoute:(NAVRoute *)route withAttributes:(NAVAttributes *)attributes
 {
-    return route.destination;
+    return route.type == NAVRouteTypeAnimation ? route.destination : nil;
 }
 
 @end

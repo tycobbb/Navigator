@@ -21,15 +21,6 @@
 @property (weak, nonatomic) id<NAVTransitionDelegate> delegate;
 
 /**
- @brief A factory to to build the views, animators necessary to resolve updates
-
- The transition leverages the factory during update execution to properly resolve the
- update just-in-time.
-*/
-
-@property (weak, nonatomic) id<NAVRouterFactory> factory;
-
-/**
  @brief The view updates to run for this transition
     
  The updates are stored sequentially, and each update encapsulates the information
@@ -85,18 +76,27 @@
 @protocol NAVTransitionDelegate <NSObject>
 
 /**
- @brief Hook for the delegate to access routes
+ @brief Prepares the update for execution
  
- The transition asks for the routes in order to execute its updates properly. If no route
- is found, the transition throw's an exception.
+ The delegate should populate the information necessary to run its transition.
  
- @param transition The transition asking for the route
- @param element    The element used to access the route
- 
- @return A route correpsonding to this element, or nil
+ @param transition The transition executing this update
+ @param update     The update to prepare
 */
 
-- (NAVRoute *)transition:(NAVTransition *)transition routeForUrlElement:(NAVURLElement *)element;
+- (void)transition:(NAVTransition *)transition prepareUpdate:(NAVUpdate *)update;
+
+/**
+ @brief Performs the update
+ 
+ The delegate should run the update, and call the completion when it's finished.
+ 
+ @param transition The transition managing this update
+ @param update     The update to run
+ @param completion The calback when the update is finished
+*/
+
+- (void)transition:(NAVTransition *)transition performUpdate:(NAVUpdate *)update completion:(void(^)(BOOL))completion;
 
 /**
  @brief Notifies the delegate that the transition finished

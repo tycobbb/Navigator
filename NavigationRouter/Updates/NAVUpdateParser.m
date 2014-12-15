@@ -50,7 +50,7 @@
 + (NSArray *)updatesWithType:(NAVUpdateType)type elements:(NSArray *)elements attributes:(NAVAttributes *)attributes
 {
     return (elements ?: @[]).map(^(NAVURLElement *element) {
-        return [[NAVUpdate alloc] initWithType:type element:element attributes:attributes];
+        return [NAVUpdate updateWithType:type element:element attributes:attributes];
     });
 }
 

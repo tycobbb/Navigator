@@ -5,7 +5,9 @@
 
 @import Foundation;
 
+#import "NAVRoute.h"
 #import "NAVAttributes.h"
+#import "NAVRouterFactory.h"
 
 typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypeUnknown,
@@ -15,7 +17,45 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypeAnimation,
 };
 
+@protocol NAVUpdateDelegate, NAVRouterUpdater;
+
 @interface NAVUpdate : NSObject
+
+/**
+ @brief Provides the update information about how it should perform
+*/
+
+@property (weak, nonatomic) id<NAVUpdateDelegate> delegate;
+
+/**
+ @brief The type of this update
+ 
+ If the update type is .Push, .Pop, or .Replace, then this update is a change to the
+ view stack. The destination of the route should be a view controller class.
+ 
+ IF the update type is .Animation, then this update is a change to a view independent
+ of the view stack. The destination of this route should be a NAVAnimation.
+*/
+
+@property (nonatomic, readonly) NAVUpdateType type;
+
+/**
+ @brief The URL element assosciated to this update
+
+ The URL element is used to determine the route assosciated with this update when
+ it needs to be performed.
+*/
+
+@property (nonatomic, readonly) NAVURLElement *element;
+
+/**
+ @brief The attributes assosciated to this update
+ 
+ The attributes will be delivered to the route's destination object during the update's
+ execution.
+*/
+
+@property (nonatomic, readonly) NAVAttributes *attributes;
 
 /**
  @brief Initializes a new update of the specified type
@@ -30,37 +70,46 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
  @return A new update instance
 */
 
-- (instancetype)initWithType:(NAVUpdateType)type element:(NAVURLElement *)element attributes:(NAVAttributes *)attributes;
++ (instancetype)updateWithType:(NAVUpdateType)type element:(NAVURLElement *)element attributes:(NAVAttributes *)attributes;
 
 /**
- @brief The type of this update
+ @brief Provides the update a hook to configure itself before performing
  
- If the update type is .Push, .Pop, or .Replace, then this update is a change to the
- view stack. The destination of the route should be a view controller class.
+ The route contains information about what controller to show or animations to run.
  
- IF the update type is .Animation, then this update is a change to a view independent
- of the view stack. The destination of this route should be a NAVAnimation.
+ @param route   A navigation route containing the destination information
+ @param factory A factory for constructing the necessary components to execute the update
 */
 
-@property (assign, nonatomic) NAVUpdateType type;
+- (void)prepareWithRoute:(NAVRoute *)route factory:(id<NAVRouterFactory>)factory;
 
 /**
- @brief The URL element assosciated to this update
-
- The URL element is used to determine the route assosciated with this update when
- it needs to be performed.
+ @brief Performs the update with the given updater
+ 
+ The update may or may not take advantage of the updater. It should call back the completion 
+ when it's finished running.
+ 
+ @param updater    The updater for interacting with the application outside the router
+ @param completion A callback when the update finishes
 */
 
-@property (strong, nonatomic) NAVURLElement *element;
+- (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void(^)(BOOL))completion;
 
+@end
+
+@protocol NAVUpdateDelegate <NSObject>
 
 /**
- @brief The attributes assosciated to this update
+ @brief Tells the update whether to animate
  
- The attributes will be delivered to the route's destination object during the update's
- execution.
+ The update still makes the final decision about whether to animate internally if this method 
+ returns YES, but if it returns NO the update will not animate.
+ 
+ @param update The update in question
+ 
+ @return Whether or not the update should animate
 */
 
-@property (strong, nonatomic) NAVAttributes *attributes;
+- (BOOL)shouldAnimateUpdate:(NAVUpdate *)update;
 
 @end

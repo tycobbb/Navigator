@@ -7,7 +7,12 @@
 
 #import "NAVRouteDestination.h"
 
+@protocol NAVAnimationDelegate;
+
 @interface NAVAnimation : NSObject
+
+/// Notifier for animation lifecycle events
+@property (weak, nonatomic) id<NAVAnimationDelegate> delegate;
 
 /**
  @brief Flag indicating whether the animator is visible
@@ -20,36 +25,45 @@
 @property (assign, nonatomic) BOOL isVisible;
 
 /**
- @brief Executes the animation
+ @brief Updates the visible state of the animation
  
- The animation will call its animator to perfrom the UI updates, and will do any necessary
- bookkeeping to keep the router and animator in sync.
+ If the isVisible state did not actually change, no animation is run and the completion
+ is called immediately.
  
- @param isVisible Flag indicating whether the animation is visible
+ @param isVisible  Flag indicating whether the animation is visible
+ @param animated   Flag indicating whether the transition is animated
+ @param completion Callback when the animation completes
 */
 
-- (void)animateToVisible:(BOOL)isVisible;
+- (void)setIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL))completion;
 
 /**
- @brief Registers a callback called when the animation transitions to isVisible
+ @brief Performs the view updates to resolve the animation
  
- After the callback is run, it is immediately destroyed. If multiple callbacks are required, then
- the the caller should re-register the callback inside its @c onPresentation: block.
-
- @param block The block to execute when the animation is presented
+ This method is only called if visibility actually changes. Subclasses must call back the completion
+ correctly when the animation finishes.
+ 
+ @param isVisible  Flag indicating whether the animation is visible
+ @param animated   Flag indicating whether the transition is animated
+ @param completion Callback when the animation completes
 */
 
-- (void)onPresentation:(void(^)(void))block;
+- (void)updatedIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void(^)(BOOL))completion;
+
+@end
+
+@protocol NAVAnimationDelegate <NSObject>
 
 /**
- @brief Registers a callback called when the animation transitions to !isVisible
+ @brief Notifies the delegate when the animation's state changes
  
- After the callback is run, it is immediately destroyed. If multiple callbacks are required, then
- the the caller should re-register the callback inside its @c onDismissal: block.
-
- @param block The block to execute when the animation is dismissed
+ The router uses this internally to synchronize the current URL when animation happen
+ outside a routing callback.
+ 
+ @param animation The animation that is updating
+ @param isVisible Flag indiciating whether the animation is visible
 */
 
-- (void)onDismissal:(void(^)(void))block;
+- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible;
 
 @end

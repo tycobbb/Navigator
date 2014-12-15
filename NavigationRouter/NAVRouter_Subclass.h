@@ -4,6 +4,7 @@
 //
 
 #import "NAVRouter.h"
+#import "NAVRouterConstants.h"
 #import "NAVRouterUtilities.h"
 
 @interface NAVRouter (Subclass)

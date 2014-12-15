@@ -14,8 +14,12 @@
 
 - (instancetype)initWithRoutes:(NSDictionary *)routes
 {
-    if(self = [super init])
+    if(self = [super init]) {
         _routes = [routes mutableCopy] ?: [NSMutableDictionary new];
+        _addedRoutes = [NSMutableArray new];
+        _removedRoutes = [NSMutableArray new];
+    }
+    
     return self;
 }
 
@@ -24,10 +28,27 @@
     NAVRoute *route = [NAVRoute new];
     route.path = path;
     
+    // otherwise, this is a changed route
+    // TODO: changed routes, and routes that get added multiple times (:S) aren't going to work
+    if(!self.routes[path]) {
+        [self.addedRoutes addObject:route];
+    }
+    
     self.routes[path] = route;
     
     // chain away!
     return route;
+}
+
+- (void)removeRouteForComponent:(NSString *)component
+{
+    NAVRoute *route = self.routes[component];
+    
+    if(route) {
+        [self.removedRoutes addObject:route];
+    }
+    
+    [self.routes removeObjectForKey:component];
 }
 
 - (NAVRoute *(^)(NSString *))to
@@ -40,7 +61,7 @@
 - (void(^)(NSString *))remove
 {
     return ^(NSString *component) {
-        [self.routes removeObjectForKey:component];
+        [self removeRouteForComponent:component];
     };
 }
 

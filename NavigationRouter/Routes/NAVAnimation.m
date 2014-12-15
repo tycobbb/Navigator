@@ -4,13 +4,9 @@
 //
 
 #import "NAVAnimation.h"
+#import "NAVRouterUtilities.h"
 
 @implementation NAVAnimation
-
-- (void)animateToVisible:(BOOL)isVisible
-{
-    
-}
 
 # pragma mark - NAVRouteDestinatoin
 
@@ -35,11 +31,27 @@
 
 - (void)setIsVisible:(BOOL)isVisible
 {
+    [self setIsVisible:isVisible animated:NO completion:nil];
+}
+
+- (void)setIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+{
     if(_isVisible == isVisible) {
+        nav_call(completion)(YES);
         return;
     }
     
     _isVisible = isVisible;
+    
+    [self updatedIsVisible:isVisible animated:animated completion:^(BOOL finished) {
+        [self.delegate animation:self didUpdateIsVisible:isVisible];
+        nav_call(completion)(finished);
+    }];
+}
+
+- (void)updatedIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+{
+
 }
 
 @end

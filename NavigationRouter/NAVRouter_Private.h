@@ -5,8 +5,12 @@
 
 @import ObjectiveC;
 
+#import <YOLOKit/YOLO.h>
 #import "NAVRouter_Subclass.h"
 #import "NAVTransition.h"
+#import "NAVUpdateStack.h"
+#import "NAVUpdateAnimation.h"
+#import "NAVAnimationModal.h"
 #import "YOLT.h"
 
 @interface NAVRouter () <NAVTransitionDelegate>
