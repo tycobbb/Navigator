@@ -4,12 +4,15 @@
 //
 
 #import "NAVDemoNavigationController.h"
+#import "NAVDemoRouter.h"
 
 @implementation NAVDemoNavigationController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [NAVDemoRouter router].navigationController = self;
 }
 
 @end

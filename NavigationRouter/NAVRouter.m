@@ -13,6 +13,10 @@
         // allocate transition queue
         _transitionQueue = [NSMutableArray new];
         
+        #ifdef NAVIGATOR_VIEW
+        _factory = [self defaultFactory];
+        #endif
+        
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
@@ -60,7 +64,7 @@
     NAVRoute *route = self.routes[update.element.key];
    
     // we can't proceeed without a route
-    NAVAssert(route, NAVExceptionNoRouteFound, @"No route found for element: %@", update.element.key);
+    NAVAssert(route != nil, NAVExceptionNoRouteFound, @"No route found for element: %@", update.element.key);
     
     // allow the update to do its own internal preperation
     [update prepareWithRoute:route factory:self.factory];
@@ -78,6 +82,13 @@
     self.currentTransition = nil;
 
     [self dequeueTransition];
+}
+
+# pragma mark - NAVAnimatorDelegate
+
+- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
+{
+    
 }
 
 # pragma mark - Routing
@@ -119,11 +130,12 @@
     return route.destination;
 }
 
-# pragma mark - NAVAnimatorDelegate
+# pragma mark - Setters
 
-- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
+- (void)setNavigationController:(UINavigationController *)navigationController
 {
-    
+    // TODO: create default updater
+    self.updater = nil;
 }
 
 # pragma mark - Accessors

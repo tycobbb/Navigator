@@ -13,6 +13,10 @@
 #import "NAVAnimationModal.h"
 #import "YOLT.h"
 
+#ifdef NAVIGATOR_VIEW
+#import "Navigator-View.h"
+#endif
+
 @interface NAVRouter () <NAVTransitionDelegate, NAVAnimationDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransition *currentTransition;

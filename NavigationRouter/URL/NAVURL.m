@@ -193,7 +193,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 - (NAVURL *)push:(NSString *)subpath
 {
-    NAVAssert(subpath, NAVExceptionIllegalUrlMutation, @"%@; cannot push a nil subpath", self);
+    NAVAssert(subpath != nil, NAVExceptionIllegalUrlMutation, @"%@; cannot push a nil subpath", self);
 
     NAVURL *result = [self copy];
     
@@ -216,7 +216,7 @@ NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation"
 
 - (NAVURL *)updateParameter:(NSString *)key withOptions:(NAVParameterOptions)options
 {
-    NAVAssert(key, NAVExceptionIllegalUrlMutation, @"%@ can't update a parameter with a nil name", self);
+    NAVAssert(key != nil, NAVExceptionIllegalUrlMutation, @"%@ can't update a parameter with a nil name", self);
     
     NAVURL *result = [self copy];
 

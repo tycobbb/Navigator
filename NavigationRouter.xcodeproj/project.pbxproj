@@ -32,6 +32,12 @@
 		10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */; };
 		10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */; };
 		10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */; };
+		10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */; };
+		10F974261A3F79BB0007AE7D /* NAVDemoRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */; };
+		10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */; };
+		10F974391A3F7B050007AE7D /* NAVRedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974381A3F7B050007AE7D /* NAVRedViewController.m */; };
+		10F9743C1A3F7B0D0007AE7D /* NAVBlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */; };
+		10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */; };
 		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
 		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
 		FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */; };
@@ -107,6 +113,21 @@
 		10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateStack.m; sourceTree = "<group>"; };
 		10F974161A3B66230007AE7D /* NAVUpdateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateAnimation.h; sourceTree = "<group>"; };
 		10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateAnimation.m; sourceTree = "<group>"; };
+		10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Factory.h"; sourceTree = "<group>"; };
+		10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Factory.m"; sourceTree = "<group>"; };
+		10F974221A3F772B0007AE7D /* Navigator-View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Navigator-View.h"; sourceTree = "<group>"; };
+		10F974231A3F774E0007AE7D /* Navigator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navigator.h; sourceTree = "<group>"; };
+		10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoRouter.h; sourceTree = "<group>"; };
+		10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoRouter.m; sourceTree = "<group>"; };
+		10F974341A3F7AFC0007AE7D /* NAVDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoViewController.h; sourceTree = "<group>"; };
+		10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoViewController.m; sourceTree = "<group>"; };
+		10F974371A3F7B050007AE7D /* NAVRedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRedViewController.h; sourceTree = "<group>"; };
+		10F974381A3F7B050007AE7D /* NAVRedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRedViewController.m; sourceTree = "<group>"; };
+		10F9743A1A3F7B0D0007AE7D /* NAVBlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVBlueViewController.h; sourceTree = "<group>"; };
+		10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVBlueViewController.m; sourceTree = "<group>"; };
+		10F9743D1A3F7B1A0007AE7D /* NAVPurpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVPurpleViewController.h; sourceTree = "<group>"; };
+		10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVPurpleViewController.m; sourceTree = "<group>"; };
+		10F974401A3F7B520007AE7D /* NAVDemoViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVDemoViewControllers.h; sourceTree = "<group>"; };
 		19545FB351481AC65E23FE04 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2B706B74DA4549B2B09B0A21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5DFD70DBDCDD654AB64362 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,10 +211,13 @@
 		1073A2641A06DE5500BB7856 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				10F974221A3F772B0007AE7D /* Navigator-View.h */,
 				1073A2651A06DE9200BB7856 /* NAVViewController.h */,
 				1073A2661A06DE9200BB7856 /* NAVViewController.m */,
 				1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */,
 				1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */,
+				10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */,
+				10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +240,22 @@
 				10F9740A1A3A08070007AE7D /* NAVUpdates.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		10F974331A3F7AEA0007AE7D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10F974401A3F7B520007AE7D /* NAVDemoViewControllers.h */,
+				10F974341A3F7AFC0007AE7D /* NAVDemoViewController.h */,
+				10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */,
+				10F974371A3F7B050007AE7D /* NAVRedViewController.h */,
+				10F974381A3F7B050007AE7D /* NAVRedViewController.m */,
+				10F9743A1A3F7B0D0007AE7D /* NAVBlueViewController.h */,
+				10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */,
+				10F9743D1A3F7B1A0007AE7D /* NAVPurpleViewController.h */,
+				10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		4497C0392693F5728931564A /* Pods */ = {
@@ -280,6 +320,7 @@
 		FBDDB4FB197475260051D149 /* NavigationRouter */ = {
 			isa = PBXGroup;
 			children = (
+				10F974231A3F774E0007AE7D /* Navigator.h */,
 				101EC13F1A19704700C16B4E /* NAVRouter.h */,
 				101EC1401A19704700C16B4E /* NAVRouter.m */,
 				101EC1441A1974CD00C16B4E /* NAVRouter_Private.h */,
@@ -340,6 +381,9 @@
 				FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */,
 				FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */,
 				FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */,
+				10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */,
+				10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */,
+				10F974331A3F7AEA0007AE7D /* Controllers */,
 				FBDDB501197475260051D149 /* main.m */,
 				FBDDB4FD197475260051D149 /* NavigationRouter-Info.plist */,
 			);
@@ -509,10 +553,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F974391A3F7B050007AE7D /* NAVRedViewController.m in Sources */,
 				FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */,
+				10F9743C1A3F7B0D0007AE7D /* NAVBlueViewController.m in Sources */,
 				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
 				1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */,
 				1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */,
+				10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */,
 				108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */,
 				10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */,
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
@@ -522,9 +569,12 @@
 				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
 				10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */,
 				101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */,
+				10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */,
 				10978FDA1A14405900A5C981 /* NAVAttributesBuilder.m in Sources */,
+				10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */,
 				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
 				101EC12C1A19157700C16B4E /* NAVAnimation.m in Sources */,
+				10F974261A3F79BB0007AE7D /* NAVDemoRouter.m in Sources */,
 				101EC1381A195BC700C16B4E /* NAVUpdateParser.m in Sources */,
 				101EC1411A19704700C16B4E /* NAVRouter.m in Sources */,
 				10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */,
@@ -593,8 +643,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					NAVIGATOR_VIEW,
 					"DEBUG=1",
-					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -630,6 +680,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = NAVIGATOR_VIEW;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

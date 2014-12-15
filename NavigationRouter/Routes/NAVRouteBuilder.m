@@ -81,6 +81,7 @@
 {
     return ^(Class klass) {
         self.destination = klass;
+        self.type = NAVRouteTypeStack;
         return self;
     };
 }
@@ -89,6 +90,7 @@
 {
     return ^(NAVAnimation *animation) {
         self.destination = animation;
+        self.type = NAVRouteTypeAnimation;
         return self;
     };
 }

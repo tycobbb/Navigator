@@ -21,7 +21,7 @@
  @return The current delegate instance
 */
 
-@property (weak  , nonatomic) id<NAVRouterDelegate> delegate;
+@property (weak, nonatomic) id<NAVRouterDelegate> delegate;
 
 /**
  @brief Provides an interface for the router to run view controller stack updates. Required.
@@ -103,5 +103,16 @@
 */
 
 - (void)updateRoutes:(void(^)(NAVRouteBuilder *route))routingBlock;
+
+/**
+ @brief Configures the router to use the navigation controller
+ 
+ The router will use this navigation controller as its updater. This must be called (if that
+ behavior is desired) before running the first route.
+ 
+ @param navigationController A navigation controller to use for updates
+*/
+
+- (void)setNavigationController:(UINavigationController *)navigationController;
 
 @end
