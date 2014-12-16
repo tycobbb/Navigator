@@ -9,7 +9,7 @@
 
 @class NAVAttributes;
 
-@interface NAVAttributesBuilder : NSObject
+@interface NAVTransitionBuilder : NSObject
 
 /// Transformation block encapsulating a URL mutation
 typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
@@ -38,7 +38,7 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  @return A block that can be calleed to add a new URL transformer for future application
 */
 
-- (NAVAttributesBuilder *(^)(NAVAttributesUrlTransformer))transform;
+- (NAVTransitionBuilder *(^)(NAVAttributesUrlTransformer))transform;
 
 /**
  @brief Stores a user object to pass to the resultant attributes
@@ -51,7 +51,7 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  @return A block that can be called to add an object to the future attributes
 */
 
-- (NAVAttributesBuilder *(^)(id))object;
+- (NAVTransitionBuilder *(^)(id))object;
 
 /**
  @brief Stores a handler to pass to the resultant attributes
@@ -64,11 +64,11 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  @return A block that can be called to add a handler to the future attributes
 */
 
-- (NAVAttributesBuilder *(^)(id))handler;
+- (NAVTransitionBuilder *(^)(id))handler;
 
 @end
 
-@interface NAVAttributesBuilder (Convenience)
+@interface NAVTransitionBuilder (Convenience)
 
 /**
  @brief Registers a transformer that pushes a subpath onto the source URL
@@ -76,7 +76,7 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  See @c transform for complete documenation on transforms.
 */
 
-- (NAVAttributesBuilder *(^)(NSString *))push;
+- (NAVTransitionBuilder *(^)(NSString *))push;
 
 /**
  @brief Registers a transformer that pops a subpath off the source URL
@@ -84,7 +84,7 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  See @c transform for complete documentation on transforms.
 */
 
-- (NAVAttributesBuilder *(^)(NSInteger))pop;
+- (NAVTransitionBuilder *(^)(NSInteger))pop;
 
 /**
  @brief Registers a transformer that updates the key-value parameter on the source URL
@@ -92,6 +92,6 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
  See @c transform for complete documentation on transforms.
 */
 
-- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter;
+- (NAVTransitionBuilder *(^)(NSString *, NAVParameterOptions))parameter;
 
 @end

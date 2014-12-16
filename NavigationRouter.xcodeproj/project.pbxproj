@@ -23,11 +23,11 @@
 		108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C43D41A09D4B600E8A55E /* NAVURLElement.m */; };
 		10978FD41A143AA500A5C981 /* NAVAttributesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD31A143AA500A5C981 /* NAVAttributesTests.m */; };
 		10978FD71A143DCC00A5C981 /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD61A143DCC00A5C981 /* NAVAttributes.m */; };
-		10978FDA1A14405900A5C981 /* NAVAttributesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD91A14405900A5C981 /* NAVAttributesBuilder.m */; };
+		10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */; };
 		109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DF1979FFDD003AA60C /* NAVURLTests.m */; };
 		109DE5E3197A1053003AA60C /* NAVTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E2197A1053003AA60C /* NAVTest.m */; };
 		109DE5E7197A1717003AA60C /* YOLT.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* YOLT.m */; };
-		10D2C1861A1445C900486A36 /* NAVAttributesBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C1851A1445C900486A36 /* NAVAttributesBuilderTests.m */; };
+		10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */; };
 		10F9740B1A3A08070007AE7D /* NAVUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9740A1A3A08070007AE7D /* NAVUpdates.m */; };
 		10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */; };
 		10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */; };
@@ -95,15 +95,15 @@
 		10978FD31A143AA500A5C981 /* NAVAttributesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesTests.m; sourceTree = "<group>"; };
 		10978FD51A143DCC00A5C981 /* NAVAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes.h; sourceTree = "<group>"; };
 		10978FD61A143DCC00A5C981 /* NAVAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributes.m; sourceTree = "<group>"; };
-		10978FD81A14405900A5C981 /* NAVAttributesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributesBuilder.h; sourceTree = "<group>"; };
-		10978FD91A14405900A5C981 /* NAVAttributesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilder.m; sourceTree = "<group>"; };
+		10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder.h; sourceTree = "<group>"; };
+		10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilder.m; sourceTree = "<group>"; };
 		109DE5C81974A710003AA60C /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		109DE5DF1979FFDD003AA60C /* NAVURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTests.m; sourceTree = "<group>"; };
 		109DE5E1197A1053003AA60C /* NAVTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTest.h; sourceTree = "<group>"; };
 		109DE5E2197A1053003AA60C /* NAVTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTest.m; sourceTree = "<group>"; };
 		109DE5E5197A1717003AA60C /* YOLT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLT.h; sourceTree = "<group>"; };
 		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
-		10D2C1851A1445C900486A36 /* NAVAttributesBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesBuilderTests.m; sourceTree = "<group>"; };
+		10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilderTests.m; sourceTree = "<group>"; };
 		10F974091A3A08070007AE7D /* NAVUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdates.h; sourceTree = "<group>"; };
 		10F9740A1A3A08070007AE7D /* NAVUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdates.m; sourceTree = "<group>"; };
 		10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterUtilities.h; sourceTree = "<group>"; };
@@ -261,22 +261,22 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		10F974411A3F99300007AE7D /* Attributes */ = {
+		10F974411A3F99300007AE7D /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				1007935C1A19076E00414C9D /* NAVTransition.h */,
+				1007935D1A19076E00414C9D /* NAVTransition.m */,
+				10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */,
+				10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */,
 				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
-				10978FD81A14405900A5C981 /* NAVAttributesBuilder.h */,
-				10978FD91A14405900A5C981 /* NAVAttributesBuilder.m */,
 			);
-			name = Attributes;
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 		10F974431A3F99410007AE7D /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				1007935C1A19076E00414C9D /* NAVTransition.h */,
-				1007935D1A19076E00414C9D /* NAVTransition.m */,
 				10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */,
 				10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */,
 			);
@@ -355,7 +355,7 @@
 				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
 				10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */,
 				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
-				10F974411A3F99300007AE7D /* Attributes */,
+				10F974411A3F99300007AE7D /* Transitions */,
 				10F974431A3F99410007AE7D /* Internal */,
 				1010FFF61A190FC900C1C554 /* URL */,
 				FB7E248C19786B8700D63A7E /* Routes */,
@@ -372,12 +372,12 @@
 			children = (
 				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
 				1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */,
-				10978FD31A143AA500A5C981 /* NAVAttributesTests.m */,
-				10D2C1851A1445C900486A36 /* NAVAttributesBuilderTests.m */,
 				101EC12D1A19376D00C16B4E /* NAVRouteTests.m */,
 				101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */,
-				101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */,
+				10978FD31A143AA500A5C981 /* NAVAttributesTests.m */,
 				101EC1311A193CF700C16B4E /* NAVTransitionTests.m */,
+				10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */,
+				101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */,
 				10F9740C1A3A087E0007AE7D /* Helpers */,
 				FBDDB515197475260051D149 /* Supporting Files */,
 			);
@@ -591,7 +591,7 @@
 				10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */,
 				101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */,
 				10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */,
-				10978FDA1A14405900A5C981 /* NAVAttributesBuilder.m in Sources */,
+				10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */,
 				10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */,
 				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
 				10F974461A3F99640007AE7D /* NAVNavigationControllerUpdater.m in Sources */,
@@ -616,7 +616,7 @@
 				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
 				101EC1301A19391900C16B4E /* NAVRouteBuilderTests.m in Sources */,
 				10978FD41A143AA500A5C981 /* NAVAttributesTests.m in Sources */,
-				10D2C1861A1445C900486A36 /* NAVAttributesBuilderTests.m in Sources */,
+				10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */,
 				1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

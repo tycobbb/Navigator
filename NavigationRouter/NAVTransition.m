@@ -9,7 +9,7 @@
 #import "NAVRouterConstants.h"
 
 @interface NAVTransition () <NAVUpdateDelegate>
-@property (strong, nonatomic) NAVAttributesBuilder *attributesBuilder;
+@property (strong, nonatomic) NAVTransitionBuilder *attributesBuilder;
 @property (strong, nonatomic) NSArray *updates;
 @end
 
@@ -20,7 +20,7 @@
     return [self initWithAttributesBuilder:nil];
 }
 
-- (instancetype)initWithAttributesBuilder:(NAVAttributesBuilder *)attributesBuilder
+- (instancetype)initWithAttributesBuilder:(NAVTransitionBuilder *)attributesBuilder
 {
     NSParameterAssert(attributesBuilder);
     

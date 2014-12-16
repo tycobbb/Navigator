@@ -11,9 +11,9 @@
 
 @implementation NAVAttributes (Builder)
 
-+ (NAVAttributesBuilder *)builder
++ (NAVTransitionBuilder *)builder
 {
-    return [NAVAttributesBuilder new];
+    return [NAVTransitionBuilder new];
 }
 
 @end

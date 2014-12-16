@@ -6,7 +6,7 @@
 @import Foundation;
 
 #import "NAVURL.h"
-#import "NAVAttributesBuilder.h"
+#import "NAVTransitionBuilder.h"
 
 @interface NAVAttributes : NSObject
 
@@ -52,6 +52,6 @@
  @return A NAVAttributes builder instance
 */
 
-+ (NAVAttributesBuilder *)builder;
++ (NAVTransitionBuilder *)builder;
 
 @end

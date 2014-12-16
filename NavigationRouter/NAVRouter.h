@@ -90,7 +90,7 @@
  @param completion Block to be called when the transition completes
  */
 
-- (void)transitionWithAttributes:(NAVAttributesBuilder *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
+- (void)transitionWithAttributes:(NAVTransitionBuilder *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
 
 /**
  @brief Updates the router's internal routes

@@ -58,7 +58,7 @@
  @return A new NAVTransition instance for the specified attributes
 */
 
-- (instancetype)initWithAttributesBuilder:(NAVAttributesBuilder *)attributesBuilder;
+- (instancetype)initWithAttributesBuilder:(NAVTransitionBuilder *)attributesBuilder;
 
 /**
  @brief Starts the transition, performing its updates

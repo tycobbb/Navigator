@@ -4,14 +4,14 @@
 //
 
 #import "NAVAttributes.h"
-#import "NAVAttributesBuilder.h"
+#import "NAVTransitionBuilder.h"
 
 SpecBegin(NAVAttributesTests)
 
 describe(@"the attributes", ^{
    
     it(@"should construct a builder", ^{
-        NAVAttributesBuilder *builder = [NAVAttributes builder];
+        NAVTransitionBuilder *builder = [NAVAttributes builder];
         expect(builder).toNot.beNil();
         expect(builder).to.beKindOf(NAVAttributesBuilder.class);
     });

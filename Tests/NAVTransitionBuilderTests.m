@@ -1,14 +1,14 @@
 //
-//  NAVAttributesBuilderTests.m
+//  NAVTransitionBuilderTests.m
 //  NavigationRouter
 //
 
 #import "NAVAttributes.h"
-#import "NAVAttributesBuilder.h"
+#import "NAVTransitionBuilder.h"
 
 typedef NSString *(^NAVTestHandler)(void);
 
-SpecBegin(NAVAttributesBuilderTests)
+SpecBegin(NAVTransitionBuilderTests)
 
 describe(@"the attributes builder", ^{
     

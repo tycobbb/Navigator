@@ -28,7 +28,7 @@
 
 # pragma mark - Transitions
 
-- (void)transitionWithAttributes:(NAVAttributesBuilder *)attributes animated:(BOOL)isAnimated completion:(void (^)(void))completion
+- (void)transitionWithAttributes:(NAVTransitionBuilder *)attributes animated:(BOOL)isAnimated completion:(void (^)(void))completion
 {
     // create the transition to enqueue
     NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:attributes];

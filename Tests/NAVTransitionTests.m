@@ -9,7 +9,7 @@ SpecBegin(NAVTransitionTests)
 
 describe(@"the transition", ^{
   
-    NAVTransition *(^mockTransition)(NSString *, NAVAttributesBuilder *) = ^(NSString *path, NAVAttributesBuilder *builder) {
+    NAVTransition *(^mockTransition)(NSString *, NAVTransitionBuilder *) = ^(NSString *path, NAVTransitionBuilder *builder) {
         NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:builder];
         [transition startFromUrl:URL(path ?: @"root")];
         return transition;

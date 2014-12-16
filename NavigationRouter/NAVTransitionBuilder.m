@@ -4,16 +4,16 @@
 //
 
 #import <YOLOKit/YOLO.h>
-#import "NAVAttributesBuilder.h"
+#import "NAVTransitionBuilder.h"
 #import "NAVAttributes.h"
 
-@interface NAVAttributesBuilder ()
+@interface NAVTransitionBuilder ()
 @property (strong, nonatomic) NSMutableArray *transformsB;
 @property (strong, nonatomic) id objectB;
 @property (strong, nonatomic) id handlerB;
 @end
 
-@implementation NAVAttributesBuilder
+@implementation NAVTransitionBuilder
 
 - (instancetype)init
 {
@@ -61,7 +61,7 @@
 
 # pragma mark - Chaining
 
-- (NAVAttributesBuilder *(^)(NAVAttributesUrlTransformer))transform
+- (NAVTransitionBuilder *(^)(NAVAttributesUrlTransformer))transform
 {
     return ^(NAVAttributesUrlTransformer transform) {
         [self.transformsB addObject:transform];
@@ -69,7 +69,7 @@
     };
 }
 
-- (NAVAttributesBuilder *(^)(id))object
+- (NAVTransitionBuilder *(^)(id))object
 {
     return ^(id object) {
         self.objectB = object;
@@ -77,7 +77,7 @@
     };
 }
 
-- (NAVAttributesBuilder *(^)(id))handler
+- (NAVTransitionBuilder *(^)(id))handler
 {
     return ^(id handler) {
         self.handlerB = handler;
@@ -87,9 +87,9 @@
 
 @end
 
-@implementation NAVAttributesBuilder (Convenience)
+@implementation NAVTransitionBuilder (Convenience)
 
-- (NAVAttributesBuilder *(^)(NSString *))push
+- (NAVTransitionBuilder *(^)(NSString *))push
 {
     return ^(NSString *path) {
         return self.transform(^(NAVURL *url) {
@@ -98,7 +98,7 @@
     };
 }
 
-- (NAVAttributesBuilder *(^)(NSInteger))pop
+- (NAVTransitionBuilder *(^)(NSInteger))pop
 {
     return ^(NSInteger count) {
         return self.transform(^(NAVURL *url) {
@@ -107,7 +107,7 @@
     };
 }
 
-- (NAVAttributesBuilder *(^)(NSString *, NAVParameterOptions))parameter
+- (NAVTransitionBuilder *(^)(NSString *, NAVParameterOptions))parameter
 {
     return ^(NSString *key, NAVParameterOptions options) {
         return self.transform(^(NAVURL *url) {
