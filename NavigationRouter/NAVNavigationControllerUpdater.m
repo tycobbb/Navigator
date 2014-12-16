@@ -119,10 +119,12 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    [self.delegate updater:self didUpdateViewControllers:navigationController.viewControllers];
+    
     // forward this method explicitly to original the delegate (if it cares)
     if([self.navigationDelegate respondsToSelector:_cmd]) {
         [self.navigationDelegate navigationController:navigationController didShowViewController:viewController animated:animated];
-    }   
+    }
 }
 
 //

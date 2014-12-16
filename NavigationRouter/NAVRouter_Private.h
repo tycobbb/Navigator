@@ -11,13 +11,14 @@
 #import "NAVUpdateStack.h"
 #import "NAVUpdateAnimation.h"
 #import "NAVAnimationModal.h"
+#import "NAVNavigationControllerUpdater.h"
 #import "YOLT.h"
 
 #ifdef NAVIGATOR_VIEW
 #import "Navigator-View.h"
 #endif
 
-@interface NAVRouter () <NAVTransitionDelegate, NAVAnimationDelegate>
+@interface NAVRouter () <NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransition *currentTransition;
 @property (strong, nonatomic) NAVTransition *lastTransition;

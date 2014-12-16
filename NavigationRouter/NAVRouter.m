@@ -84,13 +84,6 @@
     [self dequeueTransition];
 }
 
-# pragma mark - NAVAnimatorDelegate
-
-- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
-{
-    
-}
-
 # pragma mark - Routing
 
 - (void)updateRoutes:(void (^)(NAVRouteBuilder *))routingBlock
@@ -130,12 +123,36 @@
     return route.destination;
 }
 
-# pragma mark - Setters
+# pragma mark - NAVAnimatorDelegate
+
+- (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
+{
+    // TODO: figure out what needs to happen here to stay in sync
+}
+
+# pragma mark - NAVNavigationControllerUpdater
 
 - (void)setNavigationController:(UINavigationController *)navigationController
 {
-    // TODO: create default updater
-    self.updater = nil;
+    NAVNavigationControllerUpdater *updater = [[NAVNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
+    updater.delegate = self;
+    
+    self.updater = updater;
+}
+
+//
+// NAVNavigationControllerUpdaterDelegate
+//
+
+- (void)updater:(NAVNavigationControllerUpdater *)updater didUpdateViewControllers:(NSArray *)viewControllers
+{
+    // we're only going to pay attention if the nav controller seems to have poppoed view controllers
+    // without our knowledge
+    if(self.isTransitioning || viewControllers.count >= self.currentUrl.components.count) {
+        return;
+    }
+    
+    // TODO: figure out what needs to happen here to stay in sync
 }
 
 # pragma mark - Accessors
