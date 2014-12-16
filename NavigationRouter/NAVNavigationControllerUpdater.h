@@ -5,6 +5,6 @@
 
 #import "NAVRouterUpdater.h"
 
-@interface NAVNavigationControllerUpdater : NSObject
+@interface NAVNavigationControllerUpdater : NSObject <NAVRouterUpdater>
 
 @end

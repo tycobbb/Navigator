@@ -6,6 +6,7 @@
 @import ObjectiveC;
 
 #import "NAVNavigationControllerUpdater.h"
+#import "NAVRouterUtilities.h"
 
 #define NAVNavigationControllerDidSetDelegateNotification @"NAVNavigationControllerDidSetDelegate"
 
@@ -43,6 +44,75 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+# pragma mark - NAVRouterUpdater
+
+- (void)performUpdate:(NAVUpdateStack *)update completion:(void(^)(BOOL))completion
+{
+    switch(update.type) {
+        case NAVUpdateTypePush:
+            [self performPush:update completion:completion]; break;
+        case NAVUpdateTypePop:
+            [self performPop:update completion:completion]; break;
+        case NAVUpdateTypeReplace:
+            [self performReplace:update completion:completion]; break;
+        default:
+            NAVAssert(false, NSInternalInconsistencyException, @"Navigation controller can't perform update of type: %d", (int)update.type);
+    }
+}
+
+- (void)performReplace:(NAVUpdateStack *)update completion:(void(^)(BOOL))completion
+{
+    self.navigationController.viewControllers = @[ update.controller ];
+    nav_call(completion)(YES);
+}
+
+- (void)performPop:(NAVUpdateStack *)update completion:(void (^)(BOOL))completion
+{
+    update.controller = self.navigationController.viewControllers[update.component.index];
+    
+    [self performUpdate:update withTransaction:^{
+        [self.navigationController popToViewController:update.controller animated:update.isAnimated];
+    } completion:completion];
+}
+
+- (void)performPush:(NAVUpdateStack *)update completion:(void (^)(BOOL))completion
+{
+    [self performUpdate:update withTransaction:^{
+        [self.navigationController pushViewController:update.controller animated:update.isAnimated];
+    } completion:completion];
+}
+
+//
+// Helpers
+//
+
+- (void)performUpdate:(NAVUpdate *)update withTransaction:(void(^)(void))transaction completion:(void(^)(BOOL finished))completion
+{
+    void(^transactionCompletion)(void) = ^{
+        if(completion)
+            completion(YES);
+    };
+    
+    BOOL performCompletionAsynchronously = update.isAnimated;
+    
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        [self dispatchBlock:transactionCompletion asynchronously:performCompletionAsynchronously];
+    }];
+    
+    transaction();
+    
+    [CATransaction commit];
+}
+
+- (void)dispatchBlock:(void(^)(void))block asynchronously:(BOOL)asynchronously
+{
+    if(!asynchronously && block)
+        block();
+    else if(block)
+        dispatch_async(dispatch_get_main_queue(), block);
 }
 
 # pragma mark - UINavigationControllerDelegate

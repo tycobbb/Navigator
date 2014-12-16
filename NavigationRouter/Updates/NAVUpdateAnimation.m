@@ -25,14 +25,15 @@
 
 - (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void(^)(BOOL))completion
 {
-    // determine transition type
-    BOOL isVisible  = [self.parameter isVisible];
-    BOOL isAnimated = [self.delegate shouldAnimateUpdate:self] && self.parameter.isAnimated;
-    
-    [self.animation setIsVisible:isVisible animated:isAnimated completion:completion];
+    [self.animation setIsVisible:self.parameter.isVisible animated:self.isAnimated completion:completion];
 }
 
 # pragma mark - Accessors
+
+- (BOOL)isAnimated
+{
+    return super.isAnimated && self.parameter.isAnimated;
+}
 
 - (NAVURLParameter *)parameter
 {

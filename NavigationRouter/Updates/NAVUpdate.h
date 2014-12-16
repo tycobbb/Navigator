@@ -58,6 +58,15 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 @property (nonatomic, readonly) NAVAttributes *attributes;
 
 /**
+ @brief Flag indicating whether or not to run the update animatedly
+ 
+ This property may depend on the update's delegate, and will throw an exception if its
+ called before that point.
+*/
+
+@property (nonatomic, readonly) BOOL isAnimated;
+
+/**
  @brief Initializes a new update of the specified type
 
  All parameters are required. Failure to pass a valid value for one of the parameters

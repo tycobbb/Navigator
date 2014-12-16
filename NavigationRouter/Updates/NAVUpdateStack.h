@@ -18,4 +18,13 @@
 
 @property (strong, nonatomic) UIViewController<NAVRouteDestination> *controller;
 
+/**
+ @brief The URL component assosciated with this update.
+ 
+ The component may be used to gather information about where in the navigation
+ stack this update occurs.
+*/
+
+@property (nonatomic, readonly) NAVURLComponent *component;
+
 @end

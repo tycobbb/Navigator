@@ -6,6 +6,7 @@
 #import "NAVUpdate.h"
 #import "NAVUpdateStack.h"
 #import "NAVUpdateAnimation.h"
+#import "NAVRouterUtilities.h"
 
 @implementation NAVUpdate
 
@@ -40,6 +41,14 @@
 - (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void (^)(BOOL))completion
 {
     
+}
+
+# pragma mark - Accessors
+
+- (BOOL)isAnimated
+{
+    NAVAssert(self.delegate != nil, NSInternalInconsistencyException, @"Must have a delegate.");
+    return [self.delegate shouldAnimateUpdate:self];
 }
 
 @end

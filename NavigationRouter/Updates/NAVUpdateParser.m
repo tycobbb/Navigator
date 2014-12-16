@@ -49,6 +49,7 @@
 
 + (NSArray *)updatesWithType:(NAVUpdateType)type elements:(NSArray *)elements attributes:(NAVAttributes *)attributes
 {
+    // TODO: copy attributes / mutate them to fit this update
     return (elements ?: @[]).map(^(NAVURLElement *element) {
         return [NAVUpdate updateWithType:type element:element attributes:attributes];
     });

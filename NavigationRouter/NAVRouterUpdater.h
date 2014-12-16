@@ -3,8 +3,8 @@
 //  NavigationRouter
 //
 
-#import "NAVUpdate.h"
+#import "NAVUpdateStack.h"
 
 @protocol NAVRouterUpdater <NSObject>
-- (void)performUpdate:(NAVUpdate *)update completion:(void(^)(BOOL finished))completion;
+- (void)performUpdate:(NAVUpdateStack *)update completion:(void(^)(BOOL finished))completion;
 @end
