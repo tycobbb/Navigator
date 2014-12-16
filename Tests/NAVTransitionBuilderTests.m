@@ -4,7 +4,7 @@
 //
 
 #import "NAVAttributes.h"
-#import "NAVTransitionBuilder.h"
+#import "NAVTransitionBuilder_Private.h"
 
 typedef NSString *(^NAVTestHandler)(void);
 
@@ -12,25 +12,27 @@ SpecBegin(NAVTransitionBuilderTests)
 
 describe(@"the attributes builder", ^{
     
+    NAVAttributes *(^mock)(NSString *, NAVTransitionBuilder *) = ^(NSString *path, NAVTransitionBuilder *builder) {
+        NAVTransition *transition = builder.build(URL(path));
+        return transition.attributes;
+    };
+    
     it(@"should have a source", ^{
         NAVURL *source = URL(nil);
         
-        NAVAttributes *attributes = NAVAttributes.builder
-            .build(source);
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder);
         
         expect(attributes.source).to.equal(source);
         expect(attributes.destination).toNot.beNil();
     });
     
     it(@"should apply transforms", ^{
-        NAVURL *source = URL(@"tests");
         NAVURL *destination = URL(@"tests/are/cool?right=1");
         
-        NAVAttributes *attributes = NAVAttributes.builder
+        NAVAttributes *attributes = mock(@"tests", NAVTransition.builder
             .transform(^(NAVURL *url) { return [url push:@"are"]; })
             .transform(^(NAVURL *url) { return [url push:@"cool"]; })
-            .transform(^(NAVURL *url) { return [url updateParameter:@"right" withOptions:NAVParameterOptionsVisible]; })
-            .build(source);
+            .transform(^(NAVURL *url) { return [url updateParameter:@"right" withOptions:NAVParameterOptionsVisible]; }));
        
         expect(attributes.destination.string).to.equal(destination.string);
     });
@@ -38,9 +40,8 @@ describe(@"the attributes builder", ^{
     it(@"should add user objects", ^{
         id object = @9999;
        
-        NAVAttributes *attributes = NAVAttributes.builder
-            .object(object)
-            .build(URL(nil));
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+            .object(object));
         
         expect(attributes.userObject).to.equal(object);
     });
@@ -50,9 +51,8 @@ describe(@"the attributes builder", ^{
             return @"Let's hope this works!";
         };
         
-        NAVAttributes *attributes = NAVAttributes.builder
-            .handler(handler)
-            .build(URL(nil));
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+             .handler(handler));
         
         expect(attributes.handler).to.equal(handler);
     });
@@ -61,9 +61,8 @@ describe(@"the attributes builder", ^{
         NSString *data = @"he134a$*0asdjJA098*23j";
         NSString *component = [NSString stringWithFormat:@"test1::%@", data];
         
-        NAVAttributes *attributes = NAVAttributes.builder
-            .transform(^(NAVURL *url) { return [url push:component]; })
-            .build(URL(nil));
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+            .transform(^(NAVURL *url) { return [url push:component]; }));
         
         expect(attributes.data).to.equal(data);
     });
@@ -71,17 +70,15 @@ describe(@"the attributes builder", ^{
     it(@"should push components", ^{
         NSString *component = @"yeah";
         
-        NAVAttributes *attributes = NAVAttributes.builder
-            .push(component)
-            .build(URL(nil));
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+            .push(component));
         
         expect(attributes.destination.lastComponent.key).to.equal(component);
     });
     
     it(@"should pop components", ^{
-        NAVAttributes *attributes = NAVAttributes.builder
-            .pop(1)
-            .build(URL(@"test"));
+        NAVAttributes *attributes = mock(@"test", NAVTransition.builder
+            .pop(1));
         
         expect(attributes.destination.components.count).to.equal(0);
     });
@@ -90,9 +87,8 @@ describe(@"the attributes builder", ^{
         NSString *parameter = @"whoa";
         NAVParameterOptions options = NAVParameterOptionsVisible;
         
-        NAVAttributes *attributes = NAVAttributes.builder
-            .parameter(@"whoa", NAVParameterOptionsVisible)
-            .build(URL(nil));
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+            .parameter(@"whoa", NAVParameterOptionsVisible));
         
         expect(attributes.destination[parameter].options).to.equal(options);
     });

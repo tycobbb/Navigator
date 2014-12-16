@@ -7,7 +7,7 @@
 
 #import <YOLOKit/YOLO.h>
 #import "NAVRouter_Subclass.h"
-#import "NAVTransition.h"
+#import "NAVTransitionBuilder_Private.h"
 #import "NAVUpdateStack.h"
 #import "NAVUpdateAnimation.h"
 #import "NAVAnimationModal.h"
@@ -18,7 +18,7 @@
 #import "Navigator-View.h"
 #endif
 
-@interface NAVRouter () <NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
+@interface NAVRouter () <NAVTransitionBuilderDelegate, NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransition *currentTransition;
 @property (strong, nonatomic) NAVTransition *lastTransition;

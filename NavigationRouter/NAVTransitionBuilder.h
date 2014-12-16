@@ -11,37 +11,54 @@
 
 @interface NAVTransitionBuilder : NSObject
 
-/// Transformation block encapsulating a URL mutation
-typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
-
 /**
- @brief Constructs a attribtues object from the source URL.
+ @brief Starts the transition immediately
  
- The transformations will be applied in order to the source URL to generate the
- destination URL, and any data objects will be stored on the resultant attributes.
- 
- @param block:source The attributes' source URL
- 
- @return A block that can be called to build a new attributes instance
+ See @c -start: for full documenation.
 */
 
-- (NAVAttributes *(^)(NAVURL *source))build;
+- (void)start;
 
 /**
- @brief Registers a transformer to apply to the source URL
-
- When the attributes are built with the base URL, the transforms are applied in 
- registration-order, and the resultant URL is set as the attribute's destination URL.
+ @brief Starts the transition immediately.
  
- @param block:url The url to transform
+ If the router has a currently running transition, then this transition will @em not 
+ run. In this case, the completion will be called immediately with an error.
  
- @return A block that can be calleed to add a new URL transformer for future application
+ Alternatively, the transition can be queued using @c -enqueue:.
+ 
+ @param completion A callback when the transition completes, or if it couldn't complete.
 */
 
-- (NAVTransitionBuilder *(^)(NAVAttributesUrlTransformer))transform;
+- (void)start:(void(^)(NSError *))completion;
 
 /**
- @brief Stores a user object to pass to the resultant attributes
+ @brief Enqueues a transition to start at some point in the future
+ 
+ See @c -enqueue: for full documenation.
+*/
+
+- (void)enqueue;
+
+/**
+ @brief Enqueues a transition to start at some point in the future
+
+ If there is no currently executing transition, then this transition executes immediately. Otherwise,
+ the transition will be queued to run after all presently queued transitions complete.
+ 
+ @note Queued transitions begin from the URL after all previously queued transitions complete.
+ 
+ @param completion A callback when this transition completes
+*/
+
+- (void)enqueue:(void(^)(void))completion;
+
+@end
+
+@interface NAVTransitionBuilder (Chaining)
+
+/**
+ @brief Stores a user object to pass to the resultant transition's attributes
  
  The user object (as well as the attributes) can be captured as the router runs its
  transitions and delivered to the approriate destination.
@@ -54,9 +71,9 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
 - (NAVTransitionBuilder *(^)(id))object;
 
 /**
- @brief Stores a handler to pass to the resultant attributes
+ @brief Stores a handler to pass to the resultant transition's attributes
  
- The handler as well as the attributes) can be captured as the router runs its transitions 
+ The handler, as well as the attributes, can be captured as the router runs its transitions
  and delivered to the approriate destination.
  
  @param block:handler A callback handler to assosciate
@@ -66,9 +83,38 @@ typedef NAVURL *(^NAVAttributesUrlTransformer)(NAVURL *);
 
 - (NAVTransitionBuilder *(^)(id))handler;
 
+/**
+ @brief Indicates whether the transition should be animated
+ 
+ The default is YES. Transitions need only leverage this builder method to make a transition
+ universally unanimated.
+ 
+ @param block:animated Flag indicating whether the transition is animated
+ 
+ @return A block that can be called to set the animated flag
+*/
+
+- (NAVTransitionBuilder *(^)(BOOL))animated;
+
 @end
 
-@interface NAVTransitionBuilder (Convenience)
+@interface NAVTransitionBuilder (URLs)
+
+/// Transformation block encapsulating a URL mutation
+typedef NAVURL *(^NAVTransitionUrlTransformer)(NAVURL *);
+
+/**
+ @brief Registers a transformer to apply to the source URL
+
+ When the attributes are built with the base URL, the transforms are applied in 
+ registration-order, and the resultant URL is set as the attribute's destination URL.
+ 
+ @param block:url The url to transform
+ 
+ @return A block that can be calleed to add a new URL transformer for future application
+*/
+
+- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransformer))transform;
 
 /**
  @brief Registers a transformer that pushes a subpath onto the source URL

@@ -3,14 +3,14 @@
 //  NavigationRouter
 //
 
-#import <YOLOKit/YOLO.h>
-#import "NAVTransitionBuilder.h"
-#import "NAVAttributes.h"
+#import "NAVTransitionBuilder_Private.h"
 
 @interface NAVTransitionBuilder ()
 @property (strong, nonatomic) NSMutableArray *transformsB;
 @property (strong, nonatomic) id objectB;
 @property (strong, nonatomic) id handlerB;
+@property (strong, nonatomic) id completionB;
+@property (assign, nonatomic) BOOL animatedB;
 @end
 
 @implementation NAVTransitionBuilder
@@ -26,11 +26,27 @@
 
 # pragma mark - Output
 
-- (NAVAttributes *(^)(NAVURL *))build
+- (NAVTransition *(^)(NAVURL *))build
 {
     return ^(NAVURL *source) {
-        return [self attributesFromSource:source];
+        return [self transitionFromSource:source];
     };
+}
+
+- (NAVTransition *)transitionFromSource:(NAVURL *)source
+{
+    // create the attributes, transition
+    NAVAttributes *attributes = [self attributesFromSource:source];
+    NAVTransition *transition = [[NAVTransition alloc] initWithAttributes:attributes];
+    
+    transition.isAnimated = self.animatedB;
+    transition.completion = self.completionB;
+   
+    // clean up potentially leaky builder properties
+    self.handlerB = nil;
+    self.completionB = nil;
+    
+    return transition;
 }
 
 - (NAVAttributes *)attributesFromSource:(NAVURL *)source
@@ -38,7 +54,7 @@
     NSParameterAssert(source);
    
     // apply all the transforms to the source URL to genereate the destination
-    NAVURL *destination = self.transformsB.inject(source, ^(NAVURL *url, NAVAttributesUrlTransformer transform) {
+    NAVURL *destination = self.transformsB.inject(source, ^(NAVURL *url, NAVTransitionUrlTransformer transform) {
         return transform(url);
     });
     
@@ -59,15 +75,38 @@
     return attributes;
 }
 
-# pragma mark - Chaining
+# pragma mark - Queueing
 
-- (NAVTransitionBuilder *(^)(NAVAttributesUrlTransformer))transform
+- (void)start
 {
-    return ^(NAVAttributesUrlTransformer transform) {
-        [self.transformsB addObject:transform];
-        return self;
-    };
+    [self start:nil];
 }
+
+- (void)start:(void (^)(NSError *))completion
+{
+    [self setCompletionB:completion];
+    [self.delegate enqueueTransitionForBuilder:self];
+}
+
+- (void)enqueue
+{
+    [self enqueue:nil];
+}
+
+- (void)enqueue:(void (^)(void))completion
+{
+    // mark the transition as enqueued
+    self.shouldEnqueue = YES;
+    
+    // then run the normal start behavior
+    [self start:^(NSError *error) {
+        nav_call(completion)();
+    }];
+}
+
+@end
+
+@implementation NAVTransitionBuilder (Chaining)
 
 - (NAVTransitionBuilder *(^)(id))object
 {
@@ -85,9 +124,25 @@
     };
 }
 
+- (NAVTransitionBuilder *(^)(BOOL))animated
+{
+    return ^(BOOL animated) {
+        self.animatedB = animated;
+        return self;
+    };
+}
+
 @end
 
-@implementation NAVTransitionBuilder (Convenience)
+@implementation NAVTransitionBuilder (URLs)
+
+- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransformer))transform
+{
+    return ^(NAVTransitionUrlTransformer transform) {
+        [self.transformsB addObject:transform];
+        return self;
+    };
+}
 
 - (NAVTransitionBuilder *(^)(NSString *))push
 {

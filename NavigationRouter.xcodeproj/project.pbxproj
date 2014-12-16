@@ -21,7 +21,6 @@
 		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
 		108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C43D11A09D1BE00E8A55E /* NAVURL.m */; };
 		108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C43D41A09D4B600E8A55E /* NAVURLElement.m */; };
-		10978FD41A143AA500A5C981 /* NAVAttributesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD31A143AA500A5C981 /* NAVAttributesTests.m */; };
 		10978FD71A143DCC00A5C981 /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD61A143DCC00A5C981 /* NAVAttributes.m */; };
 		10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */; };
 		109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DF1979FFDD003AA60C /* NAVURLTests.m */; };
@@ -92,7 +91,6 @@
 		108C43D11A09D1BE00E8A55E /* NAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURL.m; sourceTree = "<group>"; };
 		108C43D31A09D4B600E8A55E /* NAVURLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLElement.h; sourceTree = "<group>"; };
 		108C43D41A09D4B600E8A55E /* NAVURLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElement.m; sourceTree = "<group>"; };
-		10978FD31A143AA500A5C981 /* NAVAttributesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributesTests.m; sourceTree = "<group>"; };
 		10978FD51A143DCC00A5C981 /* NAVAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes.h; sourceTree = "<group>"; };
 		10978FD61A143DCC00A5C981 /* NAVAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributes.m; sourceTree = "<group>"; };
 		10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder.h; sourceTree = "<group>"; };
@@ -103,6 +101,7 @@
 		109DE5E2197A1053003AA60C /* NAVTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTest.m; sourceTree = "<group>"; };
 		109DE5E5197A1717003AA60C /* YOLT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLT.h; sourceTree = "<group>"; };
 		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
+		10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder_Private.h; sourceTree = "<group>"; };
 		10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilderTests.m; sourceTree = "<group>"; };
 		10F974091A3A08070007AE7D /* NAVUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdates.h; sourceTree = "<group>"; };
 		10F9740A1A3A08070007AE7D /* NAVUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdates.m; sourceTree = "<group>"; };
@@ -268,6 +267,7 @@
 				1007935D1A19076E00414C9D /* NAVTransition.m */,
 				10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */,
 				10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */,
+				10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */,
 				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
 			);
@@ -374,7 +374,6 @@
 				1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */,
 				101EC12D1A19376D00C16B4E /* NAVRouteTests.m */,
 				101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */,
-				10978FD31A143AA500A5C981 /* NAVAttributesTests.m */,
 				101EC1311A193CF700C16B4E /* NAVTransitionTests.m */,
 				10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */,
 				101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */,
@@ -615,7 +614,6 @@
 				101EC1321A193CF700C16B4E /* NAVTransitionTests.m in Sources */,
 				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
 				101EC1301A19391900C16B4E /* NAVRouteBuilderTests.m in Sources */,
-				10978FD41A143AA500A5C981 /* NAVAttributesTests.m in Sources */,
 				10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */,
 				1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */,
 			);

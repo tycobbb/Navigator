@@ -6,6 +6,7 @@
 #import "NAVUpdate.h"
 #import "NAVRoute.h"
 #import "NAVRouterFactory.h"
+#import "NAVTransitionBuilder.h"
 
 @protocol NAVTransitionDelegate;
 
@@ -19,6 +20,15 @@
 */
 
 @property (weak, nonatomic) id<NAVTransitionDelegate> delegate;
+
+/**
+ @brief The attributes used to create this transition.
+ 
+ The attributes encapsulate the transitions URLs, assosciated user objects / handlers,
+ and other relevant transition information.
+*/
+
+@property (nonatomic, readonly) NAVAttributes *attributes;
 
 /**
  @brief The view updates to run for this transition
@@ -45,31 +55,43 @@
  is considered complete.
 */
 
-@property (copy, nonatomic) void(^completion)(void);
+@property (copy, nonatomic) void(^completion)(NSError *);
 
 /**
- @brief Desginated initializer. Creates a new transition with the given attributes builder
+ @brief Desginated initializer. Creates a new transition with the given attributes.
  
- The attributes at this point should be incomplete--namely, missing a source URL. The
- necessary information to complete the attributes should be passed in @c startWithUrl:.
+ The attributes are used to generate the transitions list of updates, and should be fully-formed
+ by the time they reach this method.
  
- @param attributes The attributes builder for the transition to run
+ @param attributes The attributes for the transition to run
  
  @return A new NAVTransition instance for the specified attributes
 */
 
-- (instancetype)initWithAttributesBuilder:(NAVTransitionBuilder *)attributesBuilder;
+- (instancetype)initWithAttributes:(NAVAttributes *)attributes;
 
 /**
- @brief Starts the transition, performing its updates
- 
- The transition populates its attributes appropriately and then generates and runs a sequence of
- interface updates.
- 
- @param url The URL to transition from, which will be used to determine the list of updates
+ @brief Starts the transition, performing its updates in sequence.
+
+ The delegate will begin receiveing messages as the transition moves through its execution 
+ cycle. When that transition finishes, it will first call its callback and then notify
+ its delegate.
 */
 
-- (void)startFromUrl:(NAVURL *)url;
+- (void)start;
+
+/**
+ @brief Fails the transition, calling its completion immediately
+ 
+ The transition should not be started after this point, and should be discarded.
+ 
+ @param error The error to pass to the completion
+*/
+
+- (void)failWithError:(NSError *)error;
+
+/// Returns a new builder for constructiong future NAVTransitions
++ (NAVTransitionBuilder *)builder;
 
 @end
 

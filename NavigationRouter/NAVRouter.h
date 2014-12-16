@@ -79,18 +79,17 @@
 + (instancetype)router;
 
 /**
- @brief Axial method about which all other routing operations orbit.
+ @brief Returns a new transition builder that can be used to run a routing transition
  
- Calling this method triggers the router's update cycle, wherein it will diff the 
- destination URL against its current location, and perform any necessary interface 
- updates to resolve the transition.
+ The builder contains a variety of chainable methods for customizing the routing desintation,
+ transition attributes, and data passed to routed views.
  
- @param attributes Attributes builder to generate a future attributes instance form
- @param isAnimated Flag indicating whether or not the transition is animated
- @param completion Block to be called when the transition completes
- */
+ @see @c NAVTransitionBuilder for a complete list of what's available.
+ 
+ @return
+*/
 
-- (void)transitionWithAttributes:(NAVTransitionBuilder *)attributes animated:(BOOL)isAnimated completion:(void(^)(void))completion;
+- (NAVTransitionBuilder *)transition;
 
 /**
  @brief Updates the router's internal routes

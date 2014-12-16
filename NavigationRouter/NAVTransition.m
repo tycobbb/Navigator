@@ -9,7 +9,7 @@
 #import "NAVRouterConstants.h"
 
 @interface NAVTransition () <NAVUpdateDelegate>
-@property (strong, nonatomic) NAVTransitionBuilder *attributesBuilder;
+@property (strong, nonatomic) NAVAttributes *attributes;
 @property (strong, nonatomic) NSArray *updates;
 @end
 
@@ -17,27 +17,24 @@
 
 - (instancetype)init
 {
-    return [self initWithAttributesBuilder:nil];
+    return [self initWithAttributes:nil];
 }
 
-- (instancetype)initWithAttributesBuilder:(NAVTransitionBuilder *)attributesBuilder
+- (instancetype)initWithAttributes:(NAVAttributes *)attributes
 {
-    NSParameterAssert(attributesBuilder);
+    NSParameterAssert(attributes);
     
     if(self = [super init]) {
-        _attributesBuilder = attributesBuilder;
+        _attributes = attributes;
     }
     
     return self;
 }
 
-- (void)startFromUrl:(NAVURL *)url
+- (void)start
 {
-    // generate the attributes with our start URL
-    NAVAttributes *attributes = self.attributesBuilder.build(url);
-   
     // and parse it into a sequence of updates
-    self.updates = [NAVUpdateParser updatesFromAttributes:attributes];
+    self.updates = [NAVUpdateParser updatesFromAttributes:self.attributes];
    
     // we'll respond to update lifecycle events
     for(NAVUpdate *update in self.updates) {
@@ -48,11 +45,23 @@
     [self executeUpdateAtIndex:0];
 }
 
+- (void)failWithError:(NSError *)error
+{
+    [self finishAtIndex:0 error:error];
+}
+
++ (NAVTransitionBuilder *)builder
+{
+    return [NAVTransitionBuilder new];
+}
+
+# pragma mark - Execution
+
 - (void)executeUpdateAtIndex:(NSInteger)index
 {
     // if we've run out of updates, then we're done
     if(index >= self.updates.count) {
-        [self didCompleteAtIndex:index];
+        [self finishAtIndex:index error:nil];
         return;
     }
     
@@ -67,9 +76,16 @@
     }];
 }
 
-- (void)didCompleteAtIndex:(NSInteger)index
+- (void)finishAtIndex:(NSInteger)index error:(NSError *)error
 {
-    [self.delegate transitionDidComplete:self];
+    // call the completion and then clear it
+    nav_call(self.completion)(error);
+    self.completion = nil;
+    
+    // tell the delegate we completed, if that's the case
+    if(!error) {
+        [self.delegate transitionDidComplete:self];
+    }
 }
 
 # pragma mark - NAVUpdateDelegate

@@ -40,18 +40,3 @@
 @property (copy, nonatomic) NSString *data;
 
 @end
-
-@interface NAVAttributes (Builder)
-
-/**
- @brief Generates a new attributes builder.
- 
- The attributes builder encapsulates the logic necessary to construct an attributes object
- when the transition is ready to execute.
-
- @return A NAVAttributes builder instance
-*/
-
-+ (NAVTransitionBuilder *)builder;
-
-@end

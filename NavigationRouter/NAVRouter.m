@@ -28,18 +28,11 @@
 
 # pragma mark - Transitions
 
-- (void)transitionWithAttributes:(NAVTransitionBuilder *)attributes animated:(BOOL)isAnimated completion:(void (^)(void))completion
+- (NAVTransitionBuilder *)transition
 {
-    // create the transition to enqueue
-    NAVTransition *transition = [[NAVTransition alloc] initWithAttributesBuilder:attributes];
-    transition.isAnimated = isAnimated;
-    transition.completion = completion;
-    transition.delegate   = self;
-    
-    // enqueue the transition, and then immediately dequeue it if possible
-    self.transitionQueue.pushFront(transition);
-    
-    [self dequeueTransition];
+    NAVTransitionBuilder *transitionBuilder = [NAVTransition builder];
+    transitionBuilder.delegate = self;
+    return transitionBuilder;
 }
 
 - (void)dequeueTransition
@@ -49,11 +42,35 @@
         return;
     }
     
-    // otherwise, dequeue the next transition and start if from our current url
-    NAVTransition *transition = self.transitionQueue.pop;
-    self.currentTransition = nil;
-    
-    [transition startFromUrl:self.currentUrl];
+    // otherwise, build the next queued transition from our current url
+    NAVTransitionBuilder *transitionBuilder = self.transitionQueue.pop;
+    self.currentTransition = transitionBuilder.build(self.currentUrl);
+   
+    // and kick it off
+    [self.currentTransition start];
+}
+
+//
+// NAVTransitionBuilderDelegate
+//
+
+- (void)enqueueTransitionForBuilder:(NAVTransitionBuilder *)transitionBuilder
+{
+    if(transitionBuilder.shouldEnqueue || !self.isTransitioning) {
+        self.transitionQueue.pushFront(transitionBuilder);
+        // attempt to run the queued transition right away
+        [self dequeueTransition]; 
+    }
+    // otherwise, this is an error case. we can't run a transition that isn't
+    // enqueable if there's one running already
+    else {
+        NAVTransition *transition = transitionBuilder.build(self.currentUrl);
+        
+        // tell the transition to fail right away
+        [transition failWithError:[NSError errorWithDomain:NAVRouterErrorDomain code:-1 userInfo:@{
+            NSLocalizedDescriptionKey: @"Attempted to run an un-enqueuable transition during an existing transition."
+        }]];
+    }
 }
 
 # pragma mark - NAVTransitionDelegate
@@ -226,5 +243,6 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
 
 # pragma mark - Constants
 
+NSString * const NAVRouterErrorDomain = @"router.error";
 NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";
 NSString * const NAVExceptionInvalidRoute = @"router.invalid.route";
