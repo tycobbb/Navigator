@@ -26,7 +26,7 @@
     NAVAssert(route.type == NAVRouteTypeModal, NAVExceptionInvalidRoute, @"Cannot create a modal animator without a modal route.");
     
     if(self = [super init]) {
-        _route = route;
+        self.route = route;
     }
     
     return self;

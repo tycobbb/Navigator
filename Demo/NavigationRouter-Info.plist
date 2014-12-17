@@ -24,6 +24,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>NAVLaunchView</string>
 	<key>UIMainStoryboardFile</key>
 	<string>NAVDemoStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>

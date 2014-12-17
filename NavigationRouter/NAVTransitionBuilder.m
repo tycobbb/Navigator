@@ -19,6 +19,7 @@
 {
     if(self = [super init]) {
         _transformsB = [NSMutableArray new];
+        _animatedB   = YES;
     }
     
     return self;

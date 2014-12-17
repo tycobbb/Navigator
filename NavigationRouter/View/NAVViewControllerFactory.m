@@ -33,7 +33,7 @@
 
 - (NAVAnimation *)animationForRoute:(NAVRoute *)route
 {
-    return route.type == NAVRouteTypeAnimation ? route.destination : nil;
+    return route.type >= NAVRouteTypeAnimation ? route.destination : nil;
 }
 
 //
