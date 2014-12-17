@@ -23,7 +23,7 @@
         <!--Red View Controller-->
         <scene sceneID="ihr-Zv-M1a">
             <objects>
-                <viewController storyboardIdentifier="NAVDemoViewControllerRed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hs7-ys-lnf" customClass="NAVRedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NAVRedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hs7-ys-lnf" customClass="NAVRedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kOa-14-hb7"/>
                         <viewControllerLayoutGuide type="bottom" id="fCf-uO-pEn"/>
@@ -42,7 +42,7 @@
         <!--Blue View Controller-->
         <scene sceneID="Gfo-pS-AKw">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="bU6-NW-dfu" customClass="NAVBlueViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NAVBlueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bU6-NW-dfu" customClass="NAVBlueViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FdH-Z6-Fd5"/>
                         <viewControllerLayoutGuide type="bottom" id="sGQ-mY-SFB"/>
@@ -61,7 +61,7 @@
         <!--Purple View Controller-->
         <scene sceneID="faj-8h-h6s">
             <objects>
-                <viewController storyboardIdentifier="NAVDemoViewControllerPurple" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N4F-4c-Tag" customClass="NAVPurpleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NAVPurpleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N4F-4c-Tag" customClass="NAVPurpleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Tl-bZ-Srb"/>
                         <viewControllerLayoutGuide type="bottom" id="0KU-mf-EXG"/>

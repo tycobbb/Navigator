@@ -23,7 +23,7 @@
 
 - (void)setController:(UIViewController<NAVRouteDestination> *)controller
 {
-    if(_controller != controller) {
+    if(_controller == controller) {
         return;
     }
     
