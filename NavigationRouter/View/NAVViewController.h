@@ -23,10 +23,6 @@
 
 + (instancetype)instance;
 
-@end
-
-@interface NAVViewController : UIViewController <NAVViewController>
-
 /**
  @brief Specifies the storyboard identifier for this view controller.
  
@@ -48,6 +44,10 @@
 */
 
 + (NSString *)storyboardName;
+
+@end
+
+@interface NAVViewController : UIViewController <NAVViewController>
 
 @end
 

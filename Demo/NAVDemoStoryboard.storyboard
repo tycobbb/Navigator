@@ -42,7 +42,7 @@
         <!--Blue View Controller-->
         <scene sceneID="Gfo-pS-AKw">
             <objects>
-                <viewController storyboardIdentifier="NAVDemoViewControllerBlue" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bU6-NW-dfu" customClass="NAVBlueViewController" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="bU6-NW-dfu" customClass="NAVBlueViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FdH-Z6-Fd5"/>
                         <viewControllerLayoutGuide type="bottom" id="sGQ-mY-SFB"/>

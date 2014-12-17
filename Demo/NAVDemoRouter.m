@@ -9,6 +9,11 @@
 
 @implementation NAVDemoRouter
 
++ (NSString *)scheme
+{
+    return @"demo";
+}
+
 - (void)routes:(NAVRouteBuilder *)route
 {
     route.to(NAVDemoRouteBlue).controller(NAVBlueViewController.class);

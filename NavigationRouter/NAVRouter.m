@@ -47,7 +47,9 @@
     
     // otherwise, build the next queued transition from our current url
     NAVTransitionBuilder *transitionBuilder = self.transitionQueue.pop;
+    
     self.currentTransition = transitionBuilder.build(currentUrl);
+    self.currentTransition.delegate = self;
    
     // and kick it off
     [self.currentTransition start];
@@ -291,6 +293,7 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
 
 # pragma mark - Constants
 
-NSString * const NAVRouterErrorDomain = @"router.error";
+NSString * const NAVRouterErrorDomain     = @"router.error";
+NSString * const NAVExceptionNoScheme     = @"router.no.scheme";
 NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";
 NSString * const NAVExceptionInvalidRoute = @"router.invalid.route";

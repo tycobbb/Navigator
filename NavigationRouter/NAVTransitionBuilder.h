@@ -12,14 +12,6 @@
 @interface NAVTransitionBuilder : NSObject
 
 /**
- @brief Starts the transition immediately
- 
- See @c -start: for full documenation.
-*/
-
-- (void)start;
-
-/**
  @brief Starts the transition immediately.
  
  If the router has a currently running transition, then this transition will @em not 
@@ -27,18 +19,10 @@
  
  Alternatively, the transition can be queued using @c -enqueue:.
  
- @param completion A callback when the transition completes, or if it couldn't complete.
+ @param block:completion A callback when the transition completes, or if it couldn't complete.
 */
 
-- (void)start:(void(^)(NSError *))completion;
-
-/**
- @brief Enqueues a transition to start at some point in the future
- 
- See @c -enqueue: for full documenation.
-*/
-
-- (void)enqueue;
+- (void(^)(void(^)(NSError *)))start;
 
 /**
  @brief Enqueues a transition to start at some point in the future
@@ -48,10 +32,10 @@
  
  @note Queued transitions begin from the URL after all previously queued transitions complete.
  
- @param completion A callback when this transition completes
+ @param block:completion A callback when this transition completes
 */
 
-- (void)enqueue:(void(^)(void))completion;
+- (void(^)(void(^)(void)))enqueue;
 
 @end
 

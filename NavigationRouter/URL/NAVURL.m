@@ -8,8 +8,8 @@
 #import "NAVRouterUtilities.h"
 #import "YOLT.h"
 
-NSString * const NAVExceptionMalformedUrl = @"rocket.malformed.url";
-NSString * const NAVExceptionIllegalUrlMutation = @"rocket.illegal.url.mutation";
+NSString * const NAVExceptionMalformedUrl = @"router.malformed.url";
+NSString * const NAVExceptionIllegalUrlMutation = @"router.illegal.url.mutation";
 
 @interface NAVURL ()
 @property (copy, nonatomic) NSString *scheme;

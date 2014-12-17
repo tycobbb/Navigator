@@ -13,6 +13,8 @@
     [super viewDidLoad];
     
     [NAVDemoRouter router].navigationController = self;
+    [NAVDemoRouter router].transition
+        .push(NAVDemoRouteBlue).start(nil);
 }
 
 @end

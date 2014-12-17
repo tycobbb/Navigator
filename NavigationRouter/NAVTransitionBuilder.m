@@ -77,31 +77,25 @@
 
 # pragma mark - Queueing
 
-- (void)start
+- (void (^)(void (^)(NSError *)))start
 {
-    [self start:nil];
+    return ^(void(^completion)(NSError *)) {
+        [self setCompletionB:completion];
+        [self.delegate enqueueTransitionForBuilder:self];
+    };
 }
 
-- (void)start:(void (^)(NSError *))completion
+- (void(^)(void(^)(void)))enqueue
 {
-    [self setCompletionB:completion];
-    [self.delegate enqueueTransitionForBuilder:self];
-}
-
-- (void)enqueue
-{
-    [self enqueue:nil];
-}
-
-- (void)enqueue:(void (^)(void))completion
-{
-    // mark the transition as enqueued
-    self.shouldEnqueue = YES;
-    
-    // then run the normal start behavior
-    [self start:^(NSError *error) {
-        nav_call(completion)();
-    }];
+    return ^(void(^completion)(void)){
+        // mark the transition as enqueued
+        self.shouldEnqueue = YES;
+        
+        // then run the normal start behavior
+        self.start(^(NSError *error) {
+            nav_call(completion)();
+        });
+    };
 }
 
 @end
