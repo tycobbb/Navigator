@@ -24,7 +24,7 @@ describe(@"The parser", ^{
     //
     // Tests
     //
-    
+
     it(@"should parse the first route", ^{
         NAVUpdates *updates = NAVTestParse(nil, @"host1/comp1");
         

@@ -42,9 +42,12 @@
         return;
     }
     
+    // if we don't have a URL, create a default from our scheme
+    NAVURL *currentUrl = self.currentUrl ?: [NAVURL URLWithPath:[NSString stringWithFormat:@"%@://", self.class.scheme]];
+    
     // otherwise, build the next queued transition from our current url
     NAVTransitionBuilder *transitionBuilder = self.transitionQueue.pop;
-    self.currentTransition = transitionBuilder.build(self.currentUrl);
+    self.currentTransition = transitionBuilder.build(currentUrl);
    
     // and kick it off
     [self.currentTransition start];
@@ -255,7 +258,15 @@ char *prototypeKey;
 
 @implementation NAVRouter (Subclass)
 
-- (void)routes:(NAVRouteBuilder *)route { }
++ (NSString *)scheme
+{
+    NAVAssert(false, NAVExceptionNoScheme, @"The router needs a URL scheme to function"); return nil;
+}
+
+- (void)routes:(NAVRouteBuilder *)route
+{
+
+}
 
 @end
 

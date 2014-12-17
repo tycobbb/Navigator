@@ -20,6 +20,8 @@ extern NSString * const NAVRouterErrorDomain;
 // Exceptions
 //
 
+extern NSString * const NAVExceptionNoScheme;
+
 extern NSString * const NAVExceptionMalformedUrl;
 extern NSString * const NAVExceptionIllegalUrlMutation;
 
