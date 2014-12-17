@@ -90,7 +90,12 @@
 
 - (void)failWithError:(NSError *)error;
 
-/// Returns a new builder for constructiong future NAVTransitions
+/**
+ @brief Returns a new builder for constructiong future NAVTransitions
+ 
+ The builders are used to perform the transition construction and queueing.
+*/
+
 + (NAVTransitionBuilder *)builder;
 
 @end

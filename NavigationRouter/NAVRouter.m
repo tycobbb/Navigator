@@ -151,10 +151,14 @@
 
 - (void)setNavigationController:(UINavigationController *)navigationController
 {
+    self.updater = [self updaterFromNavigationController:navigationController];
+}
+
+- (NAVNavigationControllerUpdater *)updaterFromNavigationController:(UINavigationController *)navigationController
+{
     NAVNavigationControllerUpdater *updater = [[NAVNavigationControllerUpdater alloc] initWithNavigationController:navigationController];
     updater.delegate = self;
-    
-    self.updater = updater;
+    return updater;
 }
 
 //
@@ -172,11 +176,44 @@
     // TODO: figure out what needs to happen here to stay in sync
 }
 
+# pragma mark - Setters
+
+- (void)setDelegate:(id<NAVRouterDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    // we'll try and create an updater if we don't have one already and we can find a navigation controller
+    if(!self.updater) {
+        UINavigationController *navigationController = [self navigationControllerFromDelegate:delegate];
+        // only create an updater if we can find a nav controller
+        if(navigationController) {
+            self.updater = [self updaterFromNavigationController:navigationController];
+        }
+    }
+}
+
+- (UINavigationController *)navigationControllerFromDelegate:(id)delegate
+{
+    // see if our delegate is a nav controller
+    if([delegate isKindOfClass:UINavigationController.class]) {
+        return delegate;
+    }
+    
+    // see if we can find a navigation controller on our delegate
+    id navigationController = [delegate performSelector:@selector(navigationController)];
+    if([navigationController isKindOfClass:UINavigationController.class]) {
+        return navigationController;
+    }
+    
+    // give up
+    return nil;
+}
+
 # pragma mark - Accessors
 
 - (NAVURL *)currentUrl
 {
-    return nil;
+    return self.lastTransition.attributes.destination;
 }
 
 - (BOOL)isTransitioning

@@ -24,14 +24,14 @@
 @property (weak, nonatomic) id<NAVRouterDelegate> delegate;
 
 /**
- @brief Provides an interface for the router to run view controller stack updates. Required.
+ @brief Provides an interface for the router to run view stack updates. Required.
  
- NAVRouterNavigationControllerUpdater provides a default implementation for instances of 
- UINavigationController. If the user sets the router's delegate and that delgate is a navigation 
- controller or has a method named navigationController, as a convenience the router will 
- create in instance of this class from the UINavigationController.
+ The router internally provides a default updater implementation for @c UINavigationController, 
+ which can be created explicitly by setting the router's @c navigationController.
  
- @see @p NAVRouterNavigationControllerUpdater @p
+ @note If the user sets a router's @c delegate to an object that is a navigation
+ controller or has a method named @c navigationController, as a convenience the router will
+ create an updater from that navigation controller as well.
  
  @return The current updater instance.
 */
@@ -86,7 +86,7 @@
  
  @see @c NAVTransitionBuilder for a complete list of what's available.
  
- @return
+ @return A new NAVTransitionBuilder to construct the transition
 */
 
 - (NAVTransitionBuilder *)transition;
