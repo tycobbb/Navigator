@@ -104,6 +104,7 @@
 		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
 		10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder_Private.h; sourceTree = "<group>"; };
 		10C454371A422C27003C4E7D /* NAVLaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NAVLaunchView.xib; sourceTree = "<group>"; };
+		10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes_Private.h; sourceTree = "<group>"; };
 		10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilderTests.m; sourceTree = "<group>"; };
 		10F974091A3A08070007AE7D /* NAVUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdates.h; sourceTree = "<group>"; };
 		10F9740A1A3A08070007AE7D /* NAVUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdates.m; sourceTree = "<group>"; };
@@ -272,6 +273,7 @@
 				10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */,
 				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
+				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
