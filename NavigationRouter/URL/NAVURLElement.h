@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
  used pass the id of a data object to the corresponding view.
 */
 
-@property (copy  , nonatomic, readonly) NSString *data;
+@property (copy, nonatomic, readonly) NSString *data;
 
 /**
  @brief Initializes a new NAVURLComponent

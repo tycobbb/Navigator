@@ -148,6 +148,15 @@
     };
 }
 
+- (NAVTransitionBuilder *(^)(NSString *))data
+{
+    return ^(NSString *data) {
+        return self.transform(^(NAVURL *url) {
+            return [url setData:data];
+        });
+    };
+}
+
 - (NAVTransitionBuilder *(^)(NSInteger))pop
 {
     return ^(NSInteger count) {

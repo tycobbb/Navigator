@@ -14,6 +14,15 @@
     };
 }
 
+- (NSArray *(^)(NSInteger, id))nav_replace
+{
+    return ^(NSInteger index, id object) {
+        NSMutableArray *result = [self mutableCopy];
+        [result replaceObjectAtIndex:index withObject:object];
+        return [result copy];
+    };
+}
+
 @end
 
 @implementation NSMutableArray (YOLT)
@@ -21,8 +30,10 @@
 - (NSMutableArray *(^)(id))push
 {
     return ^(id object) {
-        if(object)
+        if(object) {
             [self addObject:object];
+        }
+        
         return self;
     };
 }
@@ -30,8 +41,9 @@
 - (NSMutableArray *(^)(id))pushFront
 {
     return ^(id object) {
-        if(object)
+        if(object) {
             [self insertObject:object atIndex:0];
+        }
         return self;
     };
 }
@@ -92,8 +104,9 @@
         for(NSString *key in self)
         {
             id value = block(key, self[key]);
-            if(value)
+            if(value) {
                 result[key] = value;
+            }
         }
         
         return [result copy];

@@ -101,15 +101,22 @@ typedef NAVURL *(^NAVTransitionUrlTransformer)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NAVTransitionUrlTransformer))transform;
 
 /**
- @brief Registers a transformer that pushes a subpath onto the source URL
+ @brief Adds a transformer that pushes a subpath onto the source URL
  
- See @c transform for complete documenation on transforms.
+ See @c transform for complete documentation on transforms.
 */
 
 - (NAVTransitionBuilder *(^)(NSString *))push;
 
 /**
- @brief Registers a transformer that pops a subpath off the source URL
+ @brief Adds a transformer that appends the data string to the last URL component
+ 
+ See @c transform for complete doucmentation on transforms.
+*/
+- (NAVTransitionBuilder *(^)(NSString *))data;
+
+/**
+ @brief Adds a transformer that pops a subpath off the source URL
  
  See @c transform for complete documentation on transforms.
 */
@@ -117,7 +124,7 @@ typedef NAVURL *(^NAVTransitionUrlTransformer)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NSInteger))pop;
 
 /**
- @brief Registers a transformer that updates the key-value parameter on the source URL
+ @brief Adds a transformer that updates the key-value parameter on the source URL
  
  See @c transform for complete documentation on transforms.
 */

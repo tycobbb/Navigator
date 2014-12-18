@@ -7,6 +7,7 @@
 
 @interface NSArray (YOLT)
 - (NSArray *(^)(id))nav_append;
+- (NSArray *(^)(NSInteger, id))nav_replace;
 @end
 
 @interface NSMutableArray (YOLT)

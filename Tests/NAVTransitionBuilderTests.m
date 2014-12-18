@@ -45,7 +45,7 @@ describe(@"the attributes builder", ^{
         
         expect(attributes.userObject).to.equal(object);
     });
-    
+   
     it(@"should add handlers", ^{
         NAVTestHandler handler = ^{
             return @"Let's hope this works!";

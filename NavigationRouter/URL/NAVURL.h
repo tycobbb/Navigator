@@ -129,6 +129,20 @@
 - (NAVURL *)pop:(NSUInteger)count;
 
 /**
+ @brief Sets the data string for the last URL component
+ 
+ If the URL component has existing data it will be overwritten. If there is no last 
+ component, this method does nothing. If the data parameter is nil, the component will
+ have its data removed.
+ 
+ @param data The data string to add to the component
+ 
+ @return A new NAVURL with the data added to the last component
+*/
+
+- (NAVURL *)setData:(NSString *)data;
+
+/**
  @brief Create a new URL by updating the parameter with the given value.
  
  The rest of the URL (components, other parameters) are unchanged. A parameter will be

@@ -204,6 +204,20 @@ NSString * const NAVExceptionIllegalUrlMutation = @"router.illegal.url.mutation"
     return result;
 }
 
+- (NAVURL *)setData:(NSString *)data
+{
+    NAVURL *result = [self copy];
+    NAVURLComponent *lastComponent = self.lastComponent;
+    
+    if(lastComponent) {
+        // replace the last component with a copy with the updated data, if there is one
+        NAVURLComponent *replacement = [[NAVURLComponent alloc] initWithKey:lastComponent.key data:data index:lastComponent.index];
+        result.components = result.components.nav_replace(replacement.index, replacement);
+    }
+    
+    return result;
+}
+
 - (NAVURL *)pop:(NSUInteger)count
 {
     NAVAssert(count <= self.components.count, NAVExceptionIllegalUrlMutation, @"%@ doesn't have %d components to pop", self, (int)count);

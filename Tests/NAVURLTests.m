@@ -64,6 +64,17 @@ describe(@"URL", ^{
         expect(^{ [URL(@"test?param=1") push:nil]; }).to.raise(NAVExceptionIllegalUrlMutation);
     });
     
+    it(@"should add data to components", ^{
+        NSString *data = @"1234";
+        NAVURL *url = [URL(@"test") setData:data];
+        expect(url.lastComponent.data).to.equal(data);
+    });
+   
+    it(@"should remove data from components", ^{
+        NAVURL *url = [URL(@"test::1234") setData:nil];
+        expect(url.lastComponent.data).to.beNil();
+    });
+    
     it(@"should pop components", ^{
         NAVURL *url = URL(@"test1/test2/test3?param=1");
         
