@@ -6,6 +6,7 @@
 #import <YOLOKit/YOLO.h>
 #import "NAVUpdateParser.h"
 #import "NAVUpdate.h"
+#import "NAVAttributes_Private.h"
 
 @implementation NAVUpdateParser
 
@@ -47,10 +48,10 @@
 // Helpers
 //
 
-+ (NSArray *)updatesWithType:(NAVUpdateType)type elements:(NSArray *)elements attributes:(NAVAttributes *)attributes
++ (NSArray *)updatesWithType:(NAVUpdateType)type elements:(NSArray *)elements attributes:(NAVAttributes *)source
 {
-    // TODO: copy attributes / mutate them to fit this update
     return (elements ?: @[]).map(^(NAVURLElement *element) {
+        NAVAttributes *attributes = [source copyWithData:element.data];
         return [NAVUpdate updateWithType:type element:element attributes:attributes];
     });
 }

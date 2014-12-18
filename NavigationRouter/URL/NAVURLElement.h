@@ -37,6 +37,20 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
 
 @end
 
+@interface NAVURLElement (Data)
+
+/**
+ @brief Returns the data string assosciated with the element, if any.
+ 
+ Parameters don't have assosciated data strings. Components may have assosciated data
+ string, but it's not required.
+ 
+ @return The data string assosciated with this element
+*/
+
+- (NSString *)data;
+
+@end
 
 @interface NAVURLComponent : NAVURLElement <NSCopying>
 

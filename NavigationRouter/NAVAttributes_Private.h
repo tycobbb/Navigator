@@ -5,19 +5,23 @@
 
 #import "NAVAttributes.h"
 
+@interface NAVAttributes () <NSCopying>
+
+@end
+
 @interface NAVAttributes (Operators)
 
 /**
  @brief Creates a new NAVAttributes object with the given data
  
- The user object, handler, and any existing data are discarded during the cloning 
- process.
+ The other attributes' parameters are preserved, but the data is overwritten with
+ the parameterized data.
  
- @param data The data for the cloned attributes
-
- @return The cloned attributes
+ @param data The data for the copied attributes
+ 
+ @return The copied attributes
 */
 
-- (instancetype)cloneWithData:(NSString *)data;
+- (instancetype)copyWithData:(NSString *)data;
 
 @end

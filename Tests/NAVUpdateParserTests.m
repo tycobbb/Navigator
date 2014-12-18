@@ -66,6 +66,25 @@ describe(@"The parser", ^{
         expect(updates[1].element.key).to.equal(@"comp2");
     });
     
+    it(@"should assosciate data parameters to the correct attributes", ^{
+        NSDictionary *componentMap = @{
+            @"host"  : @"1234",
+            @"comp1" : @"asdf",
+            @"comp2" : @0
+        };
+        
+        NSString *destination = componentMap.map(^(NSString *path, NSString *data){
+            return [data isEqual:@0] ? path : @[ path, data ].join(@"::");
+        }).join(@"/");
+        
+        NAVUpdates *updates = NAVTestParse(nil, destination);
+        
+        for(NAVUpdate *update in updates) {
+            NSString *expectedData = componentMap[update.element.key];
+            expect(update.attributes.data).to.equal([expectedData isEqual:@0] ? nil : expectedData);
+        }
+    });
+    
     it(@"should not parse pushes if there are none", ^{
         NAVUpdates *updates = NAVTestParse(@"host1/comp1/", @"host1/");
     

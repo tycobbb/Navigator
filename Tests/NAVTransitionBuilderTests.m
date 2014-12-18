@@ -75,7 +75,7 @@ describe(@"the attributes builder", ^{
         
         expect(attributes.destination.lastComponent.key).to.equal(component);
     });
-    
+
     it(@"should pop components", ^{
         NAVAttributes *attributes = mock(@"test", NAVTransition.builder
             .pop(1));

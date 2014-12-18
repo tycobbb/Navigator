@@ -22,7 +22,7 @@
  @param block:completion A callback when the transition completes, or if it couldn't complete.
 */
 
-- (void(^)(void(^)(NSError *)))start;
+- (void (^)(void (^)(NSError *)))start;
 
 /**
  @brief Enqueues a transition to start at some point in the future
@@ -35,7 +35,7 @@
  @param block:completion A callback when this transition completes
 */
 
-- (void(^)(void(^)(void)))enqueue;
+- (void (^)(void (^)(void)))enqueue;
 
 @end
 

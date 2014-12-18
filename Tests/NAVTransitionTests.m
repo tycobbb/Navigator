@@ -25,6 +25,19 @@ describe(@"the transition", ^{
         expect(update.type).to.equal(NAVUpdateTypePush);
     });
     
+    
+    it(@"should support pushing components with data", ^{
+        NSString *data = @"1234";
+        
+        NAVTransition *transition = mockTransition(nil, NAVTransition.builder
+            .push(@"test")
+            .data(data));
+        
+        NAVUpdate *update = transition.updates.firstObject;
+        expect(update).toNot.beNil();
+        expect(update.attributes.data).to.equal(data);
+    });
+    
     it(@"should support pop updates", ^{
         NAVTransition *transition = mockTransition(@"comp1/comp2", NAVTransition.builder
             .pop(1)

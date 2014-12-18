@@ -9,6 +9,7 @@
 #import "NAVRouterUpdater.h"
 #import "NAVRouterFactory.h"
 #import "NAVRouteBuilder.h"
+#import "NAVTransitionBuilder.h"
 
 @interface NAVRouter : NSObject
 

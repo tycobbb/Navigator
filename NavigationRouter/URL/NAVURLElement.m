@@ -65,6 +65,11 @@
     return self;
 }
 
+- (NSString *)data
+{
+    return nil;
+}
+
 # pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone

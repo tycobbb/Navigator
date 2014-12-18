@@ -7,15 +7,28 @@
 
 @implementation NAVAttributes
 
-- (instancetype)cloneWithData:(NSString *)data
+- (id)copyWithZone:(NSZone *)zone
 {
-    NAVAttributes *attributes = [self.class new];
+    NAVAttributes *copy = [self.class new];
     
-    attributes.source = self.source;
-    attributes.destination = self.destination;
-    attributes.data = data;
+    copy.source = self.source;
+    copy.destination = self.destination;
+    copy.userObject = self.userObject;
+    copy.handler = self.handler;
+    copy.data = self.data;
     
-    return attributes;
+    return copy;
+}
+
+@end
+
+@implementation NAVAttributes (Operators)
+
+- (instancetype)copyWithData:(NSString *)data
+{
+    NAVAttributes *result = [self copy];
+    result.data = data;
+    return result;
 }
 
 @end

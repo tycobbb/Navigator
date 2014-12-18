@@ -86,7 +86,7 @@
     };
 }
 
-- (void(^)(void(^)(void)))enqueue
+- (void (^)(void (^)(void)))enqueue
 {
     return ^(void(^completion)(void)){
         // mark the transition as enqueued
