@@ -78,14 +78,22 @@
 
 - (void)finishAtIndex:(NSInteger)index error:(NSError *)error
 {
-    // call the completion and then clear it
-    nav_call(self.completion)(error);
-    self.completion = nil;
+    BOOL finishAsynchronously = self.isAnimated && !error;
     
-    // tell the delegate we completed, if that's the case
-    if(!error) {
-        [self.delegate transitionDidComplete:self];
-    }
+    // give animated transitions a frame to settle. presenting a modal and then dismissing is in an
+    // enqueued transition or completion would fail otherwise, since the system still thinks it's mid-
+    // transition without this bonus frame.
+    
+    optionally_dispatch_async(finishAsynchronously, dispatch_get_main_queue(), ^{
+        // call the completion and then clear it
+        nav_call(self.completion)(error);
+        self.completion = nil;
+        
+        // tell the delegate we completed, if that's the case
+        if(!error) {
+            [self.delegate transitionDidComplete:self];
+        }       
+    });
 }
 
 # pragma mark - NAVUpdateDelegate

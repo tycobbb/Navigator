@@ -16,18 +16,6 @@
     
 }
 
-# pragma mark - Listeners
-
-- (void)onPresentation:(void (^)(void))block
-{
-    
-}
-
-- (void)onDismissal:(void (^)(void))block
-{
-    
-}
-
 # pragma mark - Setters
 
 - (void)setIsVisible:(BOOL)isVisible

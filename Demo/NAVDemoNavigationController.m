@@ -27,6 +27,10 @@
         .push(NAVDemoRouteBlue)
         .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible)
         .start(nil);
+    
+    [NAVDemoRouter router].transition
+        .parameter(NAVDemoRoutePurple, NAVParameterOptionsHidden)
+        .enqueue(nil);
 }
 
 @end

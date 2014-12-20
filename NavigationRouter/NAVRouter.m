@@ -291,6 +291,16 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
     va_end(args);
 }
 
+void optionally_dispatch_async(BOOL async, dispatch_queue_t queue, void(^block)(void))
+{
+    if(!async) {
+        block();
+    }
+    else {
+        dispatch_async(queue, block);
+    }
+}
+
 # pragma mark - Constants
 
 NSString * const NAVRouterErrorDomain     = @"router.error";

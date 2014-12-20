@@ -90,16 +90,14 @@
 
 - (void)performUpdate:(NAVUpdate *)update withTransaction:(void(^)(void))transaction completion:(void(^)(BOOL finished))completion
 {
-    void(^transactionCompletion)(void) = ^{
-        if(completion)
-            completion(YES);
-    };
-    
-    BOOL performCompletionAsynchronously = update.isAnimated;
+    BOOL completeAsynchronously = update.isAnimated;
     
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
-        [self dispatchBlock:transactionCompletion asynchronously:performCompletionAsynchronously];
+        // sequential animated navigation controller updates fail unless we give it a frame
+        optionally_dispatch_async(completeAsynchronously, dispatch_get_main_queue(), ^{
+            nav_call(completion)(YES);
+        });
     }];
     
     transaction();
