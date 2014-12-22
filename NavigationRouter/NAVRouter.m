@@ -10,7 +10,6 @@
 - (instancetype)init
 {
     if(self = [super init]) {
-        // allocate transition queue
         _transitionQueue = [NSMutableArray new];
         
         #ifdef NAVIGATOR_VIEW
@@ -84,8 +83,6 @@
 {
     // find the corresponding route
     NAVRoute *route = self.routes[update.element.key];
-   
-    // we can't proceeed without a route
     NAVAssert(route != nil, NAVExceptionNoRouteFound, @"No route found for element: %@", update.element.key);
     
     // allow the update to do its own internal preperation
@@ -118,11 +115,10 @@
     
     self.routes = routeBuilder.routes;
     
-    // hook into any newly added animators
     for(NAVRoute *route in routeBuilder.addedRoutes) {
-        // make sure we have an animator; this might modify the route destination
+        // ensure we have an animation for any animated route; this may mutate the route destination
         NAVAnimation *animation = [self ensureAnimationForRoute:route];
-        // we want to get animator callbacks so that we can keep ourselves in sync
+        // make sure we get animation callbacks
         animation.delegate = self;
     }
 }
@@ -133,11 +129,11 @@
 
 - (NAVAnimation *)ensureAnimationForRoute:(NAVRoute *)route
 {
-    // we don't have one if the route doesn't use an animator
     if(!NAVRouteTypeIsAnimator(route.type)) {
         return nil;
     }
-    // create the animator internally for any route type that require it
+    
+    // create the animator internally for any route types that require it
     else if(route.type == NAVRouteTypeModal) {
         route.destination = [[NAVAnimationModal alloc] initWithRoute:route];
     }
@@ -172,8 +168,8 @@
 
 - (void)updater:(NAVNavigationControllerUpdater *)updater didUpdateViewControllers:(NSArray *)viewControllers
 {
-    // we're only going to pay attention if the nav controller seems to have poppoed view controllers
-    // without our knowledge
+    // we only care if the nav controller seems to have popped view controllers without
+    // our knowledge
     if(self.isTransitioning || viewControllers.count >= self.currentUrl.components.count) {
         return;
     }
@@ -187,10 +183,10 @@
 {
     _delegate = delegate;
     
-    // we'll try and create an updater if we don't have one already and we can find a navigation controller
+    // if we don't have an updater, try and create one from our delegate
     if(!self.updater) {
         UINavigationController *navigationController = [self navigationControllerFromDelegate:delegate];
-        // only create an updater if we can find a nav controller
+        // only create an updater if we can find a nav controller on our delegate
         if(navigationController) {
             self.updater = [self updaterFromNavigationController:navigationController];
         }

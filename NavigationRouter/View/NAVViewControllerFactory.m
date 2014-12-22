@@ -15,11 +15,12 @@
      
     NAVViewController *controller;
     
-    // attempt to create the view controller; we're only going to catch this to throw a more informative error
+    // attempt to create the view controller; we're only catching exceptions here so that
+    // we might throw something more informative
     @try {
         controller = [klass instance];
     }
-    // if the storyboard doesn't contain this vc, let's try and throw a more explicity exception
+    // if the storyboard doesn't contain this vc, throw a custom exception
     @catch(NSException *exception) {
         if([exception.name isEqualToString:NSInvalidArgumentException]) {
             exception = [self routingExceptionForRoute:route controllerClass:klass];

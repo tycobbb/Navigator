@@ -103,7 +103,7 @@
 
 - (NSString *)value
 {
-    // if we're not visible just show nothing
+    // if we're not visible render nothing
     if(!self.isVisible) {
         return nil;
     }
@@ -123,7 +123,7 @@
             break;
         }
         
-        // accumulate the value
+        // accumulate the string
         [result appendString:substring];
     }
     

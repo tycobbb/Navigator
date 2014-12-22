@@ -54,7 +54,7 @@
 {
     NSParameterAssert(source);
    
-    // apply all the transforms to the source URL to genereate the destination
+    // sequentially apply transforms to source URL to generate the destination
     NAVURL *destination = self.transformsB.inject(source, ^(NAVURL *url, NAVTransitionUrlTransformer transform) {
         return transform(url);
     });

@@ -33,10 +33,9 @@
 
 - (void)start
 {
-    // and parse it into a sequence of updates
+    // parse a sequence of updates from our attributes
     self.updates = [NAVUpdateParser updatesFromAttributes:self.attributes];
-   
-    // we'll respond to update lifecycle events
+    
     for(NAVUpdate *update in self.updates) {
         update.delegate = self;
     }
