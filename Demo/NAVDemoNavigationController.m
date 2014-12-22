@@ -16,6 +16,7 @@
     
     [NAVDemoRouter router].transition
         .push(NAVDemoRouteRed)
+        .animated(NO)
         .start(nil);
 }
 
@@ -23,15 +24,15 @@
 {
     [super viewDidAppear:animated];
     
-    [NAVDemoRouter router].transition
-        .push(NAVDemoRouteBlue)
-        .start(nil);
-  
 //    [NAVDemoRouter router].transition
 //        .push(NAVDemoRouteBlue)
-//        .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible)
 //        .start(nil);
-//    
+  
+    [NAVDemoRouter router].transition
+        .push(NAVDemoRouteBlue)
+        .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible)
+        .start(nil);
+//
 //    [NAVDemoRouter router].transition
 //        .parameter(NAVDemoRoutePurple, NAVParameterOptionsHidden)
 //        .enqueue(nil);

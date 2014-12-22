@@ -319,11 +319,15 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
 
 void optionally_dispatch_async(BOOL async, dispatch_queue_t queue, void(^block)(void))
 {
-    if(!async) {
-        dispatch_sync(queue, block);
+    if(async) {
+        dispatch_async(queue, block);
+    }
+    // dispatch_sync on the main thread to the main thread deadlocks
+    else if(NSThread.isMainThread && queue == dispatch_get_main_queue()) {
+        block();
     }
     else {
-        dispatch_async(queue, block);
+        dispatch_sync(queue, block);
     }
 }
 

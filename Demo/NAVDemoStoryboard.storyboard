@@ -69,7 +69,24 @@
                     <view key="view" contentMode="scaleToFill" id="uWd-gD-ZEd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2y-lz-CkC">
+                                <rect key="frame" x="281.5" y="285" width="37" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="N4F-4c-Tag" eventType="touchUpInside" id="R1R-Wy-7f0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.64533244496988529" green="0.38627609974017346" blue="0.82400000100000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="O2y-lz-CkC" secondAttribute="centerY" id="ZPf-q2-HH4"/>
+                            <constraint firstAttribute="centerX" secondItem="O2y-lz-CkC" secondAttribute="centerX" id="hE0-OQ-C4w"/>
+                        </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
