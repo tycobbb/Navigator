@@ -290,7 +290,7 @@ void NAVAssert(BOOL condition, NSString *name, NSString *format, ...)
 void optionally_dispatch_async(BOOL async, dispatch_queue_t queue, void(^block)(void))
 {
     if(!async) {
-        block();
+        dispatch_sync(queue, block);
     }
     else {
         dispatch_async(queue, block);
