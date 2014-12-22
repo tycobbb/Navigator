@@ -19,7 +19,7 @@
 
 + (void)initialize
 {
-    [self swizzleNavigationControllerSetter];
+    [self swizzleNavigationControllerDelegateSetter];
 }
 
 - (instancetype)initWithNavigationController:(UINavigationController *)navigationController
@@ -30,10 +30,8 @@
         // store our direct properties
         _navigationController = navigationController;
         
-        // hijack the navigation controller's delegate
+        // hijack the navigation controller's delegate and observe any future delegate updates
         [self updateNavigationDelegate:navigationController.delegate];
-        
-        // observe delegate updates for this particular nav controller
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(navigationControllerDidSetDelegate:)
                                                      name:NAVNavigationControllerDidSetDelegateNotification object:navigationController];
     }
@@ -119,7 +117,7 @@
 {
     [self.delegate updater:self didUpdateViewControllers:navigationController.viewControllers];
     
-    // forward this method explicitly to original the delegate (if it cares)
+    // forward this method explicitly to the original delegate
     if([self.navigationDelegate respondsToSelector:_cmd]) {
         [self.navigationDelegate navigationController:navigationController didShowViewController:viewController animated:animated];
     }
@@ -151,8 +149,9 @@
 
 - (void)navigationControllerDidSetDelegate:(NSNotification *)notification
 {
+    UINavigationController *controller = notification.object;
     // we want to know if someone new (and besides us) became the nav controller's delegate
-    if(notification.object == self || notification.object == self.navigationDelegate) {
+    if(controller.delegate == self || controller.delegate == self.navigationDelegate) {
         return;
     }
     
@@ -170,9 +169,9 @@
 
 static IMP original_setDelegate;
 
-+ (void)swizzleNavigationControllerSetter
++ (void)swizzleNavigationControllerDelegateSetter
 {
-    // get the delegate setter for navigation controller
+    // get UINavigationController's setter
     Method method = class_getInstanceMethod(UINavigationController.class, @selector(setDelegate:));
     // swizzle and store the original implementation to call from our swizzled setter
     original_setDelegate = method_setImplementation(method, (IMP)nav_setDelegate);
