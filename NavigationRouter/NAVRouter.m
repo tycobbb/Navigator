@@ -166,6 +166,11 @@
 
 - (void)animation:(NAVAnimation *)animation didUpdateIsVisible:(BOOL)isVisible
 {
+    // if we're transition, then we're assuming that animation happened within the router
+    if(self.isTransitioning) {
+        return;
+    }
+    
     // TODO: figure out what needs to happen here to stay in sync
 }
 
@@ -195,7 +200,11 @@
         return;
     }
     
-    // TODO: figure out what needs to happen here to stay in sync
+    // set the last transition an unexecuted transition with the controller difference
+    // poppeed off the url
+    self.lastTransition = [NAVTransitionBuilder new]
+        .pop(self.currentUrl.components.count - viewControllers.count)
+        .build(self.currentUrl);
 }
 
 # pragma mark - Setters
