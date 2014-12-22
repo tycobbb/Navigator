@@ -41,6 +41,7 @@
     }
     
     // kick off the update execution
+    [self.delegate transitionWillStart:self];
     [self executeUpdateAtIndex:0];
 }
 

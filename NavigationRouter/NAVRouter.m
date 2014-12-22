@@ -49,7 +49,7 @@
     
     self.currentTransition = transitionBuilder.build(currentUrl);
     self.currentTransition.delegate = self;
-   
+    
     // and kick it off
     [self.currentTransition start];
 }
@@ -79,6 +79,13 @@
 
 # pragma mark - NAVTransitionDelegate
 
+- (void)transitionWillStart:(NAVTransition *)transition
+{
+    if([self.delegate respondsToSelector:@selector(router:willPerformUpdates:)]) {
+        [self.delegate router:self willPerformUpdates:self.currentTransition.updates];
+    }
+}
+
 - (void)transition:(NAVTransition *)transition prepareUpdate:(NAVUpdate *)update
 {
     // find the corresponding route
@@ -91,12 +98,26 @@
 
 - (void)transition:(NAVTransition *)transition performUpdate:(NAVUpdate *)update completion:(void (^)(BOOL))completion
 {
+    if([self.delegate respondsToSelector:@selector(router:willPerformUpdate:)]) {
+        [self.delegate router:self willPerformUpdate:update];
+    }
+    
     // allow the update to run itself with our updater
-    [update performWithUpdater:self.updater completion:completion];
+    [update performWithUpdater:self.updater completion:^(BOOL finished) {
+        if([self.delegate respondsToSelector:@selector(router:didPerformUpdate:)]) {
+            [self.delegate router:self didPerformUpdate:update];
+        }
+        
+        completion(finished);
+    }];
 }
 
 - (void)transitionDidComplete:(NAVTransition *)transition
 {
+    if([self.delegate respondsToSelector:@selector(router:didPerformUpdates:)]) {
+        [self.delegate router:self didPerformUpdates:transition.updates];
+    }
+    
     self.lastTransition = transition;
     self.currentTransition = nil;
 

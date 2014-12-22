@@ -103,6 +103,17 @@
 @protocol NAVTransitionDelegate <NSObject>
 
 /**
+ @brief Notifies the delegate that the transition is about to start
+ 
+ This is called immediately before execution, and at this point the transition should be
+ fully populated with updates.
+ 
+ @param transition The transition about to start
+*/
+
+- (void)transitionWillStart:(NAVTransition *)transition;
+
+/**
  @brief Prepares the update for execution
  
  The delegate should populate the information necessary to run its transition.
@@ -131,7 +142,7 @@
  The transition completes once all the updates have finished running, or immediately if it
  generated no updates.
  
- @param transition The transition that called this delegate method
+ @param transition The transition that completed
 */
 
 - (void)transitionDidComplete:(NAVTransition *)transition;
