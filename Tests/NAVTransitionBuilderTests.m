@@ -110,6 +110,16 @@ describe(@"the attributes builder", ^{
         
         expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsHidden);
     });
+    
+    it(@"should switch roots", ^{
+        NSString *root = @"update";
+        
+        NAVAttributes *attributes = mock(@"old", NAVTransition.builder
+            .root(root));
+        
+        expect(attributes.destination.components.count).to.equal(1);
+        expect(attributes.destination[0].key).to.equal(root);
+    });
 
 });
 

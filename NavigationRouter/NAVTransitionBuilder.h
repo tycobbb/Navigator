@@ -126,6 +126,14 @@ typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NSString *))dismiss;
 
 /**
+ @brief @em Transform: updates the root of the url, discarding any other URL components
+ 
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSString *))root;
+
+/**
  @brief @em Transform: updates the key-value parameter on the source URL
  
  See @c transform for complete documentation on transforms.

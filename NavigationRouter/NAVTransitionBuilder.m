@@ -189,4 +189,13 @@
     };
 }
 
+- (NAVTransitionBuilder *(^)(NSString *))root
+{
+    return ^(NSString *path) {
+        return self.transform(^(NAVURL *url) {
+            return [NAVURL URLWithPath:[NSString stringWithFormat:@"%@://%@", url.scheme, path]];
+        });
+    };
+}
+
 @end
