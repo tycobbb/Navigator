@@ -32,10 +32,11 @@
         .push(NAVDemoRouteBlue)
         .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible)
         .start(nil);
-//
-//    [NAVDemoRouter router].transition
-//        .parameter(NAVDemoRoutePurple, NAVParameterOptionsHidden)
-//        .enqueue(nil);
+
+    [NAVDemoRouter router].transition
+        .dismiss(NAVDemoRoutePurple)
+        .pop(1)
+        .enqueue(nil);
 }
 
 @end

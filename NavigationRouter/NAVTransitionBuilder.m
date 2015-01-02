@@ -55,7 +55,7 @@
     NSParameterAssert(source);
    
     // sequentially apply transforms to source URL to generate the destination
-    NAVURL *destination = self.transformsB.inject(source, ^(NAVURL *url, NAVTransitionUrlTransformer transform) {
+    NAVURL *destination = self.transformsB.inject(source, ^(NAVURL *url, NAVTransitionUrlTransform transform) {
         return transform(url);
     });
     
@@ -131,9 +131,9 @@
 
 @implementation NAVTransitionBuilder (URLs)
 
-- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransformer))transform
+- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransform))transform
 {
-    return ^(NAVTransitionUrlTransformer transform) {
+    return ^(NAVTransitionUrlTransform transform) {
         [self.transformsB addObject:transform];
         return self;
     };
@@ -172,6 +172,20 @@
         return self.transform(^(NAVURL *url) {
             return [url updateParameter:key withOptions:options];
         });
+    };
+}
+
+- (NAVTransitionBuilder *(^)(NSString *))present
+{
+    return ^(NSString *key) {
+        return self.parameter(key, NAVParameterOptionsVisible);
+    };
+}
+
+- (NAVTransitionBuilder *(^)(NSString *))dismiss
+{
+    return ^(NSString *key) {
+        return self.parameter(key, NAVParameterOptionsHidden);
     };
 }
 

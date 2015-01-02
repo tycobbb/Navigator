@@ -85,23 +85,10 @@
 @interface NAVTransitionBuilder (URLs)
 
 /// Transformation block encapsulating a URL mutation
-typedef NAVURL *(^NAVTransitionUrlTransformer)(NAVURL *);
+typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 
 /**
- @brief Registers a transformer to apply to the source URL
-
- When the attributes are built with the base URL, the transforms are applied in 
- registration-order, and the resultant URL is set as the attribute's destination URL.
- 
- @param block:url The url to transform
- 
- @return A block that can be calleed to add a new URL transformer for future application
-*/
-
-- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransformer))transform;
-
-/**
- @brief Adds a transformer that pushes a subpath onto the source URL
+ @brief @em Transform: pushes a subpath onto the source URL
  
  See @c transform for complete documentation on transforms.
 */
@@ -109,26 +96,63 @@ typedef NAVURL *(^NAVTransitionUrlTransformer)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NSString *))push;
 
 /**
- @brief Adds a transformer that appends the data string to the last URL component
+ @brief @em Transform: pops a subpath off the source URL
+ 
+ @em transformer: See @c transform for complete documentation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSInteger))pop;
+
+/**
+ @brief @em Transform: presents the view corresponding to the parameter key
+ 
+ This is a convenience method for transitioning an animation route to visible. It is a pass-
+ through to @c parameter that assumes NAVParameterOptionsVisible as the options.
+ 
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSString *))present;
+
+/**
+ @brief @em Transform: dismisses the view corresponding to the parameter key
+ 
+ This is a convenience method for transitioning an animation route to hidden. It is a pass-
+ through to @c parameter that assumes the NAVParameterOptionsHidden as the options.
+ 
+ See @c transform for complete documenation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSString *))dismiss;
+
+/**
+ @brief @em Transform: updates the key-value parameter on the source URL
+ 
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSString *, NAVParameterOptions))parameter;
+
+/**
+ @brief @em Transform: appends the data string to the last URL component
  
  See @c transform for complete doucmentation on transforms.
 */
 - (NAVTransitionBuilder *(^)(NSString *))data;
 
 /**
- @brief Adds a transformer that pops a subpath off the source URL
+ @brief Registers a transform to apply to the source URL
+
+ Transition are run relative to the router's current URL right before execution. At that time, any
+ transforms registered during construction, either through this method or and of the specified
+ convenience methods, are then applied in-order to the router's current URL. The resultant URL forms
+ the transitions destination URL.
  
- See @c transform for complete documentation on transforms.
+ @param block:url The url to transform
+ 
+ @return A block that can be calleed to add a new URL transformer for future application
 */
 
-- (NAVTransitionBuilder *(^)(NSInteger))pop;
-
-/**
- @brief Adds a transformer that updates the key-value parameter on the source URL
- 
- See @c transform for complete documentation on transforms.
-*/
-
-- (NAVTransitionBuilder *(^)(NSString *, NAVParameterOptions))parameter;
+- (NAVTransitionBuilder *(^)(NAVTransitionUrlTransform))transform;
 
 @end

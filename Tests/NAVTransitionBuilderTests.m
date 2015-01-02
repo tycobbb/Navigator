@@ -93,6 +93,24 @@ describe(@"the attributes builder", ^{
         expect(attributes.destination[parameter].options).to.equal(options);
     });
     
+    it(@"should present parameters", ^{
+        NSString *parameter = @"neat";
+       
+        NAVAttributes *attributes = mock(nil, NAVTransition.builder
+            .present(parameter));
+        
+        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsVisible);
+    });
+    
+    it(@"should dismiss parameters", ^{
+        NSString *parameter = @"cool";
+        
+        NAVAttributes *attributes = mock(@"test?cool=1", NAVTransition.builder
+            .dismiss(parameter));
+        
+        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsHidden);
+    });
+
 });
 
 SpecEnd
