@@ -12,10 +12,13 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor yellowColor];
+    
     [NAVDemoRouter router].navigationController = self;
     
     [NAVDemoRouter router].transition
-        .push(NAVDemoRouteRed)
+        .root(NAVDemoRouteRed)
+        .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible | NAVParameterOptionsAsync)
         .animated(NO)
         .start(nil);
 }
@@ -28,15 +31,19 @@
 //        .push(NAVDemoRouteBlue)
 //        .start(nil);
   
-    [NAVDemoRouter router].transition
-        .push(NAVDemoRouteBlue)
-        .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible)
-        .start(nil);
+//    [NAVDemoRouter router].transition
+//        .push(NAVDemoRouteBlue)
+//        .start(nil);
 
-    [NAVDemoRouter router].transition
-        .dismiss(NAVDemoRoutePurple)
-        .pop(1)
-        .enqueue(nil);
+//    [NAVDemoRouter router].transition
+//        .dismiss(NAVDemoRoutePurple)
+//        .pop(1)
+//        .enqueue(nil);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
 }
 
 @end

@@ -20,6 +20,9 @@
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
         }];
+        
+        // we won't run any transitions until the window can handle it
+        [self waitOnWindowToBeReady:UIApplication.sharedApplication.keyWindow];
     }
     
     return self;
@@ -36,8 +39,8 @@
 
 - (void)dequeueTransition
 {
-    // can't dequeue if we're in the middle of an existing transition
-    if(self.isTransitioning || !self.transitionQueue.count) {
+    // can't dequeue if we're in the middle of an existing transition or we're not ready
+    if(self.isTransitioning || !self.transitionQueue.count || !self.isReady) {
         return;
     }
     
@@ -60,10 +63,11 @@
 
 - (void)enqueueTransitionForBuilder:(NAVTransitionBuilder *)transitionBuilder
 {
-    if(transitionBuilder.shouldEnqueue || !self.isTransitioning) {
+    // we want to enqueue the transition if we're not executing one, if it explicity asked to be enqueued,
+    // or if this is the first transition and we're not ready yet
+    if(!self.isTransitioning || transitionBuilder.shouldEnqueue || (!self.isReady && self.transitionQueue.count == 0)) {
         self.transitionQueue.pushFront(transitionBuilder);
-        // attempt to run the queued transition right away
-        [self dequeueTransition]; 
+        [self dequeueTransition];
     }
     // otherwise, this is an error case. we can't run a transition that isn't
     // enqueable if there's one running already
@@ -250,6 +254,30 @@
 - (BOOL)isTransitioning
 {
     return self.currentTransition != nil;
+}
+
+# pragma mark - Notifications
+
+- (void)waitOnWindowToBeReady:(UIWindow *)window
+{
+    // we can't show modals, etc until we have a root view controller. so we'll wait until that point.
+    self.isReady = window.rootViewController;
+   
+    // if we're not ready, observe the notification that will let us know when the root view controller exists
+    if(!self.isReady) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeReady:) name:UIWindowDidBecomeKeyNotification object:window];
+    }
+}
+
+- (void)windowDidBecomeReady:(NSNotification *)notification
+{
+    self.isReady = YES;
+    
+    // after we receive this notification we should be ready, so we don't care anymore
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIWindowDidBecomeKeyNotification object:notification.object];
+    
+    // then we should try and run the initial transition
+    [self dequeueTransition];
 }
 
 # pragma mark - Shared Instance
