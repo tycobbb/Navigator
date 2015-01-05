@@ -12,3 +12,4 @@
 #define NAVDemoRouteRed    @"red"
 #define NAVDemoRouteBlue   @"blue"
 #define NAVDemoRoutePurple @"purple"
+#define NAVDemoRouteMenu   @"menu"

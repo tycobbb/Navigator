@@ -1,6 +1,6 @@
 //
 //  NAVDemoAppDelegate.m
-//  Created by Ty Cobb on 7/21/14.
+//  NavigationRouter
 //
 
 #import "NAVDemoAppDelegate.h"

@@ -41,6 +41,7 @@
 		10F974461A3F99640007AE7D /* NAVNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */; };
 		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
 		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
+		FB3F15901A5AF329000473C1 /* NAVDemoAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */; };
 		FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */; };
 		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
 		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
@@ -139,6 +140,8 @@
 		9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F9A21F31D671A08EEE97C14E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB3F158E1A5AF329000473C1 /* NAVDemoAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoAnimation.h; sourceTree = "<group>"; };
+		FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoAnimation.m; sourceTree = "<group>"; };
 		FB7E248719786A7500D63A7E /* NAVRouterFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterFactory.h; sourceTree = "<group>"; };
 		FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoNavigationController.h; sourceTree = "<group>"; };
 		FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoNavigationController.m; sourceTree = "<group>"; };
@@ -407,6 +410,8 @@
 				FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */,
 				10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */,
 				10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */,
+				FB3F158E1A5AF329000473C1 /* NAVDemoAnimation.h */,
+				FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */,
 				10F974331A3F7AEA0007AE7D /* Controllers */,
 				10C454371A422C27003C4E7D /* NAVLaunchView.xib */,
 				FBDDB501197475260051D149 /* main.m */,
@@ -586,6 +591,7 @@
 				1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */,
 				1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */,
 				10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */,
+				FB3F15901A5AF329000473C1 /* NAVDemoAnimation.m in Sources */,
 				108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */,
 				10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */,
 				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
