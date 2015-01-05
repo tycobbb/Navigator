@@ -171,8 +171,20 @@
     if(self.isTransitioning) {
         return;
     }
+   
+    // find the route that changed
+    NAVRoute *updatedRoute = self.routes.allValues.find(^(NAVRoute *route) {
+        return route.destination == animation;
+    });
     
-    // TODO: figure out what needs to happen here to stay in sync
+    if(updatedRoute) {
+        // pick the correct parameter options based on the animation's state
+        NAVParameterOptions options = isVisible ? NAVParameterOptionsVisible : NAVParameterOptionsHidden;
+        // set an unexecuted transition with the parameter updated as the last transition
+        self.lastTransition = [NAVTransitionBuilder new]
+            .parameter(updatedRoute.path, options)
+            .build(self.currentUrl);
+    }
 }
 
 # pragma mark - NAVNavigationControllerUpdater
@@ -201,8 +213,8 @@
         return;
     }
     
-    // set the last transition an unexecuted transition with the controller difference
-    // poppeed off the url
+    // set an unexecuted transition with the correct number of controllers popped off
+    // the url as the last transition
     self.lastTransition = [NAVTransitionBuilder new]
         .pop(self.currentUrl.components.count - viewControllers.count)
         .build(self.currentUrl);
