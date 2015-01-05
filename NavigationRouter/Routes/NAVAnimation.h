@@ -25,6 +25,17 @@
 @property (assign, nonatomic) BOOL isVisible;
 
 /**
+ @brief Flag indicating whether an animation should complete on the next run-loop
+ 
+ Defaults to @c NO.
+ 
+ If this is true, the corresponding transition will not finish until the frame after it
+ its completion would normally be called.
+*/
+
+@property (nonatomic, readonly) BOOL completesAsynchronously;
+
+/**
  @brief Updates the visible state of the animation
  
  If the isVisible state did not actually change, no animation is run and the completion

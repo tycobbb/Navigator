@@ -95,4 +95,11 @@
     return [self presentingControllerForController:controller.presentingViewController];
 }
 
+# pragma mark - Accessors
+
+- (BOOL)completesAsynchronously
+{
+    return YES;
+}
+
 @end

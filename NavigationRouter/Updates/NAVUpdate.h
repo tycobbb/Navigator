@@ -77,6 +77,15 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 @property (nonatomic, readonly) BOOL isAsynchronous;
 
 /**
+ @brief Flag indicating whether or not the update should complete asynchronously
+ 
+ Certain updates, such as modals, won't be considered complete by the system until the next
+ run-loop. The transition uses this to determine if it should complete on the next frame. 
+*/
+
+@property (nonatomic, readonly) BOOL completesAsynchrnously;
+
+/**
  @brief Initializes a new update of the specified type
 
  All parameters are required. Failure to pass a valid value for one of the parameters

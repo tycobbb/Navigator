@@ -11,6 +11,7 @@
 @interface NAVTransition () <NAVUpdateDelegate>
 @property (strong, nonatomic) NAVAttributes *attributes;
 @property (strong, nonatomic) NSArray *updates;
+@property (nonatomic, readonly) BOOL completesAsynchronously;
 @end
 
 @implementation NAVTransition
@@ -47,7 +48,7 @@
 
 - (void)failWithError:(NSError *)error
 {
-    [self finishAtIndex:0 error:error];
+    [self completeAtIndex:0 error:error];
 }
 
 + (NAVTransitionBuilder *)builder
@@ -61,41 +62,35 @@
 {
     // if we've run out of updates, then we're done
     if(index >= self.updates.count) {
-        [self finishAtIndex:index error:nil];
+        [self completeAtIndex:index error:nil];
         return;
     }
     
+    // otherwise, grab the next update and populate it with its destination, etc.
     NAVUpdate *update = self.updates[index];
-    
-    // populate the update with its destination, etc.
     [self.delegate transition:self prepareUpdate:update];
    
     // if the update is asynchronous, then we want to dispatch it and immediately proceed
-    NSInteger nextIndex = index + 1;
     if(update.isAsynchronous) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate transition:self performUpdate:update completion:nil];
         });
         
-        [self executeUpdateAtIndex:nextIndex];
+        [self executeUpdateAtIndex:index + 1];
     }
     // otherwise, run the update and when it's finished proceed to the next udpate
     else {
         [self.delegate transition:self performUpdate:update completion:^(BOOL finished) {
-            [self executeUpdateAtIndex:nextIndex];
+            [self executeUpdateAtIndex:index + 1];
         }];
     }
 }
 
-- (void)finishAtIndex:(NSInteger)index error:(NSError *)error
+- (void)completeAtIndex:(NSInteger)index error:(NSError *)error
 {
-    BOOL finishAsynchronously = self.isAnimated && !error;
-    
-    // give animated transitions a frame to settle. presenting a modal and then dismissing is in an
-    // enqueued transition or completion would fail otherwise, since the system still thinks it's mid-
-    // transition without this bonus frame.
-    
-    optionally_dispatch_async(finishAsynchronously, dispatch_get_main_queue(), ^{
+    BOOL completesAsynchronously = !error && self.completesAsynchronously;
+   
+    optionally_dispatch_async(completesAsynchronously, dispatch_get_main_queue(), ^{
         // call the completion and then clear it
         nav_call(self.completion)(error);
         self.completion = nil;
@@ -105,6 +100,21 @@
             [self.delegate transitionDidComplete:self];
         }       
     });
+}
+
+- (BOOL)completesAsynchronously
+{
+    // certain update types require asynchronous completion. in order to support chaining or enqueuing
+    // such updates, the transition will finish on the next run-loop after normal completion if any
+    // of its updates completesAsynchronously
+    
+    for(NAVUpdate *update in self.updates) {
+        if(update.completesAsynchrnously) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 # pragma mark - NAVUpdateDelegate

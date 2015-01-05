@@ -44,13 +44,10 @@
         return;
     }
     
-    // if we don't have a URL, create a default from our scheme
-    NAVURL *currentUrl = self.currentUrl ?: [NAVURL URLWithPath:[NSString stringWithFormat:@"%@://", self.class.scheme]];
-    
-    // otherwise, build the next queued transition from our current url
+    // build the queued transition from our current url
     NAVTransitionBuilder *transitionBuilder = self.transitionQueue.pop;
     
-    self.currentTransition = transitionBuilder.build(currentUrl);
+    self.currentTransition = transitionBuilder.build(self.currentUrl);
     self.currentTransition.delegate = self;
     
     // and kick it off
@@ -248,7 +245,7 @@
 
 - (NAVURL *)currentUrl
 {
-    return self.lastTransition.attributes.destination;
+    return self.lastTransition.attributes.destination ?: [NAVURL URLWithPath:[NSString stringWithFormat:@"%@://", self.class.scheme]];
 }
 
 - (BOOL)isTransitioning

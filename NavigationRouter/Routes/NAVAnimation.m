@@ -55,4 +55,11 @@
     [self.delegate animation:self didUpdateIsVisible:isVisible];
 }
 
+# pragma mark - Accessors
+
+- (BOOL)completesAsynchronously
+{
+    return NO;
+}
+
 @end

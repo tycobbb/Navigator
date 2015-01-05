@@ -56,4 +56,9 @@
     return NO;
 }
 
+- (BOOL)completesAsynchrnously
+{
+    return NO;
+}
+
 @end

@@ -40,6 +40,11 @@
     return self.parameter.isAsynchronous;
 }
 
+- (BOOL)completesAsynchrnously
+{
+    return self.animation.completesAsynchronously;
+}
+
 - (NAVURLParameter *)parameter
 {
     return (NAVURLParameter *)self.element;
