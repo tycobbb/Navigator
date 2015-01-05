@@ -112,7 +112,7 @@
             [self.delegate router:self didPerformUpdate:update];
         }
         
-        completion(finished);
+        nav_call(completion)(finished);
     }];
 }
 
@@ -261,7 +261,7 @@
 - (void)waitOnWindowToBeReady:(UIWindow *)window
 {
     // we can't show modals, etc until we have a root view controller. so we'll wait until that point.
-    self.isReady = window.rootViewController;
+    self.isReady = window.rootViewController != nil;
    
     // if we're not ready, observe the notification that will let us know when the root view controller exists
     if(!self.isReady) {

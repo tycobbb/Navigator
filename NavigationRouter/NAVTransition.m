@@ -69,11 +69,22 @@
     
     // populate the update with its destination, etc.
     [self.delegate transition:self prepareUpdate:update];
-    
-    // run the update, and then kick off the next update when it's finished
-    [self.delegate transition:self performUpdate:update completion:^(BOOL finished) {
-        [self executeUpdateAtIndex:index + 1];
-    }];
+   
+    // if the update is asynchronous, then we want to dispatch it and immediately proceed
+    NSInteger nextIndex = index + 1;
+    if(update.isAsynchronous) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate transition:self performUpdate:update completion:nil];
+        });
+        
+        [self executeUpdateAtIndex:nextIndex];
+    }
+    // otherwise, run the update and when it's finished proceed to the next udpate
+    else {
+        [self.delegate transition:self performUpdate:update completion:^(BOOL finished) {
+            [self executeUpdateAtIndex:nextIndex];
+        }];
+    }
 }
 
 - (void)finishAtIndex:(NSInteger)index error:(NSError *)error
