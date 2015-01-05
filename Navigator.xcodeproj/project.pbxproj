@@ -758,7 +758,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B5DFD70DBDCDD654AB64362 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Navigator.app/Navigator";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -781,7 +781,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Navigator.app/Navigator";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
