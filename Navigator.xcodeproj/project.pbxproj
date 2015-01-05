@@ -287,7 +287,7 @@
 				10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */,
 				10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */,
 			);
-			name = Internal;
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		4497C0392693F5728931564A /* Pods */ = {
@@ -299,6 +299,22 @@
 				A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB3225711A5B354A005015BE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				101EC13F1A19704700C16B4E /* NAVRouter.h */,
+				101EC1401A19704700C16B4E /* NAVRouter.m */,
+				101EC1441A1974CD00C16B4E /* NAVRouter_Private.h */,
+				101EC1431A19737600C16B4E /* NAVRouter_Subclass.h */,
+				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
+				101EC1421A1972A900C16B4E /* NAVRouterUpdater.h */,
+				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
+				10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */,
+				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		FB7E248C19786B8700D63A7E /* Routes */ = {
@@ -353,20 +369,12 @@
 			isa = PBXGroup;
 			children = (
 				10F974231A3F774E0007AE7D /* Navigator.h */,
-				101EC13F1A19704700C16B4E /* NAVRouter.h */,
-				101EC1401A19704700C16B4E /* NAVRouter.m */,
-				101EC1441A1974CD00C16B4E /* NAVRouter_Private.h */,
-				101EC1431A19737600C16B4E /* NAVRouter_Subclass.h */,
-				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
-				101EC1421A1972A900C16B4E /* NAVRouterUpdater.h */,
-				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
-				10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */,
-				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
+				FB3225711A5B354A005015BE /* Router */,
 				10F974411A3F99300007AE7D /* Transitions */,
-				10F974431A3F99410007AE7D /* Internal */,
 				1010FFF61A190FC900C1C554 /* URL */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				101EC1391A19645600C16B4E /* Updates */,
+				10F974431A3F99410007AE7D /* Internal */,
 				1073A2641A06DE5500BB7856 /* View */,
 				109DE5E4197A16F8003AA60C /* Extensions */,
 				FBDDB5261974756F0051D149 /* Demo */,
