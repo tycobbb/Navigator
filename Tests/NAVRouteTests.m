@@ -1,6 +1,6 @@
 //
 //  NAVRouteTests.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVRoute.h"

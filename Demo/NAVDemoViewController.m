@@ -1,6 +1,6 @@
 //
 //  NAVDemoViewController.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVDemoViewController.h"

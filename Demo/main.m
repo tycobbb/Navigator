@@ -1,6 +1,6 @@
 //
 //  main.m
-//  NavigationRouter
+//  Navigator
 //
 //  Created by Ty Cobb on 7/14/14.
 //  Copyright (c) 2014 Isobar. All rights reserved.

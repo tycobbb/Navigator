@@ -1,6 +1,6 @@
 //
 //  NAVURLElementTests.m
-//  NavigationRouter
+//  Navigator
 //
 
 SpecBegin(NAVURLElementTests)

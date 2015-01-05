@@ -1,6 +1,6 @@
 //
 //  NAVUpdates.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVUpdates.h"

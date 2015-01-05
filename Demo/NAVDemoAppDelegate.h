@@ -1,6 +1,6 @@
 //
 //  NAVDemoAppDelegate.h
-//  NavigationRouter
+//  Navigator
 //
 
 @import UIKit;

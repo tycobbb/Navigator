@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1007935E1A19076E00414C9D /* NAVTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1007935D1A19076E00414C9D /* NAVTransition.m */; };
+		101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1281A1912DF00C16B4E /* NAVUpdate.m */; };
+		101EC12C1A19157700C16B4E /* NAVAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC12B1A19157700C16B4E /* NAVAnimation.m */; };
+		101EC12E1A19376D00C16B4E /* NAVRouteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC12D1A19376D00C16B4E /* NAVRouteTests.m */; };
+		101EC1301A19391900C16B4E /* NAVRouteBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */; };
+		101EC1321A193CF700C16B4E /* NAVTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1311A193CF700C16B4E /* NAVTransitionTests.m */; };
+		101EC1381A195BC700C16B4E /* NAVUpdateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1371A195BC700C16B4E /* NAVUpdateParser.m */; };
+		101EC13E1A196D6A00C16B4E /* NAVUpdateParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */; };
+		101EC1411A19704700C16B4E /* NAVRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 101EC1401A19704700C16B4E /* NAVRouter.m */; };
+		1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */; };
+		1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2661A06DE9200BB7856 /* NAVViewController.m */; };
+		1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */; };
+		108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C43D11A09D1BE00E8A55E /* NAVURL.m */; };
+		108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C43D41A09D4B600E8A55E /* NAVURLElement.m */; };
+		10978FD71A143DCC00A5C981 /* NAVAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD61A143DCC00A5C981 /* NAVAttributes.m */; };
+		10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */; };
+		109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DF1979FFDD003AA60C /* NAVURLTests.m */; };
+		109DE5E3197A1053003AA60C /* NAVTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E2197A1053003AA60C /* NAVTest.m */; };
+		109DE5E7197A1717003AA60C /* YOLT.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* YOLT.m */; };
+		10C454381A422C27003C4E7D /* NAVLaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10C454371A422C27003C4E7D /* NAVLaunchView.xib */; };
+		10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */; };
+		10F9740B1A3A08070007AE7D /* NAVUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9740A1A3A08070007AE7D /* NAVUpdates.m */; };
+		10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */; };
+		10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */; };
+		10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */; };
+		10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */; };
+		10F974261A3F79BB0007AE7D /* NAVDemoRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */; };
+		10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */; };
+		10F974391A3F7B050007AE7D /* NAVRedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974381A3F7B050007AE7D /* NAVRedViewController.m */; };
+		10F9743C1A3F7B0D0007AE7D /* NAVBlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */; };
+		10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */; };
+		10F974461A3F99640007AE7D /* NAVNavigationControllerUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */; };
+		54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */; };
+		755644A69AB449B9872FEC1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B706B74DA4549B2B09B0A21 /* libPods.a */; };
+		FB3F15901A5AF329000473C1 /* NAVDemoAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */; };
+		FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */; };
+		FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
+		FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F7197475260051D149 /* CoreGraphics.framework */; };
+		FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
+		FBDDB502197475260051D149 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB501197475260051D149 /* main.m */; };
+		FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */; };
+		FBDDB510197475260051D149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F5197475260051D149 /* Foundation.framework */; };
+		FBDDB511197475260051D149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDDB4F9197475260051D149 /* UIKit.framework */; };
+		FBDDB519197475260051D149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB517197475260051D149 /* InfoPlist.strings */; };
+		FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */; };
+		FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB55E19747FA20051D149 /* NAVRoute.m */; };
+		FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDDB561197481080051D149 /* NAVRouteBuilder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBDDB512197475260051D149 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBDDB4EA197475260051D149 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBDDB4F1197475260051D149;
+			remoteInfo = NavigationRouter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1007935C1A19076E00414C9D /* NAVTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransition.h; sourceTree = "<group>"; };
+		1007935D1A19076E00414C9D /* NAVTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransition.m; sourceTree = "<group>"; };
+		101EC1271A1912DF00C16B4E /* NAVUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdate.h; sourceTree = "<group>"; };
+		101EC1281A1912DF00C16B4E /* NAVUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdate.m; sourceTree = "<group>"; };
+		101EC12A1A19157700C16B4E /* NAVAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAnimation.h; sourceTree = "<group>"; };
+		101EC12B1A19157700C16B4E /* NAVAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimation.m; sourceTree = "<group>"; };
+		101EC12D1A19376D00C16B4E /* NAVRouteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteTests.m; sourceTree = "<group>"; };
+		101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilderTests.m; sourceTree = "<group>"; };
+		101EC1311A193CF700C16B4E /* NAVTransitionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionTests.m; sourceTree = "<group>"; };
+		101EC1361A195BC700C16B4E /* NAVUpdateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateParser.h; sourceTree = "<group>"; };
+		101EC1371A195BC700C16B4E /* NAVUpdateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateParser.m; sourceTree = "<group>"; };
+		101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateParserTests.m; sourceTree = "<group>"; };
+		101EC13F1A19704700C16B4E /* NAVRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter.h; sourceTree = "<group>"; };
+		101EC1401A19704700C16B4E /* NAVRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouter.m; sourceTree = "<group>"; };
+		101EC1421A1972A900C16B4E /* NAVRouterUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouterUpdater.h; sourceTree = "<group>"; };
+		101EC1431A19737600C16B4E /* NAVRouter_Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter_Subclass.h; sourceTree = "<group>"; };
+		101EC1441A1974CD00C16B4E /* NAVRouter_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouter_Private.h; sourceTree = "<group>"; };
+		1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElementTests.m; sourceTree = "<group>"; };
+		1073A2651A06DE9200BB7856 /* NAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewController.h; sourceTree = "<group>"; };
+		1073A2661A06DE9200BB7856 /* NAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewController.m; sourceTree = "<group>"; };
+		1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewControllerFactory.h; sourceTree = "<group>"; };
+		1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVViewControllerFactory.m; sourceTree = "<group>"; };
+		108C43D01A09D1BE00E8A55E /* NAVURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURL.h; sourceTree = "<group>"; };
+		108C43D11A09D1BE00E8A55E /* NAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURL.m; sourceTree = "<group>"; };
+		108C43D31A09D4B600E8A55E /* NAVURLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVURLElement.h; sourceTree = "<group>"; };
+		108C43D41A09D4B600E8A55E /* NAVURLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLElement.m; sourceTree = "<group>"; };
+		10978FD51A143DCC00A5C981 /* NAVAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes.h; sourceTree = "<group>"; };
+		10978FD61A143DCC00A5C981 /* NAVAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAttributes.m; sourceTree = "<group>"; };
+		10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder.h; sourceTree = "<group>"; };
+		10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilder.m; sourceTree = "<group>"; };
+		109DE5C81974A710003AA60C /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		109DE5DF1979FFDD003AA60C /* NAVURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTests.m; sourceTree = "<group>"; };
+		109DE5E1197A1053003AA60C /* NAVTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTest.h; sourceTree = "<group>"; };
+		109DE5E2197A1053003AA60C /* NAVTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTest.m; sourceTree = "<group>"; };
+		109DE5E5197A1717003AA60C /* YOLT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLT.h; sourceTree = "<group>"; };
+		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
+		10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder_Private.h; sourceTree = "<group>"; };
+		10C454371A422C27003C4E7D /* NAVLaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NAVLaunchView.xib; sourceTree = "<group>"; };
+		10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes_Private.h; sourceTree = "<group>"; };
+		10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTransitionBuilderTests.m; sourceTree = "<group>"; };
+		10F974091A3A08070007AE7D /* NAVUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdates.h; sourceTree = "<group>"; };
+		10F9740A1A3A08070007AE7D /* NAVUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdates.m; sourceTree = "<group>"; };
+		10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterUtilities.h; sourceTree = "<group>"; };
+		10F9740F1A3A3DE70007AE7D /* NAVRouteDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouteDestination.h; sourceTree = "<group>"; };
+		10F974101A3B5AC30007AE7D /* NAVAnimationModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAnimationModal.h; sourceTree = "<group>"; };
+		10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVAnimationModal.m; sourceTree = "<group>"; };
+		10F974131A3B5FED0007AE7D /* NAVUpdateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateStack.h; sourceTree = "<group>"; };
+		10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateStack.m; sourceTree = "<group>"; };
+		10F974161A3B66230007AE7D /* NAVUpdateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateAnimation.h; sourceTree = "<group>"; };
+		10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateAnimation.m; sourceTree = "<group>"; };
+		10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Factory.h"; sourceTree = "<group>"; };
+		10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Factory.m"; sourceTree = "<group>"; };
+		10F974221A3F772B0007AE7D /* Navigator-View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Navigator-View.h"; sourceTree = "<group>"; };
+		10F974231A3F774E0007AE7D /* Navigator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navigator.h; sourceTree = "<group>"; };
+		10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoRouter.h; sourceTree = "<group>"; };
+		10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoRouter.m; sourceTree = "<group>"; };
+		10F974341A3F7AFC0007AE7D /* NAVDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoViewController.h; sourceTree = "<group>"; };
+		10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoViewController.m; sourceTree = "<group>"; };
+		10F974371A3F7B050007AE7D /* NAVRedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRedViewController.h; sourceTree = "<group>"; };
+		10F974381A3F7B050007AE7D /* NAVRedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRedViewController.m; sourceTree = "<group>"; };
+		10F9743A1A3F7B0D0007AE7D /* NAVBlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVBlueViewController.h; sourceTree = "<group>"; };
+		10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVBlueViewController.m; sourceTree = "<group>"; };
+		10F9743D1A3F7B1A0007AE7D /* NAVPurpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVPurpleViewController.h; sourceTree = "<group>"; };
+		10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVPurpleViewController.m; sourceTree = "<group>"; };
+		10F974401A3F7B520007AE7D /* NAVDemoViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVDemoViewControllers.h; sourceTree = "<group>"; };
+		10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVNavigationControllerUpdater.h; sourceTree = "<group>"; };
+		10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVNavigationControllerUpdater.m; sourceTree = "<group>"; };
+		19545FB351481AC65E23FE04 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2B706B74DA4549B2B09B0A21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5DFD70DBDCDD654AB64362 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F9A21F31D671A08EEE97C14E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB3F158E1A5AF329000473C1 /* NAVDemoAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoAnimation.h; sourceTree = "<group>"; };
+		FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoAnimation.m; sourceTree = "<group>"; };
+		FB7E248719786A7500D63A7E /* NAVRouterFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterFactory.h; sourceTree = "<group>"; };
+		FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoNavigationController.h; sourceTree = "<group>"; };
+		FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoNavigationController.m; sourceTree = "<group>"; };
+		FBDDB4F2197475260051D149 /* Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FBDDB4F9197475260051D149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FBDDB4FD197475260051D149 /* Navigator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Navigator-Info.plist"; sourceTree = "<group>"; };
+		FBDDB501197475260051D149 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBDDB504197475260051D149 /* NAVDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVDemoAppDelegate.h; sourceTree = "<group>"; };
+		FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAVDemoAppDelegate.m; sourceTree = "<group>"; };
+		FBDDB50D197475260051D149 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDDB516197475260051D149 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		FBDDB518197475260051D149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NAVDemoStoryboard.storyboard; sourceTree = "<group>"; };
+		FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterDelegate.h; sourceTree = "<group>"; };
+		FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterConstants.h; sourceTree = "<group>"; };
+		FBDDB55D19747FA20051D149 /* NAVRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRoute.h; sourceTree = "<group>"; };
+		FBDDB55E19747FA20051D149 /* NAVRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRoute.m; sourceTree = "<group>"; };
+		FBDDB560197481080051D149 /* NAVRouteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVRouteBuilder.h; sourceTree = "<group>"; };
+		FBDDB561197481080051D149 /* NAVRouteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVRouteBuilder.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBDDB4EF197475260051D149 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB4F8197475260051D149 /* CoreGraphics.framework in Frameworks */,
+				FBDDB4FA197475260051D149 /* UIKit.framework in Frameworks */,
+				FBDDB4F6197475260051D149 /* Foundation.framework in Frameworks */,
+				755644A69AB449B9872FEC1F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB50A197475260051D149 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB511197475260051D149 /* UIKit.framework in Frameworks */,
+				FBDDB510197475260051D149 /* Foundation.framework in Frameworks */,
+				54E3912251CB4E1388B41523 /* libPods-Tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1010FFF61A190FC900C1C554 /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				108C43D01A09D1BE00E8A55E /* NAVURL.h */,
+				108C43D11A09D1BE00E8A55E /* NAVURL.m */,
+				108C43D31A09D4B600E8A55E /* NAVURLElement.h */,
+				108C43D41A09D4B600E8A55E /* NAVURLElement.m */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		101EC1391A19645600C16B4E /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				101EC1271A1912DF00C16B4E /* NAVUpdate.h */,
+				101EC1281A1912DF00C16B4E /* NAVUpdate.m */,
+				10F974131A3B5FED0007AE7D /* NAVUpdateStack.h */,
+				10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */,
+				10F974161A3B66230007AE7D /* NAVUpdateAnimation.h */,
+				10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */,
+				101EC1361A195BC700C16B4E /* NAVUpdateParser.h */,
+				101EC1371A195BC700C16B4E /* NAVUpdateParser.m */,
+			);
+			path = Updates;
+			sourceTree = "<group>";
+		};
+		1073A2641A06DE5500BB7856 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10F974221A3F772B0007AE7D /* Navigator-View.h */,
+				1073A2651A06DE9200BB7856 /* NAVViewController.h */,
+				1073A2661A06DE9200BB7856 /* NAVViewController.m */,
+				1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */,
+				1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */,
+				10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */,
+				10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		109DE5E4197A16F8003AA60C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				109DE5E5197A1717003AA60C /* YOLT.h */,
+				109DE5E6197A1717003AA60C /* YOLT.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		10F9740C1A3A087E0007AE7D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				109DE5E1197A1053003AA60C /* NAVTest.h */,
+				109DE5E2197A1053003AA60C /* NAVTest.m */,
+				10F974091A3A08070007AE7D /* NAVUpdates.h */,
+				10F9740A1A3A08070007AE7D /* NAVUpdates.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		10F974331A3F7AEA0007AE7D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10F974401A3F7B520007AE7D /* NAVDemoViewControllers.h */,
+				10F974341A3F7AFC0007AE7D /* NAVDemoViewController.h */,
+				10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */,
+				10F974371A3F7B050007AE7D /* NAVRedViewController.h */,
+				10F974381A3F7B050007AE7D /* NAVRedViewController.m */,
+				10F9743A1A3F7B0D0007AE7D /* NAVBlueViewController.h */,
+				10F9743B1A3F7B0D0007AE7D /* NAVBlueViewController.m */,
+				10F9743D1A3F7B1A0007AE7D /* NAVPurpleViewController.h */,
+				10F9743E1A3F7B1A0007AE7D /* NAVPurpleViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		10F974411A3F99300007AE7D /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				1007935C1A19076E00414C9D /* NAVTransition.h */,
+				1007935D1A19076E00414C9D /* NAVTransition.m */,
+				10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */,
+				10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */,
+				10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */,
+				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
+				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
+				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		10F974431A3F99410007AE7D /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */,
+				10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		4497C0392693F5728931564A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19545FB351481AC65E23FE04 /* Pods.debug.xcconfig */,
+				F9A21F31D671A08EEE97C14E /* Pods.release.xcconfig */,
+				4B5DFD70DBDCDD654AB64362 /* Pods-Tests.debug.xcconfig */,
+				A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB7E248C19786B8700D63A7E /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB55D19747FA20051D149 /* NAVRoute.h */,
+				FBDDB55E19747FA20051D149 /* NAVRoute.m */,
+				FBDDB560197481080051D149 /* NAVRouteBuilder.h */,
+				FBDDB561197481080051D149 /* NAVRouteBuilder.m */,
+				10F9740F1A3A3DE70007AE7D /* NAVRouteDestination.h */,
+				101EC12A1A19157700C16B4E /* NAVAnimation.h */,
+				101EC12B1A19157700C16B4E /* NAVAnimation.m */,
+				10F974101A3B5AC30007AE7D /* NAVAnimationModal.h */,
+				10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		FBDDB4E9197475260051D149 = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4FB197475260051D149 /* Navigator */,
+				FBDDB514197475260051D149 /* Tests */,
+				FBDDB4F4197475260051D149 /* Frameworks */,
+				FBDDB4F3197475260051D149 /* Products */,
+				4497C0392693F5728931564A /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		FBDDB4F3197475260051D149 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4F2197475260051D149 /* Navigator.app */,
+				FBDDB50D197475260051D149 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBDDB4F4197475260051D149 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB4F5197475260051D149 /* Foundation.framework */,
+				FBDDB4F7197475260051D149 /* CoreGraphics.framework */,
+				FBDDB4F9197475260051D149 /* UIKit.framework */,
+				9C6A02FB0BDB42EDBCF8AAD2 /* libPods-Tests.a */,
+				2B706B74DA4549B2B09B0A21 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBDDB4FB197475260051D149 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				10F974231A3F774E0007AE7D /* Navigator.h */,
+				101EC13F1A19704700C16B4E /* NAVRouter.h */,
+				101EC1401A19704700C16B4E /* NAVRouter.m */,
+				101EC1441A1974CD00C16B4E /* NAVRouter_Private.h */,
+				101EC1431A19737600C16B4E /* NAVRouter_Subclass.h */,
+				FBDDB55A1974777D0051D149 /* NAVRouterDelegate.h */,
+				101EC1421A1972A900C16B4E /* NAVRouterUpdater.h */,
+				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
+				10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */,
+				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
+				10F974411A3F99300007AE7D /* Transitions */,
+				10F974431A3F99410007AE7D /* Internal */,
+				1010FFF61A190FC900C1C554 /* URL */,
+				FB7E248C19786B8700D63A7E /* Routes */,
+				101EC1391A19645600C16B4E /* Updates */,
+				1073A2641A06DE5500BB7856 /* View */,
+				109DE5E4197A16F8003AA60C /* Extensions */,
+				FBDDB5261974756F0051D149 /* Demo */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		FBDDB514197475260051D149 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				109DE5DF1979FFDD003AA60C /* NAVURLTests.m */,
+				1067A0181A11D3DC00D2583F /* NAVURLElementTests.m */,
+				101EC12D1A19376D00C16B4E /* NAVRouteTests.m */,
+				101EC12F1A19391900C16B4E /* NAVRouteBuilderTests.m */,
+				101EC1311A193CF700C16B4E /* NAVTransitionTests.m */,
+				10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */,
+				101EC13D1A196D6A00C16B4E /* NAVUpdateParserTests.m */,
+				10F9740C1A3A087E0007AE7D /* Helpers */,
+				FBDDB515197475260051D149 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		FBDDB515197475260051D149 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB516197475260051D149 /* Tests-Info.plist */,
+				FBDDB517197475260051D149 /* InfoPlist.strings */,
+				109DE5C81974A710003AA60C /* Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBDDB5261974756F0051D149 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				FBDDB524197475510051D149 /* NAVDemoStoryboard.storyboard */,
+				FBDDB504197475260051D149 /* NAVDemoAppDelegate.h */,
+				FBDDB505197475260051D149 /* NAVDemoAppDelegate.m */,
+				FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */,
+				FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */,
+				10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */,
+				10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */,
+				FB3F158E1A5AF329000473C1 /* NAVDemoAnimation.h */,
+				FB3F158F1A5AF329000473C1 /* NAVDemoAnimation.m */,
+				10F974331A3F7AEA0007AE7D /* Controllers */,
+				10C454371A422C27003C4E7D /* NAVLaunchView.xib */,
+				FBDDB501197475260051D149 /* main.m */,
+				FBDDB4FD197475260051D149 /* Navigator-Info.plist */,
+			);
+			name = Demo;
+			path = ../Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBDDB4F1197475260051D149 /* Navigator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "Navigator" */;
+			buildPhases = (
+				5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */,
+				FBDDB4EE197475260051D149 /* Sources */,
+				FBDDB4EF197475260051D149 /* Frameworks */,
+				FBDDB4F0197475260051D149 /* Resources */,
+				6FC25331DAEA40C78833E02B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Navigator;
+			productName = NavigationRouter;
+			productReference = FBDDB4F2197475260051D149 /* Navigator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FBDDB50C197475260051D149 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */,
+				FBDDB509197475260051D149 /* Sources */,
+				FBDDB50A197475260051D149 /* Frameworks */,
+				FBDDB50B197475260051D149 /* Resources */,
+				982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBDDB513197475260051D149 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = NavigationRouterTests;
+			productReference = FBDDB50D197475260051D149 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBDDB4EA197475260051D149 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NAV;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					FBDDB50C197475260051D149 = {
+						TestTargetID = FBDDB4F1197475260051D149;
+					};
+				};
+			};
+			buildConfigurationList = FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "Navigator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FBDDB4E9197475260051D149;
+			productRefGroup = FBDDB4F3197475260051D149 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBDDB4F1197475260051D149 /* Navigator */,
+				FBDDB50C197475260051D149 /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBDDB4F0197475260051D149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB525197475510051D149 /* NAVDemoStoryboard.storyboard in Resources */,
+				10C454381A422C27003C4E7D /* NAVLaunchView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB50B197475260051D149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBDDB519197475260051D149 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5307B8CA6E804ED5982E6BBD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55F822DC612C4BBDBC464654 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FC25331DAEA40C78833E02B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		982D929BC7854B6E9B8DDDB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBDDB4EE197475260051D149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F974391A3F7B050007AE7D /* NAVRedViewController.m in Sources */,
+				FB7E24B3197D92CE00D63A7E /* NAVDemoNavigationController.m in Sources */,
+				10F9743C1A3F7B0D0007AE7D /* NAVBlueViewController.m in Sources */,
+				FBDDB506197475260051D149 /* NAVDemoAppDelegate.m in Sources */,
+				1073A26A1A06DEB600BB7856 /* NAVViewControllerFactory.m in Sources */,
+				1073A2671A06DE9200BB7856 /* NAVViewController.m in Sources */,
+				10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */,
+				FB3F15901A5AF329000473C1 /* NAVDemoAnimation.m in Sources */,
+				108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */,
+				10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */,
+				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
+				FBDDB502197475260051D149 /* main.m in Sources */,
+				10978FD71A143DCC00A5C981 /* NAVAttributes.m in Sources */,
+				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,
+				FBDDB562197481080051D149 /* NAVRouteBuilder.m in Sources */,
+				10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */,
+				101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */,
+				10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */,
+				10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */,
+				10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */,
+				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
+				10F974461A3F99640007AE7D /* NAVNavigationControllerUpdater.m in Sources */,
+				101EC12C1A19157700C16B4E /* NAVAnimation.m in Sources */,
+				10F974261A3F79BB0007AE7D /* NAVDemoRouter.m in Sources */,
+				101EC1381A195BC700C16B4E /* NAVUpdateParser.m in Sources */,
+				101EC1411A19704700C16B4E /* NAVRouter.m in Sources */,
+				10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */,
+				108C43D51A09D4B600E8A55E /* NAVURLElement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBDDB509197475260051D149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F9740B1A3A08070007AE7D /* NAVUpdates.m in Sources */,
+				109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */,
+				101EC13E1A196D6A00C16B4E /* NAVUpdateParserTests.m in Sources */,
+				101EC12E1A19376D00C16B4E /* NAVRouteTests.m in Sources */,
+				101EC1321A193CF700C16B4E /* NAVTransitionTests.m in Sources */,
+				109DE5E3197A1053003AA60C /* NAVTest.m in Sources */,
+				101EC1301A19391900C16B4E /* NAVRouteBuilderTests.m in Sources */,
+				10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */,
+				1067A0191A11D3DC00D2583F /* NAVURLElementTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBDDB513197475260051D149 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBDDB4F1197475260051D149 /* Navigator */;
+			targetProxy = FBDDB512197475260051D149 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FBDDB517197475260051D149 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBDDB518197475260051D149 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FBDDB51C197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NAVIGATOR_VIEW,
+					"DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FBDDB51D197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = NAVIGATOR_VIEW;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBDDB51F197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19545FB351481AC65E23FE04 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "Demo/Navigator-Info.plist";
+				PRODUCT_NAME = Navigator;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBDDB520197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9A21F31D671A08EEE97C14E /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "Demo/Navigator-Info.plist";
+				PRODUCT_NAME = Navigator;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FBDDB522197475260051D149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B5DFD70DBDCDD654AB64362 /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FBDDB523197475260051D149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A412C747BC2051329E54785F /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavigationRouter.app/NavigationRouter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBDDB4ED197475260051D149 /* Build configuration list for PBXProject "Navigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB51C197475260051D149 /* Debug */,
+				FBDDB51D197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBDDB51E197475260051D149 /* Build configuration list for PBXNativeTarget "Navigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB51F197475260051D149 /* Debug */,
+				FBDDB520197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBDDB521197475260051D149 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBDDB522197475260051D149 /* Debug */,
+				FBDDB523197475260051D149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBDDB4EA197475260051D149 /* Project object */;
+}

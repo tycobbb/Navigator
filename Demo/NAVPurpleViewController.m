@@ -1,6 +1,6 @@
 //
 //  NAVPurpleViewController.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVPurpleViewController.h"

@@ -1,6 +1,6 @@
 //
 //  NAVTransitionTests.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVTransitionBuilder_Private.h"

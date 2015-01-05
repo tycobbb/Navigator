@@ -1,6 +1,6 @@
 //
 //  NAVRedViewController.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVRedViewController.h"

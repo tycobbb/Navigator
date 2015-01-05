@@ -1,6 +1,6 @@
 //
 //  NAVDemoRouter.h
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVRouter.h"

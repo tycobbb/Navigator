@@ -1,6 +1,6 @@
 //
 //  NAVTransitionBuilderTests.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVAttributes.h"

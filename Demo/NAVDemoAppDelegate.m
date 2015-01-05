@@ -1,6 +1,6 @@
 //
 //  NAVDemoAppDelegate.m
-//  NavigationRouter
+//  Navigator
 //
 
 #import "NAVDemoAppDelegate.h"

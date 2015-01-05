@@ -1,6 +1,6 @@
 //
 //  NAVUpdates.h
-//  NavigationRouter
+//  Navigator
 //
 
 @import Foundation;
