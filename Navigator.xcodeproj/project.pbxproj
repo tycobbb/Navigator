@@ -190,15 +190,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1010FFF61A190FC900C1C554 /* URL */ = {
+		1010FFF61A190FC900C1C554 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				108C43D01A09D1BE00E8A55E /* NAVURL.h */,
 				108C43D11A09D1BE00E8A55E /* NAVURL.m */,
 				108C43D31A09D4B600E8A55E /* NAVURLElement.h */,
 				108C43D41A09D4B600E8A55E /* NAVURLElement.m */,
+				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
+				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
+				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
+				109DE5E5197A1717003AA60C /* YOLT.h */,
+				109DE5E6197A1717003AA60C /* YOLT.m */,
 			);
-			path = URL;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		101EC1391A19645600C16B4E /* Updates */ = {
@@ -228,15 +233,6 @@
 				10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		109DE5E4197A16F8003AA60C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				109DE5E5197A1717003AA60C /* YOLT.h */,
-				109DE5E6197A1717003AA60C /* YOLT.m */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		10F9740C1A3A087E0007AE7D /* Helpers */ = {
@@ -274,9 +270,6 @@
 				10978FD81A14405900A5C981 /* NAVTransitionBuilder.h */,
 				10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */,
 				10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */,
-				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
-				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
-				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -284,8 +277,6 @@
 		10F974431A3F99410007AE7D /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */,
-				10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -313,6 +304,8 @@
 				FB7E248719786A7500D63A7E /* NAVRouterFactory.h */,
 				10F9740D1A3A2BBD0007AE7D /* NAVRouterUtilities.h */,
 				FBDDB55C19747BA90051D149 /* NAVRouterConstants.h */,
+				10F974441A3F99640007AE7D /* NAVNavigationControllerUpdater.h */,
+				10F974451A3F99640007AE7D /* NAVNavigationControllerUpdater.m */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -371,12 +364,11 @@
 				10F974231A3F774E0007AE7D /* Navigator.h */,
 				FB3225711A5B354A005015BE /* Router */,
 				10F974411A3F99300007AE7D /* Transitions */,
-				1010FFF61A190FC900C1C554 /* URL */,
 				FB7E248C19786B8700D63A7E /* Routes */,
 				101EC1391A19645600C16B4E /* Updates */,
 				10F974431A3F99410007AE7D /* Internal */,
+				1010FFF61A190FC900C1C554 /* Shared */,
 				1073A2641A06DE5500BB7856 /* View */,
-				109DE5E4197A16F8003AA60C /* Extensions */,
 				FBDDB5261974756F0051D149 /* Demo */,
 			);
 			path = Navigator;

@@ -2,9 +2,6 @@
 //  NAVURLElement.m
 //  Navigator
 //
-//  Created by Ty Cobb on 11/4/14.
-//
-//
 
 #import "NAVURLElement.h"
 
