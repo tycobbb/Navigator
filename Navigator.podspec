@@ -1,8 +1,8 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = 'NavigationRouter'
-  s.version      = '0.0.1'
+  s.name         = 'Navigator'
+  s.version      = '0.5'
   s.summary      = 'URL-based view navigation for iOS'
   s.homepage     = 'http://github.com/derkis/NAVRouter'
 
@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'License.txt' }
  
   s.platform     = :ios, '7.0'
-  s.source       = { :git => 'https://github.com/derkis/NAVRouter.git', :branch => 'master' }
+  s.source       = { :git => 'https://github.com/derkis/NAVRouter.git', :branch => 'api-redux' }
   s.requires_arc = true
 
-  s.source_files = 'NavigationRouter/*.{h,m}' 
-  s.public_header_files = 'NavigationRouter/*.h'
+  s.source_files = 'Navigator/*.{h,m}' 
+  s.public_header_files = 'Navigator/*.h'
   
   s.dependency 'YOLOKit', '~> 11'
   
