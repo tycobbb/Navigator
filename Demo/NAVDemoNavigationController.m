@@ -6,6 +6,10 @@
 #import "NAVDemoNavigationController.h"
 #import "NAVDemoRouter.h"
 
+@interface NAVDemoNavigationController ()
+@property (assign, nonatomic) BOOL didAppear;
+@end
+
 @implementation NAVDemoNavigationController
 
 - (void)viewDidLoad
@@ -18,7 +22,7 @@
     
     [NAVDemoRouter router].transition
         .root(NAVDemoRouteRed)
-        .parameter(NAVDemoRoutePurple, NAVParameterOptionsVisible | NAVParameterOptionsAsync)
+        .push(NAVDemoRouteBlue)
         .animated(NO)
         .start(nil);
 }
@@ -27,23 +31,18 @@
 {
     [super viewDidAppear:animated];
     
-//    [NAVDemoRouter router].transition
-//        .push(NAVDemoRouteBlue)
-//        .start(nil);
-  
-//    [NAVDemoRouter router].transition
-//        .push(NAVDemoRouteBlue)
-//        .start(nil);
-
-//    [NAVDemoRouter router].transition
-//        .dismiss(NAVDemoRoutePurple)
-//        .pop(1)
-//        .enqueue(nil);
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+    if(!self.didAppear) {
+        [NAVDemoRouter router].transition
+            .present(NAVDemoRoutePurple).animated(NO)
+            .enqueue(nil);
+        
+        [NAVDemoRouter router].transition
+            .dismiss(NAVDemoRoutePurple)
+            .pop(1)
+            .enqueue(nil);    
+    }
+    
+    self.didAppear = YES;
 }
 
 @end
