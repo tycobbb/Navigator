@@ -105,6 +105,16 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
 @property (nonatomic, readonly) BOOL isAnimated;
 
 /**
+ @brief Indicates whether or not the parameter change should run asynchronously
+ 
+ If so, the view will be updated during the run loop cycle after the transition is initiated.
+ In addition, any subsequent changes triggered during the transition will not wait for this
+ change to complete.
+*/
+
+@property (nonatomic, readonly) BOOL isAsynchronous;
+
+/**
  @brief Options indicating how to present the view assosciated with this parameter
  
  @c NAVParameterOptionsNone: no options

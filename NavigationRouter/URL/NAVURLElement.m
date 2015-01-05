@@ -101,6 +101,11 @@
     return (self.options & NAVParameterOptionsUnanimated) == 0;
 }
 
+- (BOOL)isAsynchronous
+{
+    return (self.options & NAVParameterOptionsAsync) == NAVParameterOptionsAsync;
+}
+
 - (NSString *)value
 {
     // if we're not visible render nothing

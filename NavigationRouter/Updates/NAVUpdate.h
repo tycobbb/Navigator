@@ -60,11 +60,21 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
 /**
  @brief Flag indicating whether or not to run the update animatedly
  
- This property may depend on the update's delegate, and will throw an exception if its
+ This property may depend on the update's delegate, and will throw an exception if it's
  called before that point.
 */
 
 @property (nonatomic, readonly) BOOL isAnimated;
+
+/**
+ @brief Flag indicating whether or not to run the update asynchronously
+ 
+ Asynchronous updates will not block the subsequent update from being run. Currently,
+ animation updates can be made asynchronous by passing the @c NAVParameterOptionsAsync 
+ option when updating the parameter.
+*/
+
+@property (nonatomic, readonly) BOOL isAsynchronous;
 
 /**
  @brief Initializes a new update of the specified type

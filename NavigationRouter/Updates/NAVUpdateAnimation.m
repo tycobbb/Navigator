@@ -35,6 +35,11 @@
     return super.isAnimated && self.parameter.isAnimated;
 }
 
+- (BOOL)isAsynchronous
+{
+    return self.parameter.isAsynchronous;
+}
+
 - (NAVURLParameter *)parameter
 {
     return (NAVURLParameter *)self.element;

@@ -51,4 +51,9 @@
     return [self.delegate shouldAnimateUpdate:self];
 }
 
+- (BOOL)isAsynchronous
+{
+    return NO;
+}
+
 @end
