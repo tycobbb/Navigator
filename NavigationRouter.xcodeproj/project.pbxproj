@@ -278,7 +278,7 @@
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
 				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
 			);
-			name = Transitions;
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		10F974431A3F99410007AE7D /* Internal */ = {
