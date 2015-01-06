@@ -13,7 +13,7 @@ You can install Navigator with [CocoaPods](http://cocoapods.org/).
 pod 'Navigator', '~> 0.5'
 ```
 
-## Usage
+## Setup
 There are two classes at the core of Navigator: `NAVRouter` and `NAVViewController`. A router declares mappings from string keys to view controller classes, and URLs composed of these keys push views onto the stack, present them modally, or execute arbitrary animations.
 
 ### URLs
@@ -28,7 +28,7 @@ And the breakdown:
 - **Parameters**: `video=v` is this URL's only parameter. Parameters are key-value pairs where the key is a view's key, and the value is the view's state. In this case the view is `video` and its state is `visible`.
 
 ### Implementing a Router
-Declare a new NAVRouter subclass, and import `NAVRouter_Subclass.h` in your implementation. Your router subclass gains an implicit (and *not* thread-safe) shared instance that you can access using `+router`.
+Declare a new NAVRouter subclass, and import `NAVRouter_Subclass.h` in your implementation.
 
 ##### Scheme
 First-and-foremost the router needs a scheme, and you can specify one by implementing `+scheme`.
@@ -82,11 +82,96 @@ The last step required to get the router up-and-running is to assosciate it to a
 ```
 Alternatively, if the router has no navigation controller and you set its `delegate` to something that is either a UINavigationController or has a method `-navigationController`, the router will attempt to use that as its navigation controller.
 
+### Animations
+
+Custom animations can be hooked into the router by subclassing `NAVAnimation` and creating a route with an instance of that animation. The actual view update is driven by `-updateIsVisible:animated:completion:`. The router will call this method as routing changes cause animation updates.
+
+For instance, to implement a simple side-menu animation you could define the following class:
+```Objective-C
+@implementation MenuAnimation
+
+- (void)updateIsVisible:(BOOL)isVisible animated:(BOOL)animated completion:(void (^)(BOOL))completion
+{
+    [UIView animateWithDuration:0.4f delay:0.0f usingSpringWithDamping:0.75f initialSpringVelocity:0.0f options:0 animations:^{
+        self.animatingView.transform = CGAffineTransformMakeTranslation(isVisible ? 300.0f : 0.0f, 0.0f);
+    } completion:completion];
+}
+
+@end
+```
+
+And then add a route to an instance of this animation to expose it:
+```Objective-C
+MenuAnimation *menuAnimation = [MenuAnimation new];
+menuAnimation.animatingView  = self.containerView;
+
+[[DemoRouter router] updateRoutes:(NAVRouteBuilder *route) {
+    route.to(@"menu").animation(menuAnimation);
+}];
+```
+
+If the animation needs to happen outside of the router, such as through an interactive gesture, it should also drive its logic through the `NAVAnimation` subclass. In this case, the animation should set the animation's `isVisible` property appropriately when the interaction completes.
+
+## Usage
+Your router subclass gains an implicit (and *not* thread-safe) shared instance that you can access using `+router`, which you can use to transition, update routes, etc.
+
 ### Transitioning
-The router would be pretty useless if it couldn't move between views. Every router subclass you define gains an implicit (not thread-safe) shared instance method, `-router`. The router specifies one method for initiating transitions, `-transition`, that returns a builder to construct the transition. Let's break down some example transitions.
+The router would be pretty useless if it couldn't move between views. It specifies one method for initiating transitions, `-transition`, that returns a flexible builder to construct and initiate a routing change. Let's break down some example transitions.
 
 ```Objective-C
 [DemoRouter router].transition
   .root(@"red")
+  .animated(NO)
   .start(nil);
 ```
+
+This transitions the router to a new `root` view, mapped from `@"red"`, and throws away any other views on the stack. You'll probably do something like this when you first launch your app. 
+
+The method `-start` finishes building and attempts to immediately run the transition. It accepts a completion block that is called when the transition finishes, or immediately with an error if there was already a running transition.
+
+```Objective-C
+[DemoRouter router].transition
+    .push(@"green")
+    .present(@"purple")
+    .enqueue(nil).
+```
+
+Transitions can be composed from multiple URL changes. This transition pushes the `@"green"` view onto the stack, and then when it's finished presents the `@"purple"` view modally.
+
+This method also uses `-enqueue` rather than `-start`, which will wait until any running or queued transitions finish before resolving.
+
+### Passing Data during Transitions
+
+You can also pass data strings, objects (say for instance, models), and handlers during transitions that will be delievered to the view(s).
+
+```Objective-C
+[NAVDemoRouter router].
+    .push(@"red")
+    .data(demoModel.identifier)
+    .object(demoModel)
+    .start(nil)
+```
+
+These are delievered to subclasses of `NAVViewController` or `NAVAnimation` via `-updateWithAttributes:`. This method is passed an instance of `NAVAttributes` that encapsulates the relevant transition data, and they are discarded aftewrads.
+
+```Objective-C
+- (void)updateWithAttributes:(NAVAttributes *)attributes
+{
+    [super updateWithAttributes:attributes];
+    NSLog(@"%@: %@", attributes.data, attributes.userObject);
+}
+```
+
+### Route Building
+
+While routes are initially defined inside a `NAVRouter` subclass' `-routes:` method, they can can be changed at any time using `-updateRoutes:`. This method accepts a block that is also passed a `NAVRouteBuilder` instance.
+
+Routes can be configured with animations, controller classes, and custom types:
+```Objective-C
+[[DemoRouter router] updateRoutes:^(NAVRouteBuilder *route) {
+    route.to(@"video").controller(VideoViewController.class).as(NAVRouteTypeModal);
+    route.to(@"menu").animation(menuAnimation);
+}];
+```
+
+If a route is passed a controller or animation, its type is set to `NAVRouteTypeStack` or `NAVRouteTypeAnimation` respectively. It can be further specified using `-as`, such as in the case of `NAVRouteTypeModal`. This allows view controllers to be presented, rather than pushed.
