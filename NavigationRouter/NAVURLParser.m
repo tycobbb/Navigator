@@ -72,7 +72,7 @@
 {
     // keys that are disabled may not be in the destination parameters, so we need to merge both the
     // source and destination to ensure a complete set.
-    NSArray *keySet = sourceURL.nav_parameters.allKeys.concat(destinationURL.nav_parameters.allKeys).uniq;
+    NSArray *keySet = sourceURL.nav_parameters.allKeys.concat(destinationURL.nav_parameters.allKeys).uniq.copy;
     
     return keySet.map(^(NSString *key) {
         NAVURLParameter *sourceParameter = sourceURL.nav_parameters[key];

@@ -2,53 +2,53 @@ PODS:
   - Expecta (0.3.1)
   - Specta (0.2.1)
   - YOLOKit (11):
-    - YOLOKit/all
-    - YOLOKit/any
-    - YOLOKit/array
-    - YOLOKit/base
-    - YOLOKit/chunk
-    - YOLOKit/concat
-    - YOLOKit/dict
-    - YOLOKit/each
-    - YOLOKit/extend
-    - YOLOKit/find
-    - YOLOKit/first
-    - YOLOKit/flatMap
-    - YOLOKit/flatten
-    - YOLOKit/get
-    - YOLOKit/groupBy
-    - YOLOKit/has
-    - YOLOKit/indexOf
-    - YOLOKit/inject
-    - YOLOKit/join
-    - YOLOKit/last
-    - YOLOKit/map
-    - YOLOKit/max
-    - YOLOKit/min
-    - YOLOKit/none
-    - YOLOKit/partition
-    - YOLOKit/pick
-    - YOLOKit/pluck
-    - YOLOKit/pmap
-    - YOLOKit/pop
-    - YOLOKit/push
-    - YOLOKit/reduce
-    - YOLOKit/reverse
-    - YOLOKit/rotate
-    - YOLOKit/sample
-    - YOLOKit/select
-    - YOLOKit/shift
-    - YOLOKit/shuffle
-    - YOLOKit/skip
-    - YOLOKit/slice
-    - YOLOKit/snip
-    - YOLOKit/sort
-    - YOLOKit/split
-    - YOLOKit/transpose
-    - YOLOKit/uniq
-    - YOLOKit/unshift
-    - YOLOKit/upTo
-    - YOLOKit/without
+    - YOLOKit/all (= 11)
+    - YOLOKit/any (= 11)
+    - YOLOKit/array (= 11)
+    - YOLOKit/base (= 11)
+    - YOLOKit/chunk (= 11)
+    - YOLOKit/concat (= 11)
+    - YOLOKit/dict (= 11)
+    - YOLOKit/each (= 11)
+    - YOLOKit/extend (= 11)
+    - YOLOKit/find (= 11)
+    - YOLOKit/first (= 11)
+    - YOLOKit/flatMap (= 11)
+    - YOLOKit/flatten (= 11)
+    - YOLOKit/get (= 11)
+    - YOLOKit/groupBy (= 11)
+    - YOLOKit/has (= 11)
+    - YOLOKit/indexOf (= 11)
+    - YOLOKit/inject (= 11)
+    - YOLOKit/join (= 11)
+    - YOLOKit/last (= 11)
+    - YOLOKit/map (= 11)
+    - YOLOKit/max (= 11)
+    - YOLOKit/min (= 11)
+    - YOLOKit/none (= 11)
+    - YOLOKit/partition (= 11)
+    - YOLOKit/pick (= 11)
+    - YOLOKit/pluck (= 11)
+    - YOLOKit/pmap (= 11)
+    - YOLOKit/pop (= 11)
+    - YOLOKit/push (= 11)
+    - YOLOKit/reduce (= 11)
+    - YOLOKit/reverse (= 11)
+    - YOLOKit/rotate (= 11)
+    - YOLOKit/sample (= 11)
+    - YOLOKit/select (= 11)
+    - YOLOKit/shift (= 11)
+    - YOLOKit/shuffle (= 11)
+    - YOLOKit/skip (= 11)
+    - YOLOKit/slice (= 11)
+    - YOLOKit/snip (= 11)
+    - YOLOKit/sort (= 11)
+    - YOLOKit/split (= 11)
+    - YOLOKit/transpose (= 11)
+    - YOLOKit/uniq (= 11)
+    - YOLOKit/unshift (= 11)
+    - YOLOKit/upTo (= 11)
+    - YOLOKit/without (= 11)
   - YOLOKit/all (11):
     - YOLOKit/base
   - YOLOKit/any (11):
@@ -169,4 +169,4 @@ SPEC CHECKSUMS:
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
   YOLOKit: e83d381f83f33f2b66abf6fe0249fca57b05a541
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
