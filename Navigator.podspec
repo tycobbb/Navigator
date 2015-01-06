@@ -17,36 +17,14 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Navigator/*.h' 
 
   s.subspec 'Router' do |ss|
-    ss.source_files = 'Navigator/Router/*.{h,m}'
-  end
-
-  s.subspec 'Transitions' do |ss|
-    ss.dependency 'Navigator/Shared'
-    ss.dependency 'Navigator/Updates'
-    ss.source_files = 'Navigator/Transitions/*.{h,m}'
-  end
-
-  s.subspec 'Updates' do |ss|
-    ss.dependency 'Navigator/Shared'
-    ss.dependency 'Navigator/Routes'
-    ss.source_files = 'Navigator/Updates/*.{h,m}'
-  end
-
-  s.subspec 'Routes' do |ss|
-    ss.dependency 'Navigator/Shared'
-    ss.source_files = 'Navigator/Routes/*.{h,m}'
-  end
-
-  s.subspec 'Internal' do |ss|
-    ss.source_files = 'Navigator/Internal/*.{h,m}'
+    ss.source_files = %w{ Router Routes Transitions Updates Shared }.map do |dir| 
+      "Navigator/#{dir}/*.{h,m}" 
+    end
   end
 
   s.subspec 'View' do |ss|
+    ss.dependency 'Navigator/Router'
     ss.source_files = 'Navigator/View/*.{h,m}'
-  end
- 
-  s.subspec 'Shared' do |ss|
-    ss.source_files = 'Navigator/Shared/*.{h,m}'
   end
 
   s.dependency 'YOLOKit', '~> 11'

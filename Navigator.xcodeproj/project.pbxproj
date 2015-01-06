@@ -274,13 +274,6 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		10F974431A3F99410007AE7D /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
 		4497C0392693F5728931564A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,10 +356,9 @@
 			children = (
 				10F974231A3F774E0007AE7D /* Navigator.h */,
 				FB3225711A5B354A005015BE /* Router */,
-				10F974411A3F99300007AE7D /* Transitions */,
 				FB7E248C19786B8700D63A7E /* Routes */,
+				10F974411A3F99300007AE7D /* Transitions */,
 				101EC1391A19645600C16B4E /* Updates */,
-				10F974431A3F99410007AE7D /* Internal */,
 				1010FFF61A190FC900C1C554 /* Shared */,
 				1073A2641A06DE5500BB7856 /* View */,
 				FBDDB5261974756F0051D149 /* Demo */,
