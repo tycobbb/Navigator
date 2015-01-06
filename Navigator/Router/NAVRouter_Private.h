@@ -15,7 +15,7 @@
 #import "YOLT.h"
 
 #ifdef NAVIGATOR_VIEW
-#import "Navigator-View.h"
+#import <Navigator/NAVRouter+Factory.h>
 #endif
 
 @interface NAVRouter () <NAVTransitionBuilderDelegate, NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>

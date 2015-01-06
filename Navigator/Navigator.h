@@ -4,7 +4,8 @@
 //
 
 #import "NAVRouter.h"
+#import "NAVAnimation.h"
 
-#ifdef NAVViewModule
-#import "Navigator-View.h"
+#ifdef NAVIGATOR_VIEW
+    #import <Navigator/Navigator-View.h>
 #endif
