@@ -1,9 +1,9 @@
 Navigator
 =========
 
-Navigator is a URL router for managing application state in iOS applications. Unlike existing solutions to this
-problem that provide transitions using `key/:id -> view` mappings, Navigator diffs URLs into a sequence of updates
-that generate the entire view stack and can perform any necessary animations. This provides for increased view controller
+Navigator is a URL router for tracking application state and transitioning between views. Unlike existing solutions to this
+problem that provide isolated transitions using `key/:id -> view` mappings, Navigator diffs URLs into a sequence of updates
+that can perform any number of stack changes and execute arbitrary animations. This provides for increased view controller
 and animation modularity, and it eases the burden of implementing features like deep-linking or state-based analytics.
 
 ## Installation
@@ -17,7 +17,7 @@ pod 'Navigator', '~> 0.5'
 There are two classes at the core of Navigator: `NAVRouter` and `NAVViewController`. A router declares mappings from string keys to view controller classes, and URLs composed of these keys push views onto the stack, present them modally, or execute arbitrary animations.
 
 ### URLs
-Let's break down an example `NAVRouter` URL. Here's a URL for a television application that has a home screen, a show detail screen pushed on top of it, and video player modal presented over everything. Something like:
+Let's break down an example. Here's a URL for television application that has a home screen, a show detail screen pushed on top of it, and video player modal presented over everything. Something like:
 ```
 television://home/show::2?video=v
 ```
@@ -31,7 +31,7 @@ And the breakdown:
 Declare a new NAVRouter subclass, and import `NAVRouter_Subclass.h` in your implementation.
 
 ##### Scheme
-First-and-foremost the router needs a scheme, and you can specify one by implementing `+scheme`.
+First and foremost the router needs a scheme, and you can specify one by implementing `+scheme`:
 ```Objective-C
 + (NSString *)scheme
 {
@@ -40,7 +40,7 @@ First-and-foremost the router needs a scheme, and you can specify one by impleme
 ```
 
 ##### Routes
-The router also needs some routes, and you can define its initial routes internally using `-routes:`.
+The router also needs some routes, and you can define its initial routes internally using `-routes:`:
 ```Objective-C
 - (void)routes:(NAVRouteBuilder *)route
 {
@@ -53,10 +53,9 @@ This method is passed a `NAVRouteBuilder` instance that you can use to construct
 The specifics of route building are covered later. Routes can be added-to/removed-from the router at any time using `-updateRoutes:`.
 
 ### Implementing View Controllers
-The router needs to create view controllers, and the controllers themselves define how they should be created. By default,
-the view controller is created from a storyboard and storyboard ID.
+The router needs to create view controllers, and the controllers themselves define how they should be created. By default, the router creates subclasses of NAVViewController from a storyboard and storyboard ID.
 
-If you're cool with this, then at a minimum specify the storyboard name using `+storyboardName`
+If you're cool with this, then at a minimum specify the storyboard name in your subclass using `+storyboardName`:
 ```Objective-C
 + (NSString *)storyboardName
 {
@@ -64,7 +63,7 @@ If you're cool with this, then at a minimum specify the storyboard name using `+
 }
 ```
 
-The router will then try to create the view controller from this storyboard using the stringified version of the controller's class name as the default ID. To customize this behavior, override `+storyboardIdentifier`. Whatever you ID, make sure to specify it for each view controller in the "Identity Inspector" panel in IB.
+The router then tries to create the view controller from this storyboard using the stringified version of the controller's class name as the default ID. To customize this behavior, override `+storyboardIdentifier`. Whatever your ID, make sure to specify it for each view controller in the "Identity Inspector" panel in IB.
 
 If a controller needs completely custom instantiation, it can override `+instance` to short-circuit the storyboard-loading process:
 
@@ -138,14 +137,14 @@ The method `-start` finishes building and attempts to immediately run the transi
 
 Transitions can be composed from multiple URL changes. This transition pushes the `@"green"` view onto the stack, and then when it's finished presents the `@"purple"` view modally.
 
-This method also uses `-enqueue` rather than `-start`, which will wait until any running or queued transitions finish before resolving.
+This method also uses `-enqueue` rather than `-start`, which waits until any running or queued transitions finish before resolving. If no such transitions exist, it starts immediately.
 
 ### Passing Data during Transitions
 
 You can also pass data strings, objects (say for instance, models), and handlers during transitions that will be delievered to the view(s).
 
 ```Objective-C
-[NAVDemoRouter router].
+[NAVDemoRouter router].transition
     .push(@"red")
     .data(demoModel.identifier)
     .object(demoModel)
@@ -164,7 +163,7 @@ These are delievered to subclasses of `NAVViewController` or `NAVAnimation` via 
 
 ### Route Building
 
-While routes are initially defined inside a `NAVRouter` subclass' `-routes:` method, they can can be changed at any time using `-updateRoutes:`. This method accepts a block that is also passed a `NAVRouteBuilder` instance.
+While initially defined inside a `NAVRouter` subclass' `-routes:` method, routes can can be changed at any time using `-updateRoutes:`. This method accepts a block that is passed a `NAVRouteBuilder` instance.
 
 Routes can be configured with animations, controller classes, and custom types:
 ```Objective-C
@@ -174,4 +173,4 @@ Routes can be configured with animations, controller classes, and custom types:
 }];
 ```
 
-If a route is passed a controller or animation, its type is set to `NAVRouteTypeStack` or `NAVRouteTypeAnimation` respectively. It can be further specified using `-as`, such as in the case of `NAVRouteTypeModal`. This allows view controllers to be presented, rather than pushed.
+If a route is passed a controller or animation, its type is implicitly `NAVRouteTypeStack` or `NAVRouteTypeAnimation` respectively. It can be further specified using `-as`, such as in the case of `NAVRouteTypeModal`. This allows view controllers to be presented, rather than pushed.
