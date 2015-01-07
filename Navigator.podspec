@@ -2,15 +2,15 @@
 Pod::Spec.new do |s|
 
   s.name         = 'Navigator'
-  s.version      = '0.3'
+  s.version      = '0.3.1'
   s.summary      = 'URL-based view navigation for iOS'
-  s.homepage     = 'http://github.com/derkis/NAVRouter'
+  s.homepage     = 'http://github.com/derkis/Navigator'
   s.author       = { 'Ty Cobb' => 'ty.cobb.m@gmail.com' } 
   s.license      = { :type => 'MIT', :file => 'License.txt' }
  
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-  s.source       = { :git => 'https://github.com/derkis/NAVRouter.git', :tag => "v#{s.version}" }  
+  s.source       = { :git => 'https://github.com/derkis/Navigator.git', :tag => "v#{s.version}" }  
   
   s.subspec 'Core' do |ss|
     paths = [ '', 'Router/', 'Routes/', 'Transitions/', 'Updates/', 'Shared/' ].map do |dir|
