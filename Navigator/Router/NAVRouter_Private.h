@@ -14,10 +14,6 @@
 #import "NAVNavigationControllerUpdater.h"
 #import "YOLT.h"
 
-#ifdef NAVIGATOR_VIEW
-#import <Navigator/NAVRouter+Factory.h>
-#endif
-
 @interface NAVRouter () <NAVTransitionBuilderDelegate, NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;
 @property (strong, nonatomic) NAVTransition *currentTransition;

@@ -12,9 +12,8 @@
     if(self = [super init]) {
         _transitionQueue = [NSMutableArray new];
         
-        #ifdef NAVIGATOR_VIEW
+        // create a the default factory; view module may patch over this method
         _factory = [self defaultFactory];
-        #endif
         
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
@@ -263,6 +262,11 @@
 - (BOOL)isTransitioning
 {
     return self.currentTransition != nil;
+}
+
+- (id<NAVRouterFactory>)defaultFactory
+{
+    return nil;
 }
 
 # pragma mark - Notifications
