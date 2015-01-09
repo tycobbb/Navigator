@@ -2,8 +2,14 @@
 Pod::Spec.new do |s|
 
   s.name         = 'Navigator'
-  s.version      = '0.3.1'
-  s.summary      = 'URL-based view navigation for iOS'
+  s.version      = '0.3.2'
+  s.summary      = 'Router for iOS view navigation & animation'
+  s.description  = <<-DESC 
+                   Navigator is a router for tracking application state and transitioning between views. It provides default 
+                   implementations for managing UINavigationController's stack and displaying views modally, and it provides 
+                   extension points for custom navigation hierarchies and animations.
+                   DESC
+
   s.homepage     = 'http://github.com/derkis/Navigator'
   s.author       = { 'Ty Cobb' => 'ty.cobb.m@gmail.com' } 
   s.license      = { :type => 'MIT', :file => 'License.txt' }
