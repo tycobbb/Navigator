@@ -4,9 +4,16 @@
 //
 
 #import "NAVViewController.h"
+#import "NAVViewControllerFactory_Private.h"
 #import "NAVRouterUtilities.h"
 
 @implementation NAVViewController
+
++ (void)initialize
+{
+    [super initialize];
+    [NAVViewControllerFactory prepareToLaunch];
+}
 
 + (instancetype)instance
 {

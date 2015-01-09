@@ -3,10 +3,20 @@
 //  Navigator
 //
 
-#import "NAVViewControllerFactory.h"
+@import ObjectiveC;
+
+#import "NAVViewControllerFactory_Private.h"
 #import "NAVViewController.h"
+#import "NAVRouter_Private.h"
 
 @implementation NAVViewControllerFactory
+
++ (void)initialize
+{
+    [super initialize];
+    
+    [self swizzleDefaultFactory];
+}
 
 - (UIViewController *)controllerForRoute:(NAVRoute *)route
 {
@@ -48,6 +58,37 @@
     ];
     
     return [NSException exceptionWithName:NAVExceptionViewConfiguration reason:reason userInfo:nil];
+}
+
+# pragma mark - Swizzling
+
++ (void)prepareToLaunch
+{
+    // no-op
+}
+
++ (void)swizzleDefaultFactory
+{
+    // let's only swizzle once
+    if(nav_original_defaultFactory) {
+        return;
+    }
+    
+    Method method = class_getInstanceMethod([NAVRouter class], @selector(defaultFactory));
+    // store the original implementation
+    nav_original_defaultFactory = method_getImplementation(method);
+    // and update it
+    method_setImplementation(method, (IMP)nav_defaultFactory);
+}
+
+static IMP nav_original_defaultFactory;
+
+id<NAVRouterFactory> nav_defaultFactory(id self, SEL _cmd)
+{
+    // allow the original implementation to return something
+    id<NAVRouterFactory> factory = nav_original_defaultFactory(self, _cmd);
+    // otherwise, return a new NAVViewControllerFactory
+    return factory ?: [NAVViewControllerFactory new];
 }
 
 @end

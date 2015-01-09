@@ -32,7 +32,6 @@
 		10F974121A3B5AC30007AE7D /* NAVAnimationModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974111A3B5AC30007AE7D /* NAVAnimationModal.m */; };
 		10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */; };
 		10F974181A3B66230007AE7D /* NAVUpdateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */; };
-		10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */; };
 		10F974261A3F79BB0007AE7D /* NAVDemoRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974251A3F79BB0007AE7D /* NAVDemoRouter.m */; };
 		10F974361A3F7AFC0007AE7D /* NAVDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974351A3F7AFC0007AE7D /* NAVDemoViewController.m */; };
 		10F974391A3F7B050007AE7D /* NAVRedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F974381A3F7B050007AE7D /* NAVRedViewController.m */; };
@@ -117,8 +116,6 @@
 		10F974141A3B5FED0007AE7D /* NAVUpdateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateStack.m; sourceTree = "<group>"; };
 		10F974161A3B66230007AE7D /* NAVUpdateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVUpdateAnimation.h; sourceTree = "<group>"; };
 		10F974171A3B66230007AE7D /* NAVUpdateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVUpdateAnimation.m; sourceTree = "<group>"; };
-		10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NAVRouter+Factory.h"; sourceTree = "<group>"; };
-		10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NAVRouter+Factory.m"; sourceTree = "<group>"; };
 		10F974221A3F772B0007AE7D /* Navigator-View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Navigator-View.h"; sourceTree = "<group>"; };
 		10F974231A3F774E0007AE7D /* Navigator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navigator.h; sourceTree = "<group>"; };
 		10F974241A3F79BB0007AE7D /* NAVDemoRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoRouter.h; sourceTree = "<group>"; };
@@ -145,6 +142,7 @@
 		FB7E248719786A7500D63A7E /* NAVRouterFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAVRouterFactory.h; sourceTree = "<group>"; };
 		FB7E24B1197D92CE00D63A7E /* NAVDemoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVDemoNavigationController.h; sourceTree = "<group>"; };
 		FB7E24B2197D92CE00D63A7E /* NAVDemoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVDemoNavigationController.m; sourceTree = "<group>"; };
+		FBD168FE1A6074EE004472A0 /* NAVViewControllerFactory_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVViewControllerFactory_Private.h; sourceTree = "<group>"; };
 		FBDDB4F2197475260051D149 /* Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDDB4F5197475260051D149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBDDB4F7197475260051D149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,8 +227,7 @@
 				1073A2661A06DE9200BB7856 /* NAVViewController.m */,
 				1073A2681A06DEB600BB7856 /* NAVViewControllerFactory.h */,
 				1073A2691A06DEB600BB7856 /* NAVViewControllerFactory.m */,
-				10F9741F1A3F768F0007AE7D /* NAVRouter+Factory.h */,
-				10F974201A3F768F0007AE7D /* NAVRouter+Factory.m */,
+				FBD168FE1A6074EE004472A0 /* NAVViewControllerFactory_Private.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 				101EC1291A1912DF00C16B4E /* NAVUpdate.m in Sources */,
 				10F9743F1A3F7B1A0007AE7D /* NAVPurpleViewController.m in Sources */,
 				10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */,
-				10F974211A3F768F0007AE7D /* NAVRouter+Factory.m in Sources */,
 				1007935E1A19076E00414C9D /* NAVTransition.m in Sources */,
 				10F974461A3F99640007AE7D /* NAVNavigationControllerUpdater.m in Sources */,
 				101EC12C1A19157700C16B4E /* NAVAnimation.m in Sources */,

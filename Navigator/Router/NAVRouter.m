@@ -11,10 +11,7 @@
 {
     if(self = [super init]) {
         _transitionQueue = [NSMutableArray new];
-        
-        // create a the default factory; view module may patch over this method
-        _factory = [self defaultFactory];
-        
+       
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
             [self routes:route];
@@ -41,6 +38,12 @@
     // can't dequeue if we're in the middle of an existing transition or we're not ready
     if(self.isTransitioning || !self.transitionQueue.count || !self.isReady) {
         return;
+    }
+   
+    // attempt to create a factory; we need one to transition
+    if(!self.factory) {
+        self.factory = [self defaultFactory];
+        NAVAssert(self.factory != nil, NAVExecptionMissingModule, @"%@ is missing a factory, can't transition.", self);
     }
     
     // build the queued transition from our current url
@@ -264,12 +267,7 @@
     return self.currentTransition != nil;
 }
 
-- (id<NAVRouterFactory>)defaultFactory
-{
-    return nil;
-}
-
-# pragma mark - Notifications
+# pragma mark - Readiness
 
 - (void)waitOnWindowToBeReady:(UIWindow *)window
 {
@@ -337,6 +335,11 @@ char *prototypeKey;
 
 }
 
+- (id<NAVRouterFactory>)defaultFactory
+{
+    return nil;
+}
+
 @end
 
 @implementation NAVRouterPrototype @end
@@ -374,7 +377,8 @@ void optionally_dispatch_async(BOOL async, dispatch_queue_t queue, void(^block)(
 
 # pragma mark - Constants
 
-NSString * const NAVRouterErrorDomain     = @"router.error";
-NSString * const NAVExceptionNoScheme     = @"router.no.scheme";
-NSString * const NAVExceptionNoRouteFound = @"router.no.route.found";
-NSString * const NAVExceptionInvalidRoute = @"router.invalid.route";
+NSString * const NAVRouterErrorDomain      = @"router.error";
+NSString * const NAVExceptionNoScheme      = @"router.no.scheme";
+NSString * const NAVExecptionMissingModule = @"router.missing.module";
+NSString * const NAVExceptionNoRouteFound  = @"router.no.route.found";
+NSString * const NAVExceptionInvalidRoute  = @"router.invalid.route";

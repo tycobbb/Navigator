@@ -31,4 +31,15 @@
 
 - (void)routes:(NAVRouteBuilder *)route;
 
+/**
+ @brief Instantiates the default factory used by this router
+ 
+ The default implementation returns nil, though if the @c View submodule is included 
+ it provides an implementation that creates controllers from storyboards.
+ 
+ @return An new object that conforms to @c NAVRouterFactory
+*/
+
+- (id<NAVRouterFactory>)defaultFactory;
+
 @end
