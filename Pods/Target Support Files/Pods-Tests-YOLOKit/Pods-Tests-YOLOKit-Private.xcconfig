@@ -1,0 +1,5 @@
+#include "Pods-Tests-YOLOKit.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 ${PODS_TESTS_YOLOKIT_GCC_PREPROCESSOR_DEFINITIONS}
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/YOLOKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/Specta" "${PODS_ROOT}/Headers/Public/YOLOKit"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}
