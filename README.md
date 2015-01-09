@@ -10,7 +10,7 @@ and animation modularity, and it eases the burden of implementing features like 
 You can install Navigator with [CocoaPods](http://cocoapods.org/).
 
 ```ruby
-pod 'Navigator', '~> 0.5'
+pod 'Navigator', '~> 0.3'
 ```
 
 ## Setup
@@ -119,9 +119,9 @@ The router would be pretty useless if it couldn't move between views. It specifi
 
 ```Objective-C
 [DemoRouter router].transition
-  .root(@"red")
-  .animated(NO)
-  .start(nil);
+    .root(@"red")
+    .animated(NO)
+    .start(nil);
 ```
 
 This transitions the router to a new `root` view, mapped from `@"red"`, and throws away any other views on the stack. You'll probably do something like this when you first launch your app. 
@@ -144,7 +144,7 @@ This method also uses `-enqueue` rather than `-start`, which waits until any run
 You can also pass data strings, objects (say for instance, models), and handlers during transitions that will be delievered to the view(s).
 
 ```Objective-C
-[NAVDemoRouter router].transition
+[DemoRouter router].transition
     .push(@"red")
     .data(demoModel.identifier)
     .object(demoModel)
