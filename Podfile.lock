@@ -1,6 +1,6 @@
 PODS:
   - Expecta (0.3.1)
-  - Specta (0.2.1)
+  - Specta (0.3.0.beta1)
   - YOLOKit (11):
     - YOLOKit/all (= 11)
     - YOLOKit/any (= 11)
@@ -161,12 +161,22 @@ PODS:
 
 DEPENDENCIES:
   - Expecta (~> 0.3)
-  - Specta (~> 0.2)
+  - Specta (from `https://github.com/specta/specta.git`, tag `v0.3.0.beta1`)
   - YOLOKit (~> 11)
+
+EXTERNAL SOURCES:
+  Specta:
+    :git: https://github.com/specta/specta.git
+    :tag: v0.3.0.beta1
+
+CHECKOUT OPTIONS:
+  Specta:
+    :git: https://github.com/specta/specta.git
+    :tag: v0.3.0.beta1
 
 SPEC CHECKSUMS:
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
-  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d
   YOLOKit: e83d381f83f33f2b66abf6fe0249fca57b05a541
 
 COCOAPODS: 0.35.0

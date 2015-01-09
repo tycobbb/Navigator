@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod 'YOLOKit', '~> 11'
 
 target :Tests do
-  pod 'Specta', '~> 0.2'
+  pod 'Specta', :git => 'https://github.com/specta/specta.git', :tag => 'v0.3.0.beta1'
   pod 'Expecta', '~> 0.3'
 end
 
