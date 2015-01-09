@@ -3,10 +3,9 @@
 //  Navigator
 //
 
-#import <YOLOKit/YOLO.h>
 #import "NAVURL.h"
 #import "NAVRouterUtilities.h"
-#import "YOLT.h"
+#import "NAVCollections.h"
 
 NSString * const NAVExceptionMalformedUrl = @"router.malformed.url";
 NSString * const NAVExceptionIllegalUrlMutation = @"router.illegal.url.mutation";

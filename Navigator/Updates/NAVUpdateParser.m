@@ -3,10 +3,10 @@
 //  Navigator
 //
 
-#import <YOLOKit/YOLO.h>
 #import "NAVUpdateParser.h"
 #import "NAVUpdate.h"
 #import "NAVAttributes_Private.h"
+#import "NAVCollections.h"
 
 @implementation NAVUpdateParser
 

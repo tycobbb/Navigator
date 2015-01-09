@@ -5,14 +5,13 @@
 
 @import ObjectiveC;
 
-#import <YOLOKit/YOLO.h>
 #import "NAVRouter_Subclass.h"
 #import "NAVTransitionBuilder_Private.h"
 #import "NAVUpdateStack.h"
 #import "NAVUpdateAnimation.h"
 #import "NAVAnimationModal.h"
 #import "NAVNavigationControllerUpdater.h"
-#import "YOLT.h"
+#import "NAVCollections.h"
 
 @interface NAVRouter () <NAVTransitionBuilderDelegate, NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
 @property (copy  , nonatomic) NSDictionary *routes;

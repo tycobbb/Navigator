@@ -1,11 +1,11 @@
 //
-//  YOLT.m
+//  NAVCollections.m
 //  Created by Ty Cobb on 7/18/14.
 //
 
-#import "YOLT.h"
+#import "NAVCollections.h"
 
-@implementation NSArray (YOLT)
+@implementation NSArray (NAVCollections)
 
 - (NSArray *(^)(id))nav_append
 {
@@ -25,9 +25,9 @@
 
 @end
 
-@implementation NSMutableArray (YOLT)
+@implementation NSMutableArray (NAVCollections)
 
-- (NSMutableArray *(^)(id))push
+- (NSMutableArray *(^)(id))nav_push
 {
     return ^(id object) {
         if(object) {
@@ -38,7 +38,7 @@
     };
 }
 
-- (NSMutableArray *(^)(id))pushFront
+- (NSMutableArray *(^)(id))nav_pushFront
 {
     return ^(id object) {
         if(object) {
@@ -48,7 +48,7 @@
     };
 }
 
-- (id)pop
+- (id)nav_pop
 {
     id object = self.lastObject;
     [self removeLastObject];
@@ -57,7 +57,7 @@
 
 @end
 
-@implementation NSDictionary (YOLT)
+@implementation NSDictionary (NAVCollections)
 
 - (NSDictionary *(^)(id, id))nav_set
 {

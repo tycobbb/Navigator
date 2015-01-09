@@ -3,10 +3,10 @@
 //  Navigator
 //
 
-#import <YOLOKit/YOLO.h>
 #import "NAVTransitionBuilder.h"
 #import "NAVTransition.h"
 #import "NAVRouterUtilities.h"
+#import "NAVCollections.h"
 
 @protocol NAVTransitionBuilderDelegate;
 

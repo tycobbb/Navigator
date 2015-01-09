@@ -25,7 +25,7 @@
 		10978FDA1A14405900A5C981 /* NAVTransitionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10978FD91A14405900A5C981 /* NAVTransitionBuilder.m */; };
 		109DE5E01979FFDD003AA60C /* NAVURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5DF1979FFDD003AA60C /* NAVURLTests.m */; };
 		109DE5E3197A1053003AA60C /* NAVTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E2197A1053003AA60C /* NAVTest.m */; };
-		109DE5E7197A1717003AA60C /* YOLT.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* YOLT.m */; };
+		109DE5E7197A1717003AA60C /* NAVCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 109DE5E6197A1717003AA60C /* NAVCollections.m */; };
 		10C454381A422C27003C4E7D /* NAVLaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10C454371A422C27003C4E7D /* NAVLaunchView.xib */; };
 		10D2C1861A1445C900486A36 /* NAVTransitionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C1851A1445C900486A36 /* NAVTransitionBuilderTests.m */; };
 		10F9740B1A3A08070007AE7D /* NAVUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F9740A1A3A08070007AE7D /* NAVUpdates.m */; };
@@ -101,8 +101,8 @@
 		109DE5DF1979FFDD003AA60C /* NAVURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVURLTests.m; sourceTree = "<group>"; };
 		109DE5E1197A1053003AA60C /* NAVTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTest.h; sourceTree = "<group>"; };
 		109DE5E2197A1053003AA60C /* NAVTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVTest.m; sourceTree = "<group>"; };
-		109DE5E5197A1717003AA60C /* YOLT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOLT.h; sourceTree = "<group>"; };
-		109DE5E6197A1717003AA60C /* YOLT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOLT.m; sourceTree = "<group>"; };
+		109DE5E5197A1717003AA60C /* NAVCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVCollections.h; sourceTree = "<group>"; };
+		109DE5E6197A1717003AA60C /* NAVCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAVCollections.m; sourceTree = "<group>"; };
 		10C454361A40BC4C003C4E7D /* NAVTransitionBuilder_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVTransitionBuilder_Private.h; sourceTree = "<group>"; };
 		10C454371A422C27003C4E7D /* NAVLaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NAVLaunchView.xib; sourceTree = "<group>"; };
 		10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVAttributes_Private.h; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 				10978FD51A143DCC00A5C981 /* NAVAttributes.h */,
 				10978FD61A143DCC00A5C981 /* NAVAttributes.m */,
 				10C454391A4274B5003C4E7D /* NAVAttributes_Private.h */,
-				109DE5E5197A1717003AA60C /* YOLT.h */,
-				109DE5E6197A1717003AA60C /* YOLT.m */,
+				109DE5E5197A1717003AA60C /* NAVCollections.h */,
+				109DE5E6197A1717003AA60C /* NAVCollections.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				FB3F15901A5AF329000473C1 /* NAVDemoAnimation.m in Sources */,
 				108C43D21A09D1BE00E8A55E /* NAVURL.m in Sources */,
 				10F974151A3B5FED0007AE7D /* NAVUpdateStack.m in Sources */,
-				109DE5E7197A1717003AA60C /* YOLT.m in Sources */,
+				109DE5E7197A1717003AA60C /* NAVCollections.m in Sources */,
 				FBDDB502197475260051D149 /* main.m in Sources */,
 				10978FD71A143DCC00A5C981 /* NAVAttributes.m in Sources */,
 				FBDDB55F19747FA20051D149 /* NAVRoute.m in Sources */,

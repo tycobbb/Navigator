@@ -62,7 +62,7 @@
     // we want to enqueue the transition if we're not executing one, if it explicity asked to be enqueued,
     // or if this is the first transition and we're not ready yet
     if(!self.isTransitioning || transitionBuilder.shouldEnqueue || (!self.isReady && self.transitionQueue.count == 0)) {
-        self.transitionQueue.pushFront(transitionBuilder);
+        self.transitionQueue.nav_pushFront(transitionBuilder);
         [self dequeueTransition];
     }
     // otherwise, this is an error case. we can't run a transition that isn't
