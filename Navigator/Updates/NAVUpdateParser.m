@@ -92,8 +92,9 @@
 + (NSArray *)parametersToDisableFromUrl:(NAVURL *)sourceUrl toUrl:(NAVURL *)destinationUrl
 {
     // we need to find parameters accross all the keys in both the source and destination
-    NSArray *keys = sourceUrl.parameters.allKeys
-        .concat(destinationUrl.parameters.allKeys).uniq;
+    NSArray *keys = sourceUrl.parameters.allKeys;
+    keys = keys.concat(destinationUrl.parameters.allKeys);
+    keys = keys.uniq.copy;
    
     // map from the keys into parameters that should be disabled
     return keys.map(^(NSString *key) {
