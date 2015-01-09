@@ -47,7 +47,7 @@
     }
     
     // build the queued transition from our current url
-    NAVTransitionBuilder *transitionBuilder = self.transitionQueue.pop;
+    NAVTransitionBuilder *transitionBuilder = self.transitionQueue.nav_pop;
     
     self.currentTransition = transitionBuilder.build(self.currentUrl);
     self.currentTransition.delegate = self;
