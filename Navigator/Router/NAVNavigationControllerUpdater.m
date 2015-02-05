@@ -167,14 +167,15 @@
 
 # pragma mark - Swizzling
 
-static IMP original_setDelegate;
+typedef void(*nav_delegate_setter)(id, SEL, id<UINavigationControllerDelegate>);
+static nav_delegate_setter original_setDelegate;
 
 + (void)swizzleNavigationControllerDelegateSetter
 {
     // get UINavigationController's setter
     Method method = class_getInstanceMethod(UINavigationController.class, @selector(setDelegate:));
     // swizzle and store the original implementation to call from our swizzled setter
-    original_setDelegate = method_setImplementation(method, (IMP)nav_setDelegate);
+    original_setDelegate = (nav_delegate_setter)method_setImplementation(method, (IMP)nav_setDelegate);
 }
 
 void nav_setDelegate(id self, SEL cmd, id<UINavigationControllerDelegate> delegate)
