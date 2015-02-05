@@ -48,6 +48,23 @@
             .pop(1)
             .present(NAVDemoRouteMenu)
             .enqueue(nil);
+        
+        [NAVDemoRouter router].transition
+            .dismiss(NAVDemoRouteMenu)
+            .enqueue(nil);
+        
+        [NAVDemoRouter router].transition
+            .push(NAVDemoRouteBlue)
+            .push(NAVDemoRouteBlue)
+            .enqueue(nil);
+        
+        [NAVDemoRouter router].transition
+            .pop(1)
+            .enqueue(nil);
+        
+        [NAVDemoRouter router].transition
+            .pop(1)
+            .enqueue(nil);
     }
     
     self.didAppear = YES;

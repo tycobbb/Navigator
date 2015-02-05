@@ -33,4 +33,11 @@
     [_controller updateWithAttributes:self.attributes];
 }
 
+# pragma mark - Accessors
+
+- (NAVURLComponent *)component
+{
+    return (NAVURLComponent *)self.element;
+}
+
 @end

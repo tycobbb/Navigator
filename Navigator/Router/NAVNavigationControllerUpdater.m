@@ -68,7 +68,7 @@
 
 - (void)performPop:(NAVUpdateStack *)update completion:(void (^)(BOOL))completion
 {
-    update.controller = self.navigationController.viewControllers[update.component.index];
+    update.controller = self.navigationController.viewControllers[update.component.index-1];
     
     [self performUpdate:update withTransaction:^{
         [self.navigationController popToViewController:update.controller animated:update.isAnimated];
