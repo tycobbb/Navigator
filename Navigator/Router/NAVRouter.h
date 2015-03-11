@@ -63,8 +63,9 @@
 /**
  @brief The URL representing the router's current state.
  
- This URL should correspond to the view state of the slice of application managed by this router (provided proper API
- consumption). The subsequent update will be compared against this URL to determine which updates to run.
+ This URL should correspond to the view state of the slice of application managed by this router (provided 
+ proper API consumption). The subsequent update will be compared against this URL to determine which updates 
+ to run.
  
  @return The URL representing the router's current state.
 */
@@ -114,5 +115,14 @@
 */
 
 - (void)setNavigationController:(UINavigationController *)navigationController;
+
+/**
+ @brief Resets the router to its default state
+ 
+ Routes are preserved, but the router's current URL is cleared. Subsequent transitions are resolved
+ as if the router were brand-new.
+*/
+
+- (void)reset;
 
 @end

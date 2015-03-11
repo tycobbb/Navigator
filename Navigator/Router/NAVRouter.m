@@ -24,6 +24,14 @@
     return self;
 }
 
+# pragma mark - Utility
+
+- (void)reset
+{
+    // destroy the last transition, wiping our slate clean
+    self.lastTransition = nil;
+}
+
 # pragma mark - Transitions
 
 - (NAVTransitionBuilder *)transition
