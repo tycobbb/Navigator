@@ -88,8 +88,14 @@
 typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 
 /**
+ @brief @em Transform: updates the root of the url, discarding any other URL components
+ See @c transform for complete documentation on transforms.
+*/
+
+- (NAVTransitionBuilder *(^)(NSString *))root;
+
+/**
  @brief @em Transform: pushes a subpath onto the source URL
- 
  See @c transform for complete documentation on transforms.
 */
 
@@ -97,17 +103,23 @@ typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 
 /**
  @brief @em Transform: pops a subpath off the source URL
- 
  @em transformer: See @c transform for complete documentation on transforms.
 */
 
 - (NAVTransitionBuilder *(^)(NSInteger))pop;
 
 /**
+ @brief @em Transform: appends the data string to the last URL component
+ See @c transform for complete doucmentation on transforms.
+*/
+- (NAVTransitionBuilder *(^)(NSString *))data;
+
+/**
  @brief @em Transform: presents the view corresponding to the parameter key
  
- This is a convenience method for transitioning an animation route to visible. It is a pass-
- through to @c parameter that assumes NAVParameterOptionsVisible as the options.
+ This is a convenience method for presenting a view controller modally. It is a
+ pass-through to @c parameter that assumes @c NAVParameterOptionsVisible and
+ @c NAVParameterOptionsModal as options.
  
  See @c transform for complete documentation on transforms.
 */
@@ -115,10 +127,11 @@ typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NSString *))present;
 
 /**
- @brief @em Transform: dismisses the view corresponding to the parameter key
+ @brief @em Transform: presents the view corresponding to the parameter key
  
- This is a convenience method for transitioning an animation route to hidden. It is a pass-
- through to @c parameter that assumes the NAVParameterOptionsHidden as the options.
+ This is a convenience method for presenting a view controller modally. It is a
+ pass-through to @c parameter that assumes @c NAVParameterOptionsHidden and
+ @c NAVParameterOptionsModal as options.
  
  See @c transform for complete documenation on transforms.
 */
@@ -126,27 +139,24 @@ typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 - (NAVTransitionBuilder *(^)(NSString *))dismiss;
 
 /**
- @brief @em Transform: updates the root of the url, discarding any other URL components
+ @brief @em Transform: animates the view corresponding to the parameter key
  
- See @c transform for complete documentation on transforms.
+ This is a convenience method for running animations, and it's a pass-through to @c parameter
+ with the @c NAVParameterOptions corresponding to the @c isVisible flag.
+ 
+ @param block:key       The key for the animation to update
+ @param block:isVisible @c YES if the animation should be animated to visible
 */
 
-- (NAVTransitionBuilder *(^)(NSString *))root;
+- (NAVTransitionBuilder *(^)(NSString *, BOOL))animate;
 
 /**
  @brief @em Transform: updates the key-value parameter on the source URL
- 
  See @c transform for complete documentation on transforms.
 */
 
 - (NAVTransitionBuilder *(^)(NSString *, NAVParameterOptions))parameter;
 
-/**
- @brief @em Transform: appends the data string to the last URL component
- 
- See @c transform for complete doucmentation on transforms.
-*/
-- (NAVTransitionBuilder *(^)(NSString *))data;
 
 /**
  @brief Registers a transform to apply to the source URL

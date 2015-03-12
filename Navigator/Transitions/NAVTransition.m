@@ -6,7 +6,6 @@
 #import "NAVTransition.h"
 #import "NAVUpdateParser.h"
 #import "NAVRouterUtilities.h"
-#import "NAVRouterConstants.h"
 
 @interface NAVTransition () <NAVUpdateDelegate>
 @property (strong, nonatomic) NAVAttributes *attributes;

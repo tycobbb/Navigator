@@ -11,6 +11,7 @@
 #import "NAVUpdateAnimation.h"
 #import "NAVAnimationModal.h"
 #import "NAVNavigationControllerUpdater.h"
+#import "NAVAnimationCachingFactory.h"
 #import "NAVCollections.h"
 
 @interface NAVRouter () <NAVTransitionBuilderDelegate, NAVTransitionDelegate, NAVAnimationDelegate, NAVNavigationControllerUpdaterDelegate>
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NAVTransition *currentTransition;
 @property (strong, nonatomic) NAVTransition *lastTransition;
 @property (strong, nonatomic) NSMutableArray *transitionQueue;
+@property (strong, nonatomic) NAVAnimationCachingFactory *cachingFactory;
 @property (assign, nonatomic) BOOL isReady;
 @end
 

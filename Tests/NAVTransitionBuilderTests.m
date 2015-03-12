@@ -99,7 +99,7 @@ describe(@"the attributes builder", ^{
         NAVAttributes *attributes = mock(nil, NAVTransition.builder
             .present(parameter));
         
-        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsVisible);
+        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsVisible | NAVParameterOptionsModal);
     });
     
     it(@"should dismiss parameters", ^{
@@ -107,6 +107,24 @@ describe(@"the attributes builder", ^{
         
         NAVAttributes *attributes = mock(@"test?cool=1", NAVTransition.builder
             .dismiss(parameter));
+        
+        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsHidden | NAVParameterOptionsModal);
+    });
+    
+    it(@"should animate parameters to visible", ^{
+        NSString *parameter = @"wow";
+        
+        NAVAttributes *attributes = mock(@"test", NAVTransition.builder
+            .animate(parameter, YES));
+        
+        expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsVisible);
+    });
+    
+    it(@"should animate parameters to hidden", ^{
+        NSString *parameter = @"oooh";
+       
+        NAVAttributes *attributes = mock(@"test?oooh=1", NAVTransition.builder
+            .animate(parameter, NO));
         
         expect(attributes.destination[parameter].options).to.equal(NAVParameterOptionsHidden);
     });

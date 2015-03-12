@@ -69,14 +69,6 @@
 
 @implementation NAVRoute (Builder)
 
-- (NAVRoute *(^)(NAVRouteType))as
-{
-    return ^(NAVRouteType type) {
-        self.type = type;
-        return self;
-    };
-}
-
 - (NAVRoute *(^)(Class))controller
 {
     return ^(Class klass) {

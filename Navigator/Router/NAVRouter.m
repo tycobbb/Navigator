@@ -11,6 +11,9 @@
 {
     if(self = [super init]) {
         _transitionQueue = [NSMutableArray new];
+        
+        // create the wrapper factory for caching animations
+        _cachingFactory = [NAVAnimationCachingFactory new];
        
         // update the router with its initial routes
         [self updateRoutes:^(NAVRouteBuilder *route) {
@@ -104,7 +107,12 @@
     NAVAssert(route != nil, NAVExceptionNoRouteFound, @"No route found for element: %@", update.element.key);
     
     // allow the update to do its own internal preperation
-    [update prepareWithRoute:route factory:self.factory];
+    [update prepareWithRoute:route factory:self.cachingFactory];
+   
+    // perform animation specific preparation
+    if([update isKindOfClass:[NAVUpdateAnimation class]]) {
+        [self transition:transition prepareAnimationUpdate:(NAVUpdateAnimation *)update forRoute:route];
+    }
 }
 
 - (void)transition:(NAVTransition *)transition performUpdate:(NAVUpdate *)update completion:(void (^)(BOOL))completion
@@ -135,6 +143,21 @@
     [self dequeueTransition];
 }
 
+//
+// Helpers
+//
+
+- (void)transition:(NAVTransition *)transition prepareAnimationUpdate:(NAVUpdateAnimation *)update forRoute:(NAVRoute *)route
+{
+    // if the animation doesn't have a delegate, then it was created dynamically
+    if(!update.animation.delegate) {
+        // ensure we're the delegate of dynamic animations as well
+        update.animation.delegate = self;
+        // cache the animation for re-use during dismissal
+        [self.cachingFactory cacheAnimation:update.animation forRoute:route];
+    }
+}
+
 # pragma mark - Routing
 
 - (void)updateRoutes:(void (^)(NAVRouteBuilder *))routingBlock
@@ -148,10 +171,8 @@
     self.routes = routeBuilder.routes;
     
     for(NAVRoute *route in routeBuilder.addedRoutes) {
-        // ensure we have an animation for any animated route; this may mutate the route destination
-        NAVAnimation *animation = [self ensureAnimationForRoute:route];
-        // make sure we get animation callbacks
-        animation.delegate = self;
+        // if this route has an animation, let's become its delegate
+        [self animationForRoute:route].delegate = self;
     }
 }
 
@@ -159,18 +180,9 @@
 // Helpers
 //
 
-- (NAVAnimation *)ensureAnimationForRoute:(NAVRoute *)route
+- (NAVAnimation *)animationForRoute:(NAVRoute *)route
 {
-    if(!NAVRouteTypeIsAnimator(route.type)) {
-        return nil;
-    }
-    
-    // create the animator internally for any route types that require it
-    else if(route.type == NAVRouteTypeModal) {
-        route.destination = [[NAVAnimationModal alloc] initWithRoute:route];
-    }
-    
-    return route.destination;
+    return NAVRouteTypeIsAnimator(route.type) ? route.destination : nil;
 }
 
 # pragma mark - NAVAnimatorDelegate
@@ -246,6 +258,12 @@
     }
 }
 
+- (void)setFactory:(id<NAVRouterFactory>)factory
+{
+    // give this factory to caching layer as its target
+    self.cachingFactory.targetFactory = factory;
+}
+
 - (UINavigationController *)navigationControllerFromDelegate:(id)delegate
 {
     // see if our delegate is a nav controller
@@ -273,6 +291,11 @@
 - (BOOL)isTransitioning
 {
     return self.currentTransition != nil;
+}
+
+- (id<NAVRouterFactory>)factory
+{
+    return self.cachingFactory.targetFactory;
 }
 
 # pragma mark - Readiness

@@ -18,7 +18,7 @@
 {
     route.to(NAVDemoRouteBlue).controller(NAVBlueViewController.class);
     route.to(NAVDemoRouteRed).controller(NAVRedViewController.class);
-    route.to(NAVDemoRoutePurple).controller(NAVPurpleViewController.class).as(NAVRouteTypeModal);
+    route.to(NAVDemoRoutePurple).controller(NAVPurpleViewController.class);
 }
 
 @end

@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, NAVUpdateType) {
     NAVUpdateTypePush,
     NAVUpdateTypePop,
     NAVUpdateTypeReplace,
+    NAVUpdateTypeModal,
     NAVUpdateTypeAnimation,
 };
 

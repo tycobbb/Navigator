@@ -5,6 +5,8 @@
 
 @import Foundation;
 
+#import "NAVRouterConstants.h"
+
 /**
  @brief A custom assert function that accepts an exception type
  

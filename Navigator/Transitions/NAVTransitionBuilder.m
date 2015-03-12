@@ -178,14 +178,21 @@
 - (NAVTransitionBuilder *(^)(NSString *))present
 {
     return ^(NSString *key) {
-        return self.parameter(key, NAVParameterOptionsVisible);
+        return self.parameter(key, NAVParameterOptionsVisible | NAVParameterOptionsModal);
     };
 }
 
 - (NAVTransitionBuilder *(^)(NSString *))dismiss
 {
     return ^(NSString *key) {
-        return self.parameter(key, NAVParameterOptionsHidden);
+        return self.parameter(key, NAVParameterOptionsHidden | NAVParameterOptionsModal);
+    };
+}
+
+- (NAVTransitionBuilder *(^)(NSString *, BOOL))animate
+{
+    return ^(NSString *key, BOOL isVisible) {
+        return self.parameter(key, isVisible ? NAVParameterOptionsVisible : NAVParameterOptionsHidden);
     };
 }
 

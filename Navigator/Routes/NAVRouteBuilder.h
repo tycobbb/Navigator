@@ -21,7 +21,6 @@
 
 @interface NAVRoute (Builder)
 
-- (NAVRoute *(^)(NAVRouteType))as;
 - (NAVRoute *(^)(Class))controller;
 - (NAVRoute *(^)(NAVAnimation *))animation;
 

@@ -52,12 +52,6 @@ describe(@"the route builder", ^{
         expect(builder.routes.count).to.equal(mockCount - 1);
     });
     
-    it(@"should update route types", ^{
-        NAVRoute *route = [NAVRoute new];
-        route.as(NAVRouteTypeAnimation);
-        expect(route.type).to.equal(NAVRouteTypeAnimation);
-    });
-    
     it(@"should update controllers", ^{
         NAVRoute *route = [NAVRoute new];
         route.controller([NSObject class]);

@@ -23,7 +23,7 @@
 
 - (instancetype)initWithRoute:(NAVRoute *)route
 {
-    NAVAssert(route.type == NAVRouteTypeModal, NAVExceptionInvalidRoute, @"Cannot create a modal animator without a modal route.");
+    NAVAssert(route.type == NAVRouteTypeStack, NAVExceptionInvalidRoute, @"Cannot create a modal animator without a modal route.");
     
     if(self = [super init]) {
         self.route = route;

@@ -10,6 +10,7 @@ typedef NS_ENUM(NSInteger, NAVParameterOptions) {
     NAVParameterOptionsVisible    = 1 << 0,
     NAVParameterOptionsUnanimated = 1 << 1,
     NAVParameterOptionsAsync      = 1 << 2,
+    NAVParameterOptionsModal      = 1 << 3,
 };
 
 @interface NAVURLElement : NSObject
