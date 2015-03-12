@@ -17,7 +17,7 @@
 {
     // create the animation for this update
     NAVAnimation *animation = [self animationForRoute:route factory:factory];
-    NAVAssert(animation, NAVExceptionInvalidRoute, @"failed to create an animation for route: %@", route);
+    NAVAssert(animation != nil, NAVExceptionInvalidRoute, @"failed to create an animation for route: %@", route);
     
     // allow the animation to do any internal preperation
     [animation prepareForAnimationWithFactory:factory];

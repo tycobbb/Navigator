@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'Navigator'
-  s.version      = '0.3.4'
+  s.version      = '0.3.5'
   s.summary      = 'Router for iOS view navigation & animation'
   s.description  = <<-DESC 
                    Navigator is a router for tracking application state and transitioning between views. It provides default 
