@@ -29,12 +29,27 @@
 
 - (void)performWithUpdater:(id<NAVRouterUpdater>)updater completion:(void(^)(BOOL))completion
 {
-    [self.animation setIsVisible:self.parameter.isVisible animated:self.isAnimated completion:completion];
+    // if we're not asynchronous, the animation blocks the next operation
+    if(!self.isAsynchronous) {
+        [self performWithCompletion:completion];
+    }
+    // otherwise dispatch the animation and complete right away
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performWithCompletion:nil];
+        });
+        nav_call(completion)(YES);
+    }
 }
 
 //
 // Helpers
 //
+
+- (void)performWithCompletion:(void(^)(BOOL))completion
+{
+    [self.animation setIsVisible:self.parameter.isVisible animated:self.isAnimated completion:completion];
+}
 
 - (NAVAnimation *)animationForRoute:(NAVRoute *)route factory:(id<NAVRouterFactory>)factory
 {
