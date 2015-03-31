@@ -96,7 +96,7 @@
 - (void)transitionWillStart:(NAVTransition *)transition
 {
     if([self.delegate respondsToSelector:@selector(router:willPerformUpdates:)]) {
-        [self.delegate router:self willPerformUpdates:self.currentTransition.updates];
+        [self.delegate router:self willPerformUpdates:transition.updates];
     }
 }
 
@@ -133,13 +133,13 @@
 
 - (void)transitionDidComplete:(NAVTransition *)transition
 {
+    self.lastTransition = transition;
+    self.currentTransition = nil;
+   
     if([self.delegate respondsToSelector:@selector(router:didPerformUpdates:)]) {
         [self.delegate router:self didPerformUpdates:transition.updates];
     }
     
-    self.lastTransition = transition;
-    self.currentTransition = nil;
-
     [self dequeueTransition];
 }
 

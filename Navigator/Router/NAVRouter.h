@@ -18,8 +18,6 @@
  
  A user may set the delegate of the router to receive such events, and it also provides a 
  customization point to modify router behavior before it executes.
- 
- @return The current delegate instance
 */
 
 @property (weak, nonatomic) id<NAVRouterDelegate> delegate;
@@ -33,8 +31,6 @@
  @note If the user sets a router's @c delegate to an object that is a navigation
  controller or has a method named @c navigationController, as a convenience the router will
  create an updater from that navigation controller as well.
- 
- @return The current updater instance.
 */
 
 @property (strong, nonatomic) id<NAVRouterUpdater> updater;
@@ -44,8 +40,6 @@
  
  Provides an interface for the router to create these components in order to populate and 
  properly execute routing updates without knowledge of their internals.
- 
- @return The current factory instance.
 */
 
 @property (strong, nonatomic) id<NAVRouterFactory> factory;
@@ -66,16 +60,21 @@
  This URL should correspond to the view state of the slice of application managed by this router (provided 
  proper API consumption). The subsequent update will be compared against this URL to determine which updates 
  to run.
- 
- @return The URL representing the router's current state.
 */
 
 @property (nonatomic, readonly) NAVURL *currentUrl;
 
 /**
- @brief Per-class shared instance.
+ @brief The URL the router is transitioning to, if any.
  
- @return A router instance.
+ This method return @c nil unless called during a transition, such as from within the router's
+ delegate calbacks.
+*/
+
+@property (nonatomic, readonly) NAVURL *transitioningUrl;
+
+/**
+ @brief Per-class shared instance.
 */
 
 + (instancetype)router;
