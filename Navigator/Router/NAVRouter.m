@@ -288,6 +288,11 @@
     return self.lastTransition.attributes.destination ?: [NAVURL URLWithPath:[NSString stringWithFormat:@"%@://", self.class.scheme]];
 }
 
+- (NAVURL *)transitioningUrl
+{
+    return self.currentTransition.attributes.destination;
+}
+
 - (BOOL)isTransitioning
 {
     return self.currentTransition != nil;
