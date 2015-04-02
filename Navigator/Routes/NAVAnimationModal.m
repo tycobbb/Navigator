@@ -82,17 +82,17 @@
 
 - (UIViewController *)presentingViewController
 {
-    return [self presentingControllerForController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self presentedControllerForController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
-- (UIViewController *)presentingControllerForController:(UIViewController *)controller
+- (UIViewController *)presentedControllerForController:(UIViewController *)controller
 {
     // traverse down the presenting vc tree until we find the leaf
-    if(!controller.presentingViewController) {
+    if(!controller.presentedViewController) {
         return controller;
     }
     
-    return [self presentingControllerForController:controller.presentingViewController];
+    return [self presentedControllerForController:controller.presentedViewController];
 }
 
 # pragma mark - Accessors
