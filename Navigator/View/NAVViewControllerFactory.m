@@ -62,6 +62,10 @@
 
 # pragma mark - Swizzling
 
+typedef id<NAVRouterFactory>(*NAVFactoryImp)(id, SEL);
+// static storage for the unswizzled -defaulFactory
+static NAVFactoryImp nav_original_defaultFactory;
+
 + (void)prepareToLaunch
 {
     // no-op
@@ -76,12 +80,10 @@
     
     Method method = class_getInstanceMethod([NAVRouter class], @selector(defaultFactory));
     // store the original implementation
-    nav_original_defaultFactory = method_getImplementation(method);
+    nav_original_defaultFactory = (NAVFactoryImp)method_getImplementation(method);
     // and update it
     method_setImplementation(method, (IMP)nav_defaultFactory);
 }
-
-static IMP nav_original_defaultFactory;
 
 id<NAVRouterFactory> nav_defaultFactory(id self, SEL _cmd)
 {
