@@ -88,6 +88,15 @@
 typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
 
 /**
+ @brief @em Transform: pops subpaths off if the path exists in the url, pushes a subpath on if it does not already exist,
+ does nothing if the last component on the source url matches the path
+ See @c transform for complete documentation on transforms.
+ */
+
+- (NAVTransitionBuilder *(^)(NSString *))powerGlove;
+
+
+/**
  @brief @em Transform: updates the root of the url, discarding any other URL components
  See @c transform for complete documentation on transforms.
 */
