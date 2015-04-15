@@ -93,8 +93,7 @@ typedef NAVURL *(^NAVTransitionUrlTransform)(NAVURL *);
  See @c transform for complete documentation on transforms.
  */
 
-- (NAVTransitionBuilder *(^)(NSString *))powerGlove;
-
+- (NAVTransitionBuilder *(^)(NSString *))resolve;
 
 /**
  @brief @em Transform: updates the root of the url, discarding any other URL components

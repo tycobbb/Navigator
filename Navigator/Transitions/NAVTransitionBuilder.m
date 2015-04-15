@@ -205,24 +205,21 @@
     };
 }
 
-- (NAVTransitionBuilder *(^)(NSString *))powerGlove
+- (NAVTransitionBuilder *(^)(NSString *))resolve
 {
     return ^(NSString *path) {
         return self.transform(^(NAVURL *url) {
-            
-            NSArray *subpaths = [url.components valueForKey:@"key"];
-            
-            // if we are already where we need to be, stay there
-            if([subpaths.lastObject isEqualToString:path]) {
-                return url;
-            }
+            NSInteger index = url.components.indexOf(url.components.find(^(NAVURLComponent *component) {
+                return [component.key isEqualToString:path];
+            }));
+
             // if where we need to be is already in our path, pop back to it
-            else if([subpaths indexOfObject:path] != NSNotFound) {
-                return [url pop:url.components.count - [subpaths indexOfObject:path] - 1];
+            if(index != NSNotFound) {
+                return [url pop:url.components.count - index - 1];
             }
             // otherwise push the path onto our url
             else {
-                return  [url push:path];
+                return [url push:path];
             }
         });
     };
