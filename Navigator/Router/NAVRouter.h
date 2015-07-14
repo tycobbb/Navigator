@@ -116,6 +116,15 @@
 - (void)setNavigationController:(UINavigationController *)navigationController;
 
 /**
+ @brief Forces the router to have the @c url
+ 
+ This should really only be used when manually creating running transitions that would cause
+ the router's @c currentUrl to be wrong.
+*/
+
+- (void)forceUrl:(NAVURL *)url;
+
+/**
  @brief Resets the router to its default state
  
  Routes are preserved, but the router's current URL is cleared. Subsequent transitions are resolved

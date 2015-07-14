@@ -91,6 +91,15 @@
     }
 }
 
+# pragma mark - URL
+
+- (void)forceUrl:(NAVURL *)forcedUrl
+{
+    self.lastTransition = [NAVTransitionBuilder new]
+        .transform(^(NAVURL *url) { return forcedUrl; })
+        .build(self.currentUrl);
+}
+
 # pragma mark - NAVTransitionDelegate
 
 - (void)transitionWillStart:(NAVTransition *)transition
