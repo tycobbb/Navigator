@@ -205,4 +205,24 @@
     };
 }
 
+- (NAVTransitionBuilder *(^)(NSString *))resolve
+{
+    return ^(NSString *path) {
+        return self.transform(^(NAVURL *url) {
+            NSInteger index = url.components.indexOf(url.components.find(^(NAVURLComponent *component) {
+                return [component.key isEqualToString:path];
+            }));
+
+            // if where we need to be is already in our path, pop back to it
+            if(index != NSNotFound) {
+                return [url pop:url.components.count - index - 1];
+            }
+            // otherwise push the path onto our url
+            else {
+                return [url push:path];
+            }
+        });
+    };
+}
+
 @end
